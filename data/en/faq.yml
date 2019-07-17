@@ -1,0 +1,12 @@
+faqItem:
+  - ID : support
+    title : Are the DSC Resources from the DSC Resource kit Supported by Microsoft?
+    content : No. The Resource Modules are released and maintained by the Open-Source community, and support is not guaranteed. Please refer to individual resources if you want to find out about specific resources.
+
+  - ID : psversion
+    title : Are the DSC Resources compatible with WMF4?
+    content : Specific compatibility is usually announced in each repository's README file, but the aim is to test and develop for WMF5.1 only. If you need WMF4 support, please engage with the maintainer.
+
+  - ID : ownership
+    title : Are the DSC Resources compatible with WMF4?
+    content : Specific compatibility is usually announced in each repository's README file, but the aim is to test and develop for WMF5.1 only. If you need WMF4 support, please engage with the maintainer.
