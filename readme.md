@@ -12,8 +12,9 @@ It is not meant to replace the [existing forums found on PowerShell.Org](https:/
 
 Currently the Website is in construction. The goal will be to host it in GitHub pages (Most likely), and have it driven through an automated pipeline.
 
-This DSC Community Organization is not official yet, and assuming no-one has strong objections with the current plan (emailed to maintainers on July 14th 2019), this should be official by the next DSC Community Call the 31st of July, latest.
+[Here's the documentation](https://gohugo.io/hosting-and-deployment/hosting-on-github/) that I'm likely to follow.
 
+This DSC Community Organization is not official yet, and assuming no-one has strong objections with the current plan (emailed to maintainers on July 14th 2019), this should be official by the next DSC Community Call the 31st of July, latest.
 
 ## Technologies & Getting Started
 

@@ -1,47 +1,32 @@
 ---
-title: "Change of Ownership"
-date: 2018-12-29T11:02:05+06:00
+title: "Ownership of DSC Resources"
+date: 2019-07-18T15:02:05+06:00
 weight: 0
 type: "post"
 author: "gaelcolas"
 ---
 
+## Goal and purpose
+
+<img src="../../images/DSC_Logo_300p.png" alt="drawing" style="width:200px; display:block; float: right; margin-left: auto;margin-right:0;"/>
+
+Previously owned by the DSC Team, and more specifically by [Katie](https://github.com/kwirkykat), the DSC Resources are now owned by [the DSC Community](https://github.com/dsccommunity): a collective of **Open Source maintainers** getting together to **improve the Resources**, their **quality** and the **practices** around DSC.
 
 
+The main purpose is to handle better the increased community contributions, and remove hindrance to improvements by spreading the load on a Committee, and giving more privileges to the maintainers.
 
-Musce libero nunc, dignissim quis turpis quis, semper vehicula dolor. Suspendisse tincidunt consequat quam, ac posuere leo dapibus id. Cras fringilla convallis elit, at eleifend mi interam.
+## Context
 
-<div class="alert rounded-0 alert-success">
-  A simple primary alert—check it out!
-</div>
+Initially, when DSC was new and the DSC Resource kit relatively small, it was possible for the DSC Team at Microsoft to handle the maintenance and releases of the DSC Resources part of the DSC Resource Kit.
 
-Nulla non sollicitudin. Morbi sit amet laoreet ipsum, vel pretium mi. Morbi varius, tellus in accumsan blandit, elit ligula eleifend velit, luctus mattis ante nulla condimentum nulla. Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit.
+But the community has outgrown the capacity of the DSC team, while the latter is taking on more work with the new Azure Guest Configuration.
 
-### Image Example
+The DSC Resources from the Resource Kit that were hosted under the PowerShell Team GitHub organization did not allow for external (non-Microsoft) contributors to be members of the organization, or given extra permissions beside what `external collaborators` allowed.
 
-Nunc porta malesuada porta. Etiam tristique vestibulum dolor at ultricies. Proin hendrerit sapien sed erat fermentum, at commodo velit consectetur.
+## Committee and Teams
 
-![image example](../../../../images/img-3.jpg "image")
+By using its own GitHub Organization outside of Microsoft's ownership, the DSC Community can be steered by a committee where its members&mdash;including people not employed by Microsoft&mdash;have full control over the GitHub Organization.
 
-Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna, et dapibus turpis.
+For now, [the committee](../committee) is composed of Katie, Michael, Daniel & Johann, long time contributors and driving force of the DSC Resource Kit. This is formalizing what happened for a couple of years with the DSC Resource Kit.
 
-### Example Of Code Block
-
-In accumsan lacus ac neque maximus dictum. Phasellus eleifend leo id mattis bibendum. Curabitur et purus turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="/assets/css/main.css">
-      <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" >
-      <script src="/assets/js/main.js"></script>
-    </head>
-
-### Text and Quote
-
-Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna turpis.
-
-> Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet
-
-Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna, et dapibus turpis.Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna, et dapibus turpis.
+Another benefit of having a GitHub organization is that we can create teams, such as the Committee team and the Maintainer Team, that you can mention in issues or discussions and give permissions to, and add someone from that team to manage the members.
