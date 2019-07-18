@@ -63,14 +63,17 @@
         </div>
         <div class="col-lg-9">
           <div class="p-5 bg-white">
-              <h2>{{ .Title }}</h2>
+              <!-- <h2>{{ .Title }}</h2> -->
               <div class="bg-gray p-4">
-                  <h3 class="mt-0">Article</h3>
+                  <h3 class="mt-0">{{ .Title }}:</h3>
                   <ul class="list-unstyled">
                     {{ range .Data.Pages }}
-                    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                    <li><a href="{{ .Permalink }}" style="padding-bottom: 0px; padding-top: 0px;">- {{ .Title }}</a></li>
                     {{ end }}
                   </ul>
+              </div>
+              <div class="bg-white p-4">
+                {{ .Content }}
               </div>
           </div>
         </div>
