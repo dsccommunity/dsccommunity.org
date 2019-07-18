@@ -111,96 +111,96 @@ bgcolor = "#ffffff"
 
 
 
-  # Franch Language
-  [Languages.fr]
-  languageName = "Fr"
-  weight = 1
-  languageCode = "fr-fr"
-  title = "Doc List"
-  dateFormat = "2 January 2006"
-  home = "Aidez-moi"
-  logo = "DOC LIST"
-  copyright = "Les documents Hugo sont sous copyright © gethugothemes 2018."
+  # # French Language
+  # [Languages.fr]
+  # languageName = "Fr"
+  # weight = 1
+  # languageCode = "fr-fr"
+  # title = "Doc List"
+  # dateFormat = "2 January 2006"
+  # home = "Aidez-moi"
+  # logo = "DOC LIST"
+  # copyright = "Les documents Hugo sont sous copyright © gethugothemes 2018."
 
-    # navigation
-    [Languages.fr.menu]
+  #   # navigation
+  #   [Languages.fr.menu]
 
-      [[Languages.fr.menu.main]]
-        weight = 2
-        name = "Faq"
-        url = "/fr/faq"
+  #     [[Languages.fr.menu.main]]
+  #       weight = 2
+  #       name = "Faq"
+  #       url = "/fr/faq"
 
-      [[Languages.fr.menu.main]]
-        weight = 2
-        name = "contact"
-        url = "/fr/contact"
+  #     [[Languages.fr.menu.main]]
+  #       weight = 2
+  #       name = "contact"
+  #       url = "/fr/contact"
 
-      [[Languages.fr.menu.main]]
-        weight = 2
-        name = "les sujets"
-        hasChildren = true
+  #     [[Languages.fr.menu.main]]
+  #       weight = 2
+  #       name = "les sujets"
+  #       hasChildren = true
 
-          [[Languages.fr.menu.main]]
-          parent = "pages"
-          name = "Elements"
-          URL = "/elements"
-          weight = 1
+  #         [[Languages.fr.menu.main]]
+  #         parent = "pages"
+  #         name = "Elements"
+  #         URL = "/elements"
+  #         weight = 1
 
-          [[Languages.fr.menu.main]]
-          parent = "les sujets"
-          name = "Commencer"
-          URL = "/fr/installation"
-          weight = 2
+  #         [[Languages.fr.menu.main]]
+  #         parent = "les sujets"
+  #         name = "Commencer"
+  #         URL = "/fr/installation"
+  #         weight = 2
 
-          [[Languages.fr.menu.main]]
-          parent = "les sujets"
-          name = "Compte et facturation"
-          URL = "/fr/billing-pricing"
-          weight = 3
+  #         [[Languages.fr.menu.main]]
+  #         parent = "les sujets"
+  #         name = "Compte et facturation"
+  #         URL = "/fr/billing-pricing"
+  #         weight = 3
 
-          [[Languages.fr.menu.main]]
-          parent = "les sujets"
-          name = "Dépannage"
-          URL = "/fr/features"
-          weight = 4
+  #         [[Languages.fr.menu.main]]
+  #         parent = "les sujets"
+  #         name = "Dépannage"
+  #         URL = "/fr/features"
+  #         weight = 4
 
-    # banner
-    [Languages.fr.params.banner]
-      title = "Comment pouvons nous aider?"
-      description = "Trouvez rapidement des conseils et des réponses auprès de notre équipe d'assistance ou contactez-nous."
-      image = "images/banner_dsc_with_dsclogo2.png"
-      placeholder = "Have a question? Just ask here or enter terms"
+  #   # banner
+  #   [Languages.fr.params.banner]
+  #     title = "Comment pouvons nous aider?"
+  #     description = "Trouvez rapidement des conseils et des réponses auprès de notre équipe d'assistance ou contactez-nous."
+  #     image = "images/banner_dsc_with_dsclogo2.png"
+  #     placeholder = "Have a question? Just ask here or enter terms"
 
-    # pages
-    [Languages.fr.params.pages]
-      title = "Parcourir tous les sujets"
+  #   # pages
+  #   [Languages.fr.params.pages]
+  #     title = "Parcourir tous les sujets"
 
-    # call to action
-    [Languages.fr.params.cta]
-      enable = true
-      title = "Vous n'avez pas trouvé de réponse à votre question?"
-      description = "Contactez-nous pour plus de détails sur les services supplémentaires et la tarification du travail personnalisé"
-      btnText = "Contactez nous"
-      btnURL = "fr/contact/"
+  #   # call to action
+  #   [Languages.fr.params.cta]
+  #     enable = true
+  #     title = "Vous n'avez pas trouvé de réponse à votre question?"
+  #     description = "Contactez-nous pour plus de détails sur les services supplémentaires et la tarification du travail personnalisé"
+  #     btnText = "Contactez nous"
+  #     btnURL = "fr/contact/"
 
-    # contact
-    [Languages.fr.params.contact]
-      title = "Vous avez des questions"
-      content = "Envoyez le formulaire et confirmez votre adresse e-mail à l'adresse <a class='text-primary' href='https://formspree.io/'>Formspree</a> Ajoutez ensuite les lignes suivantes pour contacter la page YAML Front Matter."
+  #   # contact
+  #   [Languages.fr.params.contact]
+  #     title = "Vous avez des questions"
+  #     content = "Envoyez le formulaire et confirmez votre adresse e-mail à l'adresse <a class='text-primary' href='https://formspree.io/'>Formspree</a> Ajoutez ensuite les lignes suivantes pour contacter la page YAML Front Matter."
 
-    # footer social icon
-    [[Languages.fr.socialIcon]]
-      icon = "ti-facebook"
-      URL = "/#"
+  #   # footer social icon
+  #   [[Languages.fr.socialIcon]]
+  #     icon = "ti-facebook"
+  #     URL = "/#"
 
-    [[Languages.fr.socialIcon]]
-      icon = "ti-twitter-alt"
-      URL = "/#"
+  #   [[Languages.fr.socialIcon]]
+  #     icon = "ti-twitter-alt"
+  #     URL = "/#"
 
-    [[Languages.fr.socialIcon]]
-      icon = "ti-vimeo-alt"
-      URL = "/#"
+  #   [[Languages.fr.socialIcon]]
+  #     icon = "ti-vimeo-alt"
+  #     URL = "/#"
 
-    [[Languages.fr.socialIcon]]
-      icon = "ti-instagram"
-      URL = "/#"
+  #   [[Languages.fr.socialIcon]]
+  #     icon = "ti-instagram"
+  #     URL = "/#"
