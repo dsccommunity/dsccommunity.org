@@ -1,12 +1,29 @@
 faqItem:
+  - ID : dsccommunity
+    title : What is the DSC Community?
+    content : |
+      The DSC Community is a collective of maintainers, contributors and users of DSC Resources and its ecosystem.
+      Currently without a legal structure (but thinking about it), it is just an organisation created to improve
+      collaboration between the different actors of the DSC ecosystem. While Microsoft is an important stakeholder,
+      when they realised they were sometimes in the way of improvement, it was concluded that a more independant organisation
+      was needed, and that's how this DSC Community organisation was created.
+
   - ID : support
     title : Are the DSC Resources from the DSC Resource kit Supported by Microsoft?
-    content : No. The Resource Modules are released and maintained by the Open-Source community, and support is not guaranteed. Please refer to individual resources if you want to find out about specific resources.
+    content : |
+      No. The Resource Modules are released and maintained by the Open-Source community, and support is not guaranteed.
+      Please refer to individual resources if you want to find out about specific resources.
 
   - ID : psversion
     title : Are the DSC Resources compatible with WMF4?
-    content : Specific compatibility is usually announced in each repository's README file, but the aim is to test and develop for WMF5.1 only. If you need WMF4 support, please engage with the maintainer.
+    content : |
+      Specific compatibility is usually announced in each repository's README file, but the aim is to test and develop
+       for WMF5.1 only. If you need WMF4 support, please engage with the maintainer.
 
   - ID : ownership
-    title : Are the DSC Resources compatible with WMF4?
-    content : Specific compatibility is usually announced in each repository's README file, but the aim is to test and develop for WMF5.1 only. If you need WMF4 support, please engage with the maintainer.
+    title : Who owns the DSC Resources?
+    content : |
+      Although some of the resources where originally created by the PowerShell team, as the community grew it took over
+       in terms of activity and contributions.
+      Now, it's fair to say the community owns the resources and is responsible for their develelopment and release,
+      while the DSC team helps to maintain the level of quality and alignment with future evolutions of DSC.
