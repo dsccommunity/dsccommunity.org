@@ -16,7 +16,6 @@ Currently the Website is in construction. The goal will be to host it in GitHub 
 
 This DSC Community Organization is not official yet, and assuming no-one has strong objections with the current plan (emailed to maintainers on July 14th 2019), this should be official by the next DSC Community Call the 31st of July, latest.
 
-
 ## Technologies & Getting Started
 
 The website is a HUGO generated static website: it takes files in markdown format and assets to generate a static HTML website.
