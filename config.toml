@@ -76,7 +76,7 @@ bgcolor = "#ffffff"
     # banner
     [Languages.en.params.banner]
       title = "The DSC Community"
-      description = "A collaborative community of authors and maintainers working to improve the DSC resources quality and development practices"
+      description = "A collaborative community of authors and maintainers working to improve the DSC resources, their quality and development practices"
       image = "images/banner_dsc_with_dsclogo2.png"
       placeholder = "Have a question? Just ask here or enter terms"
 
@@ -88,9 +88,9 @@ bgcolor = "#ffffff"
     [Languages.en.params.cta]
       enable = true
       title = "Didn't find an answer to your question?"
-      description = "Musce libero nunc, dignissim quis turpis quis, semper vehicula dolor. Suspendisse tincidunt consequat quam."
+      description = "Come on the PowerShell Slack, DSC Channel where you'll be able to find us!"
       btnText = "contact us"
-      btnURL = "/contact"
+      btnURL = "http://slack.poshcode.org/"
 
     # contact
     [Languages.en.params.contact]
