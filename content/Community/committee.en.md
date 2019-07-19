@@ -5,6 +5,10 @@ type: "post"
 author: "gaelcolas"
 ---
 
+Here's an explanation of what the DSC Committee is attempting to help with, and how we're trying to help the community.
+
+[Come and chat to us](http://slack.poshcode.org) if you'd like to discuss how we can improve!
+
 ## The Decision Process
 
 The DSC committee is a steering committee that makes decisions affecting the organization and the DSC Resources it owns.
@@ -34,38 +38,3 @@ The DSC Resource Kit was already operating under similar structure, but it wasn'
 **Daniel** has been a long time contributor to the DSC Resource Kit, and if you had anything to do on the GitHub repository, you most likely have came across his work. Not only he is maintaining a few High Quality Resource Module, he consistently produce a massive efforts to help review other Pull Request and improve the testing and quality of the Resource Kit.
 
 **Johan** is also a top contributor and maintains some of the most actives Resources, while joining Daniel in reviewing code across all other repositories and improving the experience and quality of the DSC Resource Kit. Johan also helps new contributors and maintainers to get up to speed, and any DSC user in the DSC channel of the PowerShell Slack team.
-
-<div class="alert rounded-0 alert-danger">
-  A simple primary alert—check it out!
-</div>
-
-Nulla non sollicitudin. Morbi sit amet laoreet ipsum, vel pretium mi. Morbi varius, tellus in accumsan blandit, elit ligula eleifend velit, luctus mattis ante nulla condimentum nulla. Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit.
-
-### Image Example
-
-Nunc porta malesuada porta. Etiam tristique vestibulum dolor at ultricies. Proin hendrerit sapien sed erat fermentum, at commodo velit consectetur.
-
-![image example](../../../../images/img-2.jpg "image")
-
-Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna, et dapibus turpis.
-
-### Example Of Code Block
-
-In accumsan lacus ac neque maximus dictum. Phasellus eleifend leo id mattis bibendum. Curabitur et purus turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="/assets/css/main.css">
-      <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" >
-      <script src="/assets/js/main.js"></script>
-    </head>
-
-### Text and Quote
-
-Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna turpis.
-
-> Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet
-
-Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna, et dapibus turpis.Etiam vestibulum risus vel arcu elementum eleifend. Cras at dolor eget urna varius faucibus tempus in elit. Cras a dui imperdiet, tempus metus quis, pharetra turpis. Phasellus at massa sit amet ante semper fermentum sed eget lectus. Quisque id dictum magna, et dapibus turpis.

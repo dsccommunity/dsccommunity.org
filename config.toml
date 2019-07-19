@@ -100,7 +100,7 @@ bgcolor = "#ffffff"
     # footer social icon
     [[Languages.en.socialIcon]]
       icon = "ti-github"
-      URL = "https://github.com/PowerShell/DscResources/"
+      URL = "https://github.com/dsccommunity/"
 
     [[Languages.en.socialIcon]]
       icon = "ti-twitter-alt"
