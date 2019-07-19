@@ -7,8 +7,3 @@ description: "The rules ensuring an harassment-free environment for the communit
 type : "pages"
 bgcolor: '#FFB900'
 ---
-
-# Respect
-
-So, this is it.
-This is where I put some random stuff
