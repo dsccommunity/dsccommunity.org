@@ -88,9 +88,9 @@ bgcolor = "#ffffff"
     [Languages.en.params.cta]
       enable = true
       title = "Didn't find an answer to your question?"
-      description = "Come on the PowerShell Slack, DSC Channel where you'll be able to find us!"
-      btnText = "contact us"
-      btnURL = "http://slack.poshcode.org/"
+      description = "Ask the question on the PowerShell #DSC channel where you'll be able to find us!"
+      btnText = "join the conversation"
+      btnURL = "community/contact/"
 
     # contact
     [Languages.en.params.contact]
