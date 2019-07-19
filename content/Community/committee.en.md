@@ -39,7 +39,7 @@ The DSC Resource Kit was already operating under similar structure, but it wasn'
 <hr />
 <a href="https://github.com/mgreenegit" target="_blank"><img src="https://avatars1.githubusercontent.com/u/5178939?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
 
-**Michael** is a long time contributor to the DSC Resource Kit, and the **Product Manager for Azure Guest Configuration**. He's well positioned to translate customer needs and requirements back to the community, or from the community back to Microsoft, and share the position or directions taken internally.
+**Michael** is a long time contributor to the DSC Resource Kit, and the **Program Manager for Azure Guest Configuration**. He's well positioned to translate customer needs and requirements back to the community, or from the community back to Microsoft, and share the position or directions taken internally.
 
 <hr />
 <a href="https://github.com/plagueho" target="_blank"><img src="https://avatars0.githubusercontent.com/u/7589164?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
