@@ -15,7 +15,6 @@ the DSC Resources are now owned by [the DSC Community](https://github.com/dsccom
 a collective of **Open Source maintainers** getting together to **improve the Resources**,
 their **quality** and the **practices** around DSC.
 
-
 The main purpose is to handle better the increased community contributions, and
 remove hindrance to improvements by spreading the load on a Committee, and giving
 more privileges to the maintainers.
