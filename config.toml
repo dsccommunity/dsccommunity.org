@@ -28,7 +28,7 @@ bgcolor = "#ffffff"
       [[Languages.en.menu.main]]
         weight = 2
         name = "Code of Conduct"
-        url = "/conduct"
+        url = "/code_of_conduct"
 
       [[Languages.en.menu.main]]
         weight = 3
