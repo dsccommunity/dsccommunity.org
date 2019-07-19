@@ -1,5 +1,5 @@
 ---
-title: "Responsibilities"
+title: "Our Responsibilities"
 date: 2019-01-29T11:02:05+06:00
 type: "page"
 author: "Johan Ljunggren"
