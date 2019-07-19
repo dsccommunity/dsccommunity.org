@@ -1,5 +1,5 @@
 ---
-title: "DSC Committee"
+title: "DSC Community Committee"
 date: 2019-01-29T11:02:05+06:00
 weight: 2
 type: "post"
