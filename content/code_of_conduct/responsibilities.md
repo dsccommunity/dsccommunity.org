@@ -3,7 +3,7 @@ title: "Responsibilities"
 date: 2019-01-29T11:02:05+06:00
 type: "page"
 author: "Johan Ljunggren"
-weight: 3
+weight: 2
 ---
 
 Project maintainers are responsible for clarifying the standards of acceptable
