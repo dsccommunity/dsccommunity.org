@@ -10,7 +10,6 @@ Here is an explanation of what the DSC Committee is attempting to help with, and
 
 [Come and chat with us](/community/contact/) if you'd like to discuss how we can improve!
 
-
 ## Members
 
 <a href="https://github.com/kwirkykat" target="_blank"><img src="https://avatars0.githubusercontent.com/u/6372220?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
@@ -31,7 +30,6 @@ Here is an explanation of what the DSC Committee is attempting to help with, and
 <a href="https://github.com/johlju" target="_blank"><img src="https://avatars3.githubusercontent.com/u/7189721?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
 
 **Johan** is also a top contributor and maintains some of the most actives Resources, while joining Daniel in reviewing code across all other repositories and improving the experience and quality of the DSC Resource Kit. Johan also helps new contributors and maintainers to get up to speed, and any DSC user in the [Slack PowerShell #DSC channel](/community/contact/)
-
 
 ## The Decision Process
 
