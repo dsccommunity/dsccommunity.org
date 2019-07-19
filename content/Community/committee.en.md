@@ -1,13 +1,14 @@
 ---
 title: "DSC Committee"
 date: 2019-01-29T11:02:05+06:00
+weight: 2
 type: "post"
 author: "gaelcolas"
 ---
 
 Here's an explanation of what the DSC Committee is attempting to help with, and how we're trying to help the community.
 
-[Come and chat to us](http://slack.poshcode.org) if you'd like to discuss how we can improve!
+[Come and chat with us](/community/contact/) if you'd like to discuss how we can improve!
 
 ## The Decision Process
 
@@ -37,4 +38,4 @@ The DSC Resource Kit was already operating under similar structure, but it wasn'
 
 **Daniel** has been a long time contributor to the DSC Resource Kit, and if you had anything to do on the GitHub repository, you most likely have came across his work. Not only he is maintaining a few High Quality Resource Module, he consistently produce a massive efforts to help review other Pull Request and improve the testing and quality of the Resource Kit.
 
-**Johan** is also a top contributor and maintains some of the most actives Resources, while joining Daniel in reviewing code across all other repositories and improving the experience and quality of the DSC Resource Kit. Johan also helps new contributors and maintainers to get up to speed, and any DSC user in the DSC channel of the PowerShell Slack team.
+**Johan** is also a top contributor and maintains some of the most actives Resources, while joining Daniel in reviewing code across all other repositories and improving the experience and quality of the DSC Resource Kit. Johan also helps new contributors and maintainers to get up to speed, and any DSC user in the [Slack PowerShell #DSC channel](/community/contact/).

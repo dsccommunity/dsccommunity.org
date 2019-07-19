@@ -6,7 +6,7 @@ The goal is to have a low-tech (static html from markdown) website, optimized fo
 
 Doing so would improve the SEO (Search Engine Optimization), and make the different components of the DSC ecosystem more discoverable by its potential users, by providing a portal.
 
-It is not meant to replace the [existing forums found on PowerShell.Org](https://powershell.org/forums/forum/dsc-desired-state-configuration/), the [instant messaging DSC channel on the PowerShell Slack](http://powershell.slack.com) ([go there for registration](http://slack.poshcode.org/)).
+It is not meant to replace the [existing forums found on PowerShell.Org](https://powershell.org/forums/forum/dsc-desired-state-configuration/), the [instant messaging DSC channel on the PowerShell Slack](http://powershell.slack.com).
 
 ## Production Website
 
