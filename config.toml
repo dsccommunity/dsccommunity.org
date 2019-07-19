@@ -76,7 +76,7 @@ bgcolor = "#ffffff"
     # banner
     [Languages.en.params.banner]
       title = "The DSC Community"
-      description = "A collaborative community of authors and maintainers working to improve the DSC resources, their quality and development practices"
+      description = "A collaborative community of authors and maintainers working to improve the DSC resources, their quality, and development practices"
       image = "images/banner_dsc_with_dsclogo2.png"
       placeholder = "Have a question? Just ask here or enter terms"
 
