@@ -31,17 +31,21 @@ The DSC Resource Kit was already operating under similar structure, but it wasn'
 
 ## Initial Members
 
-<a href="https://github.com/kwirkykat" target="_blank"><img src="../../images/community/Katie.jpeg" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+<a href="https://github.com/kwirkykat" target="_blank"><img src="https://avatars0.githubusercontent.com/u/6372220?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+
 **Katie** is the **owner of the Resource Kit at Microsoft** and has steered its directions over the years. She's also an active member of the Engineering team at Microsoft looking after all things DSC and Guest Configuration, and can bridge the communication between the new products and features leveraging DSC and the DSC Community.
 
 <hr />
-<a href="https://github.com/mgreenegit" target="_blank"><img src="../../images/community/Michael.jpeg" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+<a href="https://github.com/mgreenegit" target="_blank"><img src="https://avatars1.githubusercontent.com/u/5178939?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+
 **Michael** is a long time contributor to the DSC Resource Kit, and the **Product Manager for Azure Guest Configuration**. He's well positioned to translate customer needs and requirements back to the community, or from the community back to Microsoft, and share the position or directions taken internally.
 
 <hr />
-<a href="https://github.com/plagueho" target="_blank"><img src="../../images/community/Daniel.jpeg" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+<a href="https://github.com/plagueho" target="_blank"><img src="https://avatars0.githubusercontent.com/u/7589164?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+
 **Daniel** has been a long time contributor to the DSC Resource Kit, and if you had anything to do on the GitHub repository, you most likely have came across his work. Not only he is maintaining a few High Quality Resource Module, he consistently produce a massive efforts to help review other Pull Request and improve the testing and quality of the Resource Kit.
 
 <hr />
-<a href="https://github.com/johlju" target="_blank"><img src="../../images/community/Johan.jpeg" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+<a href="https://github.com/johlju" target="_blank"><img src="https://avatars3.githubusercontent.com/u/7189721?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+
 **Johan** is also a top contributor and maintains some of the most actives Resources, while joining Daniel in reviewing code across all other repositories and improving the experience and quality of the DSC Resource Kit. Johan also helps new contributors and maintainers to get up to speed, and any DSC user in the DSC channel of the PowerShell Slack team.
