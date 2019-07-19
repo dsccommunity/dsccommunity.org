@@ -22,7 +22,7 @@ join any other channel as well.
 
 ##### Slack
 
-Join trough Slack by using this short link: [j.mp/psslack](j.mp/psslack)
+Join trough Slack by using this short link: [j.mp/psslack](https://join.slack.com/t/powershell/shared_invite/enQtNjk2ODE4MTkxNTY4LWJlOTU3NzBiYWFiMjM3Mzg3M2E5OGJiNGE4YjVhODVlNWNlY2I2ZWRkNGY2NjE4MThiYTg4OWI5NjA4MDM3ZjQ)
 
 ##### Discord
 
