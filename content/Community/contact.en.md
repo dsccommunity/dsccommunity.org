@@ -6,6 +6,8 @@ type: "post"
 author: "Johan Ljunggren"
 ---
 
+#### #DSC channel
+
 The community gathers in the PowerShell #DSC channel which is an open
 forum for all DSC related questions, discussions and collaboration.
 
@@ -27,3 +29,8 @@ Join through: <a href="https://join.slack.com/t/powershell/shared_invite/enQtNjk
 ##### Discord
 
 Join through: <a href=j.mp/psdiscord" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
+
+#### Twitter
+
+You can also find announcements and news around the DSC community on the twitter
+account [@dsccommunity](https://twitter.com/dsccommunity).
