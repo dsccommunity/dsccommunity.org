@@ -104,7 +104,7 @@ bgcolor = "#ffffff"
 
     [[Languages.en.socialIcon]]
       icon = "ti-twitter-alt"
-      URL = "https://twitter.com/PowerShell_Team"
+      URL = "https://twitter.com/dsccommunity"
 
 
 
@@ -195,7 +195,7 @@ bgcolor = "#ffffff"
 
   #   [[Languages.fr.socialIcon]]
   #     icon = "ti-twitter-alt"
-  #     URL = "/#"
+  #     URL = "https://twitter.com/dsccommunity"
 
   #   [[Languages.fr.socialIcon]]
   #     icon = "ti-vimeo-alt"
