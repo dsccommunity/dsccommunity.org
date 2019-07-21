@@ -24,11 +24,11 @@ join any other channel as well.
 
 ##### Slack
 
-Join through: <a href="https://join.slack.com/t/powershell/shared_invite/enQtNjk2ODE4MTkxNTY4LWJlOTU3NzBiYWFiMjM3Mzg3M2E5OGJiNGE4YjVhODVlNWNlY2I2ZWRkNGY2NjE4MThiYTg4OWI5NjA4MDM3ZjQ" target="_blank"><img src="https://img.shields.io/badge/Slack-PowerShell-blue.svg?style=flat&logo=Slack" alt="Join Slack" style="width:150px;padding-top: 12px;" /></a>
+Join through: <a href="https://j.mp/PSSlack" target="_blank"><img src="https://img.shields.io/badge/Slack-PowerShell-blue.svg?style=flat&logo=Slack" alt="Join Slack" style="width:150px;padding-top: 12px;" /></a>
 
 ##### Discord
 
-Join through: <a href=j.mp/psdiscord" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
+Join through: <a href="https://j.mp/psdiscord" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
 
 #### Twitter
 
