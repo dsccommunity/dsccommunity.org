@@ -75,6 +75,8 @@ Although the DSC Team and the PowerShell Team are distinct, they still work clos
 
 ### Other references
 
-- [The DSC Book](https://leanpub.com/the-dsc-book) - Don Jones & Missy Januszko
-- [Pro PowerShell Desired State Configuration](https://www.amazon.com/PowerShell-Desired-State-Configuration-Depth-ebook/dp/B07CNQD3M9)
-- [Getting Started with PS DSC](https://channel9.msdn.com/Series/Getting-Started-with-PowerShell-Desired-State-Configuration-DSC), MVA Videos - Jason Helmick & Jeffrey Snover
+[The DSC Book](https://leanpub.com/the-dsc-book), by Don Jones & Missy Januszko
+
+[Pro PowerShell Desired State Configuration](https://www.amazon.com/PowerShell-Desired-State-Configuration-Depth-ebook/dp/B07CNQD3M9), by Ravikanth Chaganti
+
+[Getting Started with PS DSC](https://channel9.msdn.com/Series/Getting-Started-with-PowerShell-Desired-State-Configuration-DSC), MVA Videos - Jason Helmick & Jeffrey Snover
