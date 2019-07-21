@@ -5,7 +5,47 @@ type: "post"
 author: "PlagueHO"
 ---
 
-### Markdown Files
+### Line length not longer than 80 characters
 
-If a paragraph includes more than one sentence, end each sentence with a newline.
-GitHub will still render the sentences as a single paragraph, but the readability of `git diff` will be greatly improved.
+Rows longer than 80 characters should be split into multiple lines where appropriate.
+This helps make it easier for reviewers to make review comments and for the
+contributors to see where the requested changes are (without scrolling).
+It is also easier to see the lines in split view mode when the lines don't wrap
+on the screen. It will also improve the readability when using `git diff`.
+
+#### Tools
+
+To help with this it is suggested to add tools to help see when I line is starting
+to get to long.
+
+##### Visual Studio Code
+
+In the Visual Studio Code it is possible to install the extension
+[*markdownlint*](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+and then add a markdownlint settings file *.markdownlint.json* file to the root
+of the repository.
+
+```json
+{
+    "MD013": {
+        "line_length": 80,
+        "headers": false,
+        "code_blocks":false,
+        "tables": false
+    }
+}
+```
+
+In addition to this, or instead of, it is possible to add rulers in Visual Studio
+Code that will help guide where the line should best be split. This is could be
+added to the workspace *settings.json* file.
+
+```json
+{
+    "[markdown]": {
+        "editor.rulers": [
+            80
+        ]
+    }
+}
+```
