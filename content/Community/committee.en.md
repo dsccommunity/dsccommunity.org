@@ -6,7 +6,7 @@ type: "post"
 author: "gaelcolas"
 ---
 
-Here's an explanation of what the DSC Committee is attempting to help with, and how we're trying to help the community.
+Here is an explanation of what the DSC Committee is attempting to help with, and how we're trying to help the community.
 
 [Come and chat with us](/community/contact/) if you'd like to discuss how we can improve!
 
