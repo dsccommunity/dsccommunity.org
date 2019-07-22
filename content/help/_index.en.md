@@ -57,7 +57,7 @@ It's great for some real-time guidance, but tough questions are probably better 
 
 <a href="https://twitter.com/dsccommunity" target="_blank"><img src="../images/Twitter_Social_Icon_Square_Color.png" alt="Slack" style="width:100px; display:block; float: right; margin-left: auto;margin:auto; padding: 0px; border-radius:50%" /></a>
 
-We've recently created a [@dsccommunity](https://twitter.com/dsccommunity) twitter account so that we could share news and info happening in the DSC Community.
+We've recently created a [@dsccommunity](https://twitter.com/dsccommunity) twitter account so that we could share news, announcement, and information around what is happening in the DSC Community.
 
 We want to tweet about anything DSC and Configuration Management. Give us a Follow, and help us share the content you like.
 
