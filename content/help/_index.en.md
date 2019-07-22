@@ -1,5 +1,5 @@
 ---
-title: "help"
+title: "Help"
 date: 2018-12-28T11:02:05+06:00
 description: "Where to find Help with DSC"
 bgcolor: '#00CC6A'
@@ -33,11 +33,11 @@ When talking about DSC, we usually refer to [PowerShell DSC](https://docs.micros
 The [official documentation](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview) is available with other [Microsoft docs](https://docs.microsoft.com/en-us/), and if you need to learn how the framework works, that's probably the best place to start!
 <hr />
 
-### PowerShell.Org and its [DSC Forum](https://powershell.org/forums/forum/dsc-desired-state-configuration/)
+### PowerShell.org and its [DSC Forum](https://powershell.org/forums/forum/dsc-desired-state-configuration/)
 
 <a href="https://powershell.org/forums/forum/dsc-desired-state-configuration/" target="_blank"><img src="https://pbs.twimg.com/profile_images/1056972376951476229/sR84-VP4_400x400.jpg" alt="PowerShell.org" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-right: 15px; border-radius:0%" /></a>
 
-The PowerShell.Org community has always been a great source of information for DSC, whether in their articles, from their PowerShell Summit sessions, and also for their active [DSC forum](https://powershell.org/forums/forum/dsc-desired-state-configuration/)!
+The PowerShell.org community has always been a great source of information for DSC, whether in their articles, from their PowerShell Summit sessions, and also for their active [DSC forum](https://powershell.org/forums/forum/dsc-desired-state-configuration/)!
 
 Make sure you check those resources and post your question on the forum if you can't find your answer elsewhere!
 
@@ -50,7 +50,7 @@ Make sure you check those resources and post your question on the forum if you c
 Some members of the community are very active in the DSC Channel, of the PowerShell Slack.
 Join the discussion here if you want to meet the community, and ask questions.
 
-It's great for some real-time guidance, but tough questions are probably better detailed on the PowerShell.Org forums, and maybe linked in the chat for people to answer. That way the answers are searchable and discoverable for the next person.
+It's great for some real-time guidance, but tough questions are probably better detailed on the PowerShell.org forums, and maybe linked in the chat for people to answer. That way the answers are searchable and discoverable for the next person.
 <hr />
 
 ### DSC Community Twitter Account
