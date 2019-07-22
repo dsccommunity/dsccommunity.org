@@ -36,7 +36,7 @@ Join through: <a href="https://join.slack.com/t/powershell/shared_invite/enQtNjk
 
 ##### Discord
 
-Join through: <a href="https://j.mp/psdiscord" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
+Join through: <a href="https://discordapp.com/invite/AtzXnJM" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
 
 
 
