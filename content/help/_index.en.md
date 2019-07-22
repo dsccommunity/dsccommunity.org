@@ -51,6 +51,8 @@ Some members of the community are very active in the DSC channel, of the PowerSh
 Join the conversation here if you want to meet the community, and ask questions.
 
 It's great for some real-time guidance, but tough questions are probably better detailed on the PowerShell.org forums, and maybe linked in the chat for people to answer. That way the answers are searchable and discoverable for the next person.
+
+You can chose to join either in Slack or Discord, as both services are bridged together via a bot. If you don't know which one to pick, maybe give discord a chance, as it does not have the history limit that Slack has on free plans.
 <hr />
 
 ### DSC Community Twitter Account
