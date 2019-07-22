@@ -30,7 +30,7 @@ Here's a quick run down of the best source of information we know of.
 
 When talking about DSC, we usually refer to [PowerShell DSC](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview), the [cross platform](https://docs.microsoft.com/en-us/powershell/dsc/getting-started/lnxgettingstarted) framework that is leveraged by other solutions such as [Azure Automation State Configuration](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview), [Azure Policy Guest Configuration](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration), [Chef](https://docs.chef.io/resource_dsc_resource.html), [Puppet](https://forge.puppet.com/puppetlabs/dsc_lite) (or [this other module](https://forge.puppet.com/puppetlabs/dsc)), [Ansible](https://docs.ansible.com/ansible/latest/user_guide/windows_dsc.html), [AWS Systems Manager](https://aws.amazon.com/blogs/mt/run-compliance-enforcement-and-view-compliant-and-non-compliant-instances-using-aws-systems-manager-and-powershell-dsc/) or DIY solutions people have built to solve their infrastructure management needs.
 
-The [official documentation](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview) is available with other [Microsoft docs](https://docs.microsoft.com/en-us/), and if you need to learn how the framework, that's probably the best place to start!
+The [official documentation](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview) is available with other [Microsoft docs](https://docs.microsoft.com/en-us/), and if you need to learn how the framework works, that's probably the best place to start!
 <hr />
 
 ### PowerShell.Org and its [DSC Forum](https://powershell.org/forums/forum/dsc-desired-state-configuration/)
