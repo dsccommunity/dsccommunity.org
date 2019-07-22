@@ -8,27 +8,37 @@ author: "Johan Ljunggren"
 
 #### #DSC channel
 
-The community gathers in the PowerShell #DSC channel which is an open
-forum for all DSC related questions, discussions and collaboration.
+The community gathers in the Virtual PowerShell User Group #DSC channel
+which is an open forum for all DSC related questions, discussions and
+collaboration.
 
 The PowerShell channels is bridged between Discord and Slack, so you
 can use either respectively app or website.
-
->*Tagging a specific user so they get notified works best in the app
->that the user uses. Most maintainers and committee members has joined
->through Slack.*
 
 There are not just the #DSC channel, there are a lot of other discussions
 around PowerShell in various channels. On top of the #DSC channel you can
 join any other channel as well.
 
+You can read more about the Virtual PowerShell User Group and how to
+connect at the site [poshcode.org](http://poshcode.org/). Below are the
+two most popular ways to connect.
+
+>*Tagging a specific user so they get notified works best in the app
+>that the user uses. Most maintainers and committee members has joined
+>through Slack.*
+
+_If the links does not work then [poshcode.org](http://poshcode.org/)_
+_might have new updated links._
+
 ##### Slack
 
-Join through: <a href="https://j.mp/PSSlack" target="_blank"><img src="https://img.shields.io/badge/Slack-PowerShell-blue.svg?style=flat&logo=Slack" alt="Join Slack" style="width:150px;padding-top: 12px;" /></a>
+Join through: <a href="https://join.slack.com/t/powershell/shared_invite/enQtNjk2ODE4MTkxNTY4LWJlOTU3NzBiYWFiMjM3Mzg3M2E5OGJiNGE4YjVhODVlNWNlY2I2ZWRkNGY2NjE4MThiYTg4OWI5NjA4MDM3ZjQ" target="_blank"><img src="https://img.shields.io/badge/Slack-PowerShell-blue.svg?style=flat&logo=Slack" alt="Join Slack" style="width:150px;padding-top: 12px;" /></a>
 
 ##### Discord
 
 Join through: <a href="https://j.mp/psdiscord" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
+
+
 
 #### Twitter
 
