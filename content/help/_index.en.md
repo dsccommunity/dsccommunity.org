@@ -28,7 +28,7 @@ Here's a quick run down of the best source of information we know of.
 
 <a href="https://docs.microsoft.com/en-us/powershell/dsc/overview/overview" target="_blank"><img src="https://github.com/dend/docs-graphics/blob/master/assets/docs-logo-ms.png?raw=true" alt="docs-msft" style="width:100px; display:block; float: left; margin: auto; padding: 10px; border-radius:50%" /></a>
 
-When talking about DSC, we usually refer to [PowerShell DSC](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview), the [cross platform](https://docs.microsoft.com/en-us/powershell/dsc/getting-started/lnxgettingstarted) framework that is leveraged by other solutions such as [Azure Automation State Configuration](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview), [Azure Policy Guest Configuration](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration), [Chef](https://docs.chef.io/resource_dsc_resource.html), [Puppet](https://forge.puppet.com/puppetlabs/dsc_lite) (or [this other module](https://forge.puppet.com/puppetlabs/dsc)), [Ansible](https://docs.ansible.com/ansible/latest/user_guide/windows_dsc.html), [AWS Systems Manager](https://aws.amazon.com/blogs/mt/run-compliance-enforcement-and-view-compliant-and-non-compliant-instances-using-aws-systems-manager-and-powershell-dsc/) or DIY solutions people have built to solve their infrastructure management needs.
+When talking about DSC, we usually refer to [PowerShell DSC](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview), the [cross platform](https://docs.microsoft.com/en-us/powershell/dsc/getting-started/lnxgettingstarted) framework that is leveraged by other solutions such as [Azure Automation State Configuration](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview), [Azure Policy Guest Configuration](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration), [Chef](https://docs.chef.io/resource_dsc_resource.html), [Puppet](https://forge.puppet.com/puppetlabs/dsc_lite) (or [this other module](https://forge.puppet.com/puppetlabs/dsc)), [Ansible](https://docs.ansible.com/ansible/latest/user_guide/windows_dsc.html), [AWS Systems Manager](https://aws.amazon.com/blogs/mt/run-compliance-enforcement-and-view-compliant-and-non-compliant-instances-using-aws-systems-manager-and-powershell-dsc/) or DIY (Do It Yourself) solutions people have built to solve their infrastructure management needs.
 
 The [official documentation](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview) is available with other [Microsoft docs](https://docs.microsoft.com/en-us/), and if you need to learn how the framework works, that's probably the best place to start!
 <hr />
@@ -47,8 +47,8 @@ Make sure you check those resources and post your question on the forum if you c
 
 <a href="http://slack.poshcode.org/" target="_blank"><img src="../images/appIcon_desktop.png" alt="Slack" style="width:100px; display:block; float: left; margin-left: auto;margin-right:auto; padding-right: 15px; border-radius:0%" /></a>
 
-Some members of the community are very active in the DSC Channel, of the PowerShell Slack.
-Join the discussion here if you want to meet the community, and ask questions.
+Some members of the community are very active in the DSC channel, of the PowerShell Slack.
+Join the conversation here if you want to meet the community, and ask questions.
 
 It's great for some real-time guidance, but tough questions are probably better detailed on the PowerShell.org forums, and maybe linked in the chat for people to answer. That way the answers are searchable and discoverable for the next person.
 <hr />
@@ -57,7 +57,7 @@ It's great for some real-time guidance, but tough questions are probably better 
 
 <a href="https://twitter.com/dsccommunity" target="_blank"><img src="../images/Twitter_Social_Icon_Square_Color.png" alt="Slack" style="width:100px; display:block; float: right; margin-left: auto;margin:auto; padding: 0px; border-radius:50%" /></a>
 
-We've recently created a [DscCommunity](https://twitter.com/dsccommunity) twitter account so that we could share news and info happening in the DSC Community.
+We've recently created a [@dsccommunity](https://twitter.com/dsccommunity) twitter account so that we could share news and info happening in the DSC Community.
 
 We want to tweet about anything DSC and Configuration Management. Give us a Follow, and help us share the content you like.
 
