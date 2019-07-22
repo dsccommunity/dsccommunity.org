@@ -8,9 +8,10 @@ type : "pages"
 bgcolor: '#00CC6A'
 ---
 
-## Welcome, and thanks for paying us visit !
+## Welcome to the DSC Community
 
 Welcome to the DSC Community portal where we share who is behind the community and how we try to organize ourselves.
+
 
 In this section, you will find information about:
 

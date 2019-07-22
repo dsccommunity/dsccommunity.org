@@ -37,8 +37,8 @@ bgcolor = "#ffffff"
 
       [[Languages.en.menu.main]]
         weight = 4
-        name = "contact"
-        url = "/contact"
+        name = "help"
+        url = "/help"
 
       [[Languages.en.menu.main]]
         weight = 5
