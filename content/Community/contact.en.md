@@ -10,7 +10,7 @@ author: "Johan Ljunggren"
 
 The community gathers in the Virtual PowerShell User Group #DSC channel
 which is an open instant messaging chat room for all DSC related questions,
-discussions and collaboration.
+discussions, and collaboration.
 
 The PowerShell channels is bridged between Discord and Slack, so you
 can use either respectively app or website.
