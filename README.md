@@ -24,7 +24,6 @@ Make sure you install Hugo first, the easiest is with the Chocolatey Package Man
 
 ```PowerShell
 C:\ > choco install hugo
-
 ```
 
 Then you can clone this website and run it. But we recommend you first fork the repository under your github account, and clone that fork before so you can create Pull Requests to contribute:
@@ -116,8 +115,7 @@ C:\src\dsccommunity.org > git push --force
 C:\src\dsccommunity.org > git checkout master
 C:\src\dsccommunity.org > git branch -D newbranchname
 
-# Once your PR has been merged, you can also delete the branch from
-# your fork.
+# Once your PR has been merged, you can also delete the branch from your fork.
 C:\src\dsccommunity.org > git push origin :newbranchname
 
 # Then make sure you start again from beginning, pulling your changes from Upstream Master to your local
@@ -129,6 +127,9 @@ master, before pushing to your origin master (your private fork).
 ## Running the website locally
 
 Now that you have HUGO installed, and you have the clone of your personal fork locally, you can run the Hugo server.
+
+>_This website requires Hugo version 0.54 or higher. You can see the version_
+>_by running `hugo version`._
 
 ```PowerShell
 C:\src\dsccommunity.org > hugo server
