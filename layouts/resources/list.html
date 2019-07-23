@@ -112,7 +112,7 @@
                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-desc-tab-{{ .Name }}" data-toggle="tab" href="#nav-desc-{{ .Name }}" role="tab" aria-controls="nav-desc-{{ .Name }}" aria-selected="true">Description</a>
                         <a class="nav-item nav-link" id="nav-rn-tab-{{ .Name }}" data-toggle="tab" href="#nav-rn-{{ .Name }}" role="tab" aria-controls="nav-rn-{{ .Name }}" aria-selected="false">Release Notes</a>
-                        <a class="nav-item nav-link" id="nav-other-tab-{{ .Name }}" data-toggle="tab" href="#nav-other-{{ .Name }}" role="tab" aria-controls="nav-other-{{ .Name }}" aria-selected="false">Other</a>
+                        <!-- <a class="nav-item nav-link" id="nav-other-tab-{{ .Name }}" data-toggle="tab" href="#nav-other-{{ .Name }}" role="tab" aria-controls="nav-other-{{ .Name }}" aria-selected="false">Other</a> -->
                       </div>
                     </nav>
                     <div class="tab-content border-top-0" id="nav-tabContent-{{ .Name }}">
@@ -123,9 +123,11 @@
                       <div class="tab-pane fade card border-top-0" id="nav-rn-{{ .Name }}" role="tabpanel" aria-labelledby="nav-rn-tab-{{ .Name }}">
                           <div class="card card-body border-top-0">{{ .AdditionalMetadata.releaseNotes | markdownify }}</div>
                       </div>
+                      <!--
                       <div class="tab-pane fade card border-top-0" id="nav-other-{{ .Name }}" role="tabpanel" aria-labelledby="nav-other-tab-{{ .Name }}">
                           <div class="card card-body border-top-0">...</div>
                       </div>
+                      -->
                     </div>
                 </div>
               </div>
