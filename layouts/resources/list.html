@@ -27,7 +27,7 @@
                   var value = $(this).val();
                   if(!value) {
                     // Search all cards with id go_ and make sure they are displayed
-                    $.each($('[id^=go_]'),function (i,val) { val.style.display='block' })
+                    $.each($('[id^=go_]'),function (i,val) { val.style.display='block'; if(val.collapse) { val.collapse("hide") } })
                   }
                 })
                 $( "#search" ).autocomplete({
