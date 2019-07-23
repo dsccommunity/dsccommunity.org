@@ -41,7 +41,14 @@
                       $( "#search" ).val( ui.item.label );
                       $( "#project-id" ).val( ui.item.value );
                       // Hide all other cards when we selected an item
-                      $.each($('[id^=go_]'),function (i,val) { if(val.id=='go_' + ui.item.label ) { val.style.display='block'} else {val.style.display='none'} })
+                      $.each($('[id^=go_]'),function (i,val) {
+                        if(val.id=='go_' + ui.item.label ) {
+                          val.style.display='block';
+                        } else {
+                          val.style.display='none';
+                        }
+                      })
+                      $('#' + ui.item.label).collapse("show");
                       return false;
                     }
                 })
