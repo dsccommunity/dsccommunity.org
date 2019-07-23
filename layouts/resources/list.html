@@ -18,13 +18,15 @@
                     {
                       value: "{{ .Name }}",
                       label: "{{ .Name }}",
-                      url:"{{ .Name }}"
+                      url:"{{ .Name }}",
+                      resources: "{{ .DscResources }}"
                     },
                   {{ end }}
                 ];
                 $( "#search" ).on('keyup',function () {
                   var value = $(this).val();
                   if(!value) {
+                    // Search all cards with id go_ and make sure they are displayed
                     $.each($('[id^=go_]'),function (i,val) { val.style.display='block' })
                   }
                 })
@@ -38,6 +40,8 @@
                     select: function( event, ui ) {
                       $( "#search" ).val( ui.item.label );
                       $( "#project-id" ).val( ui.item.value );
+                      // Hide all other cards when we selected an item
+                      $.each($('[id^=go_]'),function (i,val) { if(val.id=='go_' + ui.item.label ) { val.style.display='block'} else {val.style.display='none'} })
                       return false;
                     }
                 })
