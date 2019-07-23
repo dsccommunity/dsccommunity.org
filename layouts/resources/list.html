@@ -22,6 +22,12 @@
                     },
                   {{ end }}
                 ];
+                $( "#search" ).on('keyup',function () {
+                  var value = $(this).val();
+                  if(!value) {
+                    $.each($('[id^=go_]'),function (i,val) { val.style.display='block' })
+                  }
+                })
                 $( "#search" ).autocomplete({
                     minLength: 0,
                     source: projects,
