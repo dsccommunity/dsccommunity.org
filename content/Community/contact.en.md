@@ -8,19 +8,26 @@ author: "Johan Ljunggren"
 
 #### #DSC channel
 
-The community gathers in the PowerShell #DSC channel which is an open
-forum for all DSC related questions, discussions and collaboration.
+The community gathers in the Virtual PowerShell User Group #DSC channel
+which is an open instant messaging chat room for all DSC related questions,
+discussions, and collaboration.
 
 The PowerShell channels is bridged between Discord and Slack, so you
 can use either respectively app or website.
 
+It's more than just the #DSC channel, there are a lot of other discussions
+around PowerShell in various channels, and you can join them too.
+
+You can read more about the Virtual PowerShell User Group and how to
+connect at the site [poshcode.org](http://poshcode.org/). Below are the
+two most popular ways to connect.
+
 >*Tagging a specific user so they get notified works best in the app
->that the user uses. Most maintainers and committee members has joined
+>that the user uses. Most maintainers and committee members have joined
 >through Slack.*
 
-There are not just the #DSC channel, there are a lot of other discussions
-around PowerShell in various channels. On top of the #DSC channel you can
-join any other channel as well.
+_If the links do not work then [poshcode.org](http://poshcode.org/)_
+_might have new updated links._
 
 ##### Slack
 
@@ -28,7 +35,9 @@ Join through: <a href="https://join.slack.com/t/powershell/shared_invite/enQtNjk
 
 ##### Discord
 
-Join through: <a href=j.mp/psdiscord" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
+Join through: <a href="https://discordapp.com/invite/AtzXnJM" target="_blank"><img src="https://img.shields.io/badge/Discord-PowerShell-blue.svg?style=flat&logo=Discord" alt="Join Slack" style="width:165px;padding-top: 12px;" /></a>
+
+
 
 #### Twitter
 
