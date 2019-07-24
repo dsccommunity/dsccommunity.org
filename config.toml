@@ -20,7 +20,7 @@ bgcolor = "#ffffff"
   dateFormat = "2 January 2006"
   home = "Home"
   logo = "DSC Community and Resource Kit"
-  copyright = "DSC Community all rights reserved ©."
+  copyright = "Copyright 2019 the dsccommunity.org contributors."
 
     # navigation
     [Languages.en.menu]
