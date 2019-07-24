@@ -1,5 +1,6 @@
-baseURL = "dsccommunity.org"
+baseURL = "/"
 theme = "dot"
+googleAnalytics = "UA-144465379-1"
 
 [params]
 primaryColor = "#003366"
