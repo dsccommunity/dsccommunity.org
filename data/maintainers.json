@@ -1,13 +1,149 @@
-{
-    "johlju": {
-        "Resources": [
+[
+    {
+        "accountName": "johlju",
+        "resources": [
             "SqlServerDsc",
+            "ActiveDirectoryDsc",
+            "xFailOverCluster"
+        ]
+    },
+    {
+        "accountName": "PlagueHO",
+        "resources": [
+            "ComputerManagementDsc",
+            "ActiveDirectoryCSDsc",
+            "FileContentDsc",
+            "FSRMDsc",
+            "iSCSIDsc",
+            "NetworkingDsc",
+            "PSDscResources",
+            "StorageDsc",
+            "SystemLocaleDsc",
+            "WSManDsc",
+            "xPSDesiredStateConfiguration"
+        ]
+    },
+    {
+        "accountName": "devopsjesus",
+        "resources": [
+            "ActiveDirectoryCSDsc",
+            "ActiveDirectoryDsc",
+            "xAzure",
+            "xSCSMA"
+        ]
+    },
+    {
+        "accountName": "tysonjhayes",
+        "resources": [
+            "ComputerManagementDsc",
+            "NetworkingDsc",
+            "xWebAdministration"
+        ]
+    },
+    {
+        "accountName": "kwirkykat",
+        "resources": [
+            "PSDscResources"
+        ]
+    },
+    {
+        "accountName": "39Delta",
+        "resources": [
+            "NetworkingDsc",
+            "xDhcpServer"
+        ]
+    },
+    {
+        "accountName": "NikCharlebois",
+        "resources": [
+            "OfficeOnlineServerDsc",
+            "SharePointDsc"
+        ]
+    },
+    {
+        "accountName": "mhendric",
+        "resources": [
+            "PSDscResources",
+            "xBitlocker",
+            "xExchange",
+            "xPSDesiredStateConfiguration"
+        ]
+    },
+    {
+        "accountName": "jcwalker",
+        "resources": [
+            "SecurityPolicyDsc"
+        ]
+    },
+    {
+        "accountName": "ykuijs",
+        "resources": [
+            "SharePointDsc"
+        ]
+    },
+    {
+        "accountName": "nyanhp",
+        "resources": [
+            "ActiveDirectoryDsc",
+            "xSCVMM"
+        ]
+    },
+    {
+        "accountName": "rchristman89",
+        "resources": [
             "ActiveDirectoryDsc"
         ]
     },
-    "PlagueHO": {
-        "Resources": [
-            "ComputerManagementDsc"
+    {
+        "accountName": "chasewilson",
+        "resources": [
+            "xAzure",
+            "xFirefox"
+        ]
+    },
+    {
+        "accountName": "japatton",
+        "resources": [
+            "xDnsServer"
+        ]
+    },
+    {
+        "accountName": "indented-automation",
+        "resources": [
+            "xDnsServer"
+        ]
+    },
+    {
+        "accountName": "aromano2",
+        "resources": [
+            "xHyper-V"
+        ]
+    },
+    {
+        "accountName": "bcwilhite",
+        "resources": [
+            "xPendingReboot"
+        ]
+    },
+    {
+        "accountName": "nehrua",
+        "resources": [
+            "xPendingReboot"
+        ]
+    },
+    {
+        "accountName": "ld0614",
+        "resources": [
+            "xRemoteDesktopSessionHost",
+            "xSCDPM",
+            "xSCOM"
+        ]
+    },
+    {
+        "accountName": "regedit32",
+        "resources": [
+            "xWebAdministration"
         ]
     }
-}
+]
+
