@@ -1,0 +1,13 @@
+{
+    "johlju": {
+        "Resources": [
+            "SqlServerDsc",
+            "ActiveDirectoryDsc"
+        ]
+    },
+    "PlagueHO": {
+        "Resources": [
+            "ComputerManagementDsc"
+        ]
+    }
+}
