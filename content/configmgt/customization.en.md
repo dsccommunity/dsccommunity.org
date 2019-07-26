@@ -18,9 +18,11 @@ The size of the logo will adapt automatically
 
 ### Change the favicon
 
-If your favicon is a png, just drop off your image in your local `static/images/` folder and name it `favicon.png`
+If your favicon is a png, just drop off your image in your local `static/images/`
+folder and name it `favicon.png`
 
-If you need to change this default behavior, create a new file in `layouts/partials/` named `head.html`. Then write something like this:
+If you need to change this default behavior, create a new file in `layouts/partials/`
+named `head.html`. Then write something like this:
 
 ```html
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
@@ -28,8 +30,8 @@ If you need to change this default behavior, create a new file in `layouts/parti
 
 ### Change default colors
 
-**Doc-List** support change color. You can change the colors from `config.toml`. You can change the colors of the template as you want.
-
+**Doc-List** support change color. You can change the colors from `config.toml`.
+You can change the colors of the template as you want.
 
 ```toml
 [params]
