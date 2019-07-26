@@ -1,0 +1,287 @@
+[
+    {
+        "accountName": "johlju",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "SqlServerDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "ActiveDirectoryDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xFailOverCluster"
+            }
+        ]
+    },
+    {
+        "accountName": "PlagueHO",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "ComputerManagementDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "ActiveDirectoryCSDsc"
+            },
+            {
+                "organization": "PlagueHO",
+                "repository": "FileContentDsc"
+            },
+            {
+                "organization": "PlagueHO",
+                "repository": "FSRMDsc"
+            },
+            {
+                "organization": "PlagueHO",
+                "repository": "iSCSIDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "NetworkingDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "PSDscResources"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "StorageDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "SystemLocaleDsc"
+            },
+            {
+                "organization": "PlagueHO",
+                "repository": "WSManDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xPSDesiredStateConfiguration"
+            }
+        ]
+    },
+    {
+        "accountName": "devopsjesus",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "ActiveDirectoryCSDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "ActiveDirectoryDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xAzure"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xSCSMA"
+            }
+        ]
+    },
+    {
+        "accountName": "tysonjhayes",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "ComputerManagementDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "NetworkingDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xWebAdministration"
+            }
+        ]
+    },
+    {
+        "accountName": "kwirkykat",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "PSDscResources"
+            }
+        ]
+    },
+    {
+        "accountName": "39Delta",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "NetworkingDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xDhcpServer"
+            }
+        ]
+    },
+    {
+        "accountName": "NikCharlebois",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "OfficeOnlineServerDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "SharePointDsc"
+            }
+        ]
+    },
+    {
+        "accountName": "mhendric",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "PSDscResources"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xBitlocker"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xExchange"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xPSDesiredStateConfiguration"
+            }
+        ]
+    },
+    {
+        "accountName": "jcwalker",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "SecurityPolicyDsc"
+            }
+        ]
+    },
+    {
+        "accountName": "ykuijs",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "SharePointDsc"
+            }
+        ]
+    },
+    {
+        "accountName": "nyanhp",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "ActiveDirectoryDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xSCVMM"
+            }
+        ]
+    },
+    {
+        "accountName": "rchristman89",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "ActiveDirectoryDsc"
+            }
+        ]
+    },
+    {
+        "accountName": "chasewilson",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xAzure"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xFirefox"
+            }
+        ]
+    },
+    {
+        "accountName": "japatton",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xDnsServer"
+            }
+        ]
+    },
+    {
+        "accountName": "indented-automation",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xDnsServer"
+            }
+        ]
+    },
+    {
+        "accountName": "aromano2",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xHyper-V"
+            }
+        ]
+    },
+    {
+        "accountName": "bcwilhite",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xPendingReboot"
+            }
+        ]
+    },
+    {
+        "accountName": "nehrua",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xPendingReboot"
+            }
+        ]
+    },
+    {
+        "accountName": "ld0614",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xRemoteDesktopSessionHost"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xSCDPM"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xSCOM"
+            }
+        ]
+    },
+    {
+        "accountName": "regedit32",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "xWebAdministration"
+            }
+        ]
+    }
+]
+
