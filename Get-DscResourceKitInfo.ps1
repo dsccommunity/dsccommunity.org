@@ -1,36 +1,46 @@
-function Get-DscResourceKitInfo {
-    Param(
+function Get-DscResourceKitInfo
+{
+    param (
         [Parameter(
             ValueFromPipeline,
             ValueFromPipelineByPropertyName
         )]
-        $ResourceModule = (Get-Content -Raw -Path '.\data\resources.json' | ConvertFrom-Json).Resources,
+        $ResourceModule = (Get-Content -Raw -Path (Join-Path -Path $PSScriptRoot -ChildPath '\data\resources.json') | ConvertFrom-Json).Resources,
 
         [string]
         $ExportTo
     )
 
-    begin {
-        $AllResources = @{}
+    begin
+    {
+        $allResources = @{ }
     }
 
-    process {
-        foreach ($ResourceName in $ResourceModule) {
-            $ModuleResourceInfo = Find-Module -Name $ResourceName
-            if ($ModuleResourceInfo) {
-                $AllResources.Add($ResourceName,$ModuleResourceInfo)
+    process
+    {
+        foreach ($resourceName in $ResourceModule)
+        {
+            $moduleResourceInfo = Find-Module -Name $ResourceName
+
+            if ($ModuleResourceInfo)
+            {
+                $allResources.Add($resourceName, $moduleResourceInfo)
             }
         }
     }
 
-    end {
-        $String = $AllResources | ConvertTo-Json -Depth 10
-        if ($PSBoundParameters.ContainsKey('ExportTo')) {
-            $Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
-            [System.IO.File]::WriteAllLines($ExportTo, $String, $Utf8NoBomEncoding)
+    end
+    {
+        $string = $allResources | ConvertTo-Json -Depth 12
+
+        if ($PSBoundParameters.ContainsKey('ExportTo'))
+        {
+            $utf8NoBomEncoding = New-Object -TypeName System.Text.UTF8Encoding -ArgumentList $false
+            [System.IO.File]::WriteAllLines($ExportTo, $string, $utf8NoBomEncoding)
         }
-        else {
-            $String
+        else
+        {
+            $string
         }
     }
 }
