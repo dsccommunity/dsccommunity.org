@@ -13,4 +13,6 @@ you no longer have the time to put in and want to stop being maintainer
 then please send in a PR to update this list, or contact a member of the
 committee.
 
-*This list is updated manually. This lost is sorted on GitHub account name.*
+_Persons on this list are added and removed manually, but the information_
+_for each person is collected from their public GitHub profile page._
+_This list is sorted by GitHub account name._
