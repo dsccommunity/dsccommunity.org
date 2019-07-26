@@ -18,12 +18,12 @@ faqItem:
     title : Are the DSC Resources compatible with WMF4?
     content : |
       Specific compatibility is usually announced in each repository's README file, but the aim is to test and develop
-       for WMF5.1 only. If you need WMF4 support, please engage with the maintainer.
+      for WMF5.1 only. If you need WMF4 support, please engage with the maintainer.
 
   - ID : ownership
     title : Who owns the DSC Resources?
     content : |
       Although some of the resources where originally created by the PowerShell team, as the community grew it took over
-       in terms of activity and contributions.
+      in terms of activity and contributions.
       Now, it's fair to say the community owns the resources and is responsible for their develelopment and release,
       while the DSC team helps to maintain the level of quality and alignment with future evolutions of DSC.

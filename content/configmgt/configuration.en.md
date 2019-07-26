@@ -7,9 +7,12 @@ weight: 3
 
 ### Global site parameters
 
-On top of [Hugo global configuration](https://gohugo.io/overview/configuration/), **Doc-list** lets you define the following parameters in your `config.toml` (here, values are default).
+On top of [Hugo global configuration](https://gohugo.io/overview/configuration/),
+**Doc-list** lets you define the following parameters in your `config.toml` (here,
+values are default).
 
-Note that some of these parameters are explained in details in other sections of this documentation.
+Note that some of these parameters are explained in details in other sections of
+this documentation.
 
 ```toml
 [params]
