@@ -56,43 +56,48 @@
             {{ .Content }}
             <div class="card-columns">
               {{ range sort $.Site.Data.maintainers "accountName" }}
-              {{ $gitHubUser := getJSON "https://api.github.com/users/" .accountName }}
-              <div class="card shadow text-center">
+                {{ $gitHubUser := getJSON "https://api.github.com/users/" .accountName }}
+                <div class="card shadow text-center">
                   <div class="card-header">
                     <a class="font-weight-bold" href="https://github.com/{{ .accountName }}" target="_blank">
                       {{ with $gitHubUser.name }}
-                      {{ $gitHubUser.name }}
-                    {{ else }}
-                      {{ $gitHubUser.login }}
-                    {{ end }}
+                        {{ $gitHubUser.name }}
+                      {{ else }}
+                        {{ $gitHubUser.login }}
+                      {{ end }}
+
+                      {{with $gitHubUser.company }}
+                        <br />
+                        <span class="badge badge-secondary">
+                          {{ $gitHubUser.company }}
+                        </i>
+                      {{ end }}
                     </a>
-                    {{with $gitHubUser.company }}
-                      <br />
-                      <span class="badge badge-secondary">
-                        {{ $gitHubUser.company }}
-                      </i>
-                    {{ end }}
                   </div>
                   <div class="card-body">
                     <a data-toggle="collapse" href="#{{ $gitHubUser.login }}">
                       <img src="{{$gitHubUser.avatar_url}}" alt="drawing" style="width:100px; display:block; margin: auto; border-radius:50%" />
-                    </a>
-                    {{with $gitHubUser.location }}
-                    <span class="ti-location-pin text-muted">
-                      {{ $gitHubUser.location }}
-                    </span>
-                    {{ end }}
-                      <div class="card border-0 pt-2">
-                        <span id="{{ $gitHubUser.login }}" class="font-weight-light text-left small">
-                          {{ $gitHubUser.bio | safeHTML }} <!-- <br /> -->
+                      {{with $gitHubUser.location }}
+                        <span class="ti-location-pin text-muted">
+                        {{ $gitHubUser.location }}
                         </span>
-                      </div>
-
+                      {{ end }}
+                    </a>
+                    <div class="card border-0 pt-2">
+                      <span id="{{ $gitHubUser.login }}" class="font-weight-light text-left small">
+                        {{ $gitHubUser.bio | safeHTML }}
+                      </span>
+                    </div>
                   </div>
                   <div class="card-footer">
                       Modules:
-                      {{ range (sort .resources) }}
-                        <span class="badge badge-info">{{ . }}</span>&nbsp;
+                      {{ range sort .modules "repository" }}
+                        <a href="https://github.com/{{ .organization }}/{{ .repository }}" target="_blank">
+                          <span class="badge badge-info">
+                            {{ .repository }}
+                          </span>
+                        </a>
+                        &nbsp;
                       {{end}}
                   </div>
                 </div>
