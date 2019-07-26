@@ -54,69 +54,83 @@
         <div class="p-5 bg-white">
             <h2>{{ .Title }}</h2>
             {{ .Content }}
-            {{ range sort $.Site.Data.maintainers "accountName" }}
+            <div class="card-columns">
+              {{ range sort $.Site.Data.maintainers "accountName" }}
               {{ $gitHubUser := getJSON "https://api.github.com/users/" .accountName }}
-              <p style="padding-bottom: 12px">
-                <hr />
-                <a href="https://github.com/{{ .accountName }}" target="_blank">
-                  <img src="{{$gitHubUser.avatar_url}}" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" />
-                </a>
-                <p>
-                    {{ with $gitHubUser.name }}
+              <div class="card shadow text-center">
+                  <div class="card-header">
+                    <a class="font-weight-bold" href="https://github.com/{{ .accountName }}" target="_blank">
+                      {{ with $gitHubUser.name }}
                       {{ $gitHubUser.name }}
                     {{ else }}
                       {{ $gitHubUser.login }}
                     {{ end }}
-
+                    </a>
                     {{with $gitHubUser.company }}
-                      {{ print ", " $gitHubUser.company }}
+                      <br />
+                      <span class="badge badge-secondary">
+                        {{ $gitHubUser.company }}
+                      </i>
                     {{ end }}
-
+                  </div>
+                  <div class="card-body">
+                    <a data-toggle="collapse" href="#{{ $gitHubUser.login }}">
+                      <img src="{{$gitHubUser.avatar_url}}" alt="drawing" style="width:100px; display:block; margin: auto; border-radius:50%" />
+                    </a>
                     {{with $gitHubUser.location }}
-                      <br>
+                    <span class="ti-location-pin text-muted">
                       {{ $gitHubUser.location }}
+                    </span>
                     {{ end }}
-                </p>
-                <p>
-                    {{ $gitHubUser.bio }}
-                </p>
-                <p>
-                    Modules: {{ delimit (sort .resources) ", " }}
-                </p>
-              </p>
-            {{ end }}
-            <p class="post-meta border-bottom pb-3 mb-0">Updated on {{ .PublishDate.Format "02 Jan 2006" }}</p>
-            {{- $currentNode := . -}}
-            <nav class="pagination mt-3">
-            {{- template "pagination" dict "menu" .Site.Home "currentnode" $currentNode "menu_exclusion" .Site.Params.menu_exclusion -}}
-            {{- with ($.Scratch.Get "prevPage") -}}
-            <a class="nav nav-prev" href="{{ .URL }}" title="{{ .Title }}"><i class="ti-arrow-left mr-2"></i>{{ .Title }}</a>
-            {{ end -}}
-            {{- with ($.Scratch.Get "nextPage") -}}
-            <a class="nav nav-next" href="{{ .URL }}" title="{{ .Title }}">{{ .Title }}<i class="ti-arrow-right ml-2"></i></a>
-            {{- end }}
-            </nav>
+                      <div class="card border-0 pt-2">
+                        <span id="{{ $gitHubUser.login }}" class="font-weight-light text-left small">
+                          {{ $gitHubUser.bio | safeHTML }} <!-- <br /> -->
+                        </span>
+                      </div>
 
-            {{- define "pagination" -}}
-            {{- $currentNode := .currentnode -}}
-            {{- $menu_exclusion := .menu_exclusion -}}
+                  </div>
+                  <div class="card-footer">
+                      Modules:
+                      {{ range (sort .resources) }}
+                        <span class="badge badge-info">{{ . }}</span>&nbsp;
+                      {{end}}
+                  </div>
+                </div>
+              {{ end }}
+            </div>
+              <p class="post-meta border-bottom pb-3 mb-0">Updated on {{ .PublishDate.Format "02 Jan 2006" }}</p>
+              {{- $currentNode := . -}}
+              <nav class="pagination mt-3">
+              {{- template "pagination" dict "menu" .Site.Home "currentnode" $currentNode "menu_exclusion" .Site.Params.menu_exclusion -}}
+              {{- with ($.Scratch.Get "prevPage") -}}
+              <a class="nav nav-prev" href="{{ .URL }}" title="{{ .Title }}"><i class="ti-arrow-left mr-2"></i>{{ .Title }}</a>
+              {{ end -}}
+              {{- with ($.Scratch.Get "nextPage") -}}
+              <a class="nav nav-next" href="{{ .URL }}" title="{{ .Title }}">{{ .Title }}<i class="ti-arrow-right ml-2"></i></a>
+              {{- end }}
+              </nav>
 
-            {{- if hasPrefix $currentNode.URL .menu.URL -}}
-              {{- $currentNode.Scratch.Set "NextPageOK" "OK" -}}
-              {{- if .menu.IsHome -}}
-                {{- $currentNode.Scratch.Set "prevPage" "" -}}
-              {{- else -}}
-                {{- $currentNode.Scratch.Set "prevPage" ($currentNode.Scratch.Get "prevPageTmp") -}}
-              {{- end -}}
-            {{- else -}}
-              {{- if eq ($currentNode.Scratch.Get "NextPageOK") "OK" -}}
-                {{- $currentNode.Scratch.Set "NextPageOK" nil -}}
-                {{ if in $menu_exclusion .menu.Section }}
+              {{- define "pagination" -}}
+              {{- $currentNode := .currentnode -}}
+              {{- $menu_exclusion := .menu_exclusion -}}
+
+              {{- if hasPrefix $currentNode.URL .menu.URL -}}
+                {{- $currentNode.Scratch.Set "NextPageOK" "OK" -}}
+                {{- if .menu.IsHome -}}
+                  {{- $currentNode.Scratch.Set "prevPage" "" -}}
                 {{- else -}}
-                  {{- $currentNode.Scratch.Set "nextPage" .menu -}}
+                  {{- $currentNode.Scratch.Set "prevPage" ($currentNode.Scratch.Get "prevPageTmp") -}}
+                {{- end -}}
+              {{- else -}}
+                {{- if eq ($currentNode.Scratch.Get "NextPageOK") "OK" -}}
+                  {{- $currentNode.Scratch.Set "NextPageOK" nil -}}
+                  {{ if in $menu_exclusion .menu.Section }}
+                  {{- else -}}
+                    {{- $currentNode.Scratch.Set "nextPage" .menu -}}
+                  {{- end -}}
                 {{- end -}}
               {{- end -}}
-            {{- end -}}
+
 
             {{- $currentNode.Scratch.Set "prevPageTmp" .menu -}}
             {{- $currentNode.Scratch.Set "pages" .menu.Pages -}}
