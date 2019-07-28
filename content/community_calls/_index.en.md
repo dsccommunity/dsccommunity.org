@@ -41,5 +41,5 @@ two files for agenda and notes.
 hugo new --kind communitycall community_calls/2019-09-03
 ```
 
-Make sure to change the weight to to get it into the correct descending
-order in the table of contents.
+Make sure to change the front matter variable `weight` to to get them into
+the correct descending order in the table of contents.
