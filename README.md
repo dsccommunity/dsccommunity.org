@@ -10,13 +10,11 @@ It is not meant to replace the [existing forums found on PowerShell.Org](https:/
 
 ## Production Website
 
-Currently the Website is in construction. The goal will be to host it in GitHub pages (Most likely), and have it driven through an automated pipeline.
-
-[Here's the documentation](https://gohugo.io/hosting-and-deployment/hosting-on-github/) that I'm likely to follow.
-
 This DSC Community Organization is not official yet, and assuming no-one has strong objections with the current plan (emailed to maintainers on July 14th 2019), this should be official by the next DSC Community Call the 31st of July, latest.
 
-## Technologies & Getting Started
+## Contributing
+
+### Getting Started
 
 The website is a HUGO generated static website: it takes files in markdown format and assets to generate a static HTML website.
 
@@ -75,7 +73,7 @@ upstream        git@github.com:dsccommunity/dsccommunity.org.git (fetch)
 upstream        git@github.com:dsccommunity/dsccommunity.org.git (push)
 ```
 
-## Preparing for a change
+### Preparing for a change
 
 When you need to make changes to the repository, make sure you always follow this process:
 
@@ -124,7 +122,7 @@ master, before pushing to your origin master (your private fork).
 # Again, try to always avoid base a pull request on your private origin/master.
 ```
 
-## Running the website locally
+### Running the website locally
 
 Now that you have HUGO installed, and you have the clone of your personal fork locally, you can run the Hugo server.
 
