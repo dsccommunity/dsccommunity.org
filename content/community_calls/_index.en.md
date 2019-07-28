@@ -1,7 +1,11 @@
 ---
 title: "Community Calls"
 date: 2019-07-28
-bgcolor: '#00CC6A'
+weight: 6
+icon: "ti-headphone-alt"
+description: "Agenda for the next community call and meeting notes"
+type : "pages"
+bgcolor: '#FFB900'
 ---
 
 ### Community Calls
@@ -28,18 +32,18 @@ Participants using the Join by Phone option must dial the full number for call a
 
 ### Community Call Agenda
 
-To the left you find the next agenda and the previous community call agendas.
-Please feel free to send in PR's to add items that you feel need to be discussed
+To the left you find the next agenda and the previous community call notes
+from what has been discussed.
+Please feel free to send in PR's to add items you feel need to be discussed
 to the agenda for the next community call.
 
-### Add new agenda and notes to the web site
+### Add next community call agenda and update notes to the web site
 
-This will create a new folder under `content/community_calls` containing
-two files for agenda and notes.
+Make sure after the call that the agenda (next_call.en.md) is renamed
+appropriately, and the `weight: 99x` decremented from the last notes.
+
+Then run the command below to create a new file under `content/community_calls`.
 
 ```bash
-hugo new --kind communitycall community_calls/2019-09-03
+hugo new community_calls/next_call.en.md
 ```
-
-Make sure to change the front matter variable `weight` to get them into
-the correct descending order in the table of contents.
