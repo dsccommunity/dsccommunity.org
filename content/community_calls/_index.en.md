@@ -1,6 +1,7 @@
 ---
 title: "Community Calls"
 date: 2019-07-28
+bgcolor: '#00CC6A'
 ---
 
 ### Community Calls
