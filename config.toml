@@ -27,9 +27,14 @@ bgcolor = "#ffffff"
     [Languages.en.menu]
 
       [[Languages.en.menu.main]]
-        weight = 2
+        weight = 1
         name = "Code of Conduct"
         url = "/code_of_conduct"
+
+      [[Languages.en.menu.main]]
+        weight = 2
+        name = "Community Calls"
+        url = "/community_calls"
 
       [[Languages.en.menu.main]]
         weight = 3
@@ -55,24 +60,27 @@ bgcolor = "#ffffff"
 
           [[Languages.en.menu.main]]
           parent = "Categories"
+          name = "Resource Modules"
+          URL = "/resources"
+          weight = 2
+
+          [[Languages.en.menu.main]]
+          parent = "Categories"
           name = "Guidelines"
           URL = "/guidelines"
-          weight = 2
+          weight = 3
 
           [[Languages.en.menu.main]]
           parent = "Categories"
           name = "Blog Posts"
           URL = "/blog"
-          weight = 3
+          weight = 4
 
           [[Languages.en.menu.main]]
           parent = "Categories"
-          name = "Config Management"
+          name = "Config. Management"
           URL = "/configmgt"
-          weight = 4
-
-
-
+          weight = 5
 
     # banner
     [Languages.en.params.banner]
