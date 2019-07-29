@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          {{ with .Site.Params.banner.title }} <h1 class="text-white mb-4">{{ . }}</h1> {{ end }}
+           <h1 class="text-white mb-4">{{ .Params.title }}</h1>
           {{ with .Site.Params.banner.placeholder }} <input id="search" class="form-control" placeholder="{{ . }}"> {{ end }}
             {{ "<!-- Javascript -->" | safeHTML }}
             <script>
