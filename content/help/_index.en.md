@@ -5,22 +5,16 @@ description: "Where to find Help with DSC"
 bgcolor: '#00CC6A'
 ---
 
-## What is Desired State Configuration
-
-As per [the official documentation](https://docs.microsoft.com/en-us/powershell/dsc/overview/overview), DSC is a management Platform in PowerShell.
-
-It is built around different components:
-
-- **DSC DSL**: The **Domain Specific Language** of DSC with the `Configuration` keyword
-- **DSC LCM**: The **Local Configuration Manager**, that can be seen as the agent enacting the configurations on the managed nodes
-- **DSC Resources**: A rich ecosystem of modules exposing declarative and idempotent interface to imperative code configuring resources
-- **DSC Pull Server**: External component implementing the MS-DSCPM protocol to register nodes, offer configuration, gather reporting from the LCM
-
 ## Where to find Help
 
-DSC being a framework, a basic structure for configuration management, finding answers to your problem might be difficult if you only rely on the official documentation.
+DSC being a framework—a basic structure for configuration management—finding
+ answers to your problem might be difficult if you only rely on the
+ official documentation.
 
 Here's a quick run down of the best source of information we know of.
+
+This is not official or approved documentation (we're not Microsoft),
+and some may be opinionated.
 
 <hr />
 
