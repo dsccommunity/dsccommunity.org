@@ -8,13 +8,13 @@ bgcolor: '#00CC6A'
 ## Where to find Help
 
 DSC being a framework—a basic structure for configuration management—finding
- answers to your problem might be difficult if you only rely on the
- official documentation.
+answers to your problem might be difficult if you only rely on the official
+documentation.
 
-Here's a quick run down of the best source of information we know of.
+Here is a quick run down of the best source of information we know of.
 
 This is not official or approved documentation (we're not Microsoft),
-and some may be opinionated.
+and so some may be opinionated.
 
 <hr />
 
