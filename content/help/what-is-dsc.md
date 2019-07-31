@@ -18,6 +18,22 @@ It is built around different components:
 - **DSC Pull Server**: External component implementing the [MS-DSCPM protocol](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-dscpm/ea744c01-51a2-4000-9ef2-312711dcc8c9)
  to register nodes, offer configuration, gather reporting from the LCM
 
+The **DSL** is what allows us to use the Declarative Syntax within PowerShell
+to define the configuration policy of your systems, and compiles (or serialize)
+into MOF Documents.
+The **LCM** is the agent what enacts those MOF documents, whether on demand or
+periodically when using the Pull model.
+
+The **pull server** is a glorified File server that implements the MS-DSCPM protocol
+to talk to the LCM. The **Report server** is a data collector aggregating the
+results of each DSC runs in its database.
+
+The **DSC resources** are some sorts of interfaces enabling idempotent
+characteristics to scripts configuring atomic resources, or a composition
+of different resources. The most populars are written for the Windows LCM
+supporting PowerShell 5.1, but some exists for Linux and can be written in Python
+or pretty much any language.
+
 ## What is it used for
 
 DSC is a platform enabling **idempotent** and **declarative** configuration,

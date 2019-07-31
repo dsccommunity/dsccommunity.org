@@ -12,7 +12,18 @@ directions Microsoft is taking for DSC and its ecosystem.
 
 Here, we'll try to explain what **we** understand from the DSC Community.
 
-## Grow and expand the ecosystem
+## Former plans & realignment
+
+Microsoft's DSC Team, about a year and an half ago, was working
+on a new version of the LCM component of the DSC Platform.
+
+They were thinking they would open-source it shortly after, as you can judge
+from the DSC Planning update of the time, or optimistic sessions delivered
+by the teams. They labelled, confusingly, the work a new DSC, or DSC Core,
+before rectifying some of this communication.
+
+
+
 
 ## No plan for DSCvNext
 
