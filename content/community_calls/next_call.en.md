@@ -12,7 +12,21 @@ type: "post"
 
 ### Resources to be released
 
-TBC
+ActiveDirectoryCSDsc
+ComputerManagementDsc
+DFSDsc (get examples published)
+NetworkingDsc (?)
+OfficeOnlineServerDsc (?)
+SecurityPolicyDsc
+SqlServerDsc
+ActiveDirectoryDsc (renamed from xActiveDirectory)
+StorageDsc
+xBitlocker
+xDnsServer
+xPSDesiredStateConfiguration
+xSCSMA
+xWebAdministration
+SharePointDsc (?)
 
 ### Discussions
 
