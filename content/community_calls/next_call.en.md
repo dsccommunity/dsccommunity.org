@@ -32,5 +32,7 @@ TBC
 
 - DSC Community Website
 
+- RFC Invoke-DscResource
+
 - Talk to us on **Virtual PowerShell User Group** _#DSC_ channel.
   Information how to join, see https://dsccommunity.org/community/contact/
