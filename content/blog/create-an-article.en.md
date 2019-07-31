@@ -6,8 +6,6 @@ weight: 1
 draft: false
 ---
 
-## How to Create an Article
-
 Creating the md file is easy, but you might want to double check how it will
 render on the website. To do so, we recommend you to install Hugo
 (using Chocolatey it's just a `choco install hugo`) and test what you create.
