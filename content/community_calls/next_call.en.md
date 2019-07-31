@@ -32,7 +32,5 @@ TBC
 
 - DSC Community Website
 
-- Some surprise announcement will be made! Watch this space!
-
 - Talk to us on **Virtual PowerShell User Group** _#DSC_ channel.
   Information how to join, see https://dsccommunity.org/community/contact/
