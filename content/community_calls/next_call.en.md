@@ -18,6 +18,20 @@ TBC
 
 - Topics or questions from the community (welcome at any point during the call)
 
+- Resource Kit August 2019
+
+- DSC Community Logo
+
+- DSC Community Organization
+
+- DSC Community Committee
+
+- Invoke-DscResource RFC
+
+- Transferring repositories & PS Gallery Packages
+
+- DSC Community Website
+
 - Some surprise announcement will be made! Watch this space!
 
 - Talk to us on **Virtual PowerShell User Group** _#DSC_ channel.
