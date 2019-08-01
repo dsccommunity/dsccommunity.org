@@ -1,51 +1,24 @@
 ---
-title: "Next Community Call"
-date: 2019-07-28
+title: "Next Community Call 2019-09-11"
 weight: 1
 type: "post"
+date: 2019-08-01
 ---
 
-## 2019-07-31
+[How to join](..)
+
+### Agenda
 
 - Feel free to send a PR to this file if there's something you'd like
   to add to the agenda
 
-### Resources to be released
+#### Resources to be released
 
-- ActiveDirectoryCSDsc (BREAKING CHANGES)
-- ComputerManagementDsc
-- DFSDsc (get examples published)
-- OfficeOnlineServerDsc (?)
-- SecurityPolicyDsc
-- SqlServerDsc
-- ActiveDirectoryDsc (renamed from xActiveDirectory - BREAKING CHANGES)
-- StorageDsc
-- xBitlocker
-- xDnsServer
-- xPSDesiredStateConfiguration
-- xSCSMA
-- xWebAdministration
-- SharePointDsc (?)
+TBC
 
 ### Discussions
 
-- Topics or questions from the community (welcome at any point during the call)
+Topics or questions from the community (welcome at any point during the call)
 
-- Resource Kit August 2019
-
-- DSC Community Logo
-
-- DSC Community Organization
-
-- DSC Community Committee
-
-- Invoke-DscResource RFC
-
-- Transferring repositories & PS Gallery Packages
-
-- DSC Community Website
-
-- RFC Invoke-DscResource
-
-- Talk to us on **Virtual PowerShell User Group** _#DSC_ channel.
-  Information how to join, see https://dsccommunity.org/community/contact/
+Talk to us on **Virtual PowerShell User Group** _#DSC_ channel.
+For information on how to join, see https://dsccommunity.org/community/contact/
