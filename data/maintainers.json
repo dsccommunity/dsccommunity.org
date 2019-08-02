@@ -282,6 +282,19 @@
                 "repository": "xWebAdministration"
             }
         ]
+    },
+    {
+        "accountName": "mcollera",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "DFSDsc"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xHyper-V"
+            }
+        ]
     }
 ]
 
