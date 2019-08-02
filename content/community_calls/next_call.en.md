@@ -16,6 +16,10 @@ date: 2019-08-01
 
 TBC
 
+#### Should leaving unsupported OS be treated as breaking change
+
+For example Windows Server 2008 R2 is leaving extended support.
+
 ### Discussions
 
 Topics or questions from the community (welcome at any point during the call)
