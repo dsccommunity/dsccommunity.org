@@ -37,6 +37,8 @@ from what has been discussed.
 Please feel free to send in PR's to add items you feel need to be discussed
 to the agenda for the next community call.
 
+>The file to update for new agenda items is [`content/community_calls/next_call.en.md`](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
+
 ### Add next community call agenda and update notes to the web site
 
 Make sure after the call that the agenda (next_call.en.md) is renamed
