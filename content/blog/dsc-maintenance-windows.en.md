@@ -5,6 +5,13 @@ type: "post"
 draft: false
 ---
 
+## Author
+Raimund Andree is a Premier Field Engineer working for Microsoft in Germany. His work is mainly about DevOps in the Microsoft space using Azure DevOps, DSC and PowerShell. He is sharing the experiance gained at PowerShell conferences and community days and through the projects [AutomatedLab](https://github.com/AutomatedLab/AutomatedLab) and [DscWorkshop](https://github.com/AutomatedLab/DscWorkshop).
+
+- Twitter: @raimundandree
+- GitHub: https://github.com/raandree/
+- LinkedIn: https://de.linkedin.com/in/raimund-andree-69a78871
+
 ## Introduction
 
 Since 2017 I was involved in a number of DSC project in mid-size to very large enterprises.  It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option lack of maintenance window support. DSC runs whenever the time fires. This is fine for some enterprises but not for all. This article summarizes the ideas and their technical implementation I have worked on with two large enterprises. Both of them have a very time critical business, they don’t accept downtimes, and both wanted to have DSC running in the "ApplyAndAutoCorrenct" mode.
