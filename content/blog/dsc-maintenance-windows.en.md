@@ -6,46 +6,47 @@ draft: false
 ---
 
 ## Author
-Raimund Andree is a Premier Field Engineer working for Microsoft in Germany. His work is mainly about DevOps in the Microsoft space using Azure DevOps, DSC and PowerShell. He is sharing the experiance gained at PowerShell conferences and community days and through the projects [AutomatedLab](https://github.com/AutomatedLab/AutomatedLab) and [DscWorkshop](https://github.com/AutomatedLab/DscWorkshop).
+Raimund Andree is a Premier Field Engineer working for Microsoft in Germany. His work is mainly about DevOps in the Microsoft space using Azure DevOps, DSC and PowerShell. He is sharing the experience gained at PowerShell conferences, community days and while working on the projects [AutomatedLab](https://github.com/AutomatedLab/AutomatedLab) and [DscWorkshop](https://github.com/AutomatedLab/DscWorkshop).
 
 - Twitter: @raimundandree
 - GitHub: https://github.com/raandree/
-- LinkedIn: https://de.linkedin.com/in/raimund-andree-69a78871
+- LinkedIn: https://linkedin.com/in/raimund-andree-69a78871
 
 ## Introduction
 
-Since 2017 I was involved in a number of DSC project in mid-size to very large enterprises.  It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option lack of maintenance window support. DSC runs whenever the time fires. This is fine for some enterprises but not for all. This article summarizes the ideas and their technical implementation I have worked on with two large enterprises. Both of them have a very time critical business, they don’t accept downtimes, and both wanted to have DSC running in the "ApplyAndAutoCorrenct" mode.
+Since 2017 I was involved in a number of DSC projects in medium to very large enterprises. It has not been easy to implement DSC for a number of reasons. For some companies, the reason why DSC was not an option is the lack of support for maintenance windows. DSC runs whenever an internal timer expires. This is fine for some enterprises but not for all.  
+This article summarizes the ideas and their technical implementation I have worked on with two large enterprises. Both of them have a very time-sensitive business, they don’t accept downtimes, and both wanted to have DSC running in the "ApplyAndAutoCorrenct" mode.
 
 The way how maintenance windows have been implemented leaves room for improvement but should cover most of the requirements. You can define a start time and a time frame and if desired also a day of week.
 
 ## Technical summary
 
-There is no fancy way of changing the behavior of the LCM shipped with Windows Management Framework 5.1. This LCM simply does not support maintenance windows and always runs according to the given interval. The only way to control it is a combination of two scheduled tasks. Yes, scheduled tasks are not always nice and hard to maintain, but: If you can configure the scheduled tasks along with your maintenance windows and along with all your other configuration using DSC, they create almost zero overhead. And thanks to DSC you know that at least these two scheduled tasks are always configured as they should be. So please, don’t stop reading just because this whole thing is based upon scheduled tasks. Scheduled tasks are the only tool we have here.
+There is no fancy way of changing the behavior of the LCM shipped with Windows Management Framework 5.1. This LCM simply does not support maintenance windows and always runs according to the given interval. The only way to control it is a combination of two scheduled tasks. Yes, scheduled tasks are not always nice and tend to be hard to maintain, but: If you can configure the scheduled tasks along with your maintenance windows and along with all your other configuration using DSC, they create almost zero overhead. And thanks to DSC you know that at least these two scheduled tasks are always configured as they should be. So please, don’t stop reading just because this whole thing is based upon scheduled tasks. Scheduled tasks are the only built-in tool we have here.
 
 One task is postponing the LCM so it will never be triggered by its default triggers. This pretty much disables the LCM. The second scheduled task serves as an external trigger for the LCM. It looks for the last time the LCM did run, the interval and the maintenance windows and triggers the LCM if all conditions are met. If this sounds like something you could use, please read on.
 
 ## Technical requirements
 
-The only technical requirements this solution depends on are scheduled tasks and DSC. But, the actual implementation of the idea is realized with some principles, patterns and tools that are lifting DSC to a completely new level. Yes, it makes it more complex at first but pays off extremely quickly. The things I have used here are:
+The only technical requirements this solution depends on are scheduled tasks and DSC. The actual implementation of the idea is realized with some principles, patterns and tools that are lifting DSC to a completely new level. While it makes the solution more complex at first, it pays off quickly. The things I have used here are:
 
 - [Datum](https://github.com/gaelcolas/Datum)): Without it, flexible and scalable config management is pretty much impossible.
 - [DSC Composite Resources](https://docs.microsoft.com/en-us/powershell/dsc/resources/authoringresourcecomposite): You want to be able to split up DSC configurations into manageable pieces, like you want to split up code into functions. With Datum this gets quite powerful as you can assign these composite resources to roles.
 
 ## A detour to configuration management 
 
-> NOTE: It helps having looked or even better played with the DscWorkshop project. Implementing maintenance windows within the demo provided there was quite an easy task, as many things are already covered. You will find there a lot of other cool principals and patterns around DSC, Policy-Driven Infrastructure and config management.
+> NOTE: It helps having looked or even better played with the DscWorkshop project. Implementing maintenance windows within the demo provided was quite an easy task, as many things are already covered. You will find a lot of other cool principals and patterns around DSC, Policy-Driven Infrastructure and config management.
 
 Before covering the maintenance windows, we have to take a little detour to make ourselves familiar with roles and configurations. This detour is very scenic and worth every minute. And finally, it saves you a lot of time in any future DSC project.
 
-In the [DscWorkshop](https://github.com/AutomatedLab/DscWorkshop) we use [Datum](https://github.com/gaelcolas/Datum) to handle the configuration data. With Datum we can apply a pattern similar to [Puppet’s Roles and Profiles](https://puppet.com/docs/pe/2017.2/r_n_p_intro.html). The DscWorkshop uses configurations defined in the [CommonTasks](https://github.com/AutomatedLab/CommonTasks) repository. This repository is named CommonTasks as it provides simple access to a few common configurations that most of you might need when configuring servers. For example, let’s suppose you want to configure a web server with DSC. This could be the list of configurations you want to assign to a web server:
+In the [DscWorkshop](https://github.com/AutomatedLab/DscWorkshop) project we use [Datum](https://github.com/gaelcolas/Datum) to handle the configuration data. With Datum we can apply a pattern similar to [Puppet’s Roles and Profiles](https://puppet.com/docs/pe/2017.2/r_n_p_intro.html). The DscWorkshop uses configurations defined in the [CommonTasks](https://github.com/AutomatedLab/CommonTasks) repository. This repository is named CommonTasks as it provides simple access to a few common configurations that most of you might need when configuring servers. For example, let’s suppose you want to configure a web server with DSC. This could be the list of configurations you want to assign to a web server:
 
 - NetworkIpConfiguration: Let’s make sure the server has the correct network settings
 - WindowsFeatures: You want to make sure the OS knows how to host a web site
 - FilesAndFolders: Your web content should be copied from somewhere
 - WebSite: There should be a separate web site for our stuff
 
-These four configurations are [DSC composite resources](https://docs.microsoft.com/en-us/powershell/dsc/resources/authoringresourcecomposite). If a DSC configuration get too large, you should split it up in portions that are called composite resources. Composite resources are like functions. You can add some logic to it to meet your / your businesses’ requirements, like done in the [SecurityBase]( https://github.com/AutomatedLab/CommonTasks/blob/dev/CommonTasks/DscResources/SecurityBase/SecurityBase.schema.psm1) configuration.
-We gain efficiency, flexibility and scalability by converting all common requirements into configurations (DSC composite resources). Your next task may be configuring file servers with DSC as the web server thing went great. File servers should be even simpler, and you can reuse the NetworkIpConfiguration, WindowsFeature and FilesAndFolders configuration and you are almost done. Adding configuration data should be a quick thing.
+These four configurations are [DSC composite resources](https://docs.microsoft.com/en-us/powershell/dsc/resources/authoringresourcecomposite). If a DSC configuration gets too large, you should split it up in portions that are called composite resources. Composite resources are like functions. You can add some logic to it to meet your / your businesses’ requirements, like done in the [SecurityBase]( https://github.com/AutomatedLab/CommonTasks/blob/dev/CommonTasks/DscResources/SecurityBase/SecurityBase.schema.psm1) configuration.
+We gain efficiency, flexibility and scalability by converting all common requirements into configurations (DSC composite resources). Your next task may be configuring file servers with DSC as the web server thing went great. File servers should be even simpler, and you can reuse the NetworkIpConfiguration, WindowsFeature and FilesAndFolders configuration and you are almost done. Adding configuration data should be quick now.
 
 > Note: There will be some further articles describing the [DscWorkshop](https://github.com/AutomatedLab/DscWorkshop) project. These ones will give an introduction into configuration management data for DSC and how to build an infrastructure release pipeline.
 
@@ -149,7 +150,7 @@ TaskPath         TaskName                          State
 
 #### LCM Postpone task
 
-The first important thing is to disable the LCM default trigger. The LCM does not offer a switch to do that, so we have to find a workaround. The workaround is a scheduled task that runs regularly and sets the LCM's ConfigurationModeFrequencyMins to the max value (31 days or 44640 minutes) using Set-DscLocalConfigurationManager. The next time the job runs it set the ConfigurationModeFrequencyMins to the max value -1 minute. This makes the LCM never start automatically if there is no external trigger.
+The first important step is to disable the LCM default trigger. The LCM does not offer a switch to do that, so we have to find a workaround. The workaround is a scheduled task that runs regularly and sets the LCM's ConfigurationModeFrequencyMins to the max value (31 days or 44640 minutes) using Set-DscLocalConfigurationManager. The next time the job runs it set the ConfigurationModeFrequencyMins to the max value -1 minute. This ensures that the LCM never starts automatically if there is no external trigger.
 This code snippet is part of one scheduled job that the [DscLcmController]( https://github.com/AutomatedLab/CommonTasks/blob/dev/CommonTasks/DscResources/DscLcmController/DscLcmController.schema.psm1) configuration is creating.
 
 ``` PowerShell
@@ -162,11 +163,11 @@ else {
 ```
 
 #### LCM Controller / new LCM trigger
-Ok, now the LCM does not run at all. Another schedule job is required that serves as an external trigger. This one is also created by the DscLcmContoller configuration and is the more interesting one.
+Now that the LCM does not run at all another schedule job is required that serves as an external trigger. This one is also created by the DscLcmContoller configuration and is the more interesting one.
 
 The LCM controller script reads the registry values created by the DscLcmContoller configuration first. Based upon that information, it decides whether the machine is in a maintenance window. Multiple maintenance windows are supported.
 
- It then checks if enough time has passed since the last time the LCM did run (ConsistencyCheckInterval and LastConsistencyCheck).
+It then checks if enough time has passed since the last time the LCM did run (ConsistencyCheckInterval and LastConsistencyCheck).
 
 ##### Specific scenario
 
@@ -175,7 +176,7 @@ Let’s jump to August 10, 2019. This is a Wednesday and it is 0100 in the morni
 
 ### Logging
 
-For troubleshooting the maintenance window implementation write a couple of very small logs into the directory "C:\ProgramData\Dsc\LcmController".
+For troubleshooting purposes, the maintenance window implementation writes a couple of very small logs in the directory "C:\ProgramData\Dsc\LcmController".
 
 ``` none
 PS C:\ProgramData\Dsc\LcmController> dir
@@ -246,4 +247,4 @@ Each time the LCM is postponed, one line is written to this log file.
 
 ## Summary
 If you have a running DSC implementation or if you are planning to do things with DSC on Windows Management Framework 5.1 there is no standard way to add maintenance window support. The method described here may require you to change your current design as depends on the implementation shown in the [DscWorkshop](https://github.com/AutomatedLab/DscWorkshop
-). However, when doing so you get a lot of added value and a really robust and flexible way of dealing with configuration data.
+). However in doing so you get a lot of added value and a really robust and flexible way of dealing with configuration data.
