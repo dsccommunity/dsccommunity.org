@@ -29,7 +29,8 @@ date: 2019-08-01
 - xSCSMA
 - xWebAdministration
 
-Deprecated
+##### Deprecated
+
 - xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet)
 - xPendingReboot (moved to ComputerManagementDsc)
 
