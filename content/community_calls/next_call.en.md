@@ -14,7 +14,24 @@ date: 2019-08-01
 
 #### Resources to be released
 
-TBC
+- ActiveDirectoryDsc
+- ComputerManagementDsc (BREAKING CHANGE - ScheduleTask)
+- DFSDsc (Fix to get the examples to be published)
+- NetworkingDsc
+- SharePointDsc (might not be released)
+- StorageDsc
+- WmiNamespaceSecurityDsc (former WmiNamespaceSecurity)
+- xDnsServer
+- xFailOverCluster
+- xHyper-V
+- xPSDesiredStateConfiguration
+- xRemoteDesktopSessionHost
+- xSCSMA
+- xWebAdministration
+
+Deprecated
+- xRemoteDesktopAdmin (moved to ComputerManagementDsc) (No PR to deprecate yet)
+- xPendingReboot (moved to ComputerManagementDsc)
 
 #### Should leaving unsupported OS be treated as breaking change
 
