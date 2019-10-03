@@ -3,11 +3,12 @@ title: "How to Use Dsc Logging"
 date: 2019-09-24T16:37:42+02:00
 type: "post"
 draft: false
+author: ykuijs
 ---
 
-PowerShell Desired State Configuration (DSC) logs its deployment progress and errors
-on several places. The most commonly known location is the event log, where errors
-are logged in the log:
+The Local Configuration Manager (LCM) in PowerShell Desired State Configuration (DSC)
+logs its deployment progress and errors on several places. The most commonly known
+location is the event log, where errors are logged in the log:
 **Applications and Services Logs \ Microsoft \ Windows \ Desired State Configuration \ Operational**
 
 <img src="../../images/dsc_eventlog.png" alt="DSC Eventlog" style="width:725px;" />
@@ -16,6 +17,7 @@ This log contains various events that were generated during a DSC job, it is how
 less useful to track the progress of a running job.
 
 ### Deployment process
+
 When doing a push deployment using Start-DscConfiguration, you can use the
 -Verbose parameter to output verbose logging to the screen. A downside of this
 verbose logging is that reboots will kill this logging. After the restart DSC
@@ -31,7 +33,7 @@ For each job, DSC creates two files:
 1. **{\<DSC_Job_Id\>}-0.mof**
    * This file contains LCM configuration, resources not in the desired state and
      the results of the DSC job.
-2. **{\<DSC_Job_Id\>}-0.details.json**
+1. **{\<DSC_Job_Id\>}-0.details.json**
    * This file contains the verbose logging in JSON format.
 
 If you want to know the job id of a specific DSC job, the cmdlet Get-DscConfigurationStatus
@@ -83,7 +85,7 @@ Success    26-9-2019 14:27:44        Consistency     PUSH  False                
 ...
 ```
 
-You can use the pipeline and filtering to extract the job you are interested in.
+You can use the pipeline and filter to extract the job you are interested in.
 For example:
 
 ```PowerShell
@@ -98,7 +100,7 @@ not work, also the logfile that is currently being created cannot be read!
 Neither via Windows Explorer, nor via PowerShell.
 So how can you keep track of the progress of an active DSC job?
 
-Fortunately some digging around on the Internet resulted in a solution!
+Fortunately some digging around on the Internet resulted in a [solution](https://superuser.com/questions/1184789/powershell-get-content-without-locking-file)!
 
 ### DSC Log Parser script
 
