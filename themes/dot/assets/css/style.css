@@ -132,9 +132,17 @@ body {
   justify-content: center;
 }
 
-ol,
+ol {
+  list-style-type: decimal;
+  margin-left: 10px;
+}
+li {
+  margin-left: 15px;
+  font-size: 15px;
+}
+
 ul {
-  list-style-type: none; 
+  list-style-type: disc;
   margin: 0px;
 }
 
@@ -533,7 +541,7 @@ ul li a {
   font-style: italic;
   font-size: 14px;
   font-weight: bold;
-} 
+}
 
 blockquote {
   font-size: 20px !important;
@@ -547,10 +555,16 @@ blockquote {
 .list-styled li {
   padding-left: 20px;
   position: relative;
+  list-style-type: none;
+  margin-left: 0px;
+  font-size: 18px;
 }
 
 .list-styled li::before {
   position: absolute;
+  font-size: 18px;
+  list-style-type: none;
+  margin-left: 0px;
   content: '';
   height: 8px;
   width: 8px;
