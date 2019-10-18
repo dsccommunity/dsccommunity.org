@@ -37,7 +37,7 @@ For each job, DSC creates two files:
 
 1. **{\<DSC_Job_Id\>}-0.details.json**
 
-   This file contains the verbose logging in JSON format.
+     This file contains the verbose logging in JSON format.
 
 If you want to know the job id of a specific DSC job, the cmdlet Get-DscConfigurationStatus
 is your best friend. Without parameters this cmdlet will only retrieve the most recent
