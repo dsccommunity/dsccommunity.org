@@ -31,10 +31,13 @@ to log files in: **C:\Windows\System32\Configuration\ConfigurationStatus**
 For each job, DSC creates two files:
 
 1. **{\<DSC_Job_Id\>}-0.mof**
-   * This file contains LCM configuration, resources not in the desired state and
+
+     This file contains LCM configuration, resources not in the desired state and
      the results of the DSC job.
+
 1. **{\<DSC_Job_Id\>}-0.details.json**
-   * This file contains the verbose logging in JSON format.
+
+   This file contains the verbose logging in JSON format.
 
 If you want to know the job id of a specific DSC job, the cmdlet Get-DscConfigurationStatus
 is your best friend. Without parameters this cmdlet will only retrieve the most recent
@@ -45,7 +48,7 @@ PS C:\> Get-DscConfigurationStatus | fl
 
 JobID                      : {CB285D33-E069-11E9-B86F-B4AE2BDC70C4}
 HostName                   : SERVER
-Error                      : 
+Error                      :
 Locale                     : nl-NL
 IPV4Addresses              : {169.254.64.242, 169.254.192.125, 192.168.0.1...}
 IPV6Addresses              : {fe80::944e:555:4c67:40f2%7, ::2000:0:0:0, fe80::b431:fdc4:c5a5:c07d%16...}
@@ -60,9 +63,9 @@ Status                     : Success
 StartDate                  : 26-9-2019 16:27:41
 DurationInSeconds          : 0
 RebootRequested            : False
-ResourcesInDesiredState    : 
+ResourcesInDesiredState    :
 ResourcesNotInDesiredState : {[SChannelSettings]ConfigureSChannel}
-PSComputerName             : 
+PSComputerName             :
 ```
 
 If you want to know which DSC jobs have ran in the past period, you can add the -All
