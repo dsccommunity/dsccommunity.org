@@ -359,6 +359,7 @@ $myArray = @(
 
 Hashtables and Objects should be written in the following format.
 Each property should be on its own line indented once.
+There should be no space between the brackets of an empty hashtable.
 
 **Bad:**
 
