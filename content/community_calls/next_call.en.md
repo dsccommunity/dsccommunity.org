@@ -12,6 +12,10 @@ Next call will be on Wednesday, October 23rd, at
 
 - Demo of automation as introduced during last call
 
+- Share results of DSC survey
+
+- More maintainers for the DSC resources needed?
+
 - Feel free to send a PR to this file if there's something you'd like
   to add to the agenda
 
