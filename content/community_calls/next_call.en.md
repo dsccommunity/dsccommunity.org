@@ -28,7 +28,7 @@ Next call will be on Wednesday, October 23rd, at
 - xDnsServer
 - xExchange (new resource `xExchAcceptedDomain`)
 - xHyper-V
-- xWebAdministration
+- xWebAdministration (BREAKING CHANGE: `xWebAppPoolDefaults`, `xWebSiteDefaults`)
 
 ### Discussions
 
