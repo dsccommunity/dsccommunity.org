@@ -21,7 +21,14 @@ Next call will be on Wednesday, October 23rd, at
 
 #### Resources to be released
 
-TBD
+- ActiveDirectoryDsc
+- ComputerManagementDsc (new resource `SmbServerConfiguration`)
+- StorageDsc
+- xDSCResourceDesigner
+- xDnsServer
+- xExchange (new resource `xExchAcceptedDomain`)
+- xHyper-V
+- xWebAdministration
 
 ### Discussions
 
