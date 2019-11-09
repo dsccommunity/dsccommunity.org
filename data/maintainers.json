@@ -13,6 +13,10 @@
             {
                 "organization": "PowerShell",
                 "repository": "xFailOverCluster"
+            },
+            {
+                "organization": "PowerShell",
+                "repository": "xWebAdministration"
             }
         ]
     },
