@@ -295,6 +295,15 @@
                 "repository": "xHyper-V"
             }
         ]
+    },
+    {
+        "accountName": "X-Guardian",
+        "modules": [
+            {
+                "organization": "PowerShell",
+                "repository": "ActiveDirectoryDsc"
+            }
+        ]
     }
 ]
 
