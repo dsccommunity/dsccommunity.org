@@ -1,34 +1,40 @@
 ---
-title: "Next Community Call 2019-10-23"
+title: "Next Community Call 2019-12-04"
 weight: 1
 type: "post"
-date: 2019-10-01
+date: 2019-11-01
 ---
-Next call will be on Wednesday, October 23rd, at
+Next call will be on Wednesday, December 4th, at 12 PM PST
 
 [How to join](..)
 
 ### Agenda
 
-- Demo of automation as introduced during last call
+- Demo of automation and status update (continued)
+  - DscResource.AnalyzerRules
+  - DscResource.Test
+  - Sampler & AzureDevOps
 
-- Share results of DSC survey
+- DSC Community Maintainers, what should you do?
+  - Accept GitHub Invitation (or tell us if you did not receive it)
+  - Consider making your [DSC Community membership public](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership)
+  - Use the DSC Community's Teams [for communication (discussions)](https://github.com/orgs/dsccommunity/teams/maintainers/)
+  - Consider updating your GitHUb picture & Bio (we use it to [display on the website](https://dsccommunity.org/community/maintainers/))
+  - Try doing code reviews even outside of your repository.
+    We'll try to prioritize your next request for review.
+  - Start upgrading to the new release automation, ask if any issue,
+    we'll help and document as we go.
 
-- More maintainers for the DSC resources needed?
+- You have a question about DSC, The Resources in general (not a specific one),
+  the DSC Community? [Open an issue here](https://github.com/dsccommunity/dsccommunity.org/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)!
 
-- Feel free to send a PR to this file if there's something you'd like
-  to add to the agenda
+- Feel free to [send a PR to this file](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
+  if there's something you'd like to be added to the agenda (or just ask
+  during the call)
 
 #### Resources to be released
 
-- ActiveDirectoryDsc
-- ComputerManagementDsc (new resource `SmbServerConfiguration`)
-- StorageDsc
-- xDSCResourceDesigner
-- xDnsServer
-- xExchange (new resource `xExchAcceptedDomain`)
-- xHyper-V
-- xWebAdministration (BREAKING CHANGE: `xWebAppPoolDefaults`, `xWebSiteDefaults`)
+- TBC
 
 ### Discussions
 
