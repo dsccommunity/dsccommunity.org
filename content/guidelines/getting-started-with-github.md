@@ -91,7 +91,7 @@ git version 2.24.1.windows.2
 
 **Git for Windows** installed a credential manager that will help you
 connect using your GitHub credentials. It will popup the first time
-your credentials are needed for example when pushing to a repository on
+your credentials are needed, for example when pushing to a repository on
 GitHub.
 
 ### Configure Git
