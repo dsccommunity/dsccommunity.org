@@ -3,13 +3,13 @@ title: "Guidelines"
 date: 2018-12-28T11:02:05+06:00
 icon: "ti-shortcode"
 weight: 3
-description: "Best Practices and Guidelines for High Quality Resource Modules"
+description: "The guidelines for the DSC Community around contributing, maintaining, and style"
 type : "pages"
-bgcolor: '#FF4343'
+bgcolor: '#ff436c'
 ---
 
-In this section we describe what's the current state of the guidelines and best
-practices to create a **High Quality Resource Module**.
+The guidelines for the DSC Community around contributing, maintaining,
+and style to use for code, tests and markdown.
 
-See the following sections for more details, and if you need more guidance
+See the above sections for more details, and if you need more guidance
 [join the conversation](/community/contact/) and ask away!
