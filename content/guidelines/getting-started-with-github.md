@@ -17,12 +17,14 @@ DSC resources within the DSC Community.
 - [Install Visual Studio Code](#install-visual-studio-code)
 - [Install Git](#install-git)
 - [Configure Git](#configure-git)
+- [Install PowerShell Module posh-git](#install-powershell-module-posh-git)
 - [Setup SSH key](#setup-ssh-key)
 - [Clone repository from GitHub](#clone-repository-from-github)
 - [Securely storing Git credentials](#securely-storing-git-credentials)
 - [Forking a repository on GitHub](#forking-a-repository-on-github)
-- [Adding the fork as a remote on the local machine](#adding-the-fork-as-a-remote-on-the-local-machine)
+- [Adding the fork as a remote in the local repository](#adding-the-fork-as-a-remote-in-the-local-repository)
 - [Making changes and pushing them to the fork](#making-changes-and-pushing-them-to-the-fork)
+- [Switch between local working branches](#switch-between-local-working-branches)
 - [Creating a new pull request](#creating-a-new-pull-request)
 - [Updating your pull request](#updating-your-pull-request)
 - [Delete a branch](#delete-a-branch)
@@ -80,9 +82,8 @@ Visual Studio Code as the default editor for Git instead of Vim.
 
 <img src="../../images/getting_started_with_github/git_experimental.png" alt="Git experimental" style="width:425px;" />
 
-After the installation you can open a PowerShell console and type the
-following and it should return the version of `git` if it was installed
-correctly.
+After the installation you can run this in PowerShell and it should return
+the version of `git` if it was installed correctly.
 
 ```bash
 PS> git --version
@@ -108,6 +109,32 @@ We also need set how line endings should be treated.
 
 ```bash
 git config --global core.autocrlf true
+```
+
+### Install PowerShell Module posh-git
+
+This is optional but helps with tab completion and better visualization
+of what branch you are working on when using PowerShell.
+
+Run this in PowerShell.
+
+```powershell
+Install-Module posh-git -Scope CurrentUser -Force
+Import-Module -Name posh-git
+```
+
+Then to make sure the module is loaded each time you start PowerShell,
+add the import of the module to your PowerShell profile script.
+
+```powershell
+code $profile
+```
+
+In the file that opened up in Visual Studio Code, add the following and
+save the file.
+
+```powershell
+Import-Module -Name posh-git
 ```
 
 ### Clone repository from GitHub
@@ -150,7 +177,7 @@ nothing to commit, working tree clean
 ### Forking a repository on GitHub
 
 To send changes from your local repository you first fork the upstream
-repository, because all changes mist first be pushed to a working branch
+repository, because all changes must first be pushed to a working branch
 in your fork before sending in a pull request. To learn more about forks
 read the article [Forking Projects](https://guides.github.com/activities/forking/).
 
@@ -163,7 +190,7 @@ and GitHub will create a fork (repository) in your own GitHub account.
 
 <img src="../../images/getting_started_with_github/github_fork_button.png" alt="GitHub Fork Button" style="width:275px;" />
 
-### Adding the fork as a remote on the local machine
+### Adding the fork as a remote in the local repository
 
 To be able to send changes (commit in a working branch) to a fork of an
 upstream repository you need to add a [remote](http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
@@ -184,6 +211,7 @@ we run the following. *Replace `johlju` with your actual GItHUb account*
 *name.*
 
 ```bash
+cd c:\source\ComputerManagementDsc
 git remote add my https://github.com/johlju/ComputerManagementDsc`.
 ```
 
@@ -193,8 +221,8 @@ To verify that the remote was added correctly you can run the following.
 PS> git remote -v
 my      https://github.com/johlju/ComputerManagementDsc (fetch)
 my      https://github.com/johlju/ComputerManagementDsc (push)
-origin  https://github.com/PowerShell/ComputerManagementDsc (fetch)
-origin  https://github.com/PowerShell/ComputerManagementDsc (push)
+origin  https://github.com/dsccommunity/ComputerManagementDsc (fetch)
+origin  https://github.com/dsccommunity/ComputerManagementDsc (push)
 ```
 
 Now you have two remote references:
@@ -204,59 +232,103 @@ Now you have two remote references:
 
 ### Making changes and pushing them to the fork
 
-- To make changes, create a new local branch: `git checkout -b <branch> my/dev`,
-  i.e. `git checkout -b awesome_feature my/dev`.
+To make changes you should always use another branch than `master` to add
+those changes, let us call it the working branch. A working branch should
+normally be based on the branch `master` so that you can easily work on
+several other branches during the same period.
 
-This will create a new local branch, connect to your fork's dev branch as the
-tracking branch (upstream branch) and then checkout (move) to the new branch.
+You create a new working branch using the following command
+`git checkout -b <working-branch-name> my/master`. You should also
+track the branch `master` in your fork, e.g. `my/master` so that you
+will better see if the branch is behind or ahead in commits.
 
-- To see all branches, run `git branch -a`.
-- To see status of all branches (if they are ahead or behind the tracking
-  branch), run `git branch -v`.
+This will create a new local working branch in the local repository of
+*ComputerManagementDsc*, start tracking your fork's master branch and
+then checkout (move) to the new branch.
 
-```plaintext
-> git branch -a
-* master
-  remotes/origin/HEAD -> origin/master
-  remotes/origin/master
+```bash
+cd c:\source\ComputerManagementDsc
+git checkout master
+git checkout -b my-working-branch my/master
 ```
 
-Active branch is marked with `*`. the `-a` argument tells Git to show both
-[**local**](http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-and
-[**remote**](http://git-scm.com/book/en/v2/Git-Branching-Remote-Branches)
-branches.
+You can now start making changes in your local branch. You can easily start
+Visual Studio Code and get it to automatically load the folder by running
 
-- Make your changes and **commit** them with `git commit -a -m "<Commit message>"`.
-  `-a` argument tells Git to include all modified files in commit.
-  `-m` argument specifies the commit message.
+```bash
+cd c:\source\ComputerManagementDsc
+code .
+```
 
-- To get the big picture of the current state of your repository, use `gitk --all`
-  command. It opens a UI with a lot of useful information. You can read more
-  about **gitk** in the blog post
-  [Use gitk to understand git](https://lostechies.com/joshuaflanagan/2010/09/03/use-gitk-to-understand-git/).
-  ![Gitk.png](Images/Gitk.png)
+When you have made changes you need to commit them to your local branch.
+Below we show how to commit and push using the command line, but it might
+be easier to commit (using `git`) from within Visual Studio Code. How to
+do that can be seen in this video.
 
-- After that can **push** changes to your fork with `git push my <branch>`
-  command, i.e. `git push my awesome_feature`.
+{{< youtube id="B8RSMBSzFuA" >}}
+
+You can see the status of changes with `git status`. To **commit** all
+current changes (all modified files) you use `git commit -a -m "<Commit message>"`.
+
+>`-a` argument tells Git to include all modified files in commit.
+>`-m` argument specifies the commit message.
+
+To commit all changes with a commit message `Fix issue #123`, you run the
+following.
+
+```bash
+git commit -a -m "Fix issue #123"
+```
+
+To **push** the commits containing your changes we use `git push <remote-name>`.
+So to push the local working branch in your local repository to the fork
+we do the following.
+
+```bash
+git push my
+```
+
+This will create a new branch in the fork, or update the existing branch
+if it was created in a previous push.
+
+See the [contributing guidelines](/guidelines/contributor/#create-or-update-a-pull-request-pr)
+for more information on how to send in a pull request from a branch in
+your fork.
+
+### Switch between local working branches
+
+To see all branches run `git branch -a`, and to see working branches
+run `git branch -v`.
+
+>Active branch is marked with an asterisk (`*`). The  argument `-a` tells
+>Git to show both [**local**](http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+>and [**remote**](http://git-scm.com/book/en/v2/Git-Branching-Remote-Branches)
+>branches.
+
+To switch to another working branch you use `git checkout <branch-name>`.
+
+For example to switch to the working branch `fix-issue-#123` we do the
+following.
+
+```bash
+git checkout fix-issue-#123
+```
 
 ### Delete a branch
 
-Once your pull request changes have been successfully merged into the origin (upstream)
-repository you can delete the branch you used, as you will no longer need it.
-Any further work requires a new branch.
-To delete your branch follow these steps:
+Once a pull request with your changes have been successfully merged into
+the upstream repository you can delete the working branch. It is no longer
+needed at that point, any further work requires a new working branch.
 
-See the [contributing guidelines](/guidelines/contributor/#create-or-update-a-pull-request-pr)
-for more information on how to send in a pull request
+To delete your branch follow these steps:
 
 1. Run `git checkout master` in the command prompt. This ensures that you
    aren't in the branch to be deleted (which isn't allowed).
-1. Next, type `git branch -d <branch name>` in the command prompt. This will
+1. Next, type `git branch -d branch-name` in the command prompt. This will
    delete the branch on your local machine only if it has been successfully
    merged to the upstream repository.
-   You can override this behavior with the `–D` flag, which always deletes the
-   local branch.
-1. Finally, type `git push my :<branch name>` in the command prompt (a space
-   before the colon and no space after it).
-   This will delete the branch on your GitHub fork.
+   You can override this behavior with the `–D` flag, which always deletes
+   the local branch.
+1. Finally, type `git push my :branch-name` in the command prompt (a space
+   before the colon and no space after it). This will delete the branch on
+   your GitHub fork.
