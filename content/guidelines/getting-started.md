@@ -1,9 +1,9 @@
 ---
-title: "Getting Started with GitHub"
+title: "Getting Started as a Contributor"
 date: 2019-01-28T11:02:05+06:00
 type: "post"
 author: "Johan Ljunggren"
-weight: 2
+weight: 1
 ---
 
 There are a lot of guides on the Internet that will should different
@@ -11,22 +11,21 @@ aspects of what is described here, but this article will focus on a
 simple way to get started for the workflow we use for DSC modules and
 DSC resources within the DSC Community.
 
+>After you read through this guide, then please continue with the guide
+>[Contributor](/guidelines/contributing).
+
 ### Table of Contents
 
-- [Create free GitHub fccount](#create-free-github-account)
+- [Create free GitHub account](#create-free-github-account)
 - [Install Visual Studio Code](#install-visual-studio-code)
 - [Install Git](#install-git)
 - [Configure Git](#configure-git)
 - [Install PowerShell Module posh-git](#install-powershell-module-posh-git)
-- [Setup SSH key](#setup-ssh-key)
 - [Clone repository from GitHub](#clone-repository-from-github)
-- [Securely storing Git credentials](#securely-storing-git-credentials)
 - [Forking a repository on GitHub](#forking-a-repository-on-github)
 - [Adding the fork as a remote in the local repository](#adding-the-fork-as-a-remote-in-the-local-repository)
 - [Making changes and pushing them to the fork](#making-changes-and-pushing-them-to-the-fork)
 - [Switch between local working branches](#switch-between-local-working-branches)
-- [Creating a new pull request](#creating-a-new-pull-request)
-- [Updating your pull request](#updating-your-pull-request)
 - [Delete a branch](#delete-a-branch)
 
 ### Create free GitHub account
