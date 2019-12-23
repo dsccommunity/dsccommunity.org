@@ -25,6 +25,7 @@ DSC resources within the DSC Community.
 - [Forking a repository on GitHub](#forking-a-repository-on-github)
 - [Adding the fork as a remote in the local repository](#adding-the-fork-as-a-remote-in-the-local-repository)
 - [Making changes and pushing them to the fork](#making-changes-and-pushing-them-to-the-fork)
+- [Make changes to an existing pull request of yours](#make-changes-to-an-existing-pull-request-of-yours)
 - [Switch between local working branches](#switch-between-local-working-branches)
 - [Delete a branch](#delete-a-branch)
 
@@ -236,6 +237,13 @@ those changes, let us call it the working branch. A working branch should
 normally be based on the branch `master` so that you can easily work on
 several other branches during the same period.
 
+>Creating a working branch separate from the default `master` branch will
+>allow you to create other working branches off of branch `master` later
+>while your other working branches is still open for code reviews.
+>
+>Limiting your current working branch to a single issue will also both
+>streamline the code review and reduce the possibility of merge conflicts.
+
 You create a new working branch using the following command
 `git checkout -b <working-branch-name> my/master`. You should also
 track the branch `master` in your fork, e.g. `my/master` so that you
@@ -279,9 +287,15 @@ following.
 git commit -a -m "Fix issue #123"
 ```
 
-To **push** the commits containing your changes we use `git push <remote-name>`.
-So to push the local working branch in your local repository to the fork
-we do the following.
+>**NOTE:** You may make as many commits as you like. For example you can make
+>just one commit for all changes, make a commit for each file you change,
+>or a make a commit for each bug or feature if there are more than one you
+>want to resolve. It is entirely up to you how, what and when you commit
+>changes.
+
+To **push** one or more commits containing your changes we use
+`git push <remote-name>`. So to push the local working branch in your local
+repository to the fork we do the following.
 
 ```bash
 git push my
@@ -293,6 +307,17 @@ if it was created in a previous push.
 See the [contributing guidelines](/guidelines/contributor/#create-or-update-a-pull-request-pr)
 for more information on how to send in a pull request from a branch in
 your fork.
+
+### Make changes to an existing pull request of yours
+
+There might be a need to update the pull request, for example due to a
+review comment, CI tests failed, or you realized that you missed something.
+
+If you need to make more changes to a pull request you just push more commits
+to your working branch as mentioned in [Making changes and pushing them to the fork](#making-changes-and-pushing-them-to-the-fork)
+
+Pushing a new commit to your working branch in your fork will automatically
+update any pull request that is based on that working branch.
 
 ### Switch between local working branches
 
