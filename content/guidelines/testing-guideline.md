@@ -9,7 +9,8 @@ weight: 5
 ### General Rules
 
 - Tests are written using [Pester](https://github.com/pester/Pester).
-- Preferably use the concept of [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development))
+- Preferably use the concept of
+  [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
   when writing tests.
 - Each DSC module should contain the following Test folder structure:
 
