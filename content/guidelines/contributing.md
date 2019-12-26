@@ -496,8 +496,6 @@ the PR has been approved in a review.
 >maintainer for a period of time. Then it possible to ask for reviews from
 >the other community members or general maintainers via [Slack #DSC channel](/community/contact/).
 
-Perhaps mention that if they have an urgent issue that needs to be reviewed in a repository that does not have a maintainer, then it might be possible to ask for reviews from the general maintainers or other community members via Slack?
-
 ### Write documentation
 
 All documentation is done in markdown.
