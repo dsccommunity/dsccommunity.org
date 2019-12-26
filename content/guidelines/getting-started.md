@@ -6,9 +6,9 @@ author: "Johan Ljunggren"
 weight: 1
 ---
 
-There are a lot of guides on the Internet that will should different
+There are a lot of guides on the Internet that will show different
 aspects of what is described here, but this article will focus on a
-simple way to get started for the workflow we use for DSC modules and
+simple way to get started using the workflow we use for DSC modules and
 DSC resources within the DSC Community.
 
 >After you read through this guide, then please continue with the guide
@@ -18,9 +18,11 @@ DSC resources within the DSC Community.
 
 - [Create free GitHub account](#create-free-github-account)
 - [Install Visual Studio Code](#install-visual-studio-code)
+- [Install Visual Studio Code PowerShell Extension](#install-visual-studio-code-powershell-extension)
 - [Install Git](#install-git)
 - [Configure Git](#configure-git)
 - [Install PowerShell Module posh-git](#install-powershell-module-posh-git)
+- [Install GitVersion](#install-gitversion)
 - [Clone repository from GitHub](#clone-repository-from-github)
 - [Forking a repository on GitHub](#forking-a-repository-on-github)
 - [Adding the fork as a remote in the local repository](#adding-the-fork-as-a-remote-in-the-local-repository)
@@ -36,26 +38,51 @@ and clicking on the **Sign up** button.
 
 <img src="../../images/getting_started_with_github/github_signup.png" alt="GitHub SignUp" style="width:725px;" />
 
-We recommend that you also configure 2FA on the GitHub account. It is
-optional and is not needed to contribute.
+Although enabling 2-factor authentication on your GitHub account is not
+required to contribute, it is recommended.
 
 ### Install Visual Studio Code
 
-It is optional but recommended to use Visual Studio Code for contributing
-to the DSC resource in DSC Community, mainly because we try to incorporate
-the Visual Studio Code in the workflow. For example it is easier to get
-visual indications when code do not conform to the style guideline.
+Although there are many PowerShell editors available and everyone has their
+own preference, most of the processes described here assume the use of
+Visual Studio Code. Using Visual Studio Code when working on DSC Resource
+modules has added benefits such as being able to detect and highlight some
+style guideline violations.
 
 To install Visual Studio code visit the official site [code.visualstudio.com](https://code.visualstudio.com).
 
 #### Windows
 
+##### Official package
+
 The installation is straightforward using a wizard type of installation.
 Normally all defaults values suggested by the wizard can be used.
+
+##### Chocolatey
+
+It is possible to install using [Chocolatey](https://chocolatey.org).
+
+```bash
+choco install vscode
+```
+
+### Install Visual Studio Code PowerShell Extension
+
+To be able to write PowerShell code in Visual Studio Code the extension
+need to be installed.
+
+```bash
+code --install-extension ms-vscode.PowerShell
+```
+
+>This step is only relevant if Visual Studio Code was installed in the
+>previous step.
 
 ### Install Git
 
 #### Windows
+
+##### Official package
 
 Download and install **Git for Windows** from the official site
 [git-scm.com](https://git-scm.com).
@@ -94,6 +121,14 @@ git version 2.24.1.windows.2
 connect using your GitHub credentials. It will popup the first time
 your credentials are needed, for example when pushing to a repository on
 GitHub.
+
+##### Chocolatey
+
+It is possible to install using [Chocolatey](https://chocolatey.org).
+
+```bash
+choco install git
+```
 
 ### Configure Git
 
@@ -136,6 +171,38 @@ save the file.
 ```powershell
 Import-Module -Name posh-git
 ```
+
+### Install GitVersion
+
+The application [GitVersion](https://gitversion.net/docs/) is used to
+automatically increase the version in the build pipeline. It is optional,
+if it is not installed the build version will always show as `0.0.1` when
+running the build locally, but it is still possible to contribute without
+this installed.
+
+#### Windows
+
+You need install [Chocolatey](https://chocolatey.org) first if you do not
+have it installed already.
+
+When you have Chocolatey installed you install GitVersion using the following:
+
+>**NOTE:** You must be an elevated administrator to run `choco install`.
+
+```bash
+choco install GitVersion.Portable
+```
+
+#### macOS and Linux
+
+You install [GitVersion](https://gitversion.net/docs/) using the following
+
+```bash
+brew install gitversion
+```
+
+>**NOTE:** You need install [Homebrew](https://brew.sh/) first if you do
+>not have it installed already.
 
 ### Clone repository from GitHub
 

@@ -6,9 +6,28 @@ author: "Johan Ljunggren"
 weight: 3
 ---
 
+### Security
+
+To be maintainer you must have 2FA enabled on accounts that give you
+access to DSC Community resources, for example your GitHub account and
+the account that access DSC Community Azure DevOps organization.
+
 ### Breaking Changes
 
 See [Breaking Changes](/guidelines/contributing#breaking-changes)
+
+### Review
+
+Not yet written.
+
+### Merging code
+
+Only merge code that passes status checks, have been reviewed, and where
+all the review comments have be resolved and approved.
+
+As a maintainer you are allowed to review and merge your own code, but
+then only after 24 hours so the community has a chance to comment on
+the changes.
 
 ### Prerelease
 
@@ -20,7 +39,7 @@ Not written.
 
 ### Labels
 
-Labels are being used in the issue and pull request workflows to show the
+Labels are used in the issue and pull request workflows to show the
 current state.
 
 These are the labels currently used by the resource modules in DSC Community

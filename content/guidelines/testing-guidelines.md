@@ -76,7 +76,7 @@ Not yet written.
 
 ### Running Tests
 
-If configured all tests are automatically run using the CI pipeline via
+If configured, all tests are automatically run using the CI pipeline via
 Azure Pipelines in the DSC Community Azure DevOps organization when
 updating the upstream repository.
 
@@ -84,23 +84,25 @@ updating the upstream repository.
 
 It is recommended that all tests be run locally before being committed.
 
-Regardless of method of running the tests you must always resolve the
+Regardless of the method of running the tests you must always resolve the
 dependencies first. After that you must build the module.
 
-1. [Resolve dependencies](http://localhost:1313/guidelines/contributor#resolve-dependencies)
-1. [Build module](http://localhost:1313/guidelines/contributor#build-module)
+1. [Resolve dependencies](/guidelines/contributor#resolve-dependencies)
+1. [Build module](/guidelines/contributor#build-module)
 
 >NOTE! Each time a source file changes you must re-build the module before
 >running tests again. This is because the tests are always run against the
->built module, not the modules source files.
+>built module in the 'output' folder, not the modules source files.
 
 ##### Running Tests Locally Using Pipeline
 
 **Remember to run the build task if any file has been changed in the source**
 **folder.**
 
-This runs *all* the tests for the module. **BE AWARE: This will run integration**
-**tests too if they exist!**
+This runs *all* the tests for the module. **BE AWARE: This may be configured**
+**to run integration tests too if they exist! Integration tests may disrupt**
+**the system configuration temporarily, leave system changed, or may require**
+**specific dependencies to execute.**
 
 ```powershell
 .\build.ps1 -Tasks test
@@ -118,7 +120,7 @@ This will just run the integration tests for the module without code coverage.
 .\build.ps1 -Tasks test -PesterScript 'tests/Integration' -CodeCoverageThreshold 0
 ```
 
-##### Running Tests Locally Using `Invoke-Pester`
+##### Running Tests Locally Using Invoke-Pester
 
 Not yet written.
 

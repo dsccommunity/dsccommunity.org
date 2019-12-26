@@ -7,7 +7,7 @@ description: "Best Practices and Guidelines for High Quality Resource Modules"
 bgcolor: '#00CC6A'
 ---
 
-In this section we describe what's the current state of the guidelines and best
+In this section we describe the current state of the guidelines and best
 practices to create a **High Quality Resource Module**.
 
 See the following sections for more details, and if you need more guidance

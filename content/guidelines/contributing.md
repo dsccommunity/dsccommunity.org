@@ -6,27 +6,33 @@ author: "Johan Ljunggren"
 weight: 2
 ---
 
-Thank you for your interest of contributing to the DSC Community.
+Thank you for your interest in contributing to the DSC Community.
 
-There are several ways you can contribute. You can submit an issue to
-report a bug or to request an improvement. You can take part in an
-discussions around an issue or pull request. You may review
-pull requests, or send in a pull request yourself to improve the DSC
-modules by adding more DSC resource, fixing issues in existing DSC
-resources, improve the CI pipeline, or updating documentation around
-the DSC modules.
+There are several ways you can contribute.
+
+- You can submit an issue to report a bug or to request an improvement.
+- You are encourage to take part in discussions around an issue or
+  pull request.
+- You may review pull requests.
+- You may send in a pull request to improve the DSC modules by adding a
+  new DSC resource, fixing issues in existing DSC resources, improve the
+  CI pipeline, or updating documentation around the DSC modules.
+- You are welcome to transfer a DSC module over to the DSC Community.
+- You may create an entire new DSC module if there is need for it (you
+  will become a maintainer of a new empty repository in DSC Community).
 
 If want to contribute my making changes to code or documentation but
 are new to contributing and GitHub, then please read the
 [Getting Started as a Contributor](/guidelines/getting-started/) guideline.
 
 You may also [join the conversation](/community/contact/) and ask for
-help or share your knowledge in direct communication with others.
+help or share your knowledge in direct communication with other members
+of the community.
 
 If you need any help along the way, don't be afraid to ask. We are here
 for each other.
 
-Her you can read more around the different contributions you can make:
+You can read more about the different contributions here:
 
 - [Submit an issue](#submit-an-issue)
 - [Breaking changes](#breaking-changes)
@@ -45,33 +51,33 @@ Her you can read more around the different contributions you can make:
 
 ### Submit an issue
 
-Submitting an issue to a repository the DSC Community is easy! An issue
-can for example be a problem, a solution, or a question.
+Submitting an issue to a repository in the the DSC Community is easy! An
+issue can be a problem, a solution, or a question.
 
 1. Find the correct repository to submit your issue to. See and search a
    [list of  all repositories in DSC Community](https://github.com/dsccommunity).
 1. Search open issues to make sure the issue you having have not been
    submitted by someone else.
-1. Open a new issue. *If the repository have different issue templates*
+1. Open a new issue. *If the repository has different issue templates*
    *choose the template that best suits the issue you are experiencing.*
 1. Fill in a short but descriptive issue title.
-1. Fill in the issue description. *If you choose a issue template, follow*
+1. Fill in the issue description. *If you chose an issue template, follow*
    *the guidance in the template text.*
 1. Submit the issue.
 
 You may also [join the conversation](/community/contact/) and ask for
-help in direct communication with others.
+help from other members of the community.
 
 #### Open a new issue
 
-Let us pretend we have a problem with the ComputerManagementDsc
+For example, let us pretend we have a problem with the ComputerManagementDsc
 module that we need to report to the community.
 
 ##### Find the repository
 
 Browse to the [list of  all repositories in DSC Community](https://github.com/dsccommunity)
-and in the search field type 'comp' and the GitHub should automatically
-filter the results.
+and in the search field type 'comp'. GitHub should automatically filter
+the results and show the repositories that match what you typed.
 
 <img src="../../images/contributing/github_search_repository.png" alt="GitHub Search Repository" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 
@@ -79,7 +85,7 @@ Click on the repository name _**ComputerManagementDsc**_ to open up the reposito
 
 ##### Search existing issues
 
-Search the issues to see that there are no issue already submitted for the
+Search the issues to check that there are no issues already submitted for the
 problem you are having. If someone has already opened a similar issue, please
 leave a comment or add a GitHub reaction on the issue description to express
 your interest. You can also offer help and use the issue to coordinate your
@@ -131,16 +137,16 @@ the number to the corresponding issue or pull request. You can also link to pull
 requests and issues in other repositories by including the repository owner and
 name before the issue number.
 
-Please also tag any GitHub users you would like to notice this issue (if any).
-You can tag someone on GitHub with the `@` symbol followed by their GitHub
-account name, e.g. `@johlju`.
+Please also tag any GitHub users you would like to be notified of this issue
+(if any). You can tag someone on GitHub with the `@` symbol followed by their
+GitHub account name, e.g. `@johlju`.
 
-Fill in each section in the template as necessary. The more details
-you provide, the easier will it be for the community to help you with your
+Fill in each section in the template as necessary. The more detail
+you provide, the easier it will be for the community to help you with your
 issue.
 
-*This example is not providing much context, but for the sake of length*
-*it has been deliberate shortened.*
+*This example does not provide much context. It has also been shortened*
+*for the sake of brevity.*
 
 ```plaintext
     #### Details of the scenario you tried and the problem that is occurring
@@ -189,10 +195,10 @@ issue.
 ### Breaking changes
 
 Breaking changes should first be proposed by opening an issue on the resource and
-outlining the needed work. This allows the community to discuss the change before
+outlining the work needed. This allows the community to discuss the change before
 the work is done and scopes the breaking changes to just the needed areas.
 
-An issue that is deemed to be a breaking changed should be label `breaking change`
+An issue that is deemed to be a breaking changed should be labelled `breaking change`
 and the issue title should be prefixed with `BREAKING CHANGE:`.
 
 Breaking changes may include:
@@ -200,7 +206,7 @@ Breaking changes may include:
 - Adding a new mandatory parameter
 - Changing an existing parameter
 - Removing an existing parameter
-- Fundamentally changing an existing functionality of a resource
+- Fundamentally changing existing functionality of a resource
 
 A pull request (PR) that introduces a breaking change should prefix at
 least one entry in the change log with `BREAKING CHANGE:`. The entry
@@ -211,8 +217,8 @@ users.
 
 Your experience as an IT professional is needed to make the DSC resources
 better. Regardless of your knowledge in DSC you can help make the
-DSC resource the best possible. In the end DSC is installing and configuring
-the products you can use in production, so by discussing issues and
+DSC resource the best possible. In the end, DSC is installing and configuring
+the applications and components you use, so by discussing issues and
 changes in PR's you help make the DSC resources even better.
 
 Always keep in mind the [Code of Conduct](/code_of_conduct).
@@ -220,17 +226,17 @@ Always keep in mind the [Code of Conduct](/code_of_conduct).
 ### Resolve an issue
 
 You may work on any issue. Issued labeled with `good first issue` has been
-deemed easy to resolve, although the level of easy can vary from
+deemed easy to resolve, although the level of ease can vary from
 issue to issue.
 
 >If you are new to contributing, then you might want to start with an issue
 >labeled with `good first issue` since they are meant for you as new contributor
 >to have something easy from where to start learning the process and workflow.
 
-If you find an issue you like to resolve then please comment on that issue
-that you are working on it. This helps other in the community to know that
-this is being worked on, and keeps other contributors from working on the
-same issue.
+If you find an issue you would like to resolve then please comment on that
+issue that you are working on it. This helps others in the community to know
+that this is being worked on, and keeps other contributors from working on
+the same issue.
 
 After you have [created a pull request (PR)](#create-or-update-a-pull-request-pr)
 the PR will be reviewed by the community.
@@ -245,17 +251,18 @@ If you are new to contributing in general then please read the
 [Getting Started as a Contributor](/guidelines/getting-started) which
 will help you set up an environment for developing.
 
-Make sure there are an issue that describes you problem, if there are
+Make sure there is an issue that describes your problem. If there is
 no issue then please create an issue prior to sending in a PR so that
 others in the community can discuss. You may create the issue and then
-directly send in a PR.
+directly submit in a PR.
 
 If you are making a breaking change, please make sure to read the
 [Breaking changes](#breaking-changes) section.
 
-Here is the general process of sending in a PR:
+Here is the general process of submitting a PR:
 
 1. Pick out the issue you'd like to work on, see [Fixing an issue](#fixing-an-issue).
+1. Post a comment on the issue that you are working on resolving the issue.
 1. Create a new working branch based on branch `master`. See
    [Making changes and pushing them to the fork](/guidelines/getting-started/#making-changes-and-pushing-them-to-the-fork).
 1. Write tests that will ensure that the issue in the code is fixed.
@@ -267,7 +274,9 @@ Here is the general process of sending in a PR:
 1. Make sure all tests are passing in the CI pipeline for your PR
    (see the [PR status checks](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks)).
 1. Make sure your code does not contain merge conflicts.
-1. Address any comments brought up by the reviewers.
+1. Address any comments brought up by the reviewers by either discussing
+   them or resolve them by pushing changes to your working branch (to
+   the same branch from which the PR was submitted).
 
 #### Follow the style guideline
 
@@ -295,7 +304,8 @@ See [Testing Guidelines](/guidelines/testing-guideline) for more information.
 >Not all resources currently have tests. This does not mean that you do not
 >have to write tests for your changes. But you do not have to write the full
 >set of tests for the resource. You only need to test the changes that you
->made to the resource.
+>made to the resource. But adding unit tests for uncovered code that you
+>have not altered is welcomed.
 
 #### Update the changelog
 
@@ -348,38 +358,38 @@ Example of the _Unreleased_ section of the file `CHANGELOG.md`.
 A [pull request](https://help.github.com/articles/using-pull-requests/)
 (PR) allows you to submit the changes you made in your working branch of
 you fork to the upstream repository.
-There are different ways of starting the opening of a pull request,
-but this shows two ways.
+There are many ways of opening a pull request, but this document covers
+two common methods.
 
 ##### New pull request from working branch
 
-First browse to you fork, e.g. https://github.com/johlju/ComputerManagementDsc
+First browse to your fork, e.g. https://github.com/johlju/ComputerManagementDsc
 
 If you just pushed a working branch to you fork GitHub will know that and
 suggest to send in a pull request, Just click on the button *Compare & pull request*.
 
 <img src="../../images/contributing/github_compare_and_pull_request.png" alt="GitHub Compare & Pull Request" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 
-If that is not shown, another way of submit a PR is to choose the working
+If that is not shown, another way to open a PR is to choose the working
 branch in the list of branches of your fork, let the page refresh, and then
 click the button *New pull request*.
 
 <img src="../../images/contributing/github_choose_branch_and_pull_request.png" alt="GitHub Choose Branch & Pull Request" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:300px;" />
 
-Once you used either option to get to the *Open a pull request* page you
-should make sure you are comparing the right branches. If you used either
-of the above methods to get to the page the compare should already be
-correct.
+Once you have used either option to get to the *Open a pull request* page
+you should make sure you are comparing the right branches. If you used
+either of the above methods to get to the page the compare should already
+be correct.
 
 The *base* is the repository and branch the pull request will be targeting
 (or merged) **into**. Normally this should be the upstream repository,
 and normally the branch should be `master`.
 
-The *head repository* is the repository where the working branch exist and
+The *head repository* is the repository where the working branch exists and
 the *compare* is the branch being compared to the *base* branch (`master`).
 
 >If GitHub tells you that your branches cannot automatically be merged,
->then you probably have merge conflicts. You can resolve that before or
+>then you probably have merge conflicts. You can resolve these before or
 >after sending in a pull request. The merge conflicts must be resolved
 >before the pull request can be merged, and a reviewer might ask you to
 >resolve them before a review can be done.
@@ -390,7 +400,7 @@ the *compare* is the branch being compared to the *base* branch (`master`).
 
 ##### Pull Request Title
 
-Next up need to write a short but descriptive PR title. The PR title should
+Next, you need to write a short but descriptive PR title. The PR title should
 be a brief summary of the PR in one sentence. Simply putting the issue number
 that the PR fixes is not acceptable. Prefix the title with the DSC resource
 name, or the repository name if the change is not specific to one DSC resource.
@@ -401,7 +411,7 @@ For breaking changes see [Breaking changes](#breaking-changes) section.
 ##### Pull Request Description
 
 The PR description field is populated with the pull request template
-to easier fill in the needed informaiton.
+to easier fill in the needed information.
 
 - **Pull request (PR) description** - A detailed report of all the changes
   you made. A suggestion is to use the same information that was added
@@ -412,28 +422,29 @@ to easier fill in the needed informaiton.
 - **Task list** - Fill in each entry that are true for your PR. *This is*
   *a list to help contributors and maintainers to get all needed steps done.*
 
-Please also tag any GitHub users you would like to notice this PR (if any).
-You can tag someone on GitHub with the `@` symbol followed by their GitHub
-account name, e.g. `@johlju`.
+Please also tag any GitHub users you would like to be notified of this PR
+(if any). You can tag someone on GitHub with the `@` symbol followed by
+their GitHub account name, e.g. `@johlju`.
 If you have a specific contributor/maintainer you want to review your code,
 be sure to tag them in your pull request.
 
-This is an example how a PR can look like before submitting.
+This is an example how a PR can look before submitting.
 
 <img src="../../images/contributing/github_pull_request_description.png" alt="GitHub Pull Request Description" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 
 ##### Create Pull Request
 
-When you are done simple click *Create pull request* and the pull request
+When you are done, simply click *Create pull request* and the pull request
 will be created in the upstream repository.
 
 You will then need to wait for the PR to be reviewed. You cannot review
 your own code. Only maintainers can merge your code, and they do that
-only after a review has been made.
+only after a review has been completed and all review comments have been
+addressed and approved.
 
 #### Update pull request of yours
 
-Please see [Make changes to an existing pull request of yours](/guidelines/getting-started/#make-changes-to-an-existing-pull-request-of-yours)
+Please see [make changes to an existing pull request of yours](/guidelines/getting-started/#make-changes-to-an-existing-pull-request-of-yours).
 
 #### Continuous integration (CI) pipeline
 
@@ -445,7 +456,7 @@ Status of the runs can be seen in the status checks of the pull request.
 
 <img src="../../images/contributing/github_status_checks.png" alt="GitHub Pull Status Checks" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 
-And more details can be seen on the *Checks* pane.
+More details can be seen on the *Checks* pane.
 
 <img src="../../images/contributing/github_status_checks_detailed.png" alt="GitHub Pull Status Checks Detaild" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 
@@ -457,36 +468,43 @@ And more details can be seen on the *Checks* pane.
 
 ### Review a pull request (PR)
 
-Anyone are allowed to review pull requests (PR). You are strongly encourage
-you to help review since you probably have some experience of the product
-the DSC resource are used for. The more voices on a PR the better the DSC
-resource will get, so we can help see impacts further down the road, like
-avoiding future breaking changes.
+Anyone is allowed to review pull requests (PR). You are strongly encouraged
+to help review since you probably have some experience of the application
+or component the DSC resource is used for. The more minds on a PR the
+better the DSC resource will get, so we can help see impacts further down
+the road, like avoiding future breaking changes.
 
-By reviewing a PR you help the maintainer. Please also note that it is not
-necessary that the maintainer has the knowledge of the area a PR is targeting,
-or have time to review PR's in the near future, but hopes that help comes
-from the community.
+Please also consider that maintainers may not have expert knowledge in an
+area that a PR is targeting. Maintainers may also not be able to review PR's
+in a timely fashion due to other commitments. However, it is hoped that
+help and support will come from community members such as yourself.
 
 Only maintainers can merge your code, and a maintainer only merges after
 the PR has been approved in a review.
 
 **Only maintainers are allowed to review and merge their own code, but**
-**then only after 24 hours so the community have a chance to comment on**
+**then only after 24 hours so the community has a chance to comment on**
 **the changes.**
 
 >We don't currently have dedicated maintainers for most modules, so it may
 >take a while for a general maintainer to get around to your pull request.
 >Please be patient.
 >If you want to become a maintainer, please see [Maintainers](/community/maintainers).
+>
+>If you have an urgent issue that needs to be reviewed in a repository that
+>does not have a maintainer, or you haven't heard from the repository
+>maintainer for a period of time. Then it possible to ask for reviews from
+>the other community members or general maintainers via [Slack #DSC channel](/community/contact/).
+
+Perhaps mention that if they have an urgent issue that needs to be reviewed in a repository that does not have a maintainer, then it might be possible to ask for reviews from the general maintainers or other community members via Slack?
 
 ### Write documentation
 
 All documentation is done in markdown.
 
-Updating documentation is done through sending in a pull request (PR).
-The same principle as sending in a PR, that an issue should be created
-first.
+Updating documentation is done by sending in a pull request (PR).
+The same principles as fixing an issue or submitting a feature apply here:
+An issue should be created first.
 
 >**NOTE:** The Wiki is updated from the pipeline so it cannot be updated
 >manually. Any manually changes to the Wiki will be lost on next release.
@@ -497,12 +515,19 @@ If you would like to add a new DSC resource, please open an issue in the
 repository you think the new resource should be in. This will help to
 coordinate your work with other contributors. The repositories have a
 template *New resource proposal* that can help you provide the needed
-information.
-
-Once the issue is open, you may begin working on the new DSC resource.
-Like normal you send in a pull request with the proposed DSC resource.
+information, for example providing a proposed schema for the community
+to discuss, and make sure it adopts DSC resource standard patterns.
 Keep an eye on the issue and any discussion around the new DSC resource
 proposal.
+
+>A suggestion is to wait for acknowledgement from the community (or maintainer)
+>to include the resource before you start working on the new DSC resource.
+>For example if the proposed schema must be extended or changed in some
+>way you might have to build the logic differently.
+
+Once the issue is open, you may begin working on the new DSC resource.
+Just like submitting a pull request to fix an issue, a pull request
+containing the proposed DSC resource should be submitted.
 
 Be sure to include unit and integration tests for the new DSC resource,
 and document it like other DSC resources.
@@ -516,7 +541,7 @@ named `DSC_Resource.psm1`, then the unit test file should be named
 
 ##### MOF-based DSC resource
 
-All mof-based resource should have `DSC_` prefixed before the resource name
+All mof-based resources should have `DSC_` prefixed before the resource name
 in the schema file and on files (e.g. ``DSC_Resource.schema.mof`, `DSC_Resource.psm1`).
 This is per a convention that the name (or abbreviated name) of the
 company that provides the resource be included in the name of mof-based
@@ -525,7 +550,7 @@ resource files. The friendly name of the resource that is defined in the
 
 ##### Composite DSC resource
 
-Composite resource with a configuration and a `.psd1` file must have the
+Composite resources with a configuration and a `.psd1` file must have the
 exact same name as the resource or they will not be able to be imported.
 Hence, composite resource files should not have the `DSC_` prefix, e.g.
 Resource.psm1.
@@ -533,21 +558,22 @@ Resource.psm1.
 ### Submitting a new resource module
 
 You are welcome to transfer your DSC module to the DSC Community GitHub
-organization, or we happily create a new DSC module. You will then be
-made a maintainer with administrator privileges on that repository.
+organization, or we will happily create a repository for your new DSC
+resource module. You will then be made a maintainer with administrator
+privileges on that repository.
 
 The module must use the Plaster template that is generated by the
 [Sampler](https://github.com/gaelcolas/Sampler) project to correctly
 use the CI pipeline needed.
 
-Please contact a [committee member](/community/committee) preferably
-on the [Slack #DSC channel](http://localhost:1313/community/contact/) if
-you need a new empty repository, or if you want to transfer an existing
+Please contact a [committee member](/community/committee), preferably
+on the [Slack #DSC channel](http://localhost:1313/community/contact/), if
+you need a new empty repository or if you want to transfer an existing
 repository.
 
 ### Understand the coding workflow
 
-The normal workflow is as follows
+The normal workflow is as follows:
 
 1. [Resolve dependencies](#resolve-dependencies)
 1. [Build module](#build-module)
@@ -555,13 +581,13 @@ The normal workflow is as follows
 
 #### Resolve dependencies
 
-Pay attention to any new code merged into the `master` branch of the official repository.
+Pay attention to any new code merged into the `master` branch of an official repository.
 If this occurs, you will need to pick-up these changes in your fork using the rebase
 instructions in our [guide to getting started with GitHub](GettingStartedWithGitHub.md).
 
-This does only need to be run once, but must also be run each time changes
-are made to the file `RequiredModules.psd1`, or if there are new releases
-of external modules listed in the file `RequiredModules.psd1`.
+This needs to be repeated each time changes are made to the file
+`RequiredModules.psd1`, or if there are new releases of external modules
+listed in the file `RequiredModules.psd1`.
 
 Running this command will make sure the dependencies are resolved and to
 prepare the build and test environment.
@@ -575,9 +601,9 @@ prepare the build and test environment.
 
 #### Build module
 
-This builds the module after which for example tests can be run on the built
-module. The built module will look the same as the one that is release.
-`GitVersion` is used to determine the next version if it is installed.
+This builds the module after which tests can be run on the built
+module. The built module will have the same structure as the one that is
+released.
 
 **This must be run each time changes have been made to files in the source**
 **folder.**
@@ -585,6 +611,11 @@ module. The built module will look the same as the one that is release.
 ```powershell
 .\build.ps1 -Tasks build
 ```
+
+>The application GitVersion is used in the pipeline to determine
+>the next version if it is installed. If `gitversion` is not installed
+>then the build version will always be reported as `0.0.1`.
+>To install GitVersion see [install GitVersion](/guidelines/getting-started#install-gitversion)
 
 #### Test module
 
@@ -600,17 +631,17 @@ when you send in a PR.
 >This is similar to what the upstream repository is using to run CI pipeline,
 >it is using the https://dev.azure.com/dsccommunity organization.
 
-This is can be used to test that everything works  as expected before sending
+This can be used to test that everything works as expected before sending
 in a PR. It can also be used to start a test run that takes a long time without
 having the development environment powered on. Just commit and push the changes
 and the Azure Pipelines will run the CI for you.
 
-1. At this point push the working branch to your fork if you have not done
-   so already. We will need it for the next step.
+1. Push the working branch to your fork if you have not done so already.
+   We will need it for the next step.
 1. Create a free Azure DevOps organization at https://azure.microsoft.com/services/devops/
 1. Install the GitVersion task
    1. Go to the https://dev.azure.com/{organization}/_settings/extensions and
-      from there browse the marketplace and search for *GitVersion*.
+      browse the marketplace and search for *GitVersion*.
 1. Create a new project with the same name as the *GitHub repository name**,
    make sure to set visibility to **public**.
 1. In the new project under Pipelines, create a new pipeline and choose
@@ -620,28 +651,35 @@ and the Azure Pipelines will run the CI for you.
    you can choose to install it for all and future repositories or just
    specific ones.
 1. Once back in Azure Pipelines choose *Existing Azure Pipelines YAML file*
-   and then to choose an azure-pipelines.yml by browsing the branch you
-   recently pushed above. Then on the box that says *Run*, instead just
-   choose *Save* in the drop-down list.
+   and then select `azure-pipelines.yml` by browsing the branch you
+   recently pushed above.
+1. On the box that says *Run*, instead just choose *Save* in the drop-down list.
 1. Overrides the continuous integration trigger by clicking on 'Edit' where
-   you see the YAML file. Then click on the three dots to get the sub-menu
-   and to get the menu item 'Triggers'.
+   you see the YAML file.
+1. Click on the three dots to get the sub-menu and to show the menu item 'Triggers'.
    1. Once in Triggers pane, under *Continuous Integration* click the checkbox
       *Override the YAML continuous integration trigger from here*, and then
       change the *Branch specification* to `*` (asterisk).
    1. Under *Save & queue* in the drop-down menu choose *Save*.
+1. Go back to the new pipeline and on the pane *Runs* click *Run pipeline*.
+   1. For the *Branch/tag* choose the branch you just pushed, and leave
+      *Commit* blank (to run the last the commit).
+   1. Click on *Run*.
 
-Next time you push a commit to a branch in your fork the Azure Pipeline
+Next time you push a commit to a branch in your fork, the Azure Pipeline
 will trigger on that and start a run.
 
->**NOTE:** Even if we choose a specific YAML file that will not be used,
->instead the YAML file from the branch being pushed will be used, so any
->changes to the file `azure-pipelines.yml` will be reflected.
+>**NOTE:** Even if we chose the `azure-pipelines.yml` file from the working
+>branch in the previous steps that specific `azure-pipelines.yml` file
+>will not always be used, instead the `azure-pipelines.yml` file from the
+>branch (or the commit) being run in the pipeline will be used. So if you
+>make changes to the file `azure-pipelines.yml` those changes will be
+>reflected when you run the pipeline.
 
 ### Resolve merge conflicts
 
 If another pull request is merged while yours is in review, you will need
-to ad those new changes into your working branch before your pull request
+to add those new changes into your working branch before your pull request
 is allowed to merge. To do this we will 'rebase' the branch. This means that
 the changes you made in your working branch for your pull request will be
 'replayed' on top of the changes that were recently merged into `master`, as
@@ -663,12 +701,12 @@ Here are the steps to rebase your branch:
 >Note: These steps assumes that you have added the remote as described above.
 >Run `git remote -v` to verify that you have the remote name `my` pointing to your
 >fork repository, and remote name `origin` pointing to the upstream repository.
->If your remote names are pointing differently, then change the remote names
->below accordingly.
+>If your remotes are named differently, then change the remote names
+>accordingly.
 
 #### 1. Rebase the local branch `master` from the base branch `master`
 
-- In a PowerShell prompt, you need to do the following.
+In a PowerShell prompt, you need to do the following:
 
 ```plaintext
 cd <path to cloned repository>      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc
@@ -691,7 +729,7 @@ git push my master --force
 
 #### 2. Rebase your working branch
 
-- In a PowerShell prompt, you need to do the following.
+In a PowerShell prompt, you need to do the following:
 
 ```plaintext
 cd <path to cloned repository>      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc.
@@ -767,10 +805,8 @@ When you are happy with the file, save it and continue with the next file, if
 there was more merge conflicts.
 **Only when all the merge conflicts are resolved can you continue with the rebase.**
 
-- To continue with the rebase. In the same PowerShell prompt as you started the
-  rebase, you need to do the following.
-  _Note: If not using the same PowerShell prompt, make sure you are in the local
-  repository folder._
+To continue with the rebase. In the same PowerShell prompt as you started the
+rebase, you need to do the following:
 
 ```plaintext
 git status            # (optional) If you unsure of the name, you can use this to see the files that was in conflict.
@@ -778,8 +814,8 @@ git add <file>        # Do this for each file that you fixed merged conflicts in
 git rebase --continue
 ```
 
-**You can now get more merge conflicts.** If so, then you have to resolve those
-again. Do the same procedure as before for these new conflicts.
+**You may now get more merge conflicts.** If so, then you have to resolve those
+again. Repeat the same procedure as before for these new conflicts.
 **You might need to do this step several times.**
 
 Continue to step 4 only when you no longer have any merge conflicts you need to
