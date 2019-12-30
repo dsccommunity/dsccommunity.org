@@ -19,7 +19,7 @@ We are moving away from AppVeyor to Azure DevOps because Azure Pipelines
 gives us longer run time per job plus parallel jobs on a free account (for
 open source projects).
 
-Also, we ar no longer requiring signing of CLA since the modules are
+Also, we are no longer requiring signing of CLA since the modules are
 now part of DSC Community.
 
 ## Prepare repository for automatic releases
