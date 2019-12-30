@@ -6,8 +6,8 @@ draft: false
 author: johlju
 ---
 
-Any comments around this blog entry are welcomed to be submitted on the
-[Gist](https://gist.github.com/johlju/2ad77aa574aa07d3e9953fe86007731c).
+Any comments around this blog entry are welcomed and to be submitted on
+the [Gist](https://gist.github.com/johlju/2ad77aa574aa07d3e9953fe86007731c).
 
 >**NOTE:** The build is running on Linux in the CI pipeline to be able to
 >support cross-platform DSC resources, so that makes all paths case-sensitive!
@@ -16,7 +16,7 @@ Any comments around this blog entry are welcomed to be submitted on the
 >and folder names).
 
 We are moving away from AppVeyor to Azure DevOps because Azure Pipelines
-givs us longer run time per job plus parallell jobs on a free account (for
+gives us longer run time per job plus parallel jobs on a free account (for
 open source projects).
 
 Also, we ar no longer requiring signing of CLA since the modules are
@@ -68,7 +68,7 @@ If there are any tags missing then create those tags.
 >new format, otherwise GitVersion will not evaluate the versions correctly.
 >
 >If there are no missing tags, then you **MUST** re-create the
->last tag so that is using semantic versioning and the correct format for
+>last tag so that it is using semantic versioning and the correct format for
 >the tag. See article [How To Delete Local and Remote Tags on Git](https://devconnected.com/>how-to-delete-local-and-remote-tags-on-git/).
 >If you ran the script in the previous section this have probably been
 >resolved already.
@@ -210,7 +210,7 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
    that the module version is just updated by the CI pipeline. Set the
    module version to `0.0.1`. *The module version is controlled by GitVersion*
    *and the GitVersion.yml that we get back to later.*
-1. Add an property `Prerelease` with an empty string value to the `PSData`
+1. Add the property `Prerelease` with an empty string value to the `PSData`
    section. *Note: This must be done so that the pipeline will be able to*
    *release preview builds.*
    ```powershell
@@ -624,8 +624,8 @@ helper module these steps should be done.
 
 ## Resolve build dependencies
 
-This requires that all steps above has been done. Running this command
-will make sure the dependencies are resolved and to prepare the build
+This requires that all steps above have been done. Running this command
+will make sure the dependencies are resolved and prepare the build
 environment.
 
 This must be run each time changes are made to the file `RequiredModules.psd1`,
