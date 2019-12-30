@@ -473,6 +473,17 @@ parenthesis.
 #### Version of the DSC module that was used
 ```
 
+### File `CONTRIBUTING.md`
+
+If this file does not exist, please create it as GitHub uses it in various
+locations. Change the contents of the file to the following.
+
+```markdwon
+# Contributing
+
+Please check out common DSC Community [contributing guidelines](https://dsccommunity.org/guidelines/contributing).
+```
+
 ### Examples files (if published to Gallery)
 
 For examples that are published to the Gallery the *Script File Information*
@@ -1180,7 +1191,7 @@ e.g. `v1.14.1`.
 git checkout master
 git pull --tags # Pull all tags from upstream master branch
 git describe --tags # To see the the latest tag, e.g. vX.Y.Z-preview0002
-git tag vX.Y.Z # Creates the tag locally
+git tag vX.Y.Z # Creates the full version tag locally
 git push --tags # Push the new tag that was created locally
 ```
 
@@ -1189,7 +1200,7 @@ git push --tags # Push the new tag that was created locally
 
 ### Remove branch `dev` from upstream repository
 
-**BE AWARE OF EFFECTED PULL REQUESTS.**
+**BE AWARE OF AFFECTED PULL REQUESTS.**
 
 1. Re-target any PR's to the new default branch `master`.
 1. Remove the branch `dev` by running `git push origin :dev` (or by manually
