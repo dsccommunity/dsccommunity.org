@@ -1179,7 +1179,7 @@ e.g. `v1.14.1`.
 ```bash
 git checkout master
 git pull --tags # Pull all tags from upstream master branch
-git tag # To see the the latest pre-release, e.g. vX.Y.Z-preview0002
+git describe --tags # To see the the latest tag, e.g. vX.Y.Z-preview0002
 git tag vX.Y.Z # Creates the tag locally
 git push --tags # Push the new tag that was created locally
 ```
