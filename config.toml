@@ -2,6 +2,11 @@ baseURL = "https://dsccommunity.org/"
 theme = "dot"
 googleAnalytics = "UA-144465379-1"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
 primaryColor = "#003366"
 secondaryColor = "#f9f9f9"
