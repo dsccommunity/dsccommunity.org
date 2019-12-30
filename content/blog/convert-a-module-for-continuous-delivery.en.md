@@ -1165,7 +1165,8 @@ account.
    git push --set-upstream origin dev --force
    ```
 1. Send in a PR of your `dev` branch targeting the `master` branch.
-1. Review and merge the PR.
+1. Review and merge the PR. **Merge the PR using *Merge pull request*, and**
+   **not *squash* to keep the commit history**.
 
 This will publish a preview version.
 
