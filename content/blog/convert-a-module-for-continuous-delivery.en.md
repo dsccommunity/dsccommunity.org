@@ -1,4 +1,10 @@
-# Steps to convert a module for continuous delivery
+---
+title: "Steps to convert a module for continuous delivery"
+date: 2019-09-24T16:37:42+02:00
+type: "post"
+draft: false
+author: johlju
+---
 
 >**NOTE:** The build is running on Linux in the CI pipeline to be able to
 >support cross-platform DSC resources, so that makes all paths case-sensitive!
