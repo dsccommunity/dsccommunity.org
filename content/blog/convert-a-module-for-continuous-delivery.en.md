@@ -1191,7 +1191,7 @@ git push --tags # Push the new tag that was created locally
 
 **BE AWARE OF EFFECTED PULL REQUESTS.**
 
-1. (WIP) Re-target any PR's to the new default branch.
+1. Re-target any PR's to the new default branch `master`.
 1. Remove the branch `dev` by running `git push origin :dev` (or by manually
    deleting it through GitHub). *You might need to remove it as a protected*
    *branch first in https://github.com/dsccommunity/{repositoryName}/settings/branches.*
