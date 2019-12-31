@@ -484,24 +484,6 @@ locations. Change the contents of the file to the following.
 Please check out common DSC Community [contributing guidelines](https://dsccommunity.org/guidelines/contributing).
 ```
 
-### Examples files (if published to Gallery)
-
-For examples that are published to the Gallery the *Script File Information*
-section need to be changed.
-
-Update parameter `Version`, `LicenseUri`, and `ProjectUri` as needed.
-
-```powershell
-Update-ScriptFileInfo -Path .\source\Examples\Resources\xCluster\1-CreateFirstNodeOfAFailoverCluster.ps1 `
-    -Version '1.0.1' `
-    -Author 'DSC Community' `
-    -CompanyName 'DSC Community' `
-    -Copyright 'DSC Community contributors. All rights reserved.' `
-    -LicenseUri 'https://github.com/dsccommunity/xFailOverCluster/blob/master/LICENSE' `
-    -ProjectUri 'https://github.com/dsccommunity/xFailOverCluster' `
-    -ReleaseNotes 'Updated author and copyright notice.' `
-```
-
 ### Other repository files
 
 1. Remove the file `.MetaTestOptIn.json` since it is no longer used.
@@ -661,6 +643,31 @@ module. The built module will look the same as the one that is release.
 
 ```powershell
 .\build.ps1 -Tasks build
+```
+
+## Examples files (if published to Gallery)
+
+For examples that are published to the Gallery the *Script File Information*
+section need to be changed. This script must be run after the build task
+have been run because it needs to resolve the modules in a `$PSModulePath`.
+
+Update parameter `Version`, `LicenseUri`, and `ProjectUri` as needed.
+
+>**NOTE:** The cmdlet `Update-ScriptFileInfo` needs to be able to resolve
+>modules. If an example is dependent on other modules, e.g. PSDscResources,
+>they need to be present in a `$PSModulePath`. If not you will get a parse
+>error. Dependent modules should have already been pinned in the file
+>`RequiredModules.psd1`.
+
+```powershell
+Update-ScriptFileInfo -Path .\source\Examples\Resources\xCluster\1-CreateFirstNodeOfAFailoverCluster.ps1 `
+    -Version '1.0.1' `
+    -Author 'DSC Community' `
+    -CompanyName 'DSC Community' `
+    -Copyright 'DSC Community contributors. All rights reserved.' `
+    -LicenseUri 'https://github.com/dsccommunity/xFailOverCluster/blob/master/LICENSE' `
+    -ProjectUri 'https://github.com/dsccommunity/xFailOverCluster' `
+    -ReleaseNotes 'Updated author and copyright notice.' `
 ```
 
 ## Prepare the module to use the CI test pipeline
