@@ -394,17 +394,23 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
    not yet handled automatically. One solution is to temporary move older
    entries to another file, e.g. `HISTORIC_CHANGELOG.md` to keep the
    change log shortened.
-   ```markdown
-   # Historic change log for SqlServerDsc
+   1. Add a file `HISTORIC_CHANGELOG.md` and move the content of the old
+      version history to it.
+      ```markdown
+      # Historic change log for {RepositoryName}
 
-   The release notes in the PowerShell Module manifest cannot exceed 10000
-   characters. Due to a bug in the CI deploy pipeline this is not handled.
-   This file is to temporary move the older change log history to keep the
-   change log short.
+      The release notes in the PowerShell Module manifest cannot exceed 10000
+      characters. Due to a bug in the CI deploy pipeline this is not handled.
+      This file is to temporary move the older change log history to keep the
+      change log short.
 
-   ## [1.13.0.0] - 2019-09-19
-   ...
-   ```
+      ## [1.13.0.0] - 2019-09-19
+      ...
+      ```
+   1. Update the file `CHANGELOG.md` with the following.
+      ```markdwon
+      For older change log history see the [historic changelog](HISTORIC_CHANGELOG.md).
+      ```
 
 ### File `.github/PULL_REQUEST_TEMPLATE.md`
 
