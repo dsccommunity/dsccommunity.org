@@ -42,7 +42,7 @@ cd c:\source\{repositoryFolder}
 # Make sure you have the remote names to upstream and fork.
 git remote -v
 
-# Get latest changes so we get all commits that the tags use
+# Get latest changes so we get all commits that the tags uses
 git checkout master
 git fetch origin master # origin is the remote pointing to upstream DSC Community repository.
 git rebase origin/master
