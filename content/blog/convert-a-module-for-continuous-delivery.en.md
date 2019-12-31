@@ -199,7 +199,7 @@ the build and automatic release.
 
 1. Remove and entry of `DscResource.Tests` and `node_modules` from the
    file `.gitignore`
-1. Add `output/*` to the .gitignore file.
+1. Add `output/` to the .gitignore file.
 
 Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
 
