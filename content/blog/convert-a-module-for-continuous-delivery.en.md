@@ -98,7 +98,7 @@ If there are any tags missing then create those tags.
 For each tag in GitHub create a GitHub release by copying the corresponding
 change log entries to the release notes of the GitHub release.
 
-1. Browse to the tags on GitHub, e.g. https://github.com/dsccommunity/SqlServerDsc/tags
+1. Browse to the tags on GitHub, e.g. https://github.com/dsccommunity/{RepositoryName}/tags
 1. Browse to the _oldest_ tag.
 1. Start creating GitHub Releases in ascending order. Easiest it to click
    on a tag in GitHub releases section, then click 'Edit tag'. For 'Release title'
@@ -268,9 +268,9 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
    PrivateData = @{
        PSData = @{
         ...
-        LicenseUri = 'https://github.com/dsccommunity/SqlServerDsc/blob/master/LICENSE'
+        LicenseUri = 'https://github.com/dsccommunity/{RepositoryName}/blob/master/LICENSE'
 
-        ProjectUri = 'https://github.com/dsccommunity/SqlServerDsc'
+        ProjectUri = 'https://github.com/dsccommunity/{RepositoryName}'
         ...
        }
    }
@@ -286,7 +286,7 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
    >https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&_a=summary
    >**You have to get back to this once the pipeline is configured!**
    ```markdown
-   ## SqlServerDsc
+   ## {RepositoryName}
 
    [![Build Status](https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}&branchName=master)
    ![Azure DevOps coverage (branch)](https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master)
@@ -332,7 +332,7 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
    not need to be retained. *The example change log below is somewhat*
    *changed from the CHANGELOG.md in base folder.
    ```markdown
-   # Change log for SqlServerDsc
+   # Change log for {RepositoryName}
 
    The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
    and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -350,7 +350,7 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
      - Add .gitattributes file to checkout file correctly with CRLF.
      - Updated .vscode/analyzersettings.psd1 file to correct use PSSA rules
        and custom rules in VS Code.
-     - Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/SqlServerDsc/issues/1437)).
+     - Fix hashtables to align with style guideline ([issue #1437](https://github.com/dsccommunity/{RepositoryName}/issues/1437)).
    - SqlServerMaxDop
      - Fix line endings in code which did not use the correct format.
 
@@ -387,7 +387,7 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
    - Changes to SqlServerDsc
      - Fix keywords to lower-case to align with guideline.
      - Fix keywords to have space before a parenthesis to align with guideline.
-     - Fix typo in SqlSetup strings ([issue #1419](https://github.com/dsccommunity/SqlServerDsc/issues/1419)).
+     - Fix typo in SqlSetup strings ([issue #1419](https://github.com/dsccommunity/{RepositoryName}/issues/1419)).
    ```
 1. **IMPORTANT!** The release notes in the PowerShell Module manifest cannot
    exceed 10000 characters. Due to a bug in the CI deploy pipeline this is
@@ -557,7 +557,7 @@ Please check out common DSC Community [contributing guidelines](https://dsccommu
    >E.g. paths used `\output\;\output\RequiredModules`.
    ```powershell
    # Prerequisites modules needed for examples and integration tests of
-   # the SqlServerDsc module.
+   # the {RepositoryName} module.
    PSDscResources = '2.12.0.0'
    StorageDsc     = '4.9.0.0'
    NetworkingDsc  = '7.4.0.0'
@@ -593,7 +593,7 @@ helper module these steps should be done.
        -Author 'DSC Community' `
        -CompanyName 'Dsc Community' `
        -Copyright 'Copyright the DSC Community contributors. All rights reserved.' `
-       -Description 'Functions used by the DSC resources in SqlServerDsc.'
+       -Description 'Functions used by the DSC resources in {RepositoryName}.'
 
    # Converts the file to UTF-8 (without BOM)
    $content = Get-Content -Path $manifestFile -Encoding 'Unicode' -Raw
