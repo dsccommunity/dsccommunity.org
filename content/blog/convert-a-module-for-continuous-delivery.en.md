@@ -524,7 +524,7 @@ Please check out common DSC Community [contributing guidelines](https://dsccommu
         about new releases. https://github.com/dsccommunity/{RepositoryName}
 
     SEE ALSO
-    - https://github.com/dsccommunity/{RepositoryName}
+        - https://github.com/dsccommunity/{RepositoryName}
 
     KEYWORDS
         DSC, DscResource, {productTag}
