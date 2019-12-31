@@ -201,6 +201,8 @@ the build and automatic release.
    file `.gitignore`
 1. Add `output/` to the .gitignore file.
 
+### Module manifest
+
 Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
 
 1. Remove the release notes from the module manifest by changing the
