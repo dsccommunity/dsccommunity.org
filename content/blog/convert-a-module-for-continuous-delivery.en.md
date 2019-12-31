@@ -874,6 +874,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
              inputs:
                testResultsFormat: 'NUnit'
                testResultsFiles: 'output/testResults/NUnit*.xml'
+               testRunTitle: 'HQRM'
 
        - job: Test_Unit
          pool:
@@ -902,6 +903,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
              inputs:
                testResultsFormat: 'NUnit'
                testResultsFiles: 'output/testResults/NUnit*.xml'
+               testRunTitle: 'Unit (Windows Server Core)'
            - task: PublishCodeCoverageResults@1
              condition: succeededOrFailed()
              inputs:
@@ -937,6 +939,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
              inputs:
                testResultsFormat: 'NUnit'
                testResultsFiles: 'output/testResults/NUnit*.xml'
+               testRunTitle: 'Integration (Windows Server Core)'
    ```
 1. On the stage `Deploy` change the key `dependsOn` replace `test_module` to `Test`.
 1. If the repository _cannot run_ integration tests then the job `Test_Integration`
