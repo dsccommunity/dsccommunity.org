@@ -39,22 +39,21 @@ to re-create all existing tags. You run it with the following.
 # Move to the local repo
 cd c:\source\{repositoryFolder}
 
+# Make sure you have the remote names to upstream and fork.
+git remote -v
+
 # Get latest changes so we get all commits that the tags use
 git checkout master
-git fetch origin master # origin is the remote pointing to upstream
+git fetch origin master # origin is the remote pointing to upstream DSC Community repository.
 git rebase origin/master
 git push my master --force # my is the remote pointing to fork
-
-# Get all tags in upstream
-git pull origin --tags # origin is the remote pointing to upstream
-
-# make sure you have the correct remotes.
-git remote -v
 
 <#
     Remote - remote name to your fork
     Upstream - remote name to the upstream DSC Community repository.
     DeleteOldTags - will remove the old tags.
+
+    You can run it with parameter WhatIf to see what it will do.
 #>
 Convert-GitTagForDsc -DeleteOldTags -Remote 'my' -Upstream 'origin' -Verbose
 ```
