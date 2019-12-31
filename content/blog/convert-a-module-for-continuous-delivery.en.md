@@ -615,6 +615,18 @@ helper module these steps should be done.
    }
    ```
 
+## Update examples
+
+If an example uses an external module in the configuration then that module
+must use a pinned version. The pinned version must be the same version that
+was pinned in the file `RequiredModules.psd1` (or make sure to pin the same
+version there too). Example of pinning a version in the configuration file.
+
+```powershell
+Import-DscResource -ModuleName 'PSDscResources' -ModuleVersion '2.12.0.0'
+Import-DscResource -ModuleName 'StorageDsc' -ModuleVersion '4.9.0.0'
+```
+
 ## Resolve build dependencies
 
 This requires that all steps above have been done. Running this command
@@ -645,29 +657,33 @@ module. The built module will look the same as the one that is release.
 .\build.ps1 -Tasks build
 ```
 
-## Examples files (if published to Gallery)
+## Examples files (if publishing to Gallery)
 
 For examples that are published to the Gallery the *Script File Information*
 section need to be changed. This script must be run after the build task
 have been run because it needs to resolve the modules in a `$PSModulePath`.
 
-Update parameter `Version`, `LicenseUri`, and `ProjectUri` as needed.
+**Update parameter `Version` as needed.**
 
 >**NOTE:** The cmdlet `Update-ScriptFileInfo` needs to be able to resolve
 >modules. If an example is dependent on other modules, e.g. PSDscResources,
 >they need to be present in a `$PSModulePath`. If not you will get a parse
 >error. Dependent modules should have already been pinned in the file
->`RequiredModules.psd1`.
+>`RequiredModules.psd1` and in each example file.
 
 ```powershell
-Update-ScriptFileInfo -Path .\source\Examples\Resources\xCluster\1-CreateFirstNodeOfAFailoverCluster.ps1 `
-    -Version '1.0.1' `
-    -Author 'DSC Community' `
-    -CompanyName 'DSC Community' `
-    -Copyright 'DSC Community contributors. All rights reserved.' `
-    -LicenseUri 'https://github.com/dsccommunity/xFailOverCluster/blob/master/LICENSE' `
-    -ProjectUri 'https://github.com/dsccommunity/xFailOverCluster' `
-    -ReleaseNotes 'Updated author and copyright notice.' `
+$moduleName = '<repositoryName>'
+Get-ChildItem -Path '.\source\Examples' -Filter '*.ps1' -Recurse | % {
+    Update-ScriptFileInfo -Path $_.FullName `
+        -Version '1.0.1' `
+        -Author 'DSC Community' `
+        -CompanyName 'DSC Community' `
+        -Copyright 'DSC Community contributors. All rights reserved.' `
+        -LicenseUri "https://github.com/dsccommunity/$moduleName/blob/master/LICENSE" `
+        -ProjectUri "https://github.com/dsccommunity/$moduleName" `
+        -ReleaseNotes 'Updated author, copyright notice, and URLs.' `
+        -IconUri 'https://dsccommunity.org/images/DSC_Logo_300p.png'
+}
 ```
 
 ## Prepare the module to use the CI test pipeline
@@ -687,18 +703,6 @@ Update-ScriptFileInfo -Path .\source\Examples\Resources\xCluster\1-CreateFirstNo
    - FunctionalQuality
    - TestQuality
    ```
-
-### Update examples
-
-If an example uses an external module in the configuration then that module
-must use a pinned version. The pinned version must be the same version that
-was pinned in the file `RequiredModules.psd1` (or make sure to pin the same
-version there too). Example of pinning a version in the configuration file.
-
-```powershell
-Import-DscResource -ModuleName 'PSDscResources' -ModuleVersion '2.12.0.0'
-Import-DscResource -ModuleName 'StorageDsc' -ModuleVersion '4.9.0.0'
-```
 
 ### Update unit tests
 
