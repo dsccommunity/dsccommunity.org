@@ -317,8 +317,10 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
 
    Please check out common DSC Community [contributing guidelines](https://dsccommunity.org/guidelines/contributing).
    ```
-1. Change any paths pointing to examples (`[...](/Examples/Resources/...)`) to the
+1. Change any URLs pointing to examples (`[...](/Examples/Resources/...)`) to the
    correct path `[...](/source/Examples/Resources/...)`
+1. Change any URLs pointing to `https://github.com/PowerShell/...` to
+   `https://github.com/dsccommunity/...`.
 
 ### File `CHANGELOG.md`
 
