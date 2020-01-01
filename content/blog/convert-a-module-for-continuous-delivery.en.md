@@ -1194,8 +1194,13 @@ account.
    *tags.*
    ```bash
    git checkout dev
+   # get latest changes from upstream dev into local branch dev
+   git fetch origin dev
+   git rebase origin/dev
+   # get latest changes from upstream master into local branch dev
    git fetch origin master
    git rebase origin/master
+   # push changes to upstream dev
    git push --set-upstream origin dev --force
    ```
 1. Send in a PR of your `dev` branch targeting the `master` branch.
