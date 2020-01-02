@@ -266,7 +266,7 @@ Here is the general process of submitting a PR:
 1. Create a new working branch based on branch `master`. See
    [Making changes and pushing them to the fork](/guidelines/getting-started/#making-changes-and-pushing-them-to-the-fork).
 1. Write tests that will ensure that the issue in the code is fixed.
-   See [Testing Guidelines](/guidelines/testing-guideline).
+   See [Testing Guidelines](/guidelines/testing-guidelines).
 1. Make changes in your working branch to solve the issue.
 1. Update the **Unreleased** section of the repository changelog (file
    `CHANGELOG.md`) in accordance to the type of changes in [keep a changelog](https://keepachangelog.com/en/1.0.0/).
@@ -299,7 +299,7 @@ repositories requires both unit and integration tests.
 
 You are required to provide adequate test coverage for the code you change.
 
-See [Testing Guidelines](/guidelines/testing-guideline) for more information.
+See [Testing Guidelines](/guidelines/testing-guidelines) for more information.
 
 >Not all resources currently have tests. This does not mean that you do not
 >have to write tests for your changes. But you do not have to write the full
@@ -617,7 +617,7 @@ released.
 
 #### Test module
 
-See [Testing Guidelines](/guidelines/testing-guideline/) for more
+See [Testing Guidelines](/guidelines/testing-guidelines/) for more
 information on how to run tests.
 
 ### Attach your fork to a free Azure DevOps organization
