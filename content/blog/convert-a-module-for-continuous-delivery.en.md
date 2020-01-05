@@ -55,7 +55,7 @@ git push my master --force # my is the remote pointing to fork
 
     You can run it with parameter WhatIf to see what it will do.
 #>
-Convert-GitTagForDsc -DeleteOldTags -Remote 'my' -Upstream 'origin' -Verbose
+.\Convert-GitTagForDsc.ps1 -DeleteOldTags -Remote 'my' -Upstream 'origin' -Verbose
 ```
 
 ### Make sure all previous releases has tags
@@ -133,22 +133,38 @@ git checkout -b add-new-ci
 Suggest adding commits to this working branch as necessary when changing
 files in each section.
 
+## Add CI pipeline configuration files
+
+Run the following to get the necessary pipeline files and folders that we
+need to covert the module.
+
+Overwrite any files it suggest, then check the `git` diff if you need to
+keep anything. Remove any .bak files that are created if they ar no longer
+needed.
+
+```powershell
+cd C:\source\{RepositoryName}
+
+Install-Module -Name 'Sampler' -Scope 'CurrentUser'
+$samplerModule = Import-Module -Name Sampler -PassThru
+
+$invokePlasterParameters = @{
+  TemplatePath = Join-Path -Path $samplerModule.ModuleBase -ChildPath 'Templates/Sampler'
+  DestinationPath = '..\'
+  ModuleType = 'dsccommunity'
+  ModuleName = Split-path -Leaf $PWD
+  SourceDirectory = 'source'
+}
+
+Invoke-Plaster @invokePlasterParameters
+```
+
 ## Change repository folder structure
 
-We must change the folder structure because that is a prerequisites for
+We must change the folder structure because that is a prerequisite for
 the build and automatic release.
 
->**NOTE:** The source folder could also have the same name as the module
->name, e.g. `SqlServerDsc`, or named `src` or `source`. We choose to use
->'source' to clearly show that it is the source code, and easier to
->understand when mentioning the *source folder* in conversations.
->We also use lower-case to in the root folders to be compatible with
->future cross-plattform DSC modules or DSC resource in the DSC module.
-
-1. Create a folder in the root of the repo with the (lower-case) name
-   `source`. This new folder will from now be referenced to as the
-   *source folder*.
-1. Move the following folders into the source folder (if they exist).
+1. Move the following folders into the folder `source` (if they exist).
    - DSCResources
    - Examples
    - Modules
@@ -166,40 +182,7 @@ the build and automatic release.
    **in this file meant to help run tests, like installation of features**
    **etcetera. You need to add it to the new pipeline later.**
 
-## Add CI pipeline configuration files
-
-1. Run the following to get a base files that we use to covert the module.
-   Change the destination path to something suitable. Make sure to choose
-   the full template, and to use `source` as the source folder.
-   The folder that is created will be referenced as the *base folder* .
-   ```powershell
-   install-Module sampler -Scope CurrentUser
-   $sampler = Import-Module -Name Sampler -PassThru
-   Invoke-Plaster -TemplatePath (Join-Path $Sampler.ModuleBase 'Templates/Sampler') -Destination C:\Temp\TemplateModule
-   ```
-1. Copy the following files from the base folder to the root of the repository.
-   - `.markdownlint.json`
-   - `build.ps1`
-   - `build.yaml`
-   - `Resolve-Dependency.ps1`
-   - `Resolve-Dependency.psd1`
-   - `RequiredModules.psd1`
-   - `GitVersion.yml`
-   - `azure-pipelines.yml`
-   - `CODE_OF_CONDUCT.md`
-1. Copy the following file from the base folder `./source/build.psd1`
-   into the source folder. *This file will not be needed once the*
-   *ModuleBuilder module resolves a pending issue.*
-1. Copy the following folder from the base folder `./source/en-US`
-   into the source folder.
-
 ## Update repository and module files
-
-### File `.gitignore`
-
-1. Remove and entry of `DscResource.Tests` and `node_modules` from the
-   file `.gitignore`
-1. Add `output/` to the .gitignore file.
 
 ### Module manifest
 
@@ -591,7 +574,7 @@ helper module these steps should be done.
 
    New-ModuleManifest -Path $manifestFile `
        -Author 'DSC Community' `
-       -CompanyName 'Dsc Community' `
+       -CompanyName 'DSC Community' `
        -Copyright 'Copyright the DSC Community contributors. All rights reserved.' `
        -Description 'Functions used by the DSC resources in {RepositoryName}.'
 
@@ -826,7 +809,7 @@ Remove-Module -Name $script:parentModule -Force -ErrorAction 'SilentlyContinue'
 $script:subModuleName = (Split-Path -Path $PSCommandPath -Leaf) -replace '\.Tests.ps1'
 $script:subModuleFile = Join-Path -Path $script:subModulesFolder -ChildPath "$($script:subModuleName)"
 
-Import-Module $script:subModuleFile -Force -ErrorAction Stop
+Import-Module $script:subModuleFile -Force -ErrorAction 'Stop'
 #endregion HEADER
 
 InModuleScope $script:subModuleName {
@@ -845,6 +828,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
 **folder.**
 
 ```powershell
+.\build.ps1 -Tasks hqrmtest
 .\build.ps1 -Tasks test
 ```
 
@@ -859,7 +843,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
 
 ### File `azure-pipelines.yml`
 
-1. Replace the string `Build_artefact` with `Build` (in two locations).
+1. Replace the string `Build_artefact` with `Build` (in one locations).
 1. Replace the entire stage `test_module` with the following.
    ```yaml
    - stage: Test
