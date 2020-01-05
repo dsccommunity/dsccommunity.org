@@ -105,7 +105,7 @@ The Personal Access Token (PAT) that is used by the pipeline is from the
 
 Log in to the @dscbot account and from there take out a Personal Access Token.
 
-Permissions for the pat:
+Permissions for the PAT:
 
 - repo
 - delete:packages
