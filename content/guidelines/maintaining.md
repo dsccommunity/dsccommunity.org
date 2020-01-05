@@ -45,9 +45,9 @@ Read more in [Skipping CI for individual commits](https://docs.microsoft.com/en-
 
 Not written.
 
->**NOTE:** There are an issue with module ModuleBuilder when using
->semantic version preview strings that uses a dash, e.g. `fix0008-9`.
->The string is compliant with SemVer 2.0 but there is a bug in
+>**NOTE:** There are an issue with module ModuleBuilder v1.0.0 and higher
+>when using semantic version preview strings that uses a dash, e.g. `fix0008-9`.
+>The string is compliant with SemVer 2.0 but there is a  bug in
 >`Publish-Module` that prevents the module to be released.
 
 ### Release

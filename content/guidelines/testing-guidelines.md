@@ -72,12 +72,6 @@ Default is that all the tests are opted-in. If a test cannot be resolved
 to pass then there are different scenarios supported to opt-out from tests.
 Preferably you should opt-out from tests.
 
-- Using the opt-out JSON file `.MetaTestOptOut.json`.
-    ```yaml
-    [
-        "Common Tests - New Error-Level Script Analyzer Rules"
-    ]
-    ```
 - Configuring the `build.yaml` with the tag `ExcludeTag` under either the
   key `Pester` or `DscTest` (JSON files override excludes for the key
   `DscTest`).
@@ -91,15 +85,6 @@ Preferably you should opt-out from tests.
       - Common Tests - New Error-Level Script Analyzer Rules
       - Common Tests - Validate Example Files
       - Common Tests - Relative Path Length
-  ```
-- Using the opt-in JSON file `.MetaTestOptIn.json`. *This is only available*
-  *for backwards compatibility, we do not recommend using this file but*
-  *instead move to the other two options.*
-  ```yaml
-  [
-    "Common Tests - Validate Example Files",
-    "Common Tests - Relative Path Length",
-  ]
   ```
 
 #### Default opt-outs

@@ -30,7 +30,8 @@ The GitHub repository must first exist to be able to do this. Log in to
 the @dscbot account (the DSC Community GitHub account) and from there
 take out a Personal Access Token for the the **specific repository**.
 
-**Do NOT EVER create a PAT for the entire organization!**
+**Do NOT EVER create a PAT that have push access to all repositories**
+**in the organization user!**
 
 Personal Access Token (PAT) expire after 12 months from creation, so every
 12 months the PAT must be renewed.
