@@ -24,22 +24,13 @@ All repositories should always be added with **MIT licensing**.
 >**NOTE:** To be able create repositories you must be an owner of the
 >GitHub DSC Community organization. See [GitHub DSC Community organizational owners](https://github.com/orgs/dsccommunity/people?query=role%3Aowner).
 
-##### Create repository Personal Access Token (PAT) to use with the pipeline
+##### Create GitHub repository Team
 
-The GitHub repository must first exist to be able to do this. Log in to
-the @dscbot account (the DSC Community GitHub account) and from there
-take out a Personal Access Token for the the **specific repository**.
-
-**Do NOT EVER create a PAT that have push access to all repositories**
-**in the organization user!**
-
-Personal Access Token (PAT) expire after 12 months from creation, so every
-12 months the PAT must be renewed.
-
->**NOTE:** There can only be one holder of the DSC Community GitHub account
->since it is (obviously) using 2FA. Currently the account holder is @gaelcolas.
+Not written yet.
 
 ### Azure DevOps organization
+
+DSC Community has its own Azure DevOps Organization; https://dev.azure.com/dsccommunity/.
 
 #### Create Azure DevOps project
 
@@ -107,9 +98,35 @@ upstream repository since you need to have access to the file
    - `GalleryApiToken` - This should have the value of the PowerShell
      Gallery API key
 
+### Create the GitHub Personal Access Token (PAT)
+
+The Personal Access Token (PAT) that is used by the pipeline is from the
+@dscbot account (the DSC Community GitHub account).
+
+Log in to the @dscbot account and from there take out a Personal Access Token.
+
+Permissions for the pat:
+
+- repo
+- delete:packages
+- read:packages
+- write:packages
+
+**_Personal Access Token (PAT) expire after 12 months from creation, so every_**
+**_12 months the PAT must be renewed._**
+
+>**NOTE:** There can only be one holder of the DSC Community GitHub account
+>since it is (obviously) using 2FA. Currently the account holder is @johlju.
+
 ### Create the PowerShell Gallery API key
 
-Not yet written.
+The DSC Community PowerShell Gallery API key used by the pipeline is
+created per package so that each key can only publish new version of
+that specific package.
+
+>**NOTE:** There can only be one holder of the DSC Community PowerShell
+>Gallery account since it is (obviously) using 2FA. Currently the account
+>holder is @gaelcolas.
 
 ### Add a new DSC Community committee member
 
