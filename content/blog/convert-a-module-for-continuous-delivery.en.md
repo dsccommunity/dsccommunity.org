@@ -159,16 +159,9 @@ $invokePlasterParameters = @{
 Invoke-Plaster @invokePlasterParameters
 ```
 
->**NOTE:** The `SourceDirectory` folder could also have the same name as the module
->name, e.g. `SqlServerDsc`, or named `src` or `source`. We choose to use
->'source' to clearly show that it is the source code, and easier to
->understand when mentioning the *source folder* in conversations.
->We also use lower-case to in the root folders to be compatible with
->future cross-platform DSC modules or DSC resource in the DSC module.
-
 ## Change repository folder structure
 
-We must change the folder structure because that is a prerequisites for
+We must change the folder structure because that is a prerequisite for
 the build and automatic release.
 
 1. Move the following folders into the folder `source` (if they exist).
