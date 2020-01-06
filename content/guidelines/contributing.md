@@ -266,7 +266,7 @@ Here is the general process of submitting a PR:
 1. Create a new working branch based on branch `master`. See
    [Making changes and pushing them to the fork](/guidelines/getting-started/#making-changes-and-pushing-them-to-the-fork).
 1. Write tests that will ensure that the issue in the code is fixed.
-   See [Testing Guidelines](/guidelines/testing-guideline).
+   See [Testing Guidelines](/guidelines/testing-guidelines).
 1. Make changes in your working branch to solve the issue.
 1. Update the **Unreleased** section of the repository changelog (file
    `CHANGELOG.md`) in accordance to the type of changes in [keep a changelog](https://keepachangelog.com/en/1.0.0/).
@@ -299,7 +299,7 @@ repositories requires both unit and integration tests.
 
 You are required to provide adequate test coverage for the code you change.
 
-See [Testing Guidelines](/guidelines/testing-guideline) for more information.
+See [Testing Guidelines](/guidelines/testing-guidelines) for more information.
 
 >Not all resources currently have tests. This does not mean that you do not
 >have to write tests for your changes. But you do not have to write the full
@@ -573,9 +573,23 @@ repository.
 
 The normal workflow is as follows:
 
+1. [Remove old dependencies](#remove-old-dependencies)
 1. [Resolve dependencies](#resolve-dependencies)
 1. [Build module](#build-module)
 1. [Test module](#test-module)
+
+#### Remove old dependencies
+
+This is only for you that have previously contributed to a repository
+and might have a previous local repository folder.
+
+The file `.gitignore` included an entry `DscResource.Tests` which means
+that there might be a folder in your local repository folder with that
+name. That folder are no longer used and will give you trouble if it is
+still present.
+
+1. Remove the folder `DscResource.Tests` inside your local repository
+   folder.
 
 #### Resolve dependencies
 
@@ -597,6 +611,14 @@ prepare the build and test environment.
 >**NOTE:** This does not install anything, it downloads the prerequisites
 >into the `output` folder.
 
+>KNOWN ISSUE: There are currently an known issue with this task when
+>moving between local DSC repositories. If you have resolved dependencies
+>in one repository, then move to a second repository and resolve dependencies
+>all dependencies do not download (the module PowerShell-Yaml). This is
+>because the module is already imported into the session. To workaround
+>this make sure to open each new local DSC repository in a separate PowerShell
+>session.
+
 #### Build module
 
 This builds the module after which tests can be run on the built
@@ -617,10 +639,50 @@ released.
 
 #### Test module
 
-See [Testing Guidelines](/guidelines/testing-guideline/) for more
+See [Testing Guidelines](/guidelines/testing-guidelines/) for more
 information on how to run tests.
 
+#### Knowledge base
+
+##### Error `cannot find "s.psd1"`
+
+###### Cause 1
+
+This has been known to happen in the CI build pipeline when running in
+Azure DevOps. This is because the build pipeline cannot find or resolve
+the correct module manifest so it tries to be smart and trying to resolve
+the module name based on the root project folder path which is `s`.
+
+Make sure the module manifest is in the correct location, can be imported.
+
+###### Cause 2
+
+This can also happen when the module *ModuleBuilder* is not pinned to
+version `1.0.0` in the file `RequiredModules.psd1`.
+
+##### Error `Missing property 'ProjectName'`
+
+Verify that the module manifest resolves with the cmdlet `Test-ModuleManifest`
+and does not return any errors. Make sure it resolves correctly **in both**
+**Windows PowerShell and PowerShell Core**. The build is running on Linux
+in the ci pipeline.
+
+##### Issue with preview strings containing a dash
+
+There are a issue with ModuleBuilder using preview strings
+using dash, e.g. `fix0008-9`. The string is compliant with SemVer 2.0
+but there is a bug in `Publish-Module` that prevents the module to be
+released.
+
+Make sure to pin the ModuleBuilder to version `1.0.0` in the file
+`RequiredModules.psd1`.
+
 ### Attach your fork to a free Azure DevOps organization
+
+We are moving to Azure DevOps because Azure Pipelines gives us better
+services on a free plan that can be created by all contributors for open
+source projects. For example it gives us longer run time per job (currently
+6 hours) plus the ability to run parallel jobs.
 
 Adding your fork to a free Azure DevOps organization means that when you
 push a working branch to your fork and it will be tested the same way as

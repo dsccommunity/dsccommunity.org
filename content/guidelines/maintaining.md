@@ -29,13 +29,46 @@ As a maintainer you are allowed to review and merge your own code, but
 then only after 24 hours so the community has a chance to comment on
 the changes.
 
+#### Skip CI on merge
+
+It is possible to skip running the CI pipeline when merging a patch change,
+e.g. updating the CHANGELOG.md after a release. When merging the pull
+request just enter `[skip ci]` preferably in the commit description, but
+also works in the commit message.
+
+Read more in [Skipping CI for individual commits](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=yaml#skipping-ci-for-individual-commits).
+
+>Do not add `[skip ci]` to a PR title, then the status checks will not
+>run.
+
 ### Prerelease
 
 Not written.
 
+>**NOTE:** There are an issue with module ModuleBuilder v1.0.0 and higher
+>when using semantic version preview strings that uses a dash, e.g. `fix0008-9`.
+>The string is compliant with SemVer 2.0 but there is a  bug in
+>`Publish-Module` that prevents the module to be released.
+
 ### Release
 
 Not written.
+
+#### Running the task `pack` locally
+
+If the task `pack´ is run locally, e.g. ´.\build.ps1 -Task pack`, then
+`nuget.exe` must be updated so that it is not outdated. If it is outdated
+you can run into the issue [PowerShell/PowerShellGet#295](https://github.com/PowerShell/PowerShellGet/issues/295).
+
+To update run the following:
+
+```bash
+# Non-admin
+Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+
+# Admin
+Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile "$env:ProgramData\Microsoft\Windows\PowerShell\PowerShellGet\NuGet.exe"
+```
 
 ### Labels
 

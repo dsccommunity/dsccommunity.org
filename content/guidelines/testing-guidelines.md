@@ -68,7 +68,43 @@ to do anything to get new functionality in the DSC modules.
 
 ### Opt-Out from Tests
 
-Not yet written.
+Default is that all the tests are opted-in. If a test cannot be resolved
+to pass then there are different scenarios supported to opt-out from tests.
+Preferably you should opt-out from tests.
+
+- Configuring the `build.yaml` with the tag `ExcludeTag` under either the
+  key `Pester` or `DscTest` (JSON files override excludes for the key
+  `DscTest`).
+  ```yaml
+  Pester:
+    ExcludeTag:
+      - 'TagOnUnitTest'
+
+  DscTest:
+    ExcludeTag:
+      - Common Tests - New Error-Level Script Analyzer Rules
+      - Common Tests - Validate Example Files
+      - Common Tests - Relative Path Length
+  ```
+
+#### Default opt-outs
+
+##### Test "New Error-Level Script Analyzer Rules"
+
+This HQRM tests is opt-out by default since it tests the ScriptAnalyzer
+rules `PSDSCDscExamplesPresent` and `PSDSCDscTestsPresent` which does not
+currently work with the folder structure needed by CI pipeline.
+
+```yaml
+DscTest:
+    ExcludeTag:
+    - 'Common Tests - New Error-Level Script Analyzer Rules'
+```
+
+Even if opt-out this test will still run. You opt-out from the test phase
+failing if there are any violations. Noteworthy is also that if there are
+violations the opt-out test will be skipped (yellow), if there are no
+violations the test will pass (green).
 
 ### Pinning version of prerequisites module
 
@@ -90,9 +126,18 @@ dependencies first. After that you must build the module.
 1. [Resolve dependencies](/guidelines/contributor#resolve-dependencies)
 1. [Build module](/guidelines/contributor#build-module)
 
->NOTE! Each time a source file changes you must re-build the module before
+>**NOTE!** Each time a source file changes you must re-build the module before
 >running tests again. This is because the tests are always run against the
 >built module in the 'output' folder, not the modules source files.
+
+>**KNOWN ISSUE:** If the DSC resources are importing a module from the folder
+>`Modules` (common module), the common module is already imported if you
+>run the tests a second time. That means that any changes that you make to
+>the common module are not reflected in the test run. To workaround this
+>the common module have to be manually removed using `Remove-Module -Name 'ModuleName'`.
+>There are a second workaround, force import the module in the DSC resources.
+>Force importing the module are not recommended due to performance and could
+>have a big impact in production.
 
 ##### Running Tests Locally Using Pipeline
 
@@ -133,6 +178,14 @@ Not yet written.
 If you have [Attached your fork to a free Azure DevOps organization](/guidelines/contributing/#attach-your-fork-to-a-free-azure-devops-organization)
 then for each commit that is pushed to your working branch in your fork
 the pipeline will be run.
+
+##### Re-run failed jobs
+
+It is possible to re-run failed jobs in the Azure Pipeline. Be aware that
+in some circumstances it caches dependencies so even re-running a failed
+jobs that you know will pass it will not. Instead start a new job from the
+commit in question. If it is a pull request (PR) that failed push another
+change to the PR, or close and directly reopen the PR.
 
 ### Unit Testing Private Functions
 
