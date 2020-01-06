@@ -130,8 +130,8 @@ please also refer to our [Breaking changes](#breaking-changes) section below.
 The issue description should contain a **detailed** report of the issue
 you are submitting. If you are submitting a bug, please include any error
 messages or stack traces caused by the problem. The verbose log can also
-be very helpful and are often requested by the issue template, you can read
-more about how to get the verbose output here [How to use DSC logging](https://dsccommunity.org/blog/how-to-use-dsc-logging#deployment-process).
+be very helpful and are often requested by the issue template. You can read
+more about how to get the verbose log here [How to use DSC logging](https://dsccommunity.org/blog/how-to-use-dsc-logging#deployment-process).
 
 Please reference any related issues or pull requests by a pound sign followed by
 the issue or pull request number (e.g. #11, #72). GitHub will automatically link
