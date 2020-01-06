@@ -646,6 +646,8 @@ information on how to run tests.
 
 ##### Error `cannot find "s.psd1"`
 
+###### Cause 1
+
 This has been known to happen in the CI build pipeline when running in
 Azure DevOps. This is because the build pipeline cannot find or resolve
 the correct module manifest so it tries to be smart and trying to resolve
@@ -653,12 +655,27 @@ the module name based on the root project folder path which is `s`.
 
 Make sure the module manifest is in the correct location, can be imported.
 
+###### Cause 2
+
+This can also happen when the module *ModuleBuilder* is not pinned to
+version `1.0.0` in the file `RequiredModules.psd1`.
+
 ##### Error `Missing property 'ProjectName'`
 
 Verify that the module manifest resolves with the cmdlet `Test-ModuleManifest`
 and does not return any errors. Make sure it resolves correctly **in both**
 **Windows PowerShell and PowerShell Core**. The build is running on Linux
 in the ci pipeline.
+
+##### Issue with preview strings containing a dash
+
+There are a issue with ModuleBuilder using preview strings
+using dash, e.g. `fix0008-9`. The string is compliant with SemVer 2.0
+but there is a bug in `Publish-Module` that prevents the module to be
+released.
+
+Make sure to pin the ModuleBuilder to version `1.0.0` in the file
+`RequiredModules.psd1`.
 
 ### Attach your fork to a free Azure DevOps organization
 
