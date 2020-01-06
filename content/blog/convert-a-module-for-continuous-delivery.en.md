@@ -1062,7 +1062,7 @@ Remove old webhooks that no longer will be used.
 1. Remove the AppVeyor webhook (`ci.appveyor.com`).
 1. Remove the Waffle webhook (`hooks.waffle.io`). *If it exists.*
 1. Remove the Microsoft CLA bot (`cla.microsoft.com`). *If it exists.*
-1. Remove the Codegov webhook. *If it exists.*
+1. Remove the Codecov webhook. *If it exists.*
 
 ### Remove AppVeyor CI
 
