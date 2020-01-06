@@ -717,10 +717,10 @@ Get-ChildItem -Path '.\source\Examples' -Filter '*.ps1' -Recurse | % {
 
 From all unit tests remove the header that was part
 of the previous test framework. Everything between and including
-`#region HEADER` and `#endregion HEADER`. Replace it with the following
-code, add the code inside the function `Invoke-TestSetup`. Also update
-the function `Invoke-TestCleanup`. Make sure the `Invoke-TestSetup` is
-called outside the `try`-block.
+`#region HEADER` and `#endregion HEADER`(!!beware not to delete any variables and
+any helper modules, that need to be imported).Replace it with the following code,
+add the code inside the function `Invoke-TestSetup`. Also update the function
+`Invoke-TestCleanup`. Make sure the `Invoke-TestSetup` is called outside the `try`-block.
 
 ```powershell
 function Invoke-TestSetup
