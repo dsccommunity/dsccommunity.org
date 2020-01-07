@@ -1165,10 +1165,10 @@ Branch protection rules:
 
 Status check to set (will only show once the CI has been run):
 
-- `dsccommunity.{repositoryName} (Build BuildModuleJob)`
-- `dsccommunity.{repositoryName} (Test Test_HQRM)`
-- `dsccommunity.{repositoryName} (Test Test_Integration)`
-- `dsccommunity.{repositoryName} (Test Test_Unit)`
+- `dsccommunity.{repositoryName} (Build Package Module)`
+- `dsccommunity.{repositoryName} (Test HQRM)`
+- `dsccommunity.{repositoryName} (Test Integration)`
+- `dsccommunity.{repositoryName} (Test Unit)`
 
 Plus any other test status checks you have cofngiured for other platforms
 etc.
