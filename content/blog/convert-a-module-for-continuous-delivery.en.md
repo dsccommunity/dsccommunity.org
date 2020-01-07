@@ -850,23 +850,27 @@ This runs all the unit tests for the module. *It runs the tests that are*
      dependsOn: Build
      jobs:
        - job: Test_HQRM
+         displayName: 'HQRM'
          pool:
            vmImage: 'win1803'
          timeoutInMinutes: 0
          steps:
            - task: DownloadBuildArtifacts@0
+             displayName: 'Download Build Artifact'
              inputs:
                buildType: 'current'
                downloadType: 'single'
                artifactName: 'output'
                downloadPath: '$(Build.SourcesDirectory)'
            - task: PowerShell@2
-             name: Test
+             name: test
+             displayName: 'Run HQRM Test'
              inputs:
                filePath: './build.ps1'
                arguments: '-Tasks hqrmtest'
                pwsh: false
            - task: PublishTestResults@2
+             displayName: 'Publish Test Results'
              condition: succeededOrFailed()
              inputs:
                testResultsFormat: 'NUnit'
@@ -874,6 +878,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
                testRunTitle: 'HQRM'
 
        - job: Test_Unit
+         displayName: 'Unit'
          pool:
            vmImage: 'win1803'
          timeoutInMinutes: 0
@@ -882,56 +887,66 @@ This runs all the unit tests for the module. *It runs the tests that are*
                $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split '/'
                echo "##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner"
                echo "##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName"
-             name: DscBuildVariable
+             name: dscBuildVariable
+             displayName: 'Set Environment Variables'
            - task: DownloadBuildArtifacts@0
+             displayName: 'Download Build Artifact'
              inputs:
                buildType: 'current'
                downloadType: 'single'
                artifactName: 'output'
                downloadPath: '$(Build.SourcesDirectory)'
            - task: PowerShell@2
-             name: Test
+             name: test
+             displayName: 'Run Unit Test'
              inputs:
                filePath: './build.ps1'
                arguments: "-Tasks test -PesterScript 'tests/Unit'"
                pwsh: false
            - task: PublishTestResults@2
+             displayName: 'Publish Test Results'
              condition: succeededOrFailed()
              inputs:
                testResultsFormat: 'NUnit'
                testResultsFiles: 'output/testResults/NUnit*.xml'
                testRunTitle: 'Unit (Windows Server Core)'
            - task: PublishCodeCoverageResults@1
+             displayName: 'Publish Code Coverage'
              condition: succeededOrFailed()
              inputs:
                codeCoverageTool: 'JaCoCo'
                summaryFileLocation: 'output/testResults/CodeCov*.xml'
-               pathToSources: '$(Build.SourcesDirectory)/output/$(DscBuildVariable.RepositoryName)'
+               pathToSources: '$(Build.SourcesDirectory)/output/$(dscBuildVariable.RepositoryName)'
 
        - job: Test_Integration
+         displayName: 'Integration'
          pool:
            vmImage: 'win1803'
          timeoutInMinutes: 0
          steps:
            - task: DownloadBuildArtifacts@0
+             displayName: 'Download Build Artifact'
              inputs:
                buildType: 'current'
                downloadType: 'single'
                artifactName: 'output'
                downloadPath: '$(Build.SourcesDirectory)'
            - task: PowerShell@2
-             name: ConfigureWinRM
+             name: configureWinRM
+             displayName: 'Configure WinRM'
              inputs:
                targetType: 'inline'
                script: 'winrm quickconfig -quiet'
                pwsh: false
            - task: PowerShell@2
-             name: Test
+             name: test
+             displayName: 'Run Integration Test'
              inputs:
                filePath: './build.ps1'
                arguments: "-Tasks test -PesterScript 'tests/Integration' -CodeCoverageThreshold 0"
                pwsh: false
            - task: PublishTestResults@2
+             displayName: 'Publish Test Results'
              condition: succeededOrFailed()
              inputs:
                testResultsFormat: 'NUnit'
@@ -1150,10 +1165,10 @@ Branch protection rules:
 
 Status check to set (will only show once the CI has been run):
 
-- `dsccommunity.{repositoryName} (Build BuildModuleJob)`
-- `dsccommunity.{repositoryName} (Test Test_HQRM)`
-- `dsccommunity.{repositoryName} (Test Test_Integration)`
-- `dsccommunity.{repositoryName} (Test Test_Unit)`
+- `dsccommunity.{repositoryName} (Build Package Module)`
+- `dsccommunity.{repositoryName} (Test HQRM)`
+- `dsccommunity.{repositoryName} (Test Integration)`
+- `dsccommunity.{repositoryName} (Test Unit)`
 
 Plus any other test status checks you have cofngiured for other platforms
 etc.
