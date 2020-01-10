@@ -703,8 +703,8 @@ Get-ChildItem -Path '.\source\Examples' -Filter '*.ps1' -Recurse | % {
 
 From all unit tests remove the header that was part
 of the previous test framework. Everything between and including
-`#region HEADER` and `#endregion HEADER`(!!beware not to delete any variables and
-any helper modules, that need to be imported).Replace it with the following code,
+`#region HEADER` and `#endregion HEADER` (!! beware not to delete any variables and
+any helper modules, that need to be imported). Replace it with the following code,
 add the code inside the function `Invoke-TestSetup`. Also update the function
 `Invoke-TestCleanup`. Make sure the `Invoke-TestSetup` is called outside the `try`-block.
 
@@ -1218,12 +1218,21 @@ Once the next full version should be deployed, do these steps to push
 a new release version tag. Important to have the correct format `vX.Y.Z`,
 e.g. `v1.14.1`.
 
+Assuming 'origin' is the remote name pointing the upstream repository, if
+not then change appropriately.
+
 ```bash
+# Make sure to get the latest history, use rebase to retain the linear
+# commit history.
 git checkout master
-git pull --tags # Pull all tags from upstream master branch
+git fetch origin master
+git rebase origin/master
+
+# Creates the full version tag.
+git fetch origin --tags # Pull all tags from upstream master branch
 git describe --tags # To see the the latest tag, e.g. vX.Y.Z-preview0002
-git tag vX.Y.Z # Creates the full version tag locally
-git push --tags # Push the new tag that was created locally
+git tag vX.Y.Z # Change X.Y.Z to next version number, prefixed with 'v'.
+git push origin --tags # Push the new tag that was created locally
 ```
 
 >**NOTE:** You could also tag a specific commit if not all commits should

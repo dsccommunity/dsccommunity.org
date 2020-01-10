@@ -43,7 +43,19 @@ Read more in [Skipping CI for individual commits](https://docs.microsoft.com/en-
 
 ### Prerelease
 
-Not written.
+For each merge to the branch `master` there will be a prerelease
+automatically released (continuous delivery).
+
+The version is automatically calculated in the CI pipeline based on the
+commit history since the previous release. The calculation is done by
+[GitVersion](https://gitversion.net/docs/) and each repository has a file
+`GitVersion.yml` that controls how this calculation is performed.
+
+The CI pipeline will create a tag in the format vX.Y.Z-previewXXXX, e.g
+`v5.0.0-preview0001`, and the prerelease to the PowerShell Gallery will have
+the format X.Y.Z-previewXXXX, e.g. `5.0.0-preview0001`. Any consequent
+merges to master will make a new preview release which will be named for
+example `5.0.0-preview0002` and so on.
 
 >**NOTE:** There are an issue with module ModuleBuilder v1.0.0 and higher
 >when using semantic version preview strings that uses a dash, e.g. `fix0008-9`.
@@ -52,7 +64,32 @@ Not written.
 
 ### Release
 
-Not written.
+Once the next full version should be deployed, do these steps to push
+a new release version tag. Important to have the correct format `vX.Y.Z`,
+e.g. `v1.14.1`.
+
+Assuming 'origin' is the remote name pointing the upstream repository, if
+not then change appropriately.
+
+```bash
+# Make sure to get the latest history, use rebase to retain the linear
+# commit history.
+git checkout master
+git fetch origin master
+git rebase origin/master
+
+git fetch origin --tags # Fetch all tags from upstream master branch
+git describe --tags # To see the the latest tag, e.g. vX.Y.Z-preview0002
+git tag vX.Y.Z # Creates the new version tag locally.
+git push origin --tags # Push the new tag that was created locally
+```
+
+*Avoid using `git pull --tags` as it also will merge (not rebase) any*
+*changes from upstream (unless already rebased). Using `git pull` will*
+*not retain the linear commit history.*
+
+>**NOTE:** You could also tag a specific commit if not all commits should
+>be released.
 
 #### Running the task `pack` locally
 
