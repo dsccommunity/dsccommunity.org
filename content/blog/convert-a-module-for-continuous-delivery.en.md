@@ -68,7 +68,7 @@ If there are any tags missing then create those tags.
 >
 >If there are no missing tags, then you **MUST** re-create the
 >last tag so that it is using semantic versioning and the correct format for
->the tag. See article [How To Delete Local and Remote Tags on Git](https://devconnected.com/>how-to-delete-local-and-remote-tags-on-git/).
+>the tag. See article [How To Delete Local and Remote Tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/).
 >If you ran the script in the previous section this have probably been
 >resolved already.
 
