@@ -394,6 +394,9 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
       ```markdwon
       For older change log history see the [historic changelog](HISTORIC_CHANGELOG.md).
       ```
+1. In both the `CHANGELOG.md` and `HISTORIC_CHANGELOG.md` update any
+   reference links to issues from `https://github.com/PowerShell/` to
+   `https://github.com/dsccommunity/`.
 
 ### File `.github/PULL_REQUEST_TEMPLATE.md`
 
