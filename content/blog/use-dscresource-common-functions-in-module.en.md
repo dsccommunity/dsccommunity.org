@@ -10,9 +10,9 @@ author: johlju
 
 This article will explain the steps needed to use a version of the
 [DscResource.Common](https://github.com/dsccommunity/DscResource.Common)
-module that have been released to the [PowerShell Gallery](https://www.powershellgallery.com/packages/DscResource.Common).
+module that has been released to the [PowerShell Gallery](https://www.powershellgallery.com/packages/DscResource.Common).
 
-The module DscResource.Common currently have [7 cmdlets](https://github.com/dsccommunity/DscResource.Common#cmdlet).
+The module DscResource.Common currently has [7 cmdlets](https://github.com/dsccommunity/DscResource.Common#cmdlet).
 
 - `Get-LocalizedData`
 - `New-InvalidArgumentException`
@@ -24,17 +24,18 @@ The module DscResource.Common currently have [7 cmdlets](https://github.com/dscc
 
 ### Why
 
-Historically these functions have been copied and maintained in a lot
-of DSC module repositories with each of the repo implementing different
-or the same changes. Instead of re-invent the wheel for these functions,
-the community can contribute to these functions in one location that then
-can be reused by all DSC module repositories.
+Historically, these functions have been duplicated into many DSC resource
+modules. This has resulted in duplication of effort in maintaining them as
+well as drift in the code base and feature set with some fixes not being
+included. or the same changes. Instead of re-invent the wheel for these
+functions, the community can contribute to these functions in one location
+that then can be reused by all DSC module repositories.
 
 ### How
 
 #### Prerequisites
 
-It is assumed that the DSC module repository are already using
+It is assumed that the DSC module repository is already using
 the DSC module Plaster template in the [Sampler](https://github.com/gaelcolas/Sampler)
 project, or has been converted to use the new CI pipeline using the steps
 mentioned in [Steps to convert a module for continuous delivery](/blog/convert-a-module-for-continuous-delivery/)
@@ -42,8 +43,8 @@ mentioned in [Steps to convert a module for continuous delivery](/blog/convert-a
 #### Update file `RequiredModuled.psd1`
 
 Add a new entry to the file `RequiredModuled.psd1` letting the CI pipeline
-know what module and version to download. You should pin the version here
-so that breaking changes in upstream does not affect you.
+know which module and version to download. You should pin the version here
+so that breaking changes in the upstream does not affect you.
 
 ```powershell
 @{
@@ -85,9 +86,9 @@ NestedModule:
 
 ##### Exclude nested module from tests
 
-Next you need to exclude this module from the CI pipeline tests phase.
-The module have already been tested in its own CI pipeline so no need
-for you to test that again. It might also be that the repository have
+Next, you need to exclude this module from the CI pipeline tests phase.
+The module has already been tested in its own CI pipeline so no need
+for you to test that again. It might also be that the repository has
 different quality assurances that DscResource.Common does not (like
 naming files differently).
 
