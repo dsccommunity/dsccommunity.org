@@ -14,7 +14,7 @@ There is also the list of
 [Available Language Packs for Windows](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/available-language-packs-for-windows#language-packs).
 
 In each localization folder there should be a PowerShell data (.psd1) file named
-'MSFT_\<ResourceName\>.strings.psd1' (e.g. 'MSFT_Folder.strings.psd1').
+'DSC_\<ResourceName\>.strings.psd1' (e.g. 'DSC_Folder.strings.psd1').
 Each localized string file should contain the following with the correct
 localization key and accompanying localization string value (the example uses
 the friendly resource name of 'Folder').
@@ -34,8 +34,8 @@ When using the previous example, the folder structure would look like the
 following:
 
 ```plaintext
-DSCResources\MSFT_Folder\en-US\MSFT_Folder.strings.psd1
-DSCResources\MSFT_Folder\es-ES\MSFT_Folder.strings.psd1
+DSCResources\DSC_Folder\en-US\DSC_Folder.strings.psd1
+DSCResources\DSC_Folder\es-ES\DSC_Folder.strings.psd1
 ```
 
 To use the localization strings in a resource, then localization strings are
@@ -107,15 +107,12 @@ throw ($script:localizedData.FailedToReadProperties -f $property, $path)
 
 ### Helper functions for localization
 
-There are also five helper functions to simplify localization. These can be
-be found in the repository [DscResource.Template](https://github.com/PowerShell/DscResource.Template)
-in the module script file [DscResource.LocalizationHelper](https://github.com/PowerShell/DscResource.Template/blob/master/Modules/DscResource.LocalizationHelper/DscResource.LocalizationHelper.psm1)
+This assumes the module [DscResource.Common](https://github.com/dsccommunity/DscResource.Common)
+is used by the DSC module repository. The module is also release to the
+[PowerShell Gallery](https://www.powershellgallery.com/packages/DscResource.Common).
 
-To use it, copy the module folder
-[DscResource.LocalizationHelper](https://github.com/PowerShell/DscResource.Template/blob/master/Modules/DscResource.LocalizationHelper)
-and the unit tests
-[DscResource.LocalizationHelper.Tests.ps1](https://github.com/PowerShell/DscResource.Template/blob/master/Tests/Unit/DscResource.LocalizationHelper.Tests.ps1)
-to the new resource module.
+See the article [DscResource.Common functions in a DSC module](/blog/use-dscresource-common-functions-in-module/)
+how to implement the module [DscResource.Common](https://github.com/dsccommunity/DscResource.Common).
 
 #### Get-LocalizedData
 
@@ -124,22 +121,19 @@ This should be used at the top of each resource PowerShell module script file
 Refer to the comment-based help for more information about this helper function.
 
 ```powershell
-$script:resourceModulePath = Split-Path `
-    -Path (Split-Path -Path $PSScriptRoot -Parent) `
-    -Parent
+$script:resourceHelperModulePath = Join-Path -Path $PSScriptRoot -ChildPath '..\..\Modules\DscResource.Common'
 
-$script:localizationModulePath = Join-Path `
-    -Path $script:resourceModulePath `
-    -ChildPath 'Modules\DscResource.LocalizationHelper'
+Import-Module -Name $script:resourceHelperModulePath
 
-Import-Module -Name (
-    Join-Path `
-        -Path $script:localizationModulePath `
-        -ChildPath 'DscResource.LocalizationHelper.psm1'
-    )
-
-$script:localizedData = Get-LocalizedData -ResourceName 'MSFT_SqlSetup'
+$script:localizedData = Get-LocalizedData -DefaultUICulture 'en-US'
 ```
+
+It will automatically look for a file in the folder for the current UI
+culture, or default to the UI culture folder 'en-US'.
+
+The localized strings file can be named either `<ScriptFileName>.psd1`,
+e.g. `DSC_MyResource.psd1`, or suffixed with `strings`, e.g.
+`DSC_MyResource.strings.psd1`.
 
 #### New-InvalidArgumentException
 
