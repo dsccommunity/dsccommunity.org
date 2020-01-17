@@ -55,10 +55,11 @@ the [Slack PowerShell #DSC channel](/community/contact/)
 
 **Gael** has been a long time contributor to the DevOps and automation field.
 Gael works as an cloud and automation consultant and makes many appearances
-on various conferences as a speaker where he passionately talks about DevOps
-and automation. This have awarded him Microsoft MVP for many years. Gael
-also organizing conferences and have been the main advocate for making
-the DSC Community separate from Microsoft.
+at various conferences as a speaker where he passionately talks about DevOps
+and automation. This has resulted in him being awarded as a Microsoft MVP for
+many years. Gael is also an organizer of multiple conferences and has been the
+primary advocate for separating the DSC Community from Microsoft to help it
+continue to flourish.
 
 ## The Decision Process
 
