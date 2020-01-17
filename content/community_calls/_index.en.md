@@ -32,10 +32,10 @@ Participants using the Join by Phone option must dial the full number for call a
 
 ### Community Call Agenda
 
-To the left you find the next agenda and the previous community call notes
-from what has been discussed.
+To the left you will find the agenda for the next community call and the
+notes for the previous community calls.
 Please feel free to send in PR's to add items you feel need to be discussed
-to the agenda for the next community call.
+in the next community call in the agenda.
 
 >The file to update for new agenda items is [`content/community_calls/next_call.en.md`](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
 
