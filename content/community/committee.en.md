@@ -1,6 +1,6 @@
 ---
 title: "DSC Community Committee"
-date: 2019-01-29T11:02:05+06:00
+date: 2020-01-17T14:00:00+01:00
 weight: 2
 type: "post"
 author: "gaelcolas"
@@ -49,6 +49,16 @@ Resources, while joining Daniel in reviewing code across all other repositories
 and improving the experience and quality of the DSC Resource Kit. Johan also
 helps new contributors and maintainers to get up to speed, and any DSC user in
 the [Slack PowerShell #DSC channel](/community/contact/)
+
+<hr />
+<a href="https://github.com/gaelcolas" target="_blank"><img src="https://avatars3.githubusercontent.com/u/8962101?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
+
+**Gael** has been a long time contributor to the DevOps and automation field.
+Gael works as an cloud and automation consultant and makes many appearances
+on various conferences as a speaker where he passionately talks about DevOps
+and automation. This have awarded him Microsoft MVP for many years. Gael
+also organizing conferences and have been the main advocate for making
+the DSC Community separate from Microsoft.
 
 ## The Decision Process
 
