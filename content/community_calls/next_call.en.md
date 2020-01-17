@@ -1,5 +1,5 @@
 ---
-title: "Next Community Call 2020-01-19"
+title: "Next Community Call 2020-01-22"
 weight: 1
 type: "post"
 date: 2020-01-17
