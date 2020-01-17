@@ -1,6 +1,6 @@
 ---
 title: "Administration"
-date: 2019-01-28T11:02:05+06:00
+date: 2020-01-17T14:00:00+01:00
 type: "post"
 author: "Johan Ljunggren"
 weight: 6
@@ -128,6 +128,11 @@ that specific package.
 >Gallery account since it is (obviously) using 2FA. Currently the account
 >holder is @gaelcolas.
 
-### Add a new DSC Community committee member
+### Add or remove a DSC Community committee member
 
-Not yet written.
+The steps that should be taken when a new committee member should be added.
+
+1. Update the page [DSC Community Committee](https://dsccommunity.org/community/committee/).
+1. Update the DSC Community GitHub organization team [Committee](https://github.com/orgs/dsccommunity/teams/committee).
+1. Update the DSC Community Azure DevOps organization group *Admins* under
+   the [organizational permissions](https://dev.azure.com/dsccommunity/_settings/groups).
