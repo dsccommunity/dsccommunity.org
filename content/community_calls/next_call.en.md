@@ -30,6 +30,7 @@ Next call will be on Wednesday, January 22nd, at 12 PM PST
     - xFailOverCluster
     - xPSDesiredStateConfiguration
     - xWebAdministration
+    - GPRegistryPolicyDsc
   - In progress:
     - NetworkingDsc
     - xExchange
