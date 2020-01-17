@@ -126,7 +126,7 @@ master, before pushing to your origin master (your private fork).
 
 Now that you have HUGO installed, and you have the clone of your personal fork locally, you can run the Hugo server.
 
->_This website requires Hugo version 0.54 or higher. You can see the version_
+>_This website requires Hugo version `0.62` or higher. You can see the version_
 >_by running `hugo version`._
 
 ```PowerShell
@@ -134,3 +134,25 @@ C:\src\dsccommunity.org > hugo server
 ```
 
 You should now be able to browse the website on [http://localhost:1313](http://localhost:1313).
+
+## Information update
+
+### Resource modules
+
+To update the [list of resource modules](https://dsccommunity.org/resources/)
+some steps need to be run manually.
+
+1. Update the file [`resources.json`](https://github.com/dsccommunity/dsccommunity.org/blob/master/data/resources.json).
+   This list contain the names of the resource modules in the PowerShell Gallery.
+1. In the local repository folder run the following:
+   ```powershell
+   . .\Get-DscResourceKitInfo.ps1
+   Get-DscResourceKitInfo -ExportTo (Join-Path -Path $PWD -ChildPath 'data/en/resources.json') -Verbose
+   ```
+
+>**NOTE**: The script requires PowerShellGet version 2.1.3 or higher.
+>For example PowerShell Core 6.2.3 or better.
+
+### Update maintainers
+
+To update the list of maintainers, change the file [`maintainers.json`](https://github.com/dsccommunity/dsccommunity.org/blob/master/data/maintainers.json).
