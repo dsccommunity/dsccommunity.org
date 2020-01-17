@@ -1,40 +1,51 @@
 ---
-title: "Next Community Call 2019-12-04"
+title: "Next Community Call 2020-01-19"
 weight: 1
 type: "post"
-date: 2019-11-01
+date: 2020-01-17
 ---
-Next call will be on Wednesday, December 4th, at 12 PM PST
+Next call will be on Wednesday, January 22nd, at 12 PM PST
 
-[How to join](..)
+**This community call is not at the normally scheduled date/time.**
+**Please use [this file](../../ics/dsc_community_call_jan_2020.ics) to add to**
+**your calendar.**
 
 ### Agenda
 
-- Demo of automation and status update (continued)
-  - DscResource.AnalyzerRules
-  - DscResource.Test
-  - Sampler & AzureDevOps
+- Welcome to New Community Committee Member.
 
-- DSC Community Maintainers, what should you do?
-  - Accept GitHub Invitation (or tell us if you did not receive it)
-  - Consider making your [DSC Community membership public](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership)
-  - Use the DSC Community's Teams [for communication (discussions)](https://github.com/orgs/dsccommunity/teams/maintainers/)
-  - Consider updating your GitHUb picture & Bio (we use it to [display on the website](https://dsccommunity.org/community/maintainers/))
-  - Try doing code reviews even outside of your repository.
-    We'll try to prioritize your next request for review.
-  - Start upgrading to the new release automation, ask if any issue,
-    we'll help and document as we go.
+- DSC Community: What to do if a PR doesn't get reviewed in a reasonable
+  time frame?
+  - What is the reasonable time frame?
+  - Proposal: that a DSC resource maintainer is allowed to merge PRs that did
+    not get a review after 7 days.
 
-- You have a question about DSC, The Resources in general (not a specific one),
-  the DSC Community? [Open an issue here](https://github.com/dsccommunity/dsccommunity.org/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)!
+- Migration to Continuous Delivery Process:
+  - Updated documentation/blog posts.
+  - Completed?
+    - ActiveDirectoryDsc
+    - SharePointDsc
+    - SQLServerDsc
+    - WSManDsc
+    - xFailOverCluster
+    - xPSDesiredStateConfiguration
+    - xWebAdministration
+  - In progress:
+    - NetworkingDsc
+    - xExchange
+    - Others?
 
 - Feel free to [send a PR to this file](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
   if there's something you'd like to be added to the agenda (or just ask
   during the call)
 
-#### Resources to be released
+#### Resources that have been released recently
 
-- TBC
+- ActiveDirectoryDsc: 5.0.0
+- WSManDsc: v3.1.0
+- xFailOverCluster: v1.14.0, v1.14.1
+- xPSDesiredStateConfiguration: v9.0.0
+- xWebAdministration: v3.1.1
 
 ### Discussions
 
