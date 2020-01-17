@@ -94,12 +94,12 @@
                   </div>
                   <div style="padding:10px">
                     <strong>Published:</strong>
-                    <span class="badge badge-success">{{ div ((replaceRE "^/Date\\(|\\)/$" "" .PublishedDate) | int) 1000 | dateFormat "2/01/2006" }}</span>
+                    <span class="badge badge-success">{{ .PublishedDate | dateFormat "2006-01-01" }}</span>
                     <br />
                   </div>
                   <div style="padding:10px">
                       Last Updated on DSC Community:
-                      <span class="badge badge-secondary">{{ .AdditionalMetadata.lastUpdated }}</span>
+                      <span class="badge badge-secondary">{{ .AdditionalMetadata.lastUpdated | dateFormat "2006-01-01" }}</span>
                       <br />
                   </div>
                   <a class="btn btn-primary btn-sm rounded p-2 m-2 btn-github" href="{{ .ProjectUri }}" target="_blank" role="button"><i class="fab fa-github-square"></i>Open Project</a>

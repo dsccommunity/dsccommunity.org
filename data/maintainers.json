@@ -3,19 +3,19 @@
         "accountName": "johlju",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "SqlServerDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ActiveDirectoryDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xFailOverCluster"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xWebAdministration"
             }
         ]
@@ -24,47 +24,47 @@
         "accountName": "PlagueHO",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ComputerManagementDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ActiveDirectoryCSDsc"
             },
             {
-                "organization": "PlagueHO",
+                "organization": "dsccommunity",
                 "repository": "FileContentDsc"
             },
             {
-                "organization": "PlagueHO",
+                "organization": "dsccommunity",
                 "repository": "FSRMDsc"
             },
             {
-                "organization": "PlagueHO",
+                "organization": "dsccommunity",
                 "repository": "iSCSIDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "NetworkingDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "PSDscResources"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "StorageDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "SystemLocaleDsc"
             },
             {
-                "organization": "PlagueHO",
+                "organization": "dsccommunity",
                 "repository": "WSManDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xPSDesiredStateConfiguration"
             }
         ]
@@ -73,19 +73,19 @@
         "accountName": "devopsjesus",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ActiveDirectoryCSDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ActiveDirectoryDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xAzure"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xSCSMA"
             }
         ]
@@ -94,15 +94,15 @@
         "accountName": "tysonjhayes",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ComputerManagementDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "NetworkingDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xWebAdministration"
             }
         ]
@@ -111,7 +111,7 @@
         "accountName": "kwirkykat",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "PSDscResources"
             }
         ]
@@ -120,11 +120,11 @@
         "accountName": "39Delta",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "NetworkingDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xDhcpServer"
             }
         ]
@@ -133,11 +133,11 @@
         "accountName": "NikCharlebois",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "OfficeOnlineServerDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "SharePointDsc"
             }
         ]
@@ -146,19 +146,19 @@
         "accountName": "mhendric",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "PSDscResources"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xBitlocker"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xExchange"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xPSDesiredStateConfiguration"
             }
         ]
@@ -167,8 +167,12 @@
         "accountName": "jcwalker",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "SecurityPolicyDsc"
+            },
+            {
+                "organization": "dsccommunity",
+                "repository": "GPRegistryPolicyDsc"
             }
         ]
     },
@@ -176,7 +180,7 @@
         "accountName": "ykuijs",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "SharePointDsc"
             }
         ]
@@ -185,11 +189,11 @@
         "accountName": "nyanhp",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ActiveDirectoryDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xSCVMM"
             }
         ]
@@ -198,7 +202,7 @@
         "accountName": "rchristman89",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ActiveDirectoryDsc"
             }
         ]
@@ -207,11 +211,11 @@
         "accountName": "chasewilson",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xAzure"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xFirefox"
             }
         ]
@@ -220,7 +224,7 @@
         "accountName": "japatton",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xDnsServer"
             }
         ]
@@ -229,7 +233,7 @@
         "accountName": "indented-automation",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xDnsServer"
             }
         ]
@@ -238,7 +242,7 @@
         "accountName": "aromano2",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xHyper-V"
             }
         ]
@@ -247,7 +251,7 @@
         "accountName": "bcwilhite",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xPendingReboot"
             }
         ]
@@ -256,7 +260,7 @@
         "accountName": "nehrua",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xPendingReboot"
             }
         ]
@@ -265,15 +269,15 @@
         "accountName": "ld0614",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xRemoteDesktopSessionHost"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xSCDPM"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xSCOM"
             }
         ]
@@ -282,7 +286,7 @@
         "accountName": "regedit32",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xWebAdministration"
             }
         ]
@@ -291,11 +295,11 @@
         "accountName": "mcollera",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "DFSDsc"
             },
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "xHyper-V"
             }
         ]
@@ -304,7 +308,7 @@
         "accountName": "X-Guardian",
         "modules": [
             {
-                "organization": "PowerShell",
+                "organization": "dsccommunity",
                 "repository": "ActiveDirectoryDsc"
             }
         ]
