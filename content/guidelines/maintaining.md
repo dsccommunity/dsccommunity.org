@@ -29,9 +29,16 @@ As a maintainer you are allowed to review and merge your own code, but
 then only after 24 hours so the community has a chance to comment on
 the changes.
 
+#### Skip raising version
+
+It is possible to tell the CI build pipeline (GitVersion) to not raise
+the version when merging a pull request, e.g. when updating the CHANGELOG.md
+after a release. When merging the pull request just enter `+semver:skip`
+preferably in the commit description, but also works in the commit message.
+
 #### Skip CI on merge
 
-It is possible to skip running the CI pipeline when merging a patch change,
+It is possible to skip running the CI pipeline when merging a pull request,
 e.g. updating the CHANGELOG.md after a release. When merging the pull
 request just enter `[skip ci]` preferably in the commit description, but
 also works in the commit message.
