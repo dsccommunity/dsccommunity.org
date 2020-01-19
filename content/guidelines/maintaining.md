@@ -112,13 +112,16 @@ Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile "$env:ProgramData\
 Labels are used in the issue and pull request workflows to show the
 current state.
 
-These are the labels currently used by the resource modules in DSC Community
-Kit. Some of these labels are meant to be used with future automation.
+These are the labels currently used by the resource modules in DSC Community. 
+Some of these labels are meant to be used with future automation.
 
 >The script
 >[DscResourceKit-Labels](https://gist.github.com/johlju/f83f99787029a6b5d65cfd6844cf9449)
 >that is provided by the community can be used to update the labels in a
 >repository.
+
+These are also set as the [default organization labels](https://github.com/organizations/dsccommunity/settings/labels)
+so that new repositories that are created they will automatically get these labels.
 
 Label | Description | Color Hex | Area of usage
 --- | --- | --- | --- |
@@ -140,16 +143,17 @@ in progress | The issue is being actively worked on by someone. | #99ffcc Turquo
 needs investigation | The issue needs to be investigated by the maintainers or/and the community. | #ffff99 Yellow | Issue
 needs more information | The issue needs more information from the author or the community. | #ffff99 Yellow | Issue
 needs review | The pull request needs a code review. | #99ff33 Lime green | PR
-new module submission | A request that the community evaluate a resource module for submission into the DSC Resource Kit. | #207de5 Dark blue | Issue
 not fixed | The issue was closed without being fixed. | #ffffff White | Issue
 on hold | The issue or pull request has been put on hold by a maintainer. | #1e1e7b Dark blue | Issue, PR
 question | The issue is a question. | #cc317c Dark pink | Issue
 ready for merge | The pull request was approved by the community and is ready to be merged by a maintainer. | #215e82 Dark cyan | PR
+resolved in dev | A fix has been merged into the dev-branch but the issue is still open and awaits next release. | #215e82 Dark cyan | Issue
 resource proposal | The issue is proposing a new resource in the resource module. | #fbca04 Dark yellow | Issue
 stale | The issue was marked as stale because there has not been activity from the community. | #cccccc Grey | Issues
 tests | The issue or pull request is about tests only. | #c5def5 Lighter blue | Issue, PR
 updated by author | The author last updated the pull request. | #e3f1dA Lighter Green | PR
 waiting for author response | The pull request is waiting for the author to respond to comments in the pull request. | #ffff99 Yellow | PR
-waiting for CLA pass | The contributor has not yet signed the CLA so that pull request check is not successful. | #ee0701 Red | PR
 waiting for code fix | A review left open comments, and the pull request is waiting for changes to be pushed by the author. | #ffff99 Yellow | PR
-resolved in dev | A fix has been merged into the dev-branch but issue is still open and awaits next release. | #215e82 Dark cyan | Issue
+Linux | This targets Linux platform-family. | #221A3e Heavy Blue Dark | Issue, PR
+macOS | This targets macOS platform-family. | #221A3e Heavy Blue Dark | Issue, PR
+Windows | This targets Windows platform-family. | #221A3e Heavy Blue Dark | Issue, PR
