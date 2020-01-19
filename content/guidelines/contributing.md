@@ -669,6 +669,14 @@ and does not return any errors. Make sure it resolves correctly **in both**
 **Windows PowerShell and PowerShell Core**. The build is running on Linux
 in the ci pipeline.
 
+##### Error `Cannot process argument transformation on parameter 'ProjectName'`
+
+If the old test framework folder `DscResource.Tests` is present in the local 
+repository folder then the build will fail with this error. The reason is that
+build pipeline searches for `*.psd1` files and want to use the first module
+manifest it finds which when the folder `DscResource.Tests` is present is the 
+wrong one.
+
 ##### Issue with preview strings containing a dash
 
 There are a issue with ModuleBuilder using preview strings
