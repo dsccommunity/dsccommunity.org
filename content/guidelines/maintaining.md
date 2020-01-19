@@ -27,7 +27,8 @@ all the review comments have be resolved and approved.
 
 As a maintainer you are allowed to review and merge your own code, but
 then only after 24 hours so the community has a chance to comment on
-the changes.
+the changes. Any pull request that fixes issues in CI pipeline or unblocks 
+release can be merged faster to unblock other pull requests.
 
 #### Skip CI on merge
 
