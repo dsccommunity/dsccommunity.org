@@ -98,7 +98,7 @@ After a new resource module have been released or deprecated, please update
 the list of resource modules to include it on the site https://dsccommunity.org.
 
 See the section [Resource modules](https://github.com/dsccommunity/dsccommunity.org#resource-modules)
-how to add the new resource module.
+how to update the list of resource modules.
 
 ### Running the task `pack` locally
 
