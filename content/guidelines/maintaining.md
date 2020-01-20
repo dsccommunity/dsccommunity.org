@@ -92,7 +92,15 @@ git push origin --tags # Push the new tag that was created locally
 >**NOTE:** You could also tag a specific commit if not all commits should
 >be released.
 
-#### Running the task `pack` locally
+#### Update the list of resource modules
+
+After a new resource module have been released or deprecated, please update
+the list of resource modules to include it on the site https://dsccommunity.org.
+
+See the section [Resource modules](https://github.com/dsccommunity/dsccommunity.org#resource-modules)
+how to add the new resource module.
+
+### Running the task `pack` locally
 
 If the task `pack´ is run locally, e.g. ´.\build.ps1 -Task pack`, then
 `nuget.exe` must be updated so that it is not outdated. If it is outdated
