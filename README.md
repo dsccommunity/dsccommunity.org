@@ -143,7 +143,8 @@ To update the [list of resource modules](https://dsccommunity.org/resources/)
 some steps need to be run manually.
 
 1. Update the file [`resources.json`](https://github.com/dsccommunity/dsccommunity.org/blob/master/data/resources.json).
-   This list contain the names of the resource modules in the PowerShell Gallery.
+   This list contains the names of the resource modules in the PowerShell Gallery
+   to include in the list.
 1. In the local repository folder run the following:
    ```powershell
    . .\Get-DscResourceKitInfo.ps1
