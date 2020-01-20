@@ -24,6 +24,7 @@ Next call will be on Wednesday, January 22nd, at 12 PM PST
   - Updated documentation/blog posts.
   - Completed?
     - ActiveDirectoryDsc
+    - NetworkingDsc
     - SharePointDsc
     - SQLServerDsc
     - WSManDsc
@@ -32,7 +33,7 @@ Next call will be on Wednesday, January 22nd, at 12 PM PST
     - xWebAdministration
     - GPRegistryPolicyDsc
   - In progress:
-    - NetworkingDsc
+    - ComputerManagementDsc
     - xExchange
     - Others?
 
