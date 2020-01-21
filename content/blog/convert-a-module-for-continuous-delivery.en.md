@@ -956,7 +956,10 @@ This runs all the unit tests for the module. *It runs the tests that are*
                testResultsFiles: 'output/testResults/NUnit*.xml'
                testRunTitle: 'Integration (Windows Server Core)'
    ```
-1. On the stage `Deploy` change the key `dependsOn` replace `test_module` to `Test`.
+1. On the stage `Deploy`.
+   1. Change the key `dependsOn` replace `test_module` to `Test`.
+   1. In the condition that says `contains(variables['System.TeamFoundationCollectionUri'], 'synedgy')`
+      replace `'synedgy'` with `'dsccommunity'`.
 1. If the repository _cannot run_ integration tests then the job `Test_Integration`
    can be removed. If there are no integration tests yet the job can still
    be present so that once an integration tests is added it will be tested.
