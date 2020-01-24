@@ -27,7 +27,7 @@ all the review comments have be resolved and approved.
 
 As a maintainer you are allowed to review and merge your own code, but
 then only after 24 hours so the community has a chance to comment on
-the changes. Any pull request that fixes issues in CI pipeline or unblocks 
+the changes. Any pull request that fixes issues in CI pipeline or unblocks
 release can be merged faster to unblock other pull requests.
 
 #### Skip raising version
@@ -99,7 +99,15 @@ git push origin --tags # Push the new tag that was created locally
 >**NOTE:** You could also tag a specific commit if not all commits should
 >be released.
 
-#### Running the task `pack` locally
+#### Update the list of resource modules
+
+After a new resource module has been released or deprecated, please update
+the list of resource modules to include it on the site https://dsccommunity.org.
+
+See the section [Resource modules](https://github.com/dsccommunity/dsccommunity.org#resource-modules)
+to learn how to update the list of resource modules.
+
+### Running the task `pack` locally
 
 If the task `pack´ is run locally, e.g. ´.\build.ps1 -Task pack`, then
 `nuget.exe` must be updated so that it is not outdated. If it is outdated
@@ -120,7 +128,7 @@ Invoke-WebRequest -Uri https://aka.ms/psget-nugetexe -OutFile "$env:ProgramData\
 Labels are used in the issue and pull request workflows to show the
 current state.
 
-These are the labels currently used by the resource modules in DSC Community. 
+These are the labels currently used by the resource modules in DSC Community.
 Some of these labels are meant to be used with future automation.
 
 >The script
