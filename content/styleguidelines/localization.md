@@ -108,6 +108,6 @@ throw ($script:localizedData.FailedToReadProperties -f $property, $path)
 ### Cmdlets for localization
 
 The module [DscResource.Common](https://github.com/dsccommunity/DscResource.Common)
-have cmdlets that help with localization. See the [cmdlet documentation](https://github.com/dsccommunity/DscResource.Common#cmdlet)
+has cmdlets that help with localization. See the [cmdlet documentation](https://github.com/dsccommunity/DscResource.Common#cmdlet)
 for more information how to use the cmdlets. The module is also release to the
 [PowerShell Gallery](https://www.powershellgallery.com/packages/DscResource.Common).
