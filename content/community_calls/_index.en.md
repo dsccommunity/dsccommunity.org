@@ -49,3 +49,8 @@ Then run the command below to create a new file under `content/community_calls`.
 ```bash
 hugo new community_calls/next_call.en.md
 ```
+
+### Agenda Presentation Template
+
+A [PowerPoint presentation](../../pptx/dsc_community_call_agenda.pptx) for
+displaying the agenda for the call is available.
