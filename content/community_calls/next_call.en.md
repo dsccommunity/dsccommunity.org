@@ -8,9 +8,24 @@ Next call will be on Wednesday, February 28nd, at 12 PM PST
 
 ### Agenda
 
+- What to do about resources that have no maintainer?
+  - Problem: without a maintainer the resource can't be updated to
+    the new continuous delivery process so can't be released.
+    - Options:
+      - Archive?
+      - Leave as is?
+      - Other options?
+
+- What to do about resources that have a maintainer but the update
+  to the continuous delivery process is not proceeding?
+
 - Migration to Continuous Delivery Process:
   - Updated documentation/blog posts.
-  - Completed?
+  - Completed since last call
+    - ComputerManagementDsc
+    - xSystemSecurity
+
+  - Completed
     - ActiveDirectoryDsc
     - NetworkingDsc
     - SharePointDsc
@@ -20,8 +35,9 @@ Next call will be on Wednesday, February 28nd, at 12 PM PST
     - xPSDesiredStateConfiguration
     - xWebAdministration
     - GPRegistryPolicyDsc
+
   - In progress:
-    - ComputerManagementDsc
+    - ActiveDirectoryCSDsc
     - xExchange
     - Others?
 
@@ -31,7 +47,8 @@ Next call will be on Wednesday, February 28nd, at 12 PM PST
 
 #### Resources that have been released recently
 
-- ???: v?.?.?
+- WSManDsc: v3.1.1
+- xSystemSecurity: v1.5.0
 
 ### Discussions
 
