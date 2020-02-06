@@ -51,7 +51,24 @@ From the job `Test_Unit` we can remove the task `Set Environment Variables`
 and the task `Publish Code Coverage`. Those two task will be moved to the
 new job. Instead we add the task `Publish Test Artifact` which uploads
 the test result files that ended up in the folder `output/testResults`.
-The new job `Test_Unit` should look like this.
+
+### Add global variables
+
+At the top of the file, at the same level ass the key `trigger` add the
+following.
+
+```yaml
+variables:
+  buildFolderName: output
+  buildArtifactName: output
+  testResultFolderName: testResults
+  testArtifactName: testResults
+```
+
+Then do a search and replace to change `artifactName: 'output'` to
+`artifactName: $(buildArtifactName)`.
+
+### Job `Test_Unit`
 
 The tasks of this job are:
 
@@ -73,7 +90,7 @@ The tasks of this job are:
             inputs:
               buildType: 'current'
               downloadType: 'single'
-              artifactName: 'output'
+              artifactName: $(buildArtifactName)
               downloadPath: '$(Build.SourcesDirectory)'
           - task: PowerShell@2
             name: test
@@ -87,15 +104,17 @@ The tasks of this job are:
             condition: succeededOrFailed()
             inputs:
               testResultsFormat: 'NUnit'
-              testResultsFiles: 'output/testResults/NUnit*.xml'
+              testResultsFiles: '$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
               testRunTitle: 'Unit (Windows Server Core)'
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Test Artifact'
             inputs:
-              pathToPublish: 'output/testResults/'
-              artifactName: 'testResults'
+              pathToPublish: '$(buildFolderName)/$(testResultFolderName)/'
+              artifactName: $(testArtifactName)
               publishLocation: 'Container'
 ```
+
+### Job `CodeCoverage`
 
 Then we add a new job that depends on the job `Test_Unit` since we must
 wait for the JaCoCo XML file to exist. The reason for having a separate job
@@ -132,24 +151,24 @@ The tasks of this job are:
             inputs:
               buildType: 'current'
               downloadType: 'single'
-              artifactName: 'output'
+              artifactName: $(buildArtifactName)
               downloadPath: '$(Build.SourcesDirectory)'
           - task: DownloadBuildArtifacts@0
             displayName: 'Download Test Artifact'
             inputs:
               buildType: 'current'
               downloadType: 'single'
-              artifactName: 'testResults'
-              downloadPath: '$(Build.SourcesDirectory)/output'
+              artifactName: $(testArtifactName)
+              downloadPath: '$(Build.SourcesDirectory)/$(buildFolderName)'
           - task: PublishCodeCoverageResults@1
-            displayName: 'Publish Code Coverage'
+            displayName: 'Publish Azure Code Coverage'
             condition: succeededOrFailed()
             inputs:
               codeCoverageTool: 'JaCoCo'
-              summaryFileLocation: 'output/testResults/JaCoCo_coverage.xml'
-              pathToSources: '$(Build.SourcesDirectory)/output/$(dscBuildVariable.RepositoryName)'
+              summaryFileLocation: '$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml'
+              pathToSources: '$(Build.SourcesDirectory)/$(buildFolderName)/$(dscBuildVariable.RepositoryName)'
           - script: |
-              bash <(curl -s https://codecov.io/bash) -f "./output/testResults/JaCoCo_coverage.xml"
+              bash <(curl -s https://codecov.io/bash) -f "./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml"
             displayName: 'Upload to Codecov.io'
             condition: succeededOrFailed()
 ```
