@@ -15,6 +15,10 @@ This is the same file that is used to upload code coverage to Azure Pipelines.
 Codecov.io needed missing attributes to be part of the JaCoCo XML file.
 Those attributes that were missing were ignored by Azure Pipelines.
 
+The DSC Community GitHub organization has already added the Codecov GitHub
+App on all existing repositories in the organization. Also any new repository
+will have the Codecov GitHub App added automatically.
+
 To upload code coverage to Codecov.io we need to change the `build.yaml`,
 add a `codecov.yml`, and change the stage `Test` in the file `azure-pipelines.yml`
 by modifying the existing unit test job and adding a new job that uploads
