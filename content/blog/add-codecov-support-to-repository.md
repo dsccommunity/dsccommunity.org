@@ -6,18 +6,19 @@ draft: false
 author: johlju
 ---
 
-_This assumes to repository is using the pattern from the [Sampler](https://github.com/gaelcolas/Sampler)_
+_This assumes the repository is using the pattern from the [Sampler](https://github.com/gaelcolas/Sampler)_
 _project._
 
 With the release of [Pester v4.10](https://www.powershellgallery.com/packages/Pester/4.10.0)
 it is now possible to upload the Pester generated JoCoCo file to [Codecov.io](https://codecov.io).
 This is the same file that is used to upload code coverage to Azure Pipelines.
 Codecov.io needed missing attributes to be part of the JaCoCo XML file.
-Those attributes that was missing was ignored by Azure Pipelines.
+Those attributes that were missing were ignored by Azure Pipelines.
 
 To upload code coverage to Codecov.io we need to change the `build.yaml`,
-add a `codecov.yml`, and the stage `Test` by modifying the existing unit
-test job and add a new job that uploads the coverage.
+add a `codecov.yml`, and change the stage `Test` in the file `azure-pipelines.yml`
+by modifying the existing unit test job and adding a new job that uploads
+the coverage.
 
 ## Modify `build.yaml`
 
@@ -25,7 +26,7 @@ Because [Codecov.io](https://codecov.io) expects the file that is uploaded
 to be prefixed with `JaCoCo` we have to change the filename of the JaCoCo
 test results file that Pester is creating. The file cannot be created
 with the encoding `UTF8 with BOM` which is the default on Windows, so
-we make sure to change the encoding to something that [Codecov.io](https://codecov.io)
+we make sure to change the encoding to `ascii` that [Codecov.io](https://codecov.io)
 accepts.
 
 Under the key `Pester` add the following keys.
@@ -60,7 +61,7 @@ The tasks of this job are:
       - job: Test_Unit
         displayName: 'Unit'
         pool:
-          vmImage: 'win1803'
+          vmImage: 'windows-2019'
         timeoutInMinutes: 0
         steps:
           - task: DownloadBuildArtifacts@0
@@ -92,7 +93,7 @@ The tasks of this job are:
               publishLocation: 'Container'
 ```
 
-Then we add a new job that depends on the jon `Test_Unit` since we must
+Then we add a new job that depends on the job `Test_Unit` since we must
 wait for the JaCoCo XML file to exist. The reason for having a separate job
 is that we need (or at least it is easiest) to run the [Codecov.io](https://codecov.io)
 upload task in a Linux build worker.
@@ -157,8 +158,8 @@ that we have used in the DSC modules.
 The important part is the key `fixes`. [Codecov.io](https://codecov.io)
 is expecting the paths in the JaCoCo file to match the folder structure in
 the GitHub repository. Since the [Sampler](https://github.com/gaelcolas/Sampler)
-project run tests against the built module in the `output` folder the paths
-does not match those of the repository. The key `fixes` converts the paths in
+project runs tests against the built module in the `output` folder, the paths
+do not match those of the repository. The key `fixes` converts the paths in
 the JaCoCo XML file to the correct paths that [Codecov.io](https://codecov.io)
 expects.
 
