@@ -1012,6 +1012,11 @@ This runs all the unit tests for the module. *It runs the tests that are*
      - tests/Integration/MSFT_SqlScriptQuery.Integration.Tests.ps1
    ```
 
+### (Optional) Add Codecov Support to Repository
+
+If you want to add [Codecov.io](https://codecov.io) functionality to the
+repository please see the article [Add Codecov Support to Repository](/blog/add-codecov-support-to-repository).
+
 ## Attach your fork to a free Azure DevOps organization
 
 This is an optional step.
