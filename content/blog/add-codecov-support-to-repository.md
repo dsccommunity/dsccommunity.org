@@ -181,7 +181,7 @@ codecov:
   branch: master
 
 comment:
-  layout: "reach, diff"
+  layout: 'reach, diff'
   behavior: default
 
 coverage:
@@ -202,7 +202,7 @@ coverage:
         threshold: 5
 
 fixes:
-  - "\d+\.\d+\.\d+\/::source/"  # move path "X.Y.Z/" => "source/"
+  - '\d+\.\d+\.\d+\/::source/'  # move path "X.Y.Z/" => "source/"
 ```
 
 ## Add status badge to `README.md`
