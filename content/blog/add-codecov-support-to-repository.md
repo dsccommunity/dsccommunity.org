@@ -152,6 +152,10 @@ The tasks of this job are:
 
 ## Add `codecov.yml`
 
+>**NOTE:* If this file exist and starts with a full stop `.`, e.g. `.codecov.yml`,
+>then please rename it to `codecov.yml`. See this FAQ for more information
+>https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml
+
 These settings can be set as wanted, but the below is the default values
 that we have used in the DSC modules.
 
@@ -168,7 +172,6 @@ for more information about these settings.
 
 ```yaml
 codecov:
-  notify:
   require_ci_to_pass: no
   # master should be the baseline for reporting
   branch: master
