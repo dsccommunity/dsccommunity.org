@@ -152,7 +152,7 @@ The tasks of this job are:
 
 ## Add `codecov.yml`
 
->**NOTE:* If this file exist and starts with a full stop `.`, e.g. `.codecov.yml`,
+>**NOTE:** If this file exist and starts with a full stop `.`, e.g. `.codecov.yml`,
 >then please rename it to `codecov.yml`. See this FAQ for more information
 >https://docs.codecov.io/docs/codecov-yaml#section-can-i-name-the-file-codecov-yml
 
