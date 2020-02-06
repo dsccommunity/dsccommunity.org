@@ -1012,6 +1012,11 @@ This runs all the unit tests for the module. *It runs the tests that are*
      - tests/Integration/MSFT_SqlScriptQuery.Integration.Tests.ps1
    ```
 
+### (Optional) Add Codecov Support to Repository
+
+If you want to add [Codecov.io](https://codecov.io) functionality to the
+repository please see the article [Add Codecov Support to Repository](/blog/add-codecov-support-to-repository).
+
 ## Attach your fork to a free Azure DevOps organization
 
 This is an optional step.
@@ -1083,8 +1088,7 @@ Remove old webhooks that no longer will be used.
 1. Remove the AppVeyor webhook (`ci.appveyor.com`).
 1. Remove the Waffle webhook (`hooks.waffle.io`). *If it exists.*
 1. Remove the Microsoft CLA bot (`cla.microsoft.com`). *If it exists.*
-1. (Optional) Remove the Codecov webhook, or if you want to keep the Codecov.io
-   functionality please see the article [Add Codecov Support to Repository](/blog/add-codecov-support-to-repository).
+1. Remove the Codecov webhook.
 
 ### Remove AppVeyor CI
 
