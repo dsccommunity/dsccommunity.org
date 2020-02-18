@@ -123,8 +123,8 @@ It is recommended that all tests be run locally before being committed.
 Regardless of the method of running the tests you must always resolve the
 dependencies first. After that you must build the module.
 
-1. [Resolve dependencies](/guidelines/contributor#resolve-dependencies)
-1. [Build module](/guidelines/contributor#build-module)
+1. [Resolve dependencies](/guidelines/contributing#resolve-dependencies)
+1. [Build module](/guidelines/contributing#build-module)
 
 >**NOTE!** Each time a source file changes you must re-build the module before
 >running tests again. This is because the tests are always run against the
