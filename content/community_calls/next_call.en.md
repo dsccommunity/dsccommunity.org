@@ -6,6 +6,8 @@ date: 2020-01-24
 ---
 Next call will be on Wednesday, February 28nd, at 12 PM PST
 
+Want to submit a question to discuss during the call? Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
+
 ### Agenda
 
 - What to do about resources that have no maintainer?
@@ -39,6 +41,7 @@ Next call will be on Wednesday, February 28nd, at 12 PM PST
   - In progress:
     - ActiveDirectoryCSDsc
     - xExchange
+    - UpdateServicesDsc
     - Others?
 
 - Feel free to [send a PR to this file](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
