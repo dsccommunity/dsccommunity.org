@@ -30,7 +30,7 @@ time before you as a maintainer may merge your own code is 24 hours, but
 it is recommended that the code is merged after 72 hours so the community
 has a chance to comment on the changes. Any pull request that fixes issues
 in a broken CI pipeline can be merged faster to unblock other pull requests.
-A pull request that fixes security issues are also exempted. It is recommended
+A pull request that fixes security issues is also exempted. It is recommended
 to use the label *high priority* to flag pull requests that have to be
 merged before the minimum 24 hour time frame.
 
