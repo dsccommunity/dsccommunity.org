@@ -25,10 +25,14 @@ Not yet written.
 Only merge code that passes status checks, have been reviewed, and where
 all the review comments have be resolved and approved.
 
-As a maintainer you are allowed to review and merge your own code, but
-then only after 24 hours so the community has a chance to comment on
-the changes. Any pull request that fixes issues in CI pipeline or unblocks
-release can be merged faster to unblock other pull requests.
+As a maintainer you are allowed to review and merge your own code. Minimum
+time before you as a maintainer may merge your own code is 24 hours, but
+it is recommended that the code is merged after 72 hours so the community
+has a chance to comment on the changes. Any pull request that fixes issues
+in a broken CI pipeline can be merged faster to unblock other pull requests.
+A pull request that fixes security issues is also exempted. It is recommended
+to use the label *high priority* to flag pull requests that have to be
+merged before the minimum 24 hour time frame.
 
 #### Skip raising version
 

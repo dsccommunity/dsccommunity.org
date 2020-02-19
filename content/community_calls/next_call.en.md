@@ -4,7 +4,7 @@ weight: 1
 type: "post"
 date: 2020-01-24
 ---
-Next call will be on Wednesday, February 28nd, at 12 PM PST
+Next call will be on Wednesday, February 26nd, at 12 PM PST
 
 Want to submit a question to discuss during the call? Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
 
