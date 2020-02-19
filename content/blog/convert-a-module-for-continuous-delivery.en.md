@@ -6,8 +6,8 @@ draft: false
 author: johlju
 ---
 
-Any comments around this blog entry are welcomed and to be submitted on
-the [Gist](https://gist.github.com/johlju/2ad77aa574aa07d3e9953fe86007731c).
+You are welcome to share any comments or issues you having around this
+process in the [Discord or Slack #DSC channel](https://dsccommunity.org/community/contact/).
 
 Before you start, here's an overview of what the new CI looks like:
 {{< youtube id="UWGKgVB4VNU" >}}
