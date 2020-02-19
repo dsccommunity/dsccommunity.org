@@ -9,6 +9,9 @@ author: johlju
 Any comments around this blog entry are welcomed and to be submitted on
 the [Gist](https://gist.github.com/johlju/2ad77aa574aa07d3e9953fe86007731c).
 
+Before you start, here's an overview of what the new CI looks like:
+{{< youtube id="UWGKgVB4VNU" >}}
+
 >**NOTE:** The build is running on Linux in the CI pipeline to be able to
 >support cross-platform DSC resources, so that makes all paths case-sensitive!
 >Have that in mind when updating paths and folders in the configuration
