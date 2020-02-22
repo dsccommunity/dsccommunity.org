@@ -46,6 +46,11 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
 
 - Stickers (suggestions from the community) 
 
+- These repositories could be better under DSC Community. Can we move them to the
+  community organization?
+  - https://github.com/AutomatedLab/DscWorkshop
+  - https://github.com/AutomatedLab/CommonTasks
+
 - Feel free to [send a PR to this file](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
   if there's something you'd like to be added to the agenda (or just ask
   during the call)
