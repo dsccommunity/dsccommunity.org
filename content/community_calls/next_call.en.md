@@ -44,6 +44,8 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
     - UpdateServicesDsc
     - Others?
 
+- Stickers (suggestions from the community) 
+
 - Feel free to [send a PR to this file](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
   if there's something you'd like to be added to the agenda (or just ask
   during the call)
