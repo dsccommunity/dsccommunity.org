@@ -1,33 +1,28 @@
 ---
-title: "Next Community Call 2020-02-26"
+title: "Next Community Call 2020-04-08"
 weight: 1
 type: "post"
 date: 2020-01-24
 ---
-Next call will be on Wednesday, February 26nd, at 12 PM PST
+Next call will be on Wednesday, April 8th, at 12 PM PST
 
 Want to submit a question to discuss during the call? Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
 
 ### Agenda
 
-- What to do about resources that have no maintainer?
-  - Problem: without a maintainer the resource can't be updated to
-    the new continuous delivery process so can't be released.
-    - Options:
-      - Archive?
-      - Leave as is?
-      - Other options?
-
-- What to do about resources that have a maintainer but the update
-  to the continuous delivery process is not proceeding?
+1. Quick update on activity
+2. Presentation by Raimund Andre: Less code in resource with Test-DscParameterState
 
 - Migration to Continuous Delivery Process:
-  - Updated documentation/blog posts.
   - Completed since last call
-    - ComputerManagementDsc
-    - xSystemSecurity
+    - OfficeOnlineServerDsc
+    - xDhcpServer
+    - xHyper-V
+    - xDnsServer
 
   - Completed
+    - xSystemSecurity
+    - ComputerManagementDsc
     - ActiveDirectoryDsc
     - NetworkingDsc
     - SharePointDsc
@@ -37,19 +32,21 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
     - xPSDesiredStateConfiguration
     - xWebAdministration
     - GPRegistryPolicyDsc
-
-  - In progress:
+    - UpdateServicesDsc
     - ActiveDirectoryCSDsc
     - xExchange
-    - UpdateServicesDsc
+    - OfficeOnlineServerDsc
+
+  - In progress:
+    - 
     - Others?
 
-- Stickers (suggestions from the community) 
+- These repositories have moved under DSC Community.
+  - https://github.com/dsccommunity/DscWorkshop
+  - https://github.com/dsccommunity/CommonTasks
 
-- These repositories could be better under DSC Community. Can we move them to the
-  community organization?
-  - https://github.com/AutomatedLab/DscWorkshop
-  - https://github.com/AutomatedLab/CommonTasks
+- Raimund Andree presents: Test-DsvcParameterState
+  - Some resources have a huge overlap in Test() and Get() which is a pain for maintenance and testing. The SharePointDsc resource was the first that started with a generic way to compare the current with the desired state. This pattern has been extended and covers almost any type now: string, int, scriptblock, hashtable, CimInstance and PSCredential. Want to do a reverse check as well or handle sorting? Then let’s have a look at Test-DscParameterState.
 
 - Feel free to [send a PR to this file](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
   if there's something you'd like to be added to the agenda (or just ask
@@ -57,8 +54,6 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
 
 #### Resources that have been released recently
 
-- WSManDsc: v3.1.1
-- xSystemSecurity: v1.5.0
 
 ### Discussions
 
