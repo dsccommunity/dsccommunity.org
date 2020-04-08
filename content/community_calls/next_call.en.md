@@ -13,13 +13,31 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
 1. Quick update on activity
 2. Presentation by Raimund Andre: Less code in resource with Test-DscParameterState
 
-- Migration to Continuous Delivery Process:
+- Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
   - Completed since last call
     - OfficeOnlineServerDsc
     - xDhcpServer
     - xHyper-V
     - xDnsServer
-
+    - CertificateDsc
+    - xWindowsUpdate
+  - In progress
+    - StorageDsc
+  - New modules
+    - FileSystemDsc
+  - Deprecated (will no longer be released)
+    - xDismFeature
+    - xSystemSecurity (deprecated, use ComputerManagementDsc and FileSystemDsc instead)
+  - Modules not yet converted but with PR activity within last 3 months (seen in AppVeyor)
+    - JeaDsc
+    - SecurityPolicyDsc
+    - StorageDsc
+    - DfsDsc
+    - DscResource.Analysis
+    - xBitlocker
+    - FileContentDsc
+    - iSCSIDsc
+    - FSRMDsc
   - Completed
     - xSystemSecurity
     - ComputerManagementDsc
@@ -35,11 +53,6 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
     - UpdateServicesDsc
     - ActiveDirectoryCSDsc
     - xExchange
-    - OfficeOnlineServerDsc
-
-  - In progress:
-    - 
-    - Others?
 
 - These repositories have moved under DSC Community.
   - https://github.com/dsccommunity/DscWorkshop
