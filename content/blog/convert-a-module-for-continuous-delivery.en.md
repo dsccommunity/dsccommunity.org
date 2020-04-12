@@ -858,7 +858,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
        - job: Test_HQRM
          displayName: 'HQRM'
          pool:
-           vmImage: 'win1803'
+           vmImage: 'windows-2019'
          timeoutInMinutes: 0
          steps:
            - task: DownloadBuildArtifacts@0
@@ -886,7 +886,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
        - job: Test_Unit
          displayName: 'Unit'
          pool:
-           vmImage: 'win1803'
+           vmImage: 'windows-2019'
          timeoutInMinutes: 0
          steps:
            - powershell: |
