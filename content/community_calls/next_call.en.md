@@ -1,72 +1,56 @@
 ---
-title: "Next Community Call 2020-04-08"
+title: "Next Community Call 2020-05-20"
 weight: 1
 type: "post"
-date: 2020-01-24
+date: 2020-05-12
 ---
-Next call will be on Wednesday, April 8th, at 12 PM PST
+Next call will be on Wednesday, May 20th, at 12 PM PST
 
 Want to submit a question to discuss during the call? Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
 
 ### Agenda
 
-1. Quick update on activity
-2. Presentation by Raimund Andre: Less code in resource with Test-DscParameterState
-
-- Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
-  - Completed since last call
-    - OfficeOnlineServerDsc
-    - xDhcpServer
-    - xHyper-V
-    - xDnsServer
-    - CertificateDsc
-    - xWindowsUpdate
-  - In progress
-    - StorageDsc
-  - New modules
-    - FileSystemDsc
-  - Deprecated (will no longer be released)
-    - xDismFeature
-    - xSystemSecurity (deprecated, use ComputerManagementDsc and FileSystemDsc instead)
-  - Modules not yet converted but with PR activity within last 3 months (seen in AppVeyor)
-    - JeaDsc
-    - SecurityPolicyDsc
-    - StorageDsc
-    - DfsDsc
-    - DscResource.Analysis
-    - xBitlocker
-    - FileContentDsc
-    - iSCSIDsc
-    - FSRMDsc
-  - Completed
-    - xSystemSecurity
-    - ComputerManagementDsc
-    - ActiveDirectoryDsc
-    - NetworkingDsc
-    - SharePointDsc
-    - SQLServerDsc
-    - WSManDsc
-    - xFailOverCluster
-    - xPSDesiredStateConfiguration
-    - xWebAdministration
-    - GPRegistryPolicyDsc
-    - UpdateServicesDsc
-    - ActiveDirectoryCSDsc
-    - xExchange
-
-- These repositories have moved under DSC Community.
-  - https://github.com/dsccommunity/DscWorkshop
-  - https://github.com/dsccommunity/CommonTasks
-
-- Raimund Andree presents: Test-DsvcParameterState
-  - Some resources have a huge overlap in Test() and Get() which is a pain for maintenance and testing. The SharePointDsc resource was the first that started with a generic way to compare the current with the desired state. This pattern has been extended and covers almost any type now: string, int, scriptblock, hashtable, CimInstance and PSCredential. Want to do a reverse check as well or handle sorting? Then let’s have a look at Test-DscParameterState.
+1. Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches
+1. Quick update on activity:
+   - Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
+     - Completed since last call
+       - iSCSIDsc
+       - StorageDsc
+       - SecurityPolicyDsc
+       - ?
+     - In progress
+       - _None_
+     - New modules
+       - _None_
+     - Modules not yet converted but with PR activity within last 4 months
+       (seen in AppVeyor)
+       - JeaDsc
+       - DfsDsc
+       - DscResource.Analysis
+       - xBitlocker
+       - FileContentDsc
+       - FSRMDsc
+     - Completed
+       - xSystemSecurity
+       - ComputerManagementDsc
+       - ActiveDirectoryDsc
+       - NetworkingDsc
+       - SharePointDsc
+       - SQLServerDsc
+       - WSManDsc
+       - xFailOverCluster
+       - xPSDesiredStateConfiguration
+       - xWebAdministration
+       - GPRegistryPolicyDsc
+       - UpdateServicesDsc
+       - ActiveDirectoryCSDsc
+       - xExchange
+       - FileSystemDsc
+1. Resources that have been released recently
 
 - Feel free to [send a PR to this file](https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md)
   if there's something you'd like to be added to the agenda (or just ask
   during the call)
-
-#### Resources that have been released recently
-
 
 ### Discussions
 
