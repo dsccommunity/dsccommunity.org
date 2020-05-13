@@ -548,6 +548,9 @@ $newModuleManifestParameters = @{
     Description       = 'Functions used by the DSC resources in SecurityPolicyDsc.'
     RootModule        = "$($helperModuleName).psm1"
     FunctionsToExport = $functionsToExport
+    CmdletsToExport   = ''
+    VariablesToExport = ''
+    AliasesToExport   = ''
 }
 
 New-ModuleManifest @newModuleManifestParameters
