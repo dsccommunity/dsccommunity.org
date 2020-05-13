@@ -125,7 +125,7 @@ change log entries to the release notes of the GitHub release.
 Create a new working branch based on dev branch.
 
 ```bash
-cd c:\source\{respoistoryName}
+cd c:\source\{repositoryName}
 git checkout dev
 git fetch origin dev # origin is the remote pointing to upstream
 git rebase origin/dev
@@ -152,10 +152,10 @@ Install-Module -Name 'Sampler' -Scope 'CurrentUser'
 $samplerModule = Import-Module -Name Sampler -PassThru
 
 $invokePlasterParameters = @{
-  TemplatePath = Join-Path -Path $samplerModule.ModuleBase -ChildPath 'Templates/Sampler'
+  TemplatePath    = Join-Path -Path $samplerModule.ModuleBase -ChildPath 'Templates/Sampler'
   DestinationPath = '..\'
-  ModuleType = 'dsccommunity'
-  ModuleName = Split-path -Leaf $PWD
+  ModuleType      = 'dsccommunity'
+  ModuleName      = Split-path -Leaf $PWD
   SourceDirectory = 'source'
 }
 
@@ -191,28 +191,36 @@ the build and automatic release.
 
 Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
 
-1. Remove the release notes from the module manifest by changing the
-   release notes property to `ReleaseNotes = ''`.
-1. Replace the module version in the module manifest to make it more clear
-   that the module version is just updated by the CI pipeline. Set the
-   module version to `0.0.1`. *The module version is controlled by GitVersion*
-   *and the GitVersion.yml that we get back to later.*
-1. Add the property `Prerelease` with an empty string value to the `PSData`
-   section. *Note: This must be done so that the pipeline will be able to*
-   *release preview builds.*
-   ```powershell
-   PrivateData = @{
-       PSData = @{
-           # Set to a prerelease string value if the release should be a prerelease.
-           Prerelease = ''
+```powershell
+$moduleName = '{ModuleName}'
+$powerShellVersion = '5.1'
 
-           ...
-       }
-   }
-   ```
-1. Change author to `DSC Community`
-1. Change company name to `DSC Community`
-1. Change copyright notice to `Copyright the DSC Community contributors. All rights reserved.`
+$manifestPath = "source\$($moduleName).psd1"
+
+# Temporarily add the current directory to PSModulePath to allow Get-DscResource to run
+$originalPSModulePath=$env:PSModulePath
+$env:PSModulePath+=';.\source'
+$dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
+$env:PSModulePath=$originalPSModulePath
+
+$updateModuleManifestParameters = @{
+    Author               = 'DSC Community'
+    CompanyName          = 'DSC Community'
+    Copyright            = 'Copyright the DSC Community contributors. All rights reserved.'
+    DscResourcesToExport = $dscResourcesToExport
+    IconUri              = 'https://dsccommunity.org/images/DSC_Logo_300p.png'
+    LicenseUri           = "https://github.com/dsccommunity/$moduleName/blob/master/LICENSE"
+    Path                 = $manifestPath
+    PreRelease           = 'N/A'
+    ProjectUri           = "https://github.com/dsccommunity/$moduleName"
+    ReleaseNotes         = ' '
+    ModuleVersion        = '0.0.1' # Module Version is now controlled by GitVersion
+    PowerShellVersion    = $powerShellVersion
+}
+
+Update-ModuleManifest @updateModuleManifestParameters
+```
+
 1. Having the export properties set to `'*'` is not optimal. Update or
    add the export properties to optimize discovery. *If any of these are*
    *already exporting objects then leave that export property as is.*
@@ -228,39 +236,6 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
 
    # Aliases to export from this module
    AliasesToExport = @()
-   ```
-1. (Optional) Add the property `DscResourcesToExport` with an array of all the resources
-   in the module. *Having this removes a warning from the cmdlet `Publish-Module`*.
-   ```powershell
-   DscResourcesToExport = @(
-       'Resource1'
-       'Resource2'
-       'Resource3'
-   )
-   ```
-1. Add DSC Community logo as an icon to the module manifest
-   ```powershell
-   PrivateData = @{
-       PSData = @{
-          IconUri = 'https://dsccommunity.org/images/DSC_Logo_300p.png'
-
-          ...
-       }
-   }
-   ```
-1. Update the property `LicensUri` and `ProjectUri` replacing `\PowerShell\`
-   with `\dsccommunity\`. E.g.
-   ```powershell
-   PrivateData = @{
-       PSData = @{
-        ...
-        LicenseUri = 'https://github.com/dsccommunity/{RepositoryName}/blob/master/LICENSE'
-
-        ProjectUri = 'https://github.com/dsccommunity/{RepositoryName}'
-        ...
-       }
-   }
-   ```
 
 ### File `README.md`
 
@@ -375,30 +350,7 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
      - Fix keywords to have space before a parenthesis to align with guideline.
      - Fix typo in SqlSetup strings ([issue #1419](https://github.com/dsccommunity/{RepositoryName}/issues/1419)).
    ```
-1. **IMPORTANT!** The release notes in the PowerShell Module manifest cannot
-   exceed 10000 characters. Due to a bug in the CI deploy pipeline this is
-   not yet handled automatically. One solution is to temporary move older
-   entries to another file, e.g. `HISTORIC_CHANGELOG.md` to keep the
-   change log shortened.
-   1. Add a file `HISTORIC_CHANGELOG.md` and move the content of the old
-      version history to it.
-      ```markdown
-      # Historic change log for {RepositoryName}
-
-      The release notes in the PowerShell Module manifest cannot exceed 10000
-      characters. Due to a bug in the CI deploy pipeline this is not handled.
-      This file is to temporary move the older change log history to keep the
-      change log short.
-
-      ## [1.13.0.0] - 2019-09-19
-      ...
-      ```
-   1. Update the file `CHANGELOG.md` with the following.
-      ```markdwon
-      For older change log history see the [historic changelog](HISTORIC_CHANGELOG.md).
-      ```
-1. In both the `CHANGELOG.md` and `HISTORIC_CHANGELOG.md` update any
-   reference links to issues from `https://github.com/PowerShell/` to
+1. Update any reference links to issues from `https://github.com/PowerShell/` to
    `https://github.com/dsccommunity/`.
 
 ### File `.github/PULL_REQUEST_TEMPLATE.md`
@@ -408,52 +360,51 @@ following is a proposed file but can changed to reflected other needs.
 
 ```markdown
 <!--
-    Thanks for submitting a Pull Request (PR) to this project.
-    Your contribution to this project is greatly appreciated!
+    Thanks for submitting a Pull Request (PR) to this project. Your contribution to this project
+    is greatly appreciated!
 
-    Please prefix the PR title with the resource name,
-    e.g. 'ResourceName: My short description'.
-    If this is a breaking change, then also prefix the PR title
-    with 'BREAKING CHANGE:',
+    Please prefix the PR title with the resource name, e.g. 'ResourceName: My short description'.
+    If this is a breaking change, then also prefix the PR title with 'BREAKING CHANGE:',
     e.g. 'BREAKING CHANGE: ResourceName: My short description'.
 
-    You may remove this comment block, and the other comment blocks, but please
-    keep the headers and the task list.
+    You may remove this comment block, and the other comment blocks, but please keep the headers
+    and the task list.
 -->
+
 #### Pull Request (PR) description
+
 <!--
-    Replace this comment block with a description of your PR.
-    Also, make sure you have updated the CHANGELOG.md, see the
-    task list below. An entry in the CHANGELOG.md is mandatory
-    for all PRs.
+    Replace this comment block with a description of your PR. Also, make sure you have updated the
+    CHANGELOG.md, see the task list below. An entry in the CHANGELOG.md is mandatory for all PRs.
 -->
 
 #### This Pull Request (PR) fixes the following issues
+
 <!--
-    If this PR does not fix an open issue, replace this comment block with None.
-    If this PR resolves one or more open issues, replace this comment block with
-    a list of the issues using a GitHub closing keyword, e.g.:
+    If this PR does not fix an open issue, replace this comment block with None. If this PR
+    resolves one or more open issues, replace this comment block with a list of the issues using
+    a GitHub closing keyword, e.g.:
 
 - Fixes #123
 - Fixes #124
 -->
 
 #### Task list
-<!--
-    To aid community reviewers in reviewing and merging your PR, please take
-    the time to run through the below checklist and make sure your PR has
-    everything updated as required.
 
-    Change to [x] for each task in the task list that applies to your PR.
-    For those task that don't apply to you PR, leave those as is.
+<!--
+    To aid community reviewers in reviewing and merging your PR, please take the time to run
+    through the below checklist and make sure your PR has everything updated as required.
+
+    Change to [x] for each task in the task list that applies to your PR. For those task that
+    don't apply to you PR, leave those as is.
 -->
-- [ ] Added an entry to the change log under the Unreleased section of the
-      file CHANGELOG.md. Entry should say what was changed and how that
-      affects users (if applicable), and reference the issue being resolved
-      (if applicable).
+
+- [ ] Added an entry to the change log under the Unreleased section of the file CHANGELOG.md.
+      Entry should say what was changed and how that affects users (if applicable), and
+      reference the issue being resolved (if applicable).
 - [ ] Resource documentation added/updated in README.md.
-- [ ] Resource parameter descriptions added/updated in README.md, schema.mof
-      and comment-based help.
+- [ ] Resource parameter descriptions added/updated in README.md, schema.mof and comment-based
+      help.
 - [ ] Comment-based help added/updated.
 - [ ] Localization strings added/updated in all localization files as appropriate.
 - [ ] Examples appropriately added/updated.
@@ -565,53 +516,50 @@ Please check out common DSC Community [contributing guidelines](https://dsccommu
 >`next-version` to `13.3.0` and then add a commit with the word `breaking`
 >or `major` in the commit message.
 
+### File `Resolve-Dependency.psd1`
+
+1. Set the value of the Gallery key to 'PSGallery'.
+
 ## Update helper modules
 
 If there are any helper modules then move those to the `Modules` folder
 under the source folder (and change the code accordingly). Then for each
 helper module these steps should be done.
 
-1. Remove the `Export-ModuleMember` cmdlet from the module script file.
 1. Any helper module is required to have a module manifest.
    Create one using `New-ModuleManifest`, e.g.
-   ```powershell
-   # Need the full path to work with WriteAllText().
-   $manifestFile = 'C:\source\{repositoryFolder}\source\Modules\{ModuleName}\{ModuleName}.psd1'
+```powershell
+$helperModuleName = '{HelperModuleName}'
 
-   New-ModuleManifest -Path $manifestFile `
-       -Author 'DSC Community' `
-       -CompanyName 'DSC Community' `
-       -Copyright 'Copyright the DSC Community contributors. All rights reserved.' `
-       -Description 'Functions used by the DSC resources in {RepositoryName}.'
+# Need the full path to work with WriteAllText().
+$helperModulePath = "$PWD\source\Modules\$helperModuleName"
+$manifestFile = "$HelperModulePath\$helperModuleName.psd1"
 
-   # Converts the file to UTF-8 (without BOM)
-   $content = Get-Content -Path $manifestFile -Encoding 'Unicode' -Raw
-   [System.IO.File]::WriteAllText($manifestFile, $content, [System.Text.Encoding]::ASCII)
-   ```
-1. Change the manifest to add this. **Make sure to export the**
-   **functions from the helper module, and that it DOES NOT export `'*'`!**
-   ```powershell
-   @{
-       RootModule = '{ModuleName}.psm1'
+Import-Module $helperModulePath
 
-       # Semantic version number of this module.
-       ModuleVersion     = '1.0.0'
+$functionsToExport = (Get-Command -Module $helperModuleName).Name
 
-       FunctionsToExport = @(
-           'New-InvalidArgumentException',
-           'New-InvalidOperationException',
-           'New-ObjectNotFoundException',
-           'New-InvalidResultException',
-           'Get-LocalizedData'
-       )
+$newModuleManifestParameters = @{
+    Path              = $manifestFile
+    Author            = 'DSC Community'
+    CompanyName       = 'DSC Community'
+    Copyright         = 'Copyright the DSC Community contributors. All rights reserved.'
+    Description       = 'Functions used by the DSC resources in SecurityPolicyDsc.'
+    RootModule        = "$($helperModuleName).psm1"
+    FunctionsToExport = $functionsToExport
+    CmdletsToExport   = ''
+    VariablesToExport = ''
+    AliasesToExport   = ''
+}
 
-       CmdletsToExport = @()
+New-ModuleManifest @newModuleManifestParameters
 
-       VariablesToExport = @()
+# Converts the file to UTF-8 (without BOM)
 
-       AliasesToExport = @()
-   }
-   ```
+$content = Get-Content -Path $manifestFile -Encoding 'Unicode' -Raw
+[System.IO.File]::WriteAllText($manifestFile, $content, [System.Text.Encoding]::ASCII)
+```
+1. Remove the `Export-ModuleMember` cmdlet from the module script file.
 
 ## Update examples
 
@@ -927,7 +875,7 @@ This runs all the unit tests for the module. *It runs the tests that are*
        - job: Test_Integration
          displayName: 'Integration'
          pool:
-           vmImage: 'win1803'
+           vmImage: 'windows-2019'
          timeoutInMinutes: 0
          steps:
            - task: DownloadBuildArtifacts@0
