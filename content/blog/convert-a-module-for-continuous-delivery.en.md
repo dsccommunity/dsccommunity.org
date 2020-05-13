@@ -196,7 +196,12 @@ $moduleName = '{ModuleName}'
 $powerShellVersion = '5.1'
 
 $manifestPath = "source\$($moduleName).psd1"
+
+# Temporarily add the current directory to PSModulePath to allow Get-DscResource to run
+$originalPSModulePath=$env:PSModulePath
+$env:PSModulePath+=';.\source'
 $dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
+$env:PSModulePath=$originalPSModulePath
 
 $updateModuleManifestParameters = @{
     Author               = 'DSC Community'
@@ -209,16 +214,29 @@ $updateModuleManifestParameters = @{
     PreRelease           = ''
     ProjectUri           = "https://github.com/dsccommunity/$moduleName"
     ReleaseNotes         = ' '
+    ModuleVersion        = '0.0.1' # Module Version is now controlled by GitVersion
     PowerShellVersion    = $powerShellVersion
 }
 
 Update-ModuleManifest @updateModuleManifestParameters
 ```
 
-1. Replace the module version in the module manifest to make it more clear
-   that the module version is just updated by the CI pipeline. Set the
-   module version to `0.0.1`. *The module version is controlled by GitVersion*
-   *and the GitVersion.yml that we get back to later.*
+1. Uncomment the `PreRelease` property.
+1. Having the export properties set to `'*'` is not optimal. Update or
+   add the export properties to optimize discovery. *If any of these are*
+   *already exporting objects then leave that export property as is.*
+   ```powershell
+   # Functions to export from this module
+   FunctionsToExport = @()
+
+   # Cmdlets to export from this module
+   CmdletsToExport = @()
+
+   # Variables to export from this module
+   VariablesToExport = @()
+
+   # Aliases to export from this module
+   AliasesToExport = @()
 
 ### File `README.md`
 
