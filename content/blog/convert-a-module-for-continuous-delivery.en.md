@@ -211,7 +211,7 @@ $updateModuleManifestParameters = @{
     IconUri              = 'https://dsccommunity.org/images/DSC_Logo_300p.png'
     LicenseUri           = "https://github.com/dsccommunity/$moduleName/blob/master/LICENSE"
     Path                 = $manifestPath
-    PreRelease           = ''
+    PreRelease           = 'N/A'
     ProjectUri           = "https://github.com/dsccommunity/$moduleName"
     ReleaseNotes         = ' '
     ModuleVersion        = '0.0.1' # Module Version is now controlled by GitVersion
@@ -221,7 +221,6 @@ $updateModuleManifestParameters = @{
 Update-ModuleManifest @updateModuleManifestParameters
 ```
 
-1. Uncomment the `PreRelease` property.
 1. Having the export properties set to `'*'` is not optimal. Update or
    add the export properties to optimize discovery. *If any of these are*
    *already exporting objects then leave that export property as is.*
