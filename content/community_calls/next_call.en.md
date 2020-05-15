@@ -19,6 +19,8 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
 
 1. Presentation by Bartek Bielawski: Class Based DSC Resources from the trenches
 1. Women in PowerShell/DevOps Virtual Event ([Registration](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3MzvXWY1M5Jk_te2iUV50tUNFhEM1lMMTREMjM4NEFBVlpUQUZSMUdUUy4u))
+1. Open discussion - SqlServerDsc: Renaming resources that contain '*Server*'
+   https://github.com/dsccommunity/SqlServerDsc/issues/1540
 1. Quick update on activity:
    - Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
      - Completed since last call
