@@ -264,7 +264,7 @@ Describe 'SqlServerDsc.Common\Set-Something' {
         Write tests so you only need to have InModuleScope around as little
         code as possible, preferably only inside the It-block. But if the
         It-block needs variables in the test setup then that is not possible
-        since those won't be able in the module scope.
+        since those will not be able in the module scope.
         See issue https://github.com/pester/Pester/issues/1543.
     #>
     InModuleScope $script:subModuleName {
