@@ -58,8 +58,9 @@ some cmdlets in Pester 4 are now aliases in Pester 5.
 But what took most time was to understand the error messages that was
 outputted when running test that was not "Pester 5 compatible". When the
 tests was wrongly written for Pester 5 it took some time to understand if
-the error was from the Pester, bug in tests, or bug in the code being
-tested. 99.9% of the time it was the tests that needed converting.
+the error was caused by Pester (well I did use an RC), bug in tests, or
+bug in the code being tested. 99.9% of the time it was the tests that
+wasn't written in a way they would just work with Pester 5.
 
 > Converting to Pester 5 did help found a bug in the tests that we had
 > missed with Pester 4. There was a need for mocking a line in the code
@@ -173,6 +174,10 @@ be solved in some other way.
 - There is a bug when using `$PSBoundParameters` in a `-ParameterFiler`
   for a `Should -Invoke`. This is being tracked in issue [pester/Pester#1542](https://github.com/pester/Pester/issues/1542)
   and won't be fixed before 5.0.0 GA.
+- If `Mock`'s are outside the `Before*`- or `It`-blocks then things are
+  _not mocked_ so make sure prior running the tests that all code is
+  correctly placed! There is no check that you incorrectly placed a `Mock`
+  where it serves no purpose.
 
 ### Pester 5 Test scaffolding
 
