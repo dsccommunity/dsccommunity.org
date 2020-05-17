@@ -1,5 +1,5 @@
 ---
-title: "Converting to Pester 5 from the trenches"
+title: "Converting tests to Pester 5"
 date: 2020-05-17T05:00:00+01:00
 type: "post"
 draft: false
