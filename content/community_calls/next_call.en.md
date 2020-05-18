@@ -66,10 +66,11 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
      - StorageDsc v5.0.0
      - SChannelDsc v1.2.0
      - xExchange v1.32.0
+     - UpdateServicesDsc v1.2.0
    - Preview release
      - ActiveDirectoryDsc v6.1.0-preview0002
      - ActiveDirectoryCSDsc v5.0.0-preview0002
-     - SqlServerDsc v14.0.0-preview0013
+     - SqlServerDsc v14.0.0-preview0017
      - FileContentDsc v2.0.0-preview0001
      - SharePointDSC v4.1.0-preview0001
      - NetworkingDsc v8.0.0-preview0004
