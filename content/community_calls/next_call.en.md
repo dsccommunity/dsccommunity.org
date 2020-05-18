@@ -78,7 +78,7 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
      - ComputerManagementDsc v8.2.1-preview0001
      - iSCSIDsc v2.0.0-preview0001 was
    - Modules
-     - DscResource.Common v0.8.0
+     - DscResource.Common v0.9.0
      - DscResource.DocGenerator v0.5.1
      - xDscDiagnostics v2.8.0
      - DscResource.Test v0.13.1
