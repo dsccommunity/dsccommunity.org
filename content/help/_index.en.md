@@ -39,7 +39,7 @@ Make sure you check those resources and post your question on the forum if you c
 
 ### DSC Slack & Discord Instant Messaging
 
-<a href="http://slack.poshcode.org/" target="_blank"><img src="../images/appIcon_desktop.png" alt="Slack" style="width:100px; display:block; float: left; margin-left: auto;margin-right:auto; padding-right: 15px; border-radius:0%" /></a>
+<a href="https://aka.ms/psslack" target="_blank"><img src="../images/appIcon_desktop.png" alt="Slack" style="width:100px; display:block; float: left; margin-left: auto;margin-right:auto; padding-right: 15px; border-radius:0%" /></a>
 
 Some members of the community are very active in the DSC channel, of the PowerShell Slack.
 Join the conversation here if you want to meet the community, and ask questions.

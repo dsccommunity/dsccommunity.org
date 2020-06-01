@@ -41,6 +41,6 @@ We wanted to clear up some misunderstanding, present the humans behind the [DSC 
 I hope that another time we will be able to introduce the [DSC Community Maintainers](/community/maintainers/), and show the awesome work they're doing, and how you can help them!
 
 If you still have unanswered questions, we would love to hear them.
-You'll find us on the PowerShell slack or Discord, in the DSC channel.
+You'll find us on the [PowerShell slack](https://aka.ms/psslack) or Discord, in the DSC channel.
 
 Check our [Help](/help/) for more info.
