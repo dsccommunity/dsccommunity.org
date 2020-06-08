@@ -18,4 +18,37 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
 
 ### Agenda
 
-TBC
+1. Open discussion - Renaming `master` branch to `main` branch in DSC Community repositories.
+1. Quick update on activity:
+   - Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
+     - Completed since last call
+       - DfsDsc
+       - FileContentDsc
+     - In progress
+       - FSRMDsc
+     - New modules
+     - Modules not yet converted but with PR activity within last 4 months
+       (seen in AppVeyor)
+       - JeaDsc
+       - DscResource.Analysis
+       - xBitlocker
+     - Completed
+       - xSystemSecurity
+       - ComputerManagementDsc
+       - ActiveDirectoryDsc
+       - NetworkingDsc
+       - SharePointDsc
+       - SQLServerDsc
+       - WSManDsc
+       - xFailOverCluster
+       - xPSDesiredStateConfiguration
+       - xWebAdministration
+       - GPRegistryPolicyDsc
+       - UpdateServicesDsc
+       - ActiveDirectoryCSDsc
+       - xExchange
+       - FileSystemDsc
+1. Resources that have been released recently
+   - Releases
+   - Preview release
+   - Modules
