@@ -18,7 +18,6 @@ Want to submit a question to discuss during the call? Just [submit a Pull reques
 
 ### Agenda
 
-1. Open discussion - Renaming `master` branch to `main` branch in DSC Community repositories.
 1. Quick update on activity:
    - Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
      - Completed since last call
