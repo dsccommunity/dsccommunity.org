@@ -14,6 +14,32 @@ the account that access DSC Community Azure DevOps organization.
 
 ### GitHub
 
+#### Create GitHub organization Team
+
+Each repository that is created in a DSC Community GitHub organization
+should have atleast one team for maintainers.
+
+1. Browse to https://github.com/orgs/dsccommunity/teams/maintainers/teams.
+1. Click on _Add a team_.
+1. In the search box, write the repository name and then click _Create team_.
+1. In the new team dialog:
+   - In the field _Team name_ write the repository name, e.g. `PasswordPolicyDsc`.
+   - In the _Description_ field write the repository name followed by the word
+     "Maintainers", e.g. `PasswordPolicyDsc Maintainers`.
+   - Make sure the _Parent team_ is set to `Maintainers` and _Team visibility_
+     is set to `Visible`.
+1. Click _Create team_.
+1. When the team is created, click on the _Members_ tab.
+
+You should see your self as a member since you created the team. Continue
+with the section [Add members to a team](#add-members-to-an-organization-team).
+
+##### Add members to an organization team
+
+1. Browse to the team you want to add a member to;
+   https://github.com/orgs/dsccommunity/teams/{repository_name}/members
+1. Click on _Add a member_ to invite a new member to the Team.
+
 #### Create GitHub repository
 
 To create a new GitHub repository in the DSC Community organization, browse
@@ -24,9 +50,18 @@ All repositories should always be added with **MIT licensing**.
 >**NOTE:** To be able create repositories you must be an owner of the
 >GitHub DSC Community organization. See [GitHub DSC Community organizational owners](https://github.com/orgs/dsccommunity/people?query=role%3Aowner).
 
-##### Create GitHub repository Team
+##### Connect a GitHub organization team to a repository
 
-Not written yet.
+Each repository should have a DSC Community GitHub organization team
+connected to it to easily manage maintainers.
+
+1. Browse to repository access page; https://github.com/dsccommunity/{repository_name}/settings/access.
+1. Click on _Invite teams or people_.
+1. In the searchbox write the repository name, e.g. `PasswordPolicyDsc`.
+1. Click on the organization team name to add it (the team name shows as
+  `dsccommunity/passwordpolicydsc`)
+1. Choose the correct role for the team. The repository Maintainer team should
+   have `Admin` as the role.
 
 ### Azure DevOps organization
 
