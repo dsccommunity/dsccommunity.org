@@ -312,6 +312,19 @@
                 "repository": "ActiveDirectoryDsc"
             }
         ]
+    },
+        {
+        "accountName": "kilasuit",
+        "modules": [
+            {
+                "organization": "dsccommunity",
+                "repository": "AzureDevOpsDsc"
+            },
+            {
+                "organization": "dsccommunity",
+                "repository": "GitHubEnterpriseDsc"
+            }
+        ]
     }
 ]
 
