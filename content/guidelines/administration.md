@@ -42,6 +42,8 @@ with the section [Add members to a team](#add-members-to-an-organization-team).
 1. Browse to the team you want to add a member to;
    https://github.com/orgs/dsccommunity/teams/{repository_name}/members
 1. Click on _Add a member_ to invite a new member to the Team.
+1. If the member becomes a maintainer of a DSC module then also update
+   the [Maintainers section for the DSC Community site](https://github.com/dsccommunity/dsccommunity.org/blob/master/data/maintainers.json).
 
 #### Create GitHub repository
 
