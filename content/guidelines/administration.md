@@ -20,7 +20,7 @@ the account that access DSC Community Azure DevOps organization.
 
 Each repository that is created in a DSC Community GitHub organization
 should have at least one team for maintainers. This team should be a child
-team of the GitHub organization team _Maintainers_.
+team of the GitHub organization team [Maintainers](https://github.com/orgs/dsccommunity/teams/maintainers).
 
 1. Browse to https://github.com/orgs/dsccommunity/teams/maintainers/teams.
 1. Click on _Add a team_.
@@ -34,7 +34,7 @@ team of the GitHub organization team _Maintainers_.
 1. Click _Create team_.
 1. When the team is created, click on the _Members_ tab.
 
-You should see your self as a member since you created the team. Continue
+You should see yourself as a member since you created the team. Continue
 with the section [Add members to a team](#add-members-to-an-organization-team).
 
 ##### Add members to an organization team
@@ -59,7 +59,7 @@ Each repository should have a DSC Community GitHub organization team
 connected to it to easily manage maintainers. See the section
 [Repository Maintainer Team](#repository-maintainer-team) on how to create this team.
 
-1. Browse to repository access page; https://github.com/dsccommunity/{repository_name}/settings/access.
+1. Browse to repository access page: https://github.com/dsccommunity/{repository_name}/settings/access.
 1. Click on _Invite teams or people_.
 1. In the searchbox write the repository name, e.g. `PasswordPolicyDsc`.
 1. Click on the organization team name to add it (the team name shows as
