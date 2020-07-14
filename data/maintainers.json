@@ -313,7 +313,7 @@
             }
         ]
     },
-        {
+    {
         "accountName": "kilasuit",
         "modules": [
             {
@@ -323,6 +323,24 @@
             {
                 "organization": "dsccommunity",
                 "repository": "GitHubEnterpriseDsc"
+            }
+        ]
+    },
+    {
+        "accountName": "raandree",
+        "modules": [
+            {
+                "organization": "dsccommunity",
+                "repository": "JeaDsc"
+            }
+        ]
+    },
+    {
+        "accountName": "ChrisLGardner",
+        "modules": [
+            {
+                "organization": "dsccommunity",
+                "repository": "JeaDsc"
             }
         ]
     }
