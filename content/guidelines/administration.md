@@ -35,7 +35,7 @@ team of the GitHub organization team [Maintainers](https://github.com/orgs/dscco
 1. When the team is created, click on the _Members_ tab.
 
 You should see yourself as a member since you created the team. Continue
-with the section [Add members to a team](#add-members-to-an-organization-team).
+with the section [Add members to an organization team](#add-members-to-an-organization-team).
 
 ##### Add members to an organization team
 
