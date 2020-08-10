@@ -36,7 +36,7 @@ Want to submit a question to discuss during the call so others can prepare? Just
        - _None_
      - New modules
        - _None_
-     - WIP modules
+     - WIP modules (_no DSC resources yet_)
        - [AzureDevOpsDsc](https://github.com/dsccommunity/AzureDevOpsDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
        - [GitHubEnterpriseDsc](https://github.com/dsccommunity/GitHubEnterpriseDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
      - Modules not yet converted but with fairly recent activity (seen in AppVeyor)
