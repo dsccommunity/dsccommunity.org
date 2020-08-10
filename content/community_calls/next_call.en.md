@@ -23,7 +23,7 @@ Topics or questions from the community (welcome at any point during the call)
 Talk to us on **Virtual PowerShell User Group** _#DSC_ channel.
 For information on how to join, see https://dsccommunity.org/community/contact/
 
-Want to submit a question to discuss during the call so other can prepare? Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
+Want to submit a question to discuss during the call so others can prepare? Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
 
 ### Agenda
 
@@ -37,8 +37,8 @@ Want to submit a question to discuss during the call so other can prepare? Just 
      - New modules
        - _None_
      - WIP modules
-       - AzureDevOpsDsc _(maintainer [Ryan Yates](https://github.com/kilasuit))_
-       - GitHubEnterpriseDsc _(maintainer [Ryan Yates](https://github.com/kilasuit))_
+       - [AzureDevOpsDsc](https://github.com/dsccommunity/AzureDevOpsDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
+       - [GitHubEnterpriseDsc](https://github.com/dsccommunity/GitHubEnterpriseDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
      - Modules not yet converted but with fairly recent activity (seen in AppVeyor)
        - DscResource.Analysis
        - xBitlocker
