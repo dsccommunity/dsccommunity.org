@@ -5,7 +5,7 @@ type: "post"
 date: 2020-08-01
 ---
 
-Next call will be on Wednesday, August 10th, at 12 PM PST
+Next call will be on Wednesday, August 12th, at 12 PM PST
 
 ### Join the call
 
