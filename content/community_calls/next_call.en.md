@@ -35,7 +35,7 @@ Want to submit a question to discuss during the call so others can prepare? Just
      - In progress
        - _None_
      - New modules
-       - _None_
+       - ConfigMgrCBDsc
      - WIP modules (_no DSC resources yet_)
        - [AzureDevOpsDsc](https://github.com/dsccommunity/AzureDevOpsDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
        - [GitHubEnterpriseDsc](https://github.com/dsccommunity/GitHubEnterpriseDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
@@ -60,10 +60,30 @@ Want to submit a question to discuss during the call so others can prepare? Just
        - ActiveDirectoryCSDsc
        - xExchange
        - FileSystemDsc
-1. Resources that have been released recently
+1. DSC resource modules that have been released recently
    - Releases
-   - Preview release
+     - StorageDsc 5.0.1
+     - ComputerManagementDsc 8.4.0
+     - NetworkingDsc 8.1.0
+     - xWebAdministration 3.2.0 (_preview release for v4.0.0 was wrongly_
+       _published and has been unlisted. Latest release is 3.2.0_)
+     - SqlServerDsc 14.1.0
+   - Preview releases
+     - SqlServerDsc 14.2.1-preview0002
+     - ActiveDirectoryDsc 6.1.0-preview0005
+     - ConfigMgrCBDsc 0.2.0-preview0027
+     - SharePointDSC 4.2.1-preview0002
+     - ComputerManagementDsc 8.4.1-preview0001
+     - WSManDsc 3.2.0-preview0002
+     - ActiveDirectoryCSDsc 5.0.1-preview0001
+     - CertificateDsc 5.0.0-preview0004
+     - FileContentDsc 2.0.0-preview0002
+     - iSCSIDsc 2.0.0-preview0002
+     - FSRMDsc 2.5.1-preview0001
    - Modules
+     - DscResource.Common 0.9.3
+     - DscResource.DocGenerator 0.7.1
+     - DscResource.Test 0.14.0
 1. Michael talks about Azure Arc.
 
 1. Next Community Call (September)
