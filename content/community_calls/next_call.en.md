@@ -64,6 +64,7 @@ Want to submit a question to discuss during the call so others can prepare? Just
    - Releases
    - Preview release
    - Modules
+1. Michael talks about Azure Arc.
 
 1. Next Community Call (September)
    1. [Steve Lee](https://github.com/SteveL-MSFT) makes a guest appearance to
