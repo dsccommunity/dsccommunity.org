@@ -204,6 +204,19 @@
             {
                 "organization": "dsccommunity",
                 "repository": "ActiveDirectoryDsc"
+            },
+            {
+                "organization": "dsccommunity",
+                "repository": "ConfigMgrCBDsc"
+            }
+        ]
+    },
+    {
+        "accountName": "NEllis280",
+        "modules": [
+            {
+                "organization": "dsccommunity",
+                "repository": "ConfigMgrCBDsc"
             }
         ]
     },
