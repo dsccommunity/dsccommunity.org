@@ -422,17 +422,6 @@ parenthesis.
 #### Version of the DSC module that was used
 ```
 
-### File `CONTRIBUTING.md`
-
-If this file does not exist, please create it as GitHub uses it in various
-locations. Change the contents of the file to the following.
-
-```markdwon
-# Contributing
-
-Please check out common DSC Community [contributing guidelines](https://dsccommunity.org/guidelines/contributing).
-```
-
 ### Other repository files
 
 1. Remove the file `.MetaTestOptIn.json` since it is no longer used.
