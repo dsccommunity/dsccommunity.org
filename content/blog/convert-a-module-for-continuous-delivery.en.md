@@ -193,15 +193,15 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
 
 ```powershell
 $moduleName = '{ModuleName}'
-$powerShellVersion = '5.1'
+
+$powerShellVersion = '5.1' # Must be 5.1 to support the property DscResourcesToExport. Change manually after.
+
+# Temporarily install the module from the PowerShell Gallery to get the DSC resource names.
+Install-Module -Name $moduleName -Scope CurrentUser
+$dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
+Uninstall-Module -Name $moduleName -Force
 
 $manifestPath = "source\$($moduleName).psd1"
-
-# Temporarily add the current directory to PSModulePath to allow Get-DscResource to run
-$originalPSModulePath=$env:PSModulePath
-$env:PSModulePath+=';.\source'
-$dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
-$env:PSModulePath=$originalPSModulePath
 
 $updateModuleManifestParameters = @{
     Author               = 'DSC Community'
@@ -211,7 +211,7 @@ $updateModuleManifestParameters = @{
     IconUri              = 'https://dsccommunity.org/images/DSC_Logo_300p.png'
     LicenseUri           = "https://github.com/dsccommunity/$moduleName/blob/master/LICENSE"
     Path                 = $manifestPath
-    PreRelease           = 'N/A'
+    PreRelease           = 'preview'
     ProjectUri           = "https://github.com/dsccommunity/$moduleName"
     ReleaseNotes         = ' '
     ModuleVersion        = '0.0.1' # Module Version is now controlled by GitVersion
