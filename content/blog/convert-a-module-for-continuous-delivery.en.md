@@ -505,10 +505,6 @@ parenthesis.
 >`next-version` to `13.3.0` and then add a commit with the word `breaking`
 >or `major` in the commit message.
 
-### File `Resolve-Dependency.psd1`
-
-1. Set the value of the Gallery key to 'PSGallery'.
-
 ## Update helper modules
 
 If there are any helper modules then move those to the `Modules` folder
