@@ -247,7 +247,7 @@ Update-ModuleManifest @updateModuleManifestParameters
    >https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&_a=summary
    >**You have to get back to this once the pipeline is configured!**
    ```markdown
-   ## {RepositoryName}
+   # {RepositoryName}
 
    [![Build Status](https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}&branchName=master)
    ![Azure DevOps coverage (branch)](https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master)
