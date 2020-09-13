@@ -467,7 +467,7 @@ parenthesis.
    or if there are any helper modules (which need to be moved to the `Modules`
    folder).
    ```yaml
-   CopyDirectories:
+   CopyPaths:
      - Modules
    ```
 1. (Optional) Clear out any commented rows *(they can always be found in the*
