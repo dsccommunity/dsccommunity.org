@@ -71,7 +71,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
      - ConfigMgrCBDsc 0.2.0-preview0029
    - Modules
      - _None_
-1. [Steve Lee](https://github.com/SteveL-MSFT) makes a guest appearance to
+1. [Steve Lee](https://github.com/SteveL-MSFT) join us to
       discuss the proposal regarding [changes to DSC resource platform](https://github.com/PowerShell/PowerShell/issues/13359).
 1. Next Community Call (October)
    1. Suggestions for talks are welcomed.
