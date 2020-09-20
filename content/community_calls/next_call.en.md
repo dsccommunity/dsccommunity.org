@@ -73,9 +73,5 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
      - _None_
 1. [Steve Lee](https://github.com/SteveL-MSFT) makes a guest appearance to
       discuss the proposal regarding [changes to DSC resource platform](https://github.com/PowerShell/PowerShell/issues/13359).
-      Highlights below:
-      - Proposing to move to JSON instead of MOF (considered for PowerShell 7.1)
-      - Windows PowerShell LCM is unchanged (will only support MOF).
-      - Resource will need both a mof and json schema to work cross-PowerShell-versions.
 1. Next Community Call (October)
    1. Suggestions for talks are welcomed.
