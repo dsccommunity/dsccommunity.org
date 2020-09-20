@@ -56,6 +56,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
        - xExchange
        - FileSystemDsc
        - xBitlocker
+       - xDatabase
 1. DSC resource modules that have been released recently
    - Releases
      - SqlServerDsc 14.2.1
