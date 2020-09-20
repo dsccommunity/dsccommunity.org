@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2020-08-12"
+title: "Next Community Call 2020-09-23"
 weight: 1
 type: "post"
-date: 2020-08-01
+date: 2020-09-19
 ---
 
-Next call will be on Wednesday, August 12th, at 12 PM PST
+Next call will be on Wednesday, September 23rd, at 12 PM PST
 
 ### Join the call
 
@@ -20,28 +20,23 @@ Conference ID:
 
 Topics or questions from the community (welcome at any point during the call)
 
-Talk to us on **Virtual PowerShell User Group** _#DSC_ channel.
+We are also available on the **Virtual PowerShell User Group** _#DSC_ channel.
 For information on how to join, see https://dsccommunity.org/community/contact/
 
-Want to submit a question to discuss during the call so others can prepare? Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
+Want to submit a question to discuss during the call so others can prepare?
+Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
 
 ### Agenda
 
 1. Quick update on activity:
    - Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
      - Completed since last call
-       - FSRMDsc
-       - JeaDsc
-     - In progress
-       - _None_
-     - New modules
-       - ConfigMgrCBDsc
-     - WIP modules (_no DSC resources yet_)
-       - [AzureDevOpsDsc](https://github.com/dsccommunity/AzureDevOpsDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
-       - [GitHubEnterpriseDsc](https://github.com/dsccommunity/GitHubEnterpriseDsc) _(maintainer [Ryan Yates](https://github.com/kilasuit))_
-     - Modules not yet converted but with fairly recent activity (seen in AppVeyor)
-       - DscResource.Analysis
        - xBitlocker
+       - xDatabase
+     - In progress
+       - xCredSSP
+     - New modules
+       - _None_
      - Completed
        - DfsDsc
        - FileContentDsc
@@ -60,36 +55,24 @@ Want to submit a question to discuss during the call so others can prepare? Just
        - ActiveDirectoryCSDsc
        - xExchange
        - FileSystemDsc
+       - xBitlocker
+       - xDatabase
 1. DSC resource modules that have been released recently
    - Releases
-     - StorageDsc 5.0.1
-     - ComputerManagementDsc 8.4.0
-     - NetworkingDsc 8.1.0
-     - xWebAdministration 3.2.0 (_preview release for v4.0.0 was wrongly_
-       _published and has been unlisted. Latest release is 3.2.0_)
-     - SqlServerDsc 14.1.0
+     - SqlServerDsc 14.2.1
+     - xDatabase 2.0.0 
+     - JeaDsc 0.7.1
    - Preview releases
-     - SqlServerDsc 14.2.1-preview0002
-     - ActiveDirectoryDsc 6.1.0-preview0005
-     - ConfigMgrCBDsc 0.2.0-preview0027
-     - SharePointDSC 4.2.1-preview0002
-     - ComputerManagementDsc 8.4.1-preview0001
-     - WSManDsc 3.2.0-preview0002
-     - ActiveDirectoryCSDsc 5.0.1-preview0001
-     - CertificateDsc 5.0.0-preview0004
-     - FileContentDsc 2.0.0-preview0002
-     - iSCSIDsc 2.0.0-preview0002
-     - FSRMDsc 2.5.1-preview0001
+     - DscResource.Test 0.14.1-preview0001
+     - SqlServerDsc 14.2.2-preview0002
+     - DpkgPackage 0.2.0-preview0001
+     - CertificateDsc 5.0.0-preview0005
+     - xPSDesiredStateConfiguration 9.1.1-preview0001
+     - xBitlocker 1.5.1-preview0001
+     - ConfigMgrCBDsc 0.2.0-preview0029
    - Modules
-     - DscResource.Common 0.9.3
-     - DscResource.DocGenerator 0.7.1
-     - DscResource.Test 0.14.0
-1. Michael talks about Azure Arc.
-
-1. Next Community Call (September)
-   1. [Steve Lee](https://github.com/SteveL-MSFT) makes a guest appearance to
+     - _None_
+1. [Steve Lee](https://github.com/SteveL-MSFT) join us to
       discuss the proposal regarding [changes to DSC resource platform](https://github.com/PowerShell/PowerShell/issues/13359).
-      Highlights below:
-      - Proposing to move to JSON instead of MOF (considered for PowerShell 7.1)
-      - Windows PowerShell LCM is unchanged (will only support MOF).
-      - Resource will need both a mof and json schema to work cross-PowerShell-versions.
+1. Next Community Call (October)
+   1. Suggestions for talks are welcomed.
