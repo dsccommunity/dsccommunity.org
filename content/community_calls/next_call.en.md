@@ -70,6 +70,8 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
      - xPSDesiredStateConfiguration 9.1.1-preview0001
      - xBitlocker 1.5.1-preview0001
      - ConfigMgrCBDsc 0.2.0-preview0029
+     - NetworkingDsc 8.1.1-preview0001
+     - xPSDesiredStateConfiguration 9.1.1-preview0002
    - Modules
      - _None_
 1. [Steve Lee](https://github.com/SteveL-MSFT) join us to
