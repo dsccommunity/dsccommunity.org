@@ -76,5 +76,6 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
      - _None_
 1. [Steve Lee](https://github.com/SteveL-MSFT) join us to
       discuss the proposal regarding [changes to DSC resource platform](https://github.com/PowerShell/PowerShell/issues/13359).
+   - Will this have an impact on composite resources are these considered "PowerShell Script"?
 1. Next Community Call (October)
    1. Suggestions for talks are welcomed.
