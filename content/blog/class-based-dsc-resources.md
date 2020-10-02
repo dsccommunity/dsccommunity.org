@@ -191,23 +191,19 @@ Worth noting, Jakub Jares ([@nohwnd](https://twitter.com/nohwnd), the maintainer
 
 > [_@nowhnd:_](https://twitter.com/nohwnd/status/1308752521142435842?s=20) The api would probably look like this:  Mock -Type ([DateTime]) -Property Now -Get <the value> But imho the final form is not that important. It does work on PowerShell  classes. In the end you should be able to use this to replace almost any method and property.
 
-Again, that's definitely something that we will work on and document, but I don't see this as a major obstacle.
-
+Again, that's definitely something that we will work on and document, but I don't see this as a major obstacle.  
 We could also mock by inheriting the class and overridding that method.
 
-Now, I'd like to slide-in another opinion, which might be unpopular, but your DSC Resource PSM1 or Class should not be thousands of lines long.
-
+Now, I'd like to slide-in another opinion, which might be unpopular, but your DSC Resource PSM1 or Class should not be thousands of lines long.  
 This subject is worth its own article (one day), but the DSC Resource is **only** an interface to PowerShell **scripts** (in a broad sense), where we think in terms of **Resource** (duh), and ensure **idempotency** (always converging to the same state regardless of initial application).
 
-That means, and that is what the brilliant [ToolMaking in a Month of Lunches](https://www.manning.com/books/learn-powershell-toolmaking-in-a-month-of-lunches) preach, if you build re-usable tools (hint, you should), then you ought to create re-usable components (functions).
+That means, and that is what the brilliant [ToolMaking in a Month of Lunches](https://www.manning.com/books/learn-powershell-toolmaking-in-a-month-of-lunches) by Don Jones ([@concentrateddon](https://twitter.com/concentrateddon)) and Jeff Hicks ([@JeffHicks](https://twitter.com/JeffHicks)) preach: if you build re-usable tools (hint, you should), then you should make re-usable components (functions / modules). And by extrapolating, the DSC Resource is just another interface to that, serving the purpose of adding idempotency and forcing the management of an atomic resource.
 
-The DSC sugar-coating is really for what's specific to thinking resource and idempotency, but the functionality should be available through a different interface, and in PowerShell world, that's a function.
-
+The DSC sugar-coating is really for what's specific to thinking resource and idempotency, but the functionality should be available through a different interface, and in PowerShell world, that's a function.  
 And mocking function works.
 
-Yes I know that's not always (rarely?) the case in the DSC Community Resource modules, but we've made good progress to make it easier to supplement a module of functions, with a specialised module focusing on the DSC interface, by [embedding the module of functions](https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/).
-
-Another article worth to write... (send helpz)
+Yes I know that's not always (rarely?) the case in the DSC Community Resource modules, but we've made good progress to make it easier to supplement a module of functions, with a specialised module focusing on the DSC interface, by [embedding the module of functions](https://dsccommunity.org/blog/use-dscresource-common-functions-in-module/).  
+Another article worth to write...
 
 ## Classes are more complex for non-dev
 
