@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2020-09-23"
+title: "Next Community Call 2020-11-04"
 weight: 1
 type: "post"
-date: 2020-09-19
+date: 2020-10-01
 ---
 
-Next call will be on Wednesday, September 23rd, at 12 PM PST
+Next call will be on Wednesday, November 4th, at 12 PM PST
 
 ### Join the call
 
@@ -29,53 +29,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 ### Agenda
 
 1. Quick update on activity:
-   - Migration to Continuous Delivery Process ([GitHub Board](https://github.com/orgs/dsccommunity/projects/1)):
-     - Completed since last call
-       - xBitlocker
-       - xDatabase
-     - In progress
-       - xCredSSP
-     - New modules
-       - _None_
-     - Completed
-       - DfsDsc
-       - FileContentDsc
-       - xSystemSecurity
-       - ComputerManagementDsc
-       - ActiveDirectoryDsc
-       - NetworkingDsc
-       - SharePointDsc
-       - SQLServerDsc
-       - WSManDsc
-       - xFailOverCluster
-       - xPSDesiredStateConfiguration
-       - xWebAdministration
-       - GPRegistryPolicyDsc
-       - UpdateServicesDsc
-       - ActiveDirectoryCSDsc
-       - xExchange
-       - FileSystemDsc
-       - xBitlocker
-       - xDatabase
 1. DSC resource modules that have been released recently
-   - Releases
-     - SqlServerDsc 14.2.1
-     - xDatabase 2.0.0 
-     - JeaDsc 0.7.1
-   - Preview releases
-     - DscResource.Test 0.14.1-preview0001
-     - SqlServerDsc 14.2.2-preview0002
-     - DpkgPackage 0.2.0-preview0001
-     - CertificateDsc 5.0.0-preview0005
-     - xPSDesiredStateConfiguration 9.1.1-preview0001
-     - xBitlocker 1.5.1-preview0001
-     - ConfigMgrCBDsc 0.2.0-preview0029
-     - NetworkingDsc 8.1.1-preview0001
-     - xPSDesiredStateConfiguration 9.1.1-preview0002
-   - Modules
-     - _None_
-1. [Steve Lee](https://github.com/SteveL-MSFT) join us to
-      discuss the proposal regarding [changes to DSC resource platform](https://github.com/PowerShell/PowerShell/issues/13359).
-   - Will this have an impact on composite resources are these considered "PowerShell Script"?
-1. Next Community Call (October)
+1. Session related to DSC (TBC)
+1. Next Community Call (16th of December)
    1. Suggestions for talks are welcomed.
