@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2020-11-04"
+title: "Next Community Call 2020-12-16"
 weight: 1
 type: "post"
 date: 2020-10-01
 ---
 
-Next call will be on Wednesday, November 4th, at 12 PM PST
+Next call will be on Wednesday, December 16th, at 12 PM PST
 
 ### Join the call
 
@@ -30,6 +30,9 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 1. Quick update on activity:
 1. DSC resource modules that have been released recently
-1. Session related to DSC (TBC)
-1. Next Community Call (16th of December)
+1. News recap
+1. Class Based DSC Resources
+1. "Reasons" in DSC Resources
+1. Compare-DscParameterState and JeaDsc
+1. Next Community Call (27th of January)
    1. Suggestions for talks are welcomed.
