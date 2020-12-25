@@ -193,15 +193,15 @@ Change the module manifest in the source folder, e.g. `SqlServerDsc.psd1`.
 
 ```powershell
 $moduleName = '{ModuleName}'
-$powerShellVersion = '5.1'
+
+$powerShellVersion = '5.1' # Must be 5.1 to support the property DscResourcesToExport. Change manually after.
+
+# Temporarily install the module from the PowerShell Gallery to get the DSC resource names.
+Install-Module -Name $moduleName -Scope CurrentUser
+$dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
+Uninstall-Module -Name $moduleName -Force
 
 $manifestPath = "source\$($moduleName).psd1"
-
-# Temporarily add the current directory to PSModulePath to allow Get-DscResource to run
-$originalPSModulePath=$env:PSModulePath
-$env:PSModulePath+=';.\source'
-$dscResourcesToExport = (Get-DscResource -Module $moduleName).Name
-$env:PSModulePath=$originalPSModulePath
 
 $updateModuleManifestParameters = @{
     Author               = 'DSC Community'
@@ -211,7 +211,7 @@ $updateModuleManifestParameters = @{
     IconUri              = 'https://dsccommunity.org/images/DSC_Logo_300p.png'
     LicenseUri           = "https://github.com/dsccommunity/$moduleName/blob/master/LICENSE"
     Path                 = $manifestPath
-    PreRelease           = 'N/A'
+    PreRelease           = 'preview'
     ProjectUri           = "https://github.com/dsccommunity/$moduleName"
     ReleaseNotes         = ' '
     ModuleVersion        = '0.0.1' # Module Version is now controlled by GitVersion
@@ -247,7 +247,7 @@ Update-ModuleManifest @updateModuleManifestParameters
    >https://dev.azure.com/dsccommunity/xFailOverCluster/_build?definitionId=5&_a=summary
    >**You have to get back to this once the pipeline is configured!**
    ```markdown
-   ## {RepositoryName}
+   # {RepositoryName}
 
    [![Build Status](https://dev.azure.com/dsccommunity/{repositoryName}/_apis/build/status/dsccommunity.{repositoryName}?branchName=master)](https://dev.azure.com/dsccommunity/{repositoryName}/_build/latest?definitionId={definitionId}&branchName=master)
    ![Azure DevOps coverage (branch)](https://img.shields.io/azure-devops/coverage/dsccommunity/{repositoryName}/{definitionId}/master)
@@ -422,17 +422,6 @@ parenthesis.
 #### Version of the DSC module that was used
 ```
 
-### File `CONTRIBUTING.md`
-
-If this file does not exist, please create it as GitHub uses it in various
-locations. Change the contents of the file to the following.
-
-```markdwon
-# Contributing
-
-Please check out common DSC Community [contributing guidelines](https://dsccommunity.org/guidelines/contributing).
-```
-
 ### Other repository files
 
 1. Remove the file `.MetaTestOptIn.json` since it is no longer used.
@@ -478,7 +467,7 @@ Please check out common DSC Community [contributing guidelines](https://dsccommu
    or if there are any helper modules (which need to be moved to the `Modules`
    folder).
    ```yaml
-   CopyDirectories:
+   CopyPaths:
      - Modules
    ```
 1. (Optional) Clear out any commented rows *(they can always be found in the*
@@ -516,10 +505,6 @@ Please check out common DSC Community [contributing guidelines](https://dsccommu
 >`next-version` to `13.3.0` and then add a commit with the word `breaking`
 >or `major` in the commit message.
 
-### File `Resolve-Dependency.psd1`
-
-1. Set the value of the Gallery key to 'PSGallery'.
-
 ## Update helper modules
 
 If there are any helper modules then move those to the `Modules` folder
@@ -544,7 +529,7 @@ $newModuleManifestParameters = @{
     Author            = 'DSC Community'
     CompanyName       = 'DSC Community'
     Copyright         = 'Copyright the DSC Community contributors. All rights reserved.'
-    Description       = 'Functions used by the DSC resources in SecurityPolicyDsc.'
+    Description       = "Functions used by the DSC resources in $helperModuleName."
     RootModule        = "$($helperModuleName).psm1"
     FunctionsToExport = $functionsToExport
     CmdletsToExport   = ''
