@@ -37,10 +37,87 @@ resource the following are required:
 1. GitHub `Admin` access to the repository in [dsccommunity.org](https://github.com/dsccommunity).
 1. Azure DevOps `administrator` access to the [DSC Community CI pipeline](https://dev.azure.com/dsccommunity/)
    for the repository being converted.
+1. You have a fork of the upstream DSC Community repository in your
+   GitHub account.
+1. You have cloned your fork of the upstream DSC Community repository to
+   a local folder on your machine.
+1. **Your local clone should have two remotes:**
+   - `origin` refers to the upstream DSC Community repository.
+   - `my` refers to _your fork_ of the DSC community repository.
 
-## Process Summary
+## Summary
 
-The following is a summary of the process that will be followed.
+The following is a summary of the steps that needs to occur to rename master
+to main:
+
+1. Update _your fork_ of the repository from the upstream origin.
+1. Rename the `master` branch to `main` in _your fork_.
+1. Update the GitHub Default branch in _your fork_ to `main`.
+1. Optional: Delete the old `master` branch in _your fork_.
+1. Update the Sampler and CI/CD files in the `main` branch of _your fork_.
+1. Optional: If you have an Azure DevOps pipeline connected to _your fork_
+   update it to refer to `main`. Validate that the pipeline works correctly.
+1. Submit a pull request from `main` in _your fork_ to `master` in the _upstream
+   DSC Community repository_.
+1. Merge the pull request to `master`, **even though the CI will fail**.
+1. Rename the `master` branch to `main` in the _upstream DSC Community
+   repository_.
+1. Update the GitHub Default branch in the _upstream DSC Community
+   repository_ to `main`.
+1. Update the Azure DevOps pipeline connected to _upstream DSC Community
+   repository_ to `main`. Validate that the pipeline works correctly.
+1. Delete the GitHub `master` branch policy in the _upstream DSC Community
+   repository_.
+1. Create the GitHub `main` branch policy in the _upstream DSC Community
+   repository_.
+1. Optional: Delete the old `master` branch in the _upstream DSC Community
+   repository_.
+
+## Steps
+
+### Step 1 - Update your fork of the repository from the upstream origin
+
+Update your fork from the upstream origin repository master branch by running
+the following commands:
+
+```powershell
+# Move to the local repo
+cd c:\source\{repositoryFolder}
+
+# Make sure you have the remote names to upstream and fork.
+# origin should refer to the upstream DSC Community repository.
+# my should refer to the
+git remote -v
+
+# Get latest changes so we get all commits that the tags uses
+git checkout master
+git fetch origin master # origin is the remote pointing to upstream DSC Community repository.
+git rebase origin/master
+git push my master --force # my is the remote pointing to fork
+```
+
+### Step 2 - Rename the master branch to main in your fork
+
+Rename the master branch to main in your fork by running the following
+commands:
+
+```powershell
+git branch -m master main
+git push -u my main
+```
+
+### Step 3
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Steps
