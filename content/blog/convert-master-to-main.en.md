@@ -58,11 +58,11 @@ to main:
 1. Optional: If you have an Azure DevOps pipeline connected to _your fork_
    update it to refer to `main`.
 1. Optional: Validate that the pipeline works correctly.
-1. Submit a pull request from `main` in _your fork_ to `master` in the _upstream
-   DSC Community repository_.
+1. Submit a pull request from `main` in _your fork_ to `master` in the
+   _upstream DSC Community repository_.
 1. Merge the pull request to `master`, **even though the CI will fail**.
-1. Rename the `master` branch to `main` in the _upstream DSC Community
-   repository_.
+1. Create the new `main` branch in the _upstream DSC Community_ repository.
+1. Re-target any open pull requests to `main`.
 1. Update the GitHub Default branch in the _upstream DSC Community
    repository_ to `main`.
 1. Update the Azure DevOps pipeline connected to _upstream DSC Community
@@ -307,9 +307,129 @@ In your web browser:
 1. Complete the details of the pull request.
 1. Click `Create pull request`.
 
-> Important: The Azure DevOps CI pipeline will fail for this pull request.
-> This is expected behavior and is unavoidable at this point. This pull
-> request will need to be merged in the next step regardless of the build
-> failures which will be fixed in subsequent steps.
-
 ### Step 9 - Merge the pull request to master
+
+The pull request should be reviewed by a maintainer or other community
+member.
+
+<img src="../../images/convert-master-to-main/github-merge-pull-request.png" alt="GitHub merge pull request" style="width:425px;" />
+
+> Important: The Azure DevOps CI pipeline will fail for this pull request.
+> The failures will usually occur in the 'Run HQRM Test' task in the 'HQRM'
+> stage. This is expected behavior and is unavoidable at this point. This
+> pull request will need to be merged in the next step regardless of the
+> build failures which will be fixed in subsequent steps.
+
+A maintainer with admin privileges will need to merge this pull request:
+
+<img src="../../images/convert-master-to-main/github-merge-pull-request-use-admin-privs.png" alt="GitHub merge pull request using administrator privileges" style="width:425px;" />
+
+> Note: Using a merge commit or rebase merge are both acceptable. A
+> squash merge is not required.
+
+#### Step 10 - Create the new main branch in the upstream DSC Community repository
+
+> Important: This step can only be performed by a maintainer with admin
+> privileges on the _upstream DSC Community_ repository.
+
+Create a new `main` branch from `master` in the _upstream DSC Community_
+repository by running the following commands:
+
+```powershell
+# Update your fork of the master branch
+git pull origin master
+git push my main
+# Push your fork main branch as main branch
+git push -u origin main
+```
+
+#### Step 11 - Re-target any open pull requests to main
+
+If the _upstream DSC Community_ repository has any open pull requests
+that target `master`, these will need to be updated to `main`:
+
+<img src="../../images/convert-master-to-main/github-update-pull-request-target.png" alt="GitHub re-target pull request" style="width:425px;" />
+
+#### Step 12 - Update the GitHub Default branch in upstream DSC Community repository to main
+
+In your web browser:
+
+1. Open [GitHub](https://github.com/).
+1. Navigate to _upstream DSC Community_ repository.
+1. Select the `Settings` tab.
+1. Select `Branches`.
+1. Change Default Branch to `main`.
+1. Click `Update`.
+1. Confirm the update to the default branch.
+
+<img src="../../images/convert-master-to-main/github-update-default-branch.png" alt="GitHub update default branch" style="width:425px;" />
+
+#### Step 13 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main
+
+Update the 'Default branch for manual and scheduled builds' setting
+from `master` to `main`:
+
+1. Open Azure DevOps and navigate to the Pipeline.
+   <img src="../../images/convert-master-to-main/azure-devops-pipeline-community.png" alt="Azure DevOps Pipeline" style="width:425px;" />
+1. Click `Edit` to edit the pipeline.
+1. Select `Triggers` from the elipsis menu.
+   <img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" />
+1. Select the `YAML` tab.
+1. Click `Get Sources`.
+1. Change the `Default branch for manual and scheduled builds` to `main`.
+   <img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch-community.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" />
+1. Click the `Save & Queue` button.
+
+#### Step 14 - Validate that the pipeline works correctly
+
+Run the pipeline to validate that it works correctly:
+
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
+
+#### Step 15 - Delete the GitHub master branch policy in the upstream DSC Community repository
+
+In your web browser:
+
+1. Open [GitHub](https://github.com/).
+1. Navigate to _upstream DSC Community_ repository.
+1. Select the `Settings` tab.
+1. Select `Branches`.
+1. Click the `Delete` button next to the `master` branch policy
+
+   <img src="../../images/convert-master-to-main/github-delete-master-branch-policy.png" alt="GitHub delete master branch policy" style="width:425px;" />
+
+1. Enter your GitHub password, if required.
+
+#### Step 16 - Create the GitHub main branch policy in the upstream DSC Community repository
+
+In your web browser:
+
+1. Open [GitHub](https://github.com/).
+1. Navigate to _upstream DSC Community_ repository.
+1. Select the `Settings` tab.
+1. Select `Branches`.
+1. Click the `Add rule` button.
+1. Enter 'main' in the `Branch name pattern` field.
+1. Tick `Require pull request reviews before merging`.
+1. Tick `Require status checks to pass before merging`.
+1. Tick `Require branches to be up to date before merging`.
+1. Tick the status checks that are required to pass.
+1. Tick `Restrict who can push to matching branches`.
+
+   <img src="../../images/convert-master-to-main/github-create-branch-policy.png" alt="GitHub create main branch policy" style="width:425px;" />
+
+1. Click the `Create` button.
+
+#### Step 17 - Optional: Delete the old master branch in the upstream DSC Community repository
+
+Delete the old `master` branch from the _upstream DSC community_ repository by
+running:
+
+```powershell
+git push origin :master
+```
+
+## Rename Complete
+
+Once all steps are complete then the repository `master` branch has been
+successfully renamed to `main`.
