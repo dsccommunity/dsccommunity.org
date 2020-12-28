@@ -279,6 +279,15 @@ Update the `master` to `main` in the license URI in the module manifest:
 LicenseUri   = 'https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE'
 ```
 
+#### Update (Optional): source/Examples/Resources/**/*.ps1
+
+If the module is configured with automated generation of wiki documentation then
+update any references for `master` to `main` in the examples:
+
+```txt
+.LICENSEURI https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE
+```
+
 #### Update (Optional): source/wikiSource/Home.md
 
 If the module is configured with automated generation of wiki documentation then
