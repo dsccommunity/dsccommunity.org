@@ -87,15 +87,17 @@ the following commands:
 cd c:\source\{repositoryFolder}
 
 # Make sure you have the remote names to upstream and fork.
-# origin should refer to the upstream DSC Community repository.
-# my should refer to the
+# 'origin' should refer to the upstream DSC Community repository.
+# 'my' should refer to your fork of the repository.
 git remote -v
 
-# Get latest changes so we get all commits that the tags uses
+# Get latest changes so we get all commits and tags
 git checkout master
 git fetch origin master # origin is the remote pointing to upstream DSC Community repository.
 git rebase origin/master
+git fetch origin --tags # get any (new) tags from origin/master
 git push my master --force # my is the remote pointing to fork
+git push my --tags # push any (new) tags to my/master
 ```
 
 ### Step 2 - Rename the master branch to main in your fork
@@ -134,7 +136,7 @@ git push my :master
 ### Step 5 - Update the pipeline files in the main branch of your fork
 
 > Note: If you have an Azure DevOps pipeline linked to your fork of the
-> repository then you should be able to validate these changes work.
+> repository then you should be able to validate that these changes work.
 
 At this point in the process the Azure DevOps pipeline will start
 failing. To fix this, some of the pipeline files in the main branch will
@@ -237,6 +239,13 @@ should look like:
               MainGitBranch: main
 ```
 
+> Important: It is possible that there will be additional tasks that require
+> these values to be set. If that is the case then it is also likely that
+> adjustments will also need to be made to [Sampler](https://github.com/gaelcolas/Sampler).
+> Please [raise an issue over in the Sampler repository](https://github.com/gaelcolas/Sampler/issues)
+> if you have a Sampler task that needs to be notified of the change to the
+> name of `master` branch.
+
 1. Update the `deploy` stage `condition` by changing the
    `refs/heads/master` to `refs/heads/main`:
 
@@ -262,7 +271,7 @@ In the `build.yml` file in the `DscTest` section add the line:
 MainGitBranch: main
 ```
 
-#### Update: source/*.psd1
+#### Update: source/\*.psd1
 
 Update the `master` to `main` in the license URI in the module manifest:
 
@@ -270,10 +279,22 @@ Update the `master` to `main` in the license URI in the module manifest:
 LicenseUri   = 'https://github.com/dsccommunity/WSManDsc/blob/main/LICENSE'
 ```
 
-#### Update: source/wikiSource/Home.md
+#### Update (Optional): source/wikiSource/Home.md
 
 If the module is configured with automated generation of wiki documentation then
 update any references for `master` to `main`.
+
+#### Update (Optional): .codecov.yml
+
+If the module is configured to send code coverage results to [codecov.io](https://codecov.io)
+then you should also update the `codecov` `branch:` in `.codecov.yml` file to
+`main`:
+
+```yml
+codecov:
+  # main should be the baseline for reporting
+  branch: main
+```
 
 #### Commit and push the updated pipeline files
 
@@ -304,8 +325,9 @@ from `master` to `main`:
 
 ### Step 7 - Optional: Validate that the pipeline works correctly
 
-If you have an Azure DevOps pipeline connected to _your fork_ you should
-run the pipeline to validate that it works correctly.
+If you have an Azure DevOps pipeline connected to _your fork_ the pipeline
+should have automatically run in Step 5 and/or step 6. However, if it did not
+then you can run the pipeline manually to validate that it works correctly.
 
 <img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
 
@@ -404,7 +426,8 @@ from `master` to `main`:
 
 ### Step 14 - Validate that the pipeline works correctly
 
-Run the pipeline to validate that it works correctly:
+The Azure DevOps pipeline should have been run by Step 13. Validate that
+it has completed successfully:
 
 <img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
 
