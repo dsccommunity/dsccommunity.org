@@ -174,7 +174,8 @@ branches:
 
 #### Update: README.md
 
-Replace the `master` with `main` in the build badges:
+Replace the `master` with `main` in the build badges and anywhere else
+that refers to the `master` branch in this repository.
 
 ```txt
 [![Build Status](https://dev.azure.com/dsccommunity/WsManDsc/_apis/build/status/dsccommunity.WSManDsc?branchName=main)](https://dev.azure.com/dsccommunity/WsManDsc/_build/latest?definitionId=6&branchName=main)
@@ -182,6 +183,10 @@ Replace the `master` with `main` in the build badges:
 [![Azure DevOps tests](https://img.shields.io/azure-devops/tests/dsccommunity/WSManDsc/6/main)](https://dsccommunity.visualstudio.com/WSManDsc/_test/analytics?definitionId=6&contextType=build)
 
 ```
+
+> Note: Care should be taken to not change URLs that refer to files
+> in the master branch of other respositories that have not been updated
+> to use `main`.
 
 #### Update: azure-pipelines.yml
 
