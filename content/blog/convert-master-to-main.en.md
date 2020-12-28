@@ -157,7 +157,7 @@ Replace the `branches` section in the `GitVersion.yml` file with:
 branches:
   master:
     tag: preview
-    regex: ^master$|^main$
+    regex: ^main$
   pull-request:
     tag: PR
   feature:
@@ -349,7 +349,7 @@ A maintainer with admin privileges will need to merge this pull request:
 > Note: Using a merge commit or rebase merge are both acceptable. A
 > squash merge is not required.
 
-#### Step 10 - Create the new main branch in the upstream DSC Community repository
+### Step 10 - Create the new main branch in the upstream DSC Community repository
 
 > Important: This step can only be performed by a maintainer with admin
 > privileges on the _upstream DSC Community_ repository.
@@ -365,7 +365,7 @@ git push my main
 git push -u origin main
 ```
 
-#### Step 11 - Re-target any open pull requests to main
+### Step 11 - Re-target any open pull requests to main
 
 If the _upstream DSC Community_ repository has any open pull requests
 that target `master`, these will need to be updated to `main`:
@@ -386,7 +386,7 @@ In your web browser:
 
 <img src="../../images/convert-master-to-main/github-update-default-branch.png" alt="GitHub update default branch" style="width:425px;" />
 
-#### Step 13 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main
+### Step 13 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main
 
 Update the 'Default branch for manual and scheduled builds' setting
 from `master` to `main`:
@@ -402,13 +402,13 @@ from `master` to `main`:
    <img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch-community.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" />
 1. Click the `Save & Queue` button.
 
-#### Step 14 - Validate that the pipeline works correctly
+### Step 14 - Validate that the pipeline works correctly
 
 Run the pipeline to validate that it works correctly:
 
 <img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
 
-#### Step 15 - Delete the GitHub master branch policy in the upstream DSC Community repository
+### Step 15 - Delete the GitHub master branch policy in the upstream DSC Community repository
 
 In your web browser:
 
@@ -422,7 +422,7 @@ In your web browser:
 
 1. Enter your GitHub password, if required.
 
-#### Step 16 - Create the GitHub main branch policy in the upstream DSC Community repository
+### Step 16 - Create the GitHub main branch policy in the upstream DSC Community repository
 
 In your web browser:
 
@@ -442,7 +442,7 @@ In your web browser:
 
 1. Click the `Create` button.
 
-#### Step 17 - Optional: Delete the old master branch in the upstream DSC Community repository
+### Step 17 - Optional: Delete the old master branch in the upstream DSC Community repository
 
 Delete the old `master` branch from the _upstream DSC community_ repository by
 running:
