@@ -585,7 +585,7 @@ Context 'When the desired protocol is Named Pipes' {
         }
 
         InModuleScope -Parameters $inModuleScopeParameters -ScriptBlock {
-            # This should be able to be removed in a future version of Pester.
+            # The need for this will hopefully be removed in a future version of Pester.
             param
             (
                 $MockPipeName
