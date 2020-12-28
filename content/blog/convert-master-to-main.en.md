@@ -237,6 +237,23 @@ should look like:
               MainGitBranch: main
 ```
 
+1. Update the `deploy` stage `condition` by changing the
+   `refs/heads/master` to `refs/heads/main`:
+
+```yml
+  - stage: Deploy
+    dependsOn: Test
+    condition: |
+      and(
+        succeeded(),
+        or(
+          eq(variables['Build.SourceBranch'], 'refs/heads/main'),
+          startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+        ),
+        contains(variables['System.TeamFoundationCollectionUri'], 'dsccommunity')
+      )
+```
+
 #### Update: build.yml
 
 In the `build.yml` file in the `DscTest` section add the line:
