@@ -35,17 +35,17 @@ happen.
 **second reason... bandwidth for both contributor and maintainer.**
 
 So what is a self-sustaining test? I would like to describe it as where
-the mocks, calling the function being test, and the asserts are very close
-together nested in one or more `Context`-blocks. This will help new
-contributors to read the test code without needing to scroll up and down
-in the code. It will be easy for contributors to find the right test to
-modify for the change they are making by just reading one or two pages of
-code. This means not to be afraid to duplicate code! You may think that
-the code will be slower to run if there are more code, but honestly it can
-be faster than having a very complex test that reuses code. Pester does
-not really care (speed wise) if the test is 1000 rows or 2000 rows. It
-doesn't even compare to the effectiveness of enabling contributors to more
-easily write tests.
+the mocks, the call to the function being tested, and the asserts of the
+result are very close together, preferably nested in one or more
+`Context`-blocks. This will help new contributors to read the test code
+without needing to scroll up and down in the code. It will be easy for
+contributors to find the right test to modify for the change they are
+making by just reading one or two pages of code. This means not to be
+afraid to duplicate code! You may think that the code will be slower to
+run if there are more code, but honestly it can be faster than having a
+very complex test that reuses code. Pester does not really care (speed
+wise) if the test is 1000 rows or 2000 rows. It doesn't even compare to
+the effectiveness of enabling contributors to more easily write tests.
 
 Take for example the following two tests. The code for the mock of
 `Get-ServerProtocolObject` could be easily moved out from each test and
@@ -258,6 +258,7 @@ broken then there should be clearly documented in the test code.
   `BeforeAll`-block so it is clear they are imported into the session
   and will spill-over to other tests. _If possible tests that loads stub_
   _C# classes should be run last (after other tests) to minimize spill-over_.
+- Only mock cmdlets (functions) in the first level of the code being tested.
 
 >**NOTE:** Spill-over to another test means that things that was made
 >available for one test can spill-over to the next test and make it work
@@ -406,11 +407,24 @@ AfterAll {
 ### Mocking
 
 Mocking must only be inside an `It`-block, or inside a `BeforeAll`- or
-`BeforeEach`-block.
+`BeforeEach`-block. When mocking try to make the mock in a `BeforeAll` as
+close to the `It`-block as possible to make the test self-sustaining,
+preferably wrapped in a `Context`-block. Only mock what is necessary for
+the test to work.
 
-When mocking try to make the mock in a `BeforeAll` as close to the `It`-block
-as possible to make the test self-sustaining, preferably wrapped in a
-`Context`-block.
+Mock only the cmdlets (functions) in the first level of the code being tested.
+It is a good rule to make test more simple. For example if you are testing
+the function `Test-TargetResource` and `Test-TargetResource`
+calls `Get-TargetResource` which in turn call the cmdlet `Get-Something`,
+then the mock should be for `Get-TargetResource`, not `Get-Something`.
+
+```plaintext
+Test-TargetResource -> Get-TargetResource -> Get-Something
+                            ^--- Mock this
+```
+
+>Mocking to deep slowed down Pester 4. I'm not sure if it is a problem in
+>Pester 5, but it is a good rule to simplify tests.
 
 It is possible to mock cmdlets from the common modules without scoping them
 to the module's scope since they are imported by the module that is being
