@@ -607,6 +607,10 @@ Context 'When the desired protocol is Named Pipes' {
 
 Not yet written.
 
+#### Assert thrown errors
+
+Not yet written.
+
 #### Assert called mocks
 
 Not yet written.
