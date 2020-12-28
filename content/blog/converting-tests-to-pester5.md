@@ -9,6 +9,9 @@ author: johlju
 If you have any questions or suggestions around this blog post then please
 reach out to `@johlju` in the Virtual PowerShell User Group [#DSC channel](https://dsccommunity.org/community/contact/).
 
+**UPDATE:** To convert tests for a repository in DSC Community also see
+the blog [Convert tests to Pester 5 for a DSC Community repository](https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/)
+
 ## Pester
 
 [Pester](https://github.com/pester), the famous DSL and module in the
