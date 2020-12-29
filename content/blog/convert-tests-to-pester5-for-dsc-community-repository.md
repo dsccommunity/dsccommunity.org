@@ -360,10 +360,10 @@ BeforeAll {
     $script:subModulePath = Join-Path -Path $script:subModulesFolder -ChildPath $script:subModuleName
 
     <#
-        Import the common module into the session. The path `$script:subModulePath`
-        points to common module's folder so that the module manifest is used when
-        importing the module. This is so done to test that the functions are
-        exported as expected.
+        Import the common module into the session. The path $script:subModulePath
+        points to the folder of the common module so that the module manifest is
+        used when importing the module. This is so done to test that the functions
+        are exported as expected.
     #>
     Import-Module -Name $script:subModulePath -Force -ErrorAction 'Stop'
 
@@ -407,10 +407,17 @@ AfterAll {
 ### Mocking
 
 Mocking must only be inside an `It`-block, or inside a `BeforeAll`- or
-`BeforeEach`-block. When mocking try to make the mock in a `BeforeAll` as
-close to the `It`-block as possible to make the test self-sustaining,
-preferably wrapped in a `Context`-block. Only mock what is necessary for
-the test to work.
+`BeforeEach`-block. Preferably the mock is made in a `BeforeAll`- or
+`BeforeEach`-block to separate those from calling the function and the
+asserts.
+
+The `Mock` should not be wrapped inside an `InModuleScope`-block.
+
+When mocking try to make the mock in a `BeforeAll`- or `BeforeEach`-block
+that is as close to the `It`-block as possible. The test should preferably
+be wrapped in a `Context`-block to separate the test and make it
+self-sustaining. Only mock what is necessary for the individual test to
+work.
 
 Mock only the cmdlets (functions) in the first level of the code being tested.
 It is a good rule to make test more simple. For example if you are testing
@@ -420,7 +427,8 @@ then the mock should be for `Get-TargetResource`, not `Get-Something`.
 
 ```plaintext
 Test-TargetResource -> Get-TargetResource -> Get-Something
-                            ^--- Mock this
+      ↑                         ↑
+      |--- If testing this      |--- Mock this
 ```
 
 >Mocking to deep slowed down Pester 4. I'm not sure if it is a problem in
@@ -487,7 +495,7 @@ Context 'When the system is not in the desired state' {
             InModuleScope -ScriptBlock {
                 Set-StrictMode -Version 1.0
 
-                # ServerName is not set, it set to the default value by the resource.
+                # ServerName is not set, the default value is used within the resource.
                 $getTargetResourceParameters = @{
                     InstanceName = 'TEST'
                 }
@@ -495,7 +503,6 @@ Context 'When the system is not in the desired state' {
                 $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
 
                 $getTargetResourceResult.InstanceName | Should -Be 'TEST'
-                $getTargetResourceResult.ProtocolName | Should -Be 'TcpIp'
                 $getTargetResourceResult.SuppressRestart | Should -BeFalse
                 $getTargetResourceResult.RestartTimeout | Should -Be 120
 
@@ -561,13 +568,13 @@ module's scope using the parameter `Parameters` of the `InModuleScope`.
 The value of parameter `Parameters` must be a hashtable, and each key
 in the hashtable must have a corresponding parameter inside the
 `InModuleScope`. Note that the parameter is using upper-case 'M' on the
-word 'Mock` (`$MockPipeName`) to match the hashtable.
+word 'Mock' (`$MockPipeName`) to match the hashtable.
 
+>Currently it is not possible to used advanced parameters (`[Parameter()]`)
+>in the `param`-block. To simplify these parameters it is (for now) easiest
+>to write them as a simple parameter with no type.
 >The need to specify a `param`-block inside the `InModuleScope` will
->hopefully be removed in a future version of Pester. Currently there is
->not possible to used advanced parameters (`[Parameter()]`). To simplify
->these parameters it is (for now) easiest written as simple parameters
->with no type.
+>hopefully be removed in a future version of Pester.
 
 ```powershell
 Context 'When the desired protocol is Named Pipes' {
@@ -603,20 +610,362 @@ Context 'When the desired protocol is Named Pipes' {
 
 ### Asserting
 
-#### Assert result from calling function
+#### Assert result from called function
 
-Not yet written.
+The result from the called function should be asserted (using `Should`)
+inside an `InModuleScope`-block which is inside either an `It`-block or
+a `AfterAll`- or `AfterEach`-block. The assert need to be written differently
+depending on where the assert happens. Exception is when testing public
+functions in a common module, then `InModuleScope` should not be used.
+
+When testing a public function in a common module, then `InModuleScope`
+should not be used.
+
+##### Assert result in the `It`-block
+
+Most straightforward is to assert (using `Should`) directly inside an
+`InModuleScope`-block inside the `It`-block.
+
+```powershell
+Context 'When the system is in the desired state' {
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'TcpIp'
+                }
+
+                $getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $getTargetResourceResult.InstanceName | Should -Be 'TEST'
+            }
+        }
+    }
+}
+```
+
+##### Assert result in the `AfterEach`-block
+
+Contrary to an `AfterAll`-block, asserting (using `Should`) in an
+`AfterEach`-block is more widely used. It can be used for example when
+there are several `It`-blocks that should assert the same property. Still,
+keep in mind to try to make the test self-sustaining and avoid doing such
+assert to far away from the actual test.
+
+To be able to assert in the `AfterEach`-block the variable that holds the
+result must be declared in the script scope using `$script:`, e.g.
+`$script:getTargetResourceResult`. Then it possible to assert the value
+in the variable in an `AfterEach`-block. There is no need to reference
+the variable using the `script:` scope. But to make the test more readable
+it is worth to explicitly say that it is the value of the variable in the
+script scope we are asserting.
+
+```powershell
+Context 'When the system is in the desired state' {
+    AfterEach {
+        InModuleScope -ScriptBlock {
+            $script:getTargetResourceResult.InstanceName | Should -Be 'TEST'
+        }
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'TcpIp'
+                }
+
+                $script:getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult.ProtocolName | Should -Be 'TcpIp'
+            }
+        }
+    }
+
+    Context 'When the desired protocol is Named Pipes' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'NamedPipes'
+                }
+
+                $script:getTargetResourceResult = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult.ProtocolName | Should -Be 'NamedPipes'
+            }
+        }
+    }
+}
+```
+
+##### Assert result in the `AfterAll`-block
+
+It is really an edge case to assert the result (using `Should`) in an
+`AfterAll`-block. If it has ever been used, it is used extremely rarely.
+More likely is that it is used to assert called mocks. More on that in
+another section.
+
+There could be a reason to assert in an `AfterAll`-block, for example if
+there a several `It`-blocks inside the same `Context`-block that return
+different result and they should for some reason be asserted at the same
+time. But as said before, really an edge case.
+
+To be able to assert in the `AfterAll`-block the variable that holds the
+result must be declared in the script scope using `$script:`, e.g.
+`$script:getTargetResourceResult`. Then it possible to assert the value
+in the variable in an `AfterAll`-block. There is no need to reference
+the variable using the `script:` scope. But to make the test more readable
+it is worth to explicitly say that it is the value of the variable in the
+script scope we are asserting.
+
+```powershell
+Context 'When the system is in the desired state' {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    AfterAll {
+        InModuleScope -ScriptBlock {
+            $script:getTargetResourceResult1.InstanceName | Should -Be 'TEST1'
+            $script:getTargetResourceResult2.InstanceName | Should -Be 'TEST2'
+        }
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST1'
+                    ProtocolName = 'TcpIp'
+                }
+
+                $script:getTargetResourceResult1 = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult1.ProtocolName | Should -Be 'TcpIp'
+            }
+        }
+    }
+
+    Context 'When the desired protocol is Named Pipes' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST2'
+                    ProtocolName = 'NamedPipes'
+                }
+
+                $script:getTargetResourceResult2 = Get-TargetResource @getTargetResourceParameters
+
+                $script:getTargetResourceResult2.ProtocolName | Should -Be 'NamedPipes'
+            }
+        }
+    }
+}
+```
+
+#### Assert called mocks
+
+##### Assert called mocks in the `It`-block
+
+When asserting if a mock was called in an `It`-block the
+`Should -Invoke` must use the value `It` for the parameter `Scope`.
+
+The `Should -Invoke` should not be wrapped inside an `InModuleScope`-block,
+but be called after the `InModuleScope`-block.
+
+```powershell
+Context 'When the system is in the desired state' {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'TcpIp'
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should -Not -Throw
+            }
+
+            Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times 1 -Scope It
+        }
+    }
+}
+```
+
+##### Assert called mocks in the `AfterEach`-block
+
+When asserting if a mock was called in an `AfterEach`-block the
+`Should -Invoke` must use the value `It` for the parameter `Scope`.
+
+The `Should -Invoke` should not be wrapped inside an `InModuleScope`-block.
+
+```powershell
+Context 'When the system is in the desired state' {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    AfterEach {
+        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times 1 -Scope It
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'TcpIp'
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should -Not -Throw
+            }
+        }
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'NamedPipes'
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should -Not -Throw
+            }
+        }
+    }
+}
+```
+
+##### Assert called mocks in the `AfterAll`-block
+
+Asserting called mocks in an `AfterAll`-block should be used sparable since
+the scope the assert happens in can lead to a mock being hit countless times.
+Having the parameter `Times` of the `Should -Invoke` set to `8` doesn't
+really say if it was the correct amount or not. Any value other than `1`
+could be misleading to what the actual number of expected number of hits
+should be. Use this wisely, and make use of the parameter `ParameterFilter`
+where possible.
+
+When asserting if a mock was called in an `AfterAll`-block the
+`Should -Invoke` must use the value `Context` for the parameter `Scope`.
+
+The `Should -Invoke` should not be wrapped inside an `InModuleScope`-block.
+
+>**NOTE:** It is possible to use the `AfterAll`-block at the `Describe`-level
+>but that should be avoided since the mocks also must be at the `Describe`-level.
+>When asserting if a mock was called in an `AfterAll`-block use it inside
+>a `Context`-block.
+
+```powershell
+Context 'When the system is in the desired state' {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject
+    }
+
+    AfterAll {
+        Should -Invoke -CommandName Get-ServerProtocolObject -Exactly -Times 2 -Scope Context
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'TcpIp'
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should -Not -Throw
+            }
+        }
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'NamedPipes'
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should -Not -Throw
+            }
+        }
+    }
+}
+```
+
+#### Asserting verifiable mocks
+
+A verifiable mock can be used to assert that the mock must be hit at least
+once. For a mock to be verifiable the `Mock` must use the parameter `Verifiable`.
+
+When asserting if a verifiable mock was called it is important where to
+assert the verifiable mocks. The call to `Should -InvokeVerifiable` must
+be at the same level as the mocks being verified. It is not possible to
+add `Should -InvokeVerifiable` at the end of the `Describe`-block.
+
+>**NOTE:** With the current implementation of `Should -InvokeVerifiable`
+>it sees verifiable mocks in parent `Context`-blocks as well, so take care
+>how mocks are used and where you put `Should -InvokeVerifiable`.
+
+The `Should -InvokeVerifiable` must be inside an `It`-block, but should
+not be wrapped inside an `InModuleScope`-block.
+
+```powershell
+Context 'When the system is in the desired state' {
+    BeforeAll {
+        Mock -CommandName Get-ServerProtocolObject -Verifiable
+    }
+
+    Context 'When the desired protocol is TCP/IP' {
+        It 'Should return the correct values' {
+            InModuleScope -ScriptBlock {
+                Set-StrictMode -Version 1.0
+
+                $getTargetResourceParameters = @{
+                    InstanceName = 'TEST'
+                    ProtocolName = 'TcpIp'
+                }
+
+                { Get-TargetResource @getTargetResourceParameters } | Should -Not -Throw
+            }
+        }
+    }
+
+    It 'Should call all verifiable mocks' {
+        Should -InvokeVerifiable
+    }
+}
+```
 
 #### Assert thrown errors
 
 Not yet written.
-
-#### Assert called mocks
-
-Not yet written.
-
-#### Asserting verifiable mocks
-
-Not yet written.
-
-`Should -Invoke`
