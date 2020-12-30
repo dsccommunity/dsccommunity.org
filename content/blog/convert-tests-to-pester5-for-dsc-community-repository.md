@@ -1071,7 +1071,6 @@ It 'Should throw the correct error message' {
 }
 ```
 
-
 #### Using `Because` in assert
 
 When using the parameter `Because` in the assert it should give more information
