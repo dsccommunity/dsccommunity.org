@@ -404,6 +404,65 @@ AfterAll {
 }
 ```
 
+### Using stub PowerShell module
+
+To be able to run unit tests on a development machine that does not have
+a certain component installed it is good to use stub PowerShell module.
+For example the DSC resource module _SqlServerDsc_ is using a stub module
+to mimic the PowerShell module _SqlServer_ and _SQLPS_ when running unit test.
+
+A stub PowerShell module is a module that have stubs of the actual cmdlets
+to mimic the name of the cmdlets and their parameters.
+This is an example of a stub function in the stub module `SqlServerStub`.
+
+```powershell
+function Convert-UrnToPath {
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(Mandatory=$true, Position=1, ValueFromPipeline=$true, ValueFromPipelineByPropertyName=$true)]
+        [ValidateNotNullOrEmpty()]
+        [System.String]
+        ${Urn}
+   )
+
+    throw '{0}: StubNotImplemented' -f $MyInvocation.MyCommand
+}
+```
+
+>**NOTE:** A more advanced version of stub modules that also using classes
+>for the types and how to create it can be found in the DSC resource module
+>[_ActiveDirectoryDsc_ Stubs folder](https://github.com/dsccommunity/ActiveDirectoryDsc/tree/master/tests/Unit/Stubs).
+
+#### How to use stub module in tests
+
+Preferably the stub module should only be imported when it is needed and
+then be directly removed to minimize spill-over to other tests. The stub
+module should be imported in an `BeforeAll`-block and removed in an
+`AfterAll`-block.
+
+```powershell
+Context 'When Invoke-SqlScript is invoked with credentials' {
+    BeforeAll {
+        # Import PowerShell module SqlServer stub cmdlets.
+        Import-Module -Name '.\Stubs\SqlServerStubs.psm1'
+
+        Mock -CommandName Invoke-Sqlcmd
+    }
+
+    AfterAll {
+        # Remove PowerShell module SqlServer stub cmdlets.
+        Get-Module -Name 'SqlServerStubs' -All | Remove-Module -Force
+    }
+
+    It 'Should call Invoke-SqlScript without throwing' {
+        { Invoke-SqlScript @invokeScriptFileParameters } | Should -Not -Throw
+
+        Should -Invoke -CommandName Invoke-Sqlcmd -Times 1 -Exactly -Scope It
+    }
+}
+```
+
 ### Mocking
 
 Mocking must only be inside an `It`-block, or inside a `BeforeAll`- or
