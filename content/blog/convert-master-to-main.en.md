@@ -293,10 +293,10 @@ update any references for `master` to `main` in the examples:
 If the module is configured with automated generation of wiki documentation then
 update any references for `master` to `main`.
 
-#### Update (Optional): .codecov.yml
+#### Update (Optional): codecov.yml
 
 If the module is configured to send code coverage results to [codecov.io](https://codecov.io)
-then you should also update the `codecov` `branch:` in `.codecov.yml` file to
+then you should also update the `codecov` `branch:` in `codecov.yml` file to
 `main`:
 
 ```yml
@@ -389,9 +389,20 @@ Create a new `main` branch from `master` in the _upstream DSC Community_
 repository by running the following commands:
 
 ```powershell
-# Update your fork of the master branch
-git pull origin master
-git push my main
+# Must be in this local branch
+git checkout main
+
+# Get and rebase changes from fork
+git fetch my/main
+git rebase my/main
+
+# Get and rebase changes from upstream
+git fetch origin/master
+git rebase origin/master
+
+# Overwrite fork with all commits from upstream
+git push my main --force
+
 # Push your fork main branch as main branch
 git push -u origin main
 ```
