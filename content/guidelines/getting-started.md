@@ -193,7 +193,7 @@ When you have Chocolatey installed you install GitVersion using the following:
 choco install GitVersion.Portable
 ```
 
-#### macOS and Linux
+#### macOS
 
 You install [GitVersion](https://gitversion.net/docs/) using the following
 
@@ -203,6 +203,61 @@ brew install gitversion
 
 >**NOTE:** You need install [Homebrew](https://brew.sh/) first if you do
 >not have it installed already.
+
+#### Linux (or Docker)
+
+##### Using Homebrew
+
+You install [GitVersion](https://gitversion.net/docs/) using the following
+
+```bash
+brew install gitversion
+```
+
+>**NOTE:** You need install [Homebrew](https://brew.sh/) first if you do
+>not have it installed already.
+
+##### Using release package
+
+If you don't have or don't want to use Homebrew it is possible to install
+it from a release package directly.
+
+1. See if there are any prerequisites for the distribution you are using
+   in [Linux dependencies](https://github.com/GitTools/GitVersion/blob/master/src/Docker/linux%20deps.md)
+1. Get the download URL to the correct release for the distribution you
+   are using at [GitVersion releases](https://github.com/GitTools/GitVersion/releases)
+1. Run the commands below and replace with the correct download URL from
+   previous step.
+
+>**NOTE:** These steps have been verified in Ubuntu 16.04 and Ubuntu 20.04.
+>In other distributions the folders and steps might vary.
+
+```bash
+# Create a new folder under current user home folder
+cd ~
+mkdir gitversion
+cd ~/gitversion
+
+wget https://github.com/GitTools/GitVersion/releases/download/5.6.0/gitversion-ubuntu.20.04-x64-5.6.0.tar.gz
+
+tar -xvf /tmp/gitversion-ubuntu.20.04-x64-5.6.0.tar.gz
+
+# Make the gitversion file executable
+chmod +x gitversion
+
+# Create a soft link to be able to run it from anywhere
+#  - Ubuntu 16.04:
+sudo ln -sf $(pwd)/gitversion /usr/local/bin/gitversion
+#  - Ubuntu 20.04:
+sudo ln -s /home/johlju/gitversion/gitversion /usr/local/bin/
+
+# Now gitversion should work
+cd /tmp
+gitversion
+```
+
+If it returns `Cannot find the .git directory` then it executes correctly.
+First time it executes it can take a while.
 
 ### Clone repository from GitHub
 
