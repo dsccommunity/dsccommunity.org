@@ -1,5 +1,5 @@
 ---
-title: "How to Use Dsc Logging"
+title: "How to Use DSC Logging"
 date: 2019-09-24T16:37:42+02:00
 type: "post"
 draft: false
