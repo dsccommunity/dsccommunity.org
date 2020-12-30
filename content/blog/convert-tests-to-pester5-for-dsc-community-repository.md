@@ -5,9 +5,9 @@ draft: false
 author: johlju
 ---
 
-This blog post will explain how to convert existing tests in a DSC Community
-DSC resource module repository use a new pattern that is better suited for
-Pester 5.
+This blog post will guide you on how to convert existing tests in a
+DSC Community DSC resource module repository using a new pattern that is
+better suited for Pester 5.
 
 You are welcome to share any comments or issues you having around this
 process in the [Discord or Slack #DSC channel](https://dsccommunity.org/community/contact/).
@@ -966,6 +966,146 @@ Context 'When the system is in the desired state' {
 }
 ```
 
-#### Assert thrown errors
+#### Assert thrown exception messages
 
-Not yet written.
+To assert an exception message it is important to actually assert the correct
+(expected) exception message. It is not enough to just assert than an exception
+occurred, because the exception that was thrown can be due to any other
+reason than what we expected. To assert the correct error message we should
+use the localized message string from the function being tested. This will
+also make the test pass when the resource is run in other languages.
+
+To help achieve this there are two helper functions `Get-InvalidOperationRecord`
+and `Get-InvalidResultRecord`. There is also an alias `Get-ObjectNotFoundRecord`
+which is an alias for the function `Get-InvalidResultRecord`. These together
+will help create error records for the three most used exceptions.
+
+- ObjectNotFound
+- InvalidOperation
+- InvalidResult
+
+>**NOTE:** New test helper functions might be added to the module
+>_DscResource.Test_, or be available in the individual DSC resource modules.
+>Most test helper functions will be available in the module _DscResource.Test_
+>(but it is a work in progress).
+
+In addition to the helper functions, to get the expected exception message
+that the code is throwing the variable `$script:localizedData` in the
+module's scope should be used.
+
+>**NOTE:** Normally it is enough to just assert that the localized string
+>exception message was thrown, but if there is a need to assert the inner
+>exceptions then different logic need to be added in-place of using the
+>test helper functions.
+
+##### Assert thrown exception messages for private functions
+
+For the functions `Get-TargetResource`, `Test-TargetResource`,
+`Set-TargetResource`, and other private functions the assertion of thrown
+exceptions should be done in the module's scope. In the module's scope we
+have the variable `$script:localizedData` available.
+
+This shows how to assert the correct (expected) exception message by using
+the test helper function `Get-InvalidOperationRecord`. The helper function
+`Get-InvalidOperationRecord` returns an error record similar to the one that
+is thrown by, in this example, the function `Set-TargetResource`. Then we
+assert that the expected message is what is thrown. The wildcard character
+`*` is added due to that Pester 5 does a `-like` comparison on the text
+string and not `-contains`. The reason we need to add the wildcard character
+is because the inner exceptions (stack trace) are not the same between the
+helper functions and the error record that is thrown.
+
+```powershell
+It 'Should throw the correct error' {
+    InModuleScope -ScriptBlock {
+        Set-StrictMode -Version 1.0
+
+        $mockErrorRecord = Get-InvalidOperationRecord -Message (
+            $script:localizedData.FailedToGetSqlServerProtocol -f 'Variable1', 'Variable2'
+        )
+
+        $setTargetResourceParameters = @{
+            InstanceName = 'TEST'
+        }
+
+        { Set-TargetResource @setTargetResourceParameters } |
+            Should -Throw -ExpectedMessage ($mockErrorRecord.Exception.Message + '*')
+    }
+}
+```
+
+##### Assert thrown exception messages for public functions
+
+For the public functions we should use `$script:localizedData` to get the
+expected localized exception message. In the module's scope we have the
+variable `$script:localizedData` available.
+
+This shows how to assert the correct (expected) exception message by using
+the test helper function `Get-InvalidOperationRecord`. First we need to
+reach into the module's scope to return the localized string and assign
+it to a local variable in the test's scope. Then we use that local variable
+to build the error record similar to what is thrown by using the helper
+function `Get-InvalidOperationRecord`. Last we assert that the expected
+message is what is thrown. The wildcard character `*` is added due to that
+Pester 5 does a `-like` comparison on the text string and not `-contains`.
+The reason we need to add the wildcard character is because the inner exceptions
+(stack trace) are not the same between the helper functions and the error
+record that is thrown.
+
+```powershell
+It 'Should throw the correct error message' {
+    $mockGetServerProtocolObjectParameters = @{
+        Instance     = 'TEST'
+    }
+
+    $mockLocalizedString = InModuleScope -ScriptBlock {
+        $script:localizedData.FailedToObtainServerInstance
+    }
+
+    $mockErrorRecord = Get-InvalidOperationRecord -Message (
+        $mockLocalizedString -f $mockGetServerProtocolObjectParameters.Instance
+    )
+
+    { Get-ServerProtocolObject @mockGetServerProtocolObjectParameters } |
+        Should -Throw -ExpectedMessage ($mockErrorRecord.Exception.Message + '*')
+}
+```
+
+
+#### Using `Because` in assert
+
+When using the parameter `Because` in the assert it should give more information
+than what the `It`-block description already gives, it should bring more
+value. Also when using parameter `Because` the text should be phrased so
+it reads correct in the Pester output.
+
+For example if the `It`-block description would be the following
+"_Should not throw and return the correct values for the properties_" then
+the following would not really bring more value.
+
+```powershell
+It 'Should not throw and return the correct values for the properties' {
+    $result | Should -Be 'MyAlertName2' -Because 'the correct alert name must be returned'
+}
+```
+
+In this case the parameter `Because` should be used to add more information
+to why the value must be correct. An example would be:
+
+```powershell
+It 'Should not throw and return the correct values for the properties' {
+    $result | Should -Be 'MyAlertName2' -Because 'the correct alert name must be returned when the alert does not exist so user knows what alert failed'
+}
+```
+
+It would result in the following output from Pester:
+
+```plaintext
+[-] Should not throw and return the correct values for the properties 9ms (7ms|2ms)
+ Expected strings to be the same, because the correct alert name must be returned when the alert does not exist so user knows what alert failed, but they were different.
+ Expected length: 12
+ Actual length:   11
+ Strings differ at index 11.
+ Expected: 'MyAlertName2'
+ But was:  'MyAlertName'
+```
