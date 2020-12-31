@@ -261,7 +261,7 @@ cd /tmp
 gitversion
 ```
 
-If it returns `Cannot find the .git directory` then is has executed correctly.
+If it returns `Cannot find the .git directory` then it has executed correctly.
 The first time it executes it can take a while.
 
 ### Clone repository from GitHub
