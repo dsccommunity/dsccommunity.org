@@ -1023,7 +1023,12 @@ once. For a mock to be verifiable the `Mock` must use the parameter `Verifiable`
 When asserting if a verifiable mock was called it is important where to
 assert the verifiable mocks. The call to `Should -InvokeVerifiable` must
 be at the same level as the mocks being verified. It is not possible to
-add `Should -InvokeVerifiable` at the end of the `Describe`-block.
+add `Should -InvokeVerifiable` at the end of the `Describe`-block which
+is shown below.
+
+>**NOTE:** With the current implementation of `Should -InvokeVerifiable`
+>it sees verifiable mocks in parent `Context`-blocks as well, so take care
+>how mocks are used and where you put `Should -InvokeVerifiable`.
 
 In this example there are two `Should -InvokeVerifiable`. One at the
 `Context`-level and the other at the `Describe`-level.
@@ -1062,10 +1067,6 @@ Describing VerifiableMocks
 Tests completed in 263ms
 Tests Passed: 1, Failed: 1, Skipped: 0 NotRun: 0
 ```
-
->**NOTE:** With the current implementation of `Should -InvokeVerifiable`
->it sees verifiable mocks in parent `Context`-blocks as well, so take care
->how mocks are used and where you put `Should -InvokeVerifiable`.
 
 ##### Verifiable mock in `BeforeAll`-block
 
