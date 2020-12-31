@@ -393,11 +393,11 @@ repository by running the following commands:
 git checkout main
 
 # Get and rebase changes from fork
-git fetch my/main
+git fetch my main
 git rebase my/main
 
 # Get and rebase changes from upstream
-git fetch origin/master
+git fetch origin master
 git rebase origin/master
 
 # Overwrite fork with all commits from upstream
