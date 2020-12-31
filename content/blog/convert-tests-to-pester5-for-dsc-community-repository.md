@@ -16,6 +16,39 @@ This previous blog post [Converting tests to Pester 5](https://dsccommunity.org/
 covered an early version of Pester 5 and the patterns that should be used
 have been improved (and are still being improved).
 
+## Table of Contents
+
+- [Before we start, a note about self-sustaining tests](#before-we-start-a-note-about-self-sustaining-tests)
+- [Guideline for converting tests in a DSC Community repository](#guideline-for-converting-tests-in-a-dsc-community-repository)
+  - [Requirements](#requirements)
+  - [Rules](#rules)
+  - [Setup and teardown](#setup-and-teardown)
+    - [MOF DSC Resource](#mof-dsc-resource)
+    - [DSC Resource Common Module](#dsc-resource-common-module)
+  - [Using stub PowerShell module](#using-stub-powershell-module)
+    - [How to use stub module in tests](#how-to-use-stub-module-in-tests)
+  - [Mocking](#mocking)
+  - [Calling function to be tested](#calling-function-to-be-tested)
+  - [Using variables](#using-variables)
+    - [Setting variables in the module's scope](#setting-variables-in-the-modules-scope)
+    - [Passing variables into the module's scope](#passing-variables-into-the-modules-scope)
+  - [Asserting](#asserting)
+    - [Assert result from called function](#assert-result-from-called-function)
+      - [Assert result in the `It`-block](#assert-result-in-the-it-block)
+      - [Assert result in the `AfterEach`-block](#assert-result-in-the-aftereach-block)
+      - [Assert result in the `AfterAll`-block](#assert-result-in-the-afterall-block)
+    - [Assert called mocks](#assert-called-mocks)
+      - [Assert called mocks in the `It`-block](#assert-called-mocks-in-the-it-block)
+      - [Assert called mocks in the `AfterEach`-block](#assert-called-mocks-in-the-aftereach-block)
+      - [Assert called mocks in the `AfterAll`-block](#assert-called-mocks-in-the-afterall-block)
+    - [Asserting verifiable mocks](#asserting-verifiable-mocks)
+      - [Verifiable mock in `BeforeAll`-block](#verifiable-mock-in-beforeall-block)
+      - [Verifiable mock in `BeforeEach`-block or `It`-block](#verifiable-mock-in-beforeeach-block-or-it-block)
+    - [Assert thrown exception messages](#assert-thrown-exception-messages)
+      - [Assert thrown exception messages for private functions](#assert-thrown-exception-messages-for-private-functions)
+      - [Assert thrown exception messages for public functions](#assert-thrown-exception-messages-for-public-functions)
+    - [Using `Because` in assert](#using-because-in-assert)
+
 ## Before we start, a note about self-sustaining tests
 
 Us developers have a number one rule that it is bad to duplicate code and
@@ -1033,7 +1066,7 @@ Tests Passed: 1, Failed: 1, Skipped: 0 NotRun: 0
 >it sees verifiable mocks in parent `Context`-blocks as well, so take care
 >how mocks are used and where you put `Should -InvokeVerifiable`.
 
-#### Verifiable mock in `BeforeAll`-block
+##### Verifiable mock in `BeforeAll`-block
 
 The `Should -InvokeVerifiable` must be inside an `It`-block, but should
 not be wrapped inside an `InModuleScope`-block.
@@ -1065,7 +1098,7 @@ Context 'When the system is in the desired state' {
 }
 ```
 
-#### Verifiable mock in `BeforeEach`-block or `It`-block
+##### Verifiable mock in `BeforeEach`-block or `It`-block
 
 If the mock is setup in a `BeforeEach`-block or an `It`-block then the
 `Should -InvokeVerifiable` must be inside the `It`-block that is calling
