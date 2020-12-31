@@ -51,7 +51,7 @@ have been improved (and are still being improved).
 
 ## Before we start, a note about self-sustaining tests
 
-Us developers have a number one rule that it is bad to duplicate code and
+We developers have a number one rule that it is bad to duplicate code and
 instead code should be reused. It is normally good to reuse code, but when
 it comes to writing Pester tests this can be bad thing. Reusing code leads
 to tests not being self-sustaining and tests can become very complex for
@@ -75,7 +75,7 @@ without needing to scroll up and down in the code. It will be easy for
 contributors to find the right test to modify for the change they are
 making by just reading one or two pages of code. This means not to be
 afraid to duplicate code! You may think that the code will be slower to
-run if there are more code, but honestly it can be faster than having a
+run if there is more code, but honestly it can be faster than having a
 very complex test that reuses code. Pester does not really care (speed
 wise) if the test is 1000 rows or 2000 rows. It doesn't even compare to
 the effectiveness of enabling contributors to more easily write tests.
@@ -88,16 +88,16 @@ do that? Say a contributor contributes a change that needs a new test. The
 contributor must then browse the code to make sure how it works, secondly
 the contributor must scroll through the test to see if there are other
 mocks that might mess up the change to the test the contributor is trying
-to make. Think if we have reused code similar throughout the tests in that
-file (which could end up being 5000 rows long), that a lot of code for the
-contributor to read just to make a small change.
+to make. Consider if we have reused code similar throughout the tests in
+that file (which could end up being 5000 rows long), that is a lot of code
+for the contributor to read just to make a small change.
 
 >**NOTE:** There are still complex tests in SqlServerDsc today that are
 >_very_ slow due to old bad practices. There are also examples of where
 >these _very_ slow tests have been rewritten to be self-sustaining (which
 >duplicates code) and become _extremely_ fast in comparison!
 
-By having self-sustaining test the contributor now only need to find a
+By having self-sustaining test the contributor now only needs to find a
 `Context`-block similar to what their change needs, duplicate that and
 modify the mocks and asserts accordingly. They do not need to worry about
 code in parent blocks messes up their new test.
@@ -249,20 +249,20 @@ Describe 'SqlProtocol\Set-TargetResource' -Tag 'Set' {
 For the pattern explained here to work the `Export-ModuleMember` must be
 removed from the DSC resource code. This is an old inheritance that is no
 longer needed for MOF DSC resources. Removing the `Export-ModuleMember`
-will enable Pester 5 to see common helper functions, that are inside
+will enable Pester 5 to see common helper functions that are inside
 helper modules that are imported into the DSC resource's module scope.
 
 ### Rules
 
-Let us go over some rules that we should try to obey. These rules is to
+Let us go over some rules that we should try to obey. These rules are to
 help to follow the pattern set by Pester 5 and will also help us move
 away from patterns used in earlier versions of Pester. These rules are
 meant to optimize Pester discovery and run. It also help the tests to be
-more intuitive, easier to read.
+more intuitive and easier to read.
 
-There might be circumstances where there will be a need to break one or
-more, but for most tests these should be followed. If a rule needs to be
-broken then there should be clearly documented in the test code.
+There might be circumstances where there will be a need to break one rule
+or more, but for most tests these should be followed. If a rule needs to
+be broken then there should be clearly documented in the test code.
 
 - Code that setup mocks (`Mock`) must only be inside an `It`-block,
   or inside a `BeforeAll`- or `BeforeEach`-block.
@@ -299,7 +299,7 @@ broken then there should be clearly documented in the test code.
 
 ### Setup and teardown
 
-At the top of the test file there should a `BeforeAll`-block that setup
+At the top of the test file there should a `BeforeAll`-block that sets up
 everything needed to be able to run test. Also there should be a
 `AfterAll`-block that tears down everything that was imported into the
 session in the `BeforeAll`-block to prevent spill-over to next test that
@@ -442,7 +442,8 @@ AfterAll {
 To be able to run unit tests on a development machine that does not have
 a certain component installed it is good to use stub PowerShell module.
 For example the DSC resource module _SqlServerDsc_ is using a stub module
-to mimic the PowerShell module _SqlServer_ and _SQLPS_ when running unit test.
+to mimic the PowerShell module _SqlServer_ and _SQLPS_ when running unit
+tests.
 
 A stub PowerShell module is a module that have stubs of the actual cmdlets
 to mimic the name of the cmdlets and their parameters.
@@ -556,20 +557,20 @@ in the section [Asserting](#asserting).
 
 ### Calling function to be tested
 
-When testing a DSC resources functions `Get-TargetResource`, `Test-TargetResource`,
+When testing the DSC resources functions `Get-TargetResource`, `Test-TargetResource`,
 `Set-TargetResource`, and other private functions in a DSC resource or
-a common module the `InModuleScope` must be used. When testing public
+a common module, the `InModuleScope` must be used. When testing public
 functions in a common module the `InModuleScope` must be omitted to
 correctly test that the public functions are exported.
 
 The `InModuleScope` is used for `Get-TargetResource`, `Test-TargetResource`,
-and `Set-TargetResource` to explicit define what functions is tested
+and `Set-TargetResource` to explicit define what functions are tested
 if several DSC resource have been (wrongly) imported into the session.
 All those DSC resource will have the same exported function names (`Get-TargetResource`,
 `Test-TargetResource`, and `Set-TargetResource`).
 
 Below we also use `Set-StrictMode -Version 1.0`. This can optionally be
-used to test that functions aligns with a certain strict mode, when that
+used to test that functions align with a certain strict mode, when that
 is not something that should be enforce during runtime in a user environment.
 This enables strict mode in the module's scope when the specific `It`-block
 runs.
@@ -611,7 +612,7 @@ Context 'When the system is not in the desired state' {
 #### Setting variables in the module's scope
 
 When using reusable variables in the module scope they must be declared
-using the `$script`-scope, they must also start be prefixed or suffixed
+using the `$script`-scope, they must also be prefixed or suffixed
 with something unique so the declaration does not override a real variable
 inside any of the module's functions. In this case the variable is prefixed
 with 'mock', e.g. `$script:mockInstanceName`.
@@ -651,8 +652,8 @@ Context 'When the system is not in the desired state' {
 
 #### Passing variables into the module's scope
 
-If the test has variables that need to be used both for the mocks, and
-in the test when calling the function being tested or asserting a value
+If the test has variables that need to be used both for the mocks and
+in the test when calling the function being tested or asserting a value,
 it is possible to pass parameters into the `InModuleScope`-block.
 
 Below the variable `$mockPipeName` in the test's scope is passed into the
@@ -706,8 +707,8 @@ Context 'When the desired protocol is Named Pipes' {
 
 The result from the called function should be asserted (using `Should`)
 inside an `InModuleScope`-block which is inside either an `It`-block or
-a `AfterAll`- or `AfterEach`-block. The assert need to be written differently
-depending on where the assert happens. Exception is when testing public
+a `AfterAll`- or `AfterEach`-block. The assert needs to be written differently
+depending on where the assert happens. The exception is when testing public
 functions in a common module, then `InModuleScope` should not be used.
 
 When testing a public function in a common module, then `InModuleScope`
@@ -813,7 +814,7 @@ time. But as said before, really an edge case.
 
 To be able to assert in the `AfterAll`-block the variable that holds the
 result must be declared in the script scope using `$script:`, e.g.
-`$script:getTargetResourceResult`. Then it possible to assert the value
+`$script:getTargetResourceResult`. Then it is possible to assert the value
 in the variable in an `AfterAll`-block. There is no need to reference
 the variable using the `script:` scope. But to make the test more readable
 it is worth to explicitly say that it is the value of the variable in the
@@ -954,13 +955,13 @@ Context 'When the system is in the desired state' {
 
 ##### Assert called mocks in the `AfterAll`-block
 
-Asserting called mocks in an `AfterAll`-block should be used sparable since
-the scope the assert happens in can lead to a mock being hit countless times.
-Having the parameter `Times` of the `Should -Invoke` set to `8` doesn't
-really say if it was the correct amount or not. Any value other than `1`
-could be misleading to what the actual number of expected number of hits
-should be. Use this wisely, and make use of the parameter `ParameterFilter`
-where possible.
+Asserting called mocks in an `AfterAll`-block should be used sparingly
+since the scope the assert happens in can lead to a mock being hit
+countless times. Having the parameter `Times` of the `Should -Invoke`
+set to `8` doesn't really say if it was the correct amount or not. Any
+value other than `1` could be misleading to what the actual number of
+expected number of hits should be. Use this wisely, and make use of the
+parameter `ParameterFilter` where possible.
 
 When asserting if a mock was called in an `AfterAll`-block the
 `Should -Invoke` must use the value `Context` for the parameter `Scope`.
@@ -1123,7 +1124,7 @@ Describe 'VerifiableMocks' {
 #### Assert thrown exception messages
 
 To assert an exception message it is important to actually assert the correct
-(expected) exception message. It is not enough to just assert than an exception
+(expected) exception message. It is not enough to just assert that an exception
 occurred, because the exception that was thrown can be due to any other
 reason than what we expected. To assert the correct error message we should
 use the localized message string from the function being tested. This will
@@ -1199,12 +1200,12 @@ the test helper function `Get-InvalidOperationRecord`. First we need to
 reach into the module's scope to return the localized string and assign
 it to a local variable in the test's scope. Then we use that local variable
 to build the error record similar to what is thrown by using the helper
-function `Get-InvalidOperationRecord`. Last we assert that the expected
+function `Get-InvalidOperationRecord`. Lastly we assert that the expected
 message is what is thrown. The wildcard character `*` is added due to that
 Pester 5 does a `-like` comparison on the text string and not `-contains`.
-The reason we need to add the wildcard character is because the inner exceptions
-(stack trace) are not the same between the helper functions and the error
-record that is thrown.
+The reason we need to add the wildcard character is because the inner
+exceptions (stack trace) are not the same between the helper functions and
+the error record that is thrown.
 
 ```powershell
 It 'Should throw the correct error message' {
