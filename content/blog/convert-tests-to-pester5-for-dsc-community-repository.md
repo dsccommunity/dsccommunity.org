@@ -991,9 +991,49 @@ assert the verifiable mocks. The call to `Should -InvokeVerifiable` must
 be at the same level as the mocks being verified. It is not possible to
 add `Should -InvokeVerifiable` at the end of the `Describe`-block.
 
+In this example there are two `Should -InvokeVerifiable`. One at the
+`Context`-level and the other at the `Describe`-level.
+
+```powershell
+Describe 'VerifiableMocks' {
+    Context 'When some code path is executed' {
+        BeforeAll {
+            Mock -CommandName Get-Process -Verifiable
+        }
+
+        It 'Should call all verifiable mocks' {
+            Should -InvokeVerifiable
+        }
+    }
+
+    It 'Should call all verifiable mocks' {
+        Should -InvokeVerifiable
+    }
+}
+```
+
+In the result below we can see that the `Should -InvokeVerifiable` at the
+`Context`-level is returning that the mock was not called, but the other
+at the `Describe`-level passes even though the mock was never called which
+gives a false positive.
+
+```plaintext
+Describing VerifiableMocks
+ Context When some code path is executed
+   [-] Should call all verifiable mocks 5ms (2ms|2ms)
+     Expected Get-Process to be called with
+    at Should -InvokeVerifiable, C:\Users\johan.ljunggren\Desktop\VerifiableMocks.ps1:8
+    at <ScriptBlock>, C:\Users\johan.ljunggren\Desktop\VerifiableMocks.ps1:8
+  [+] Should call all verifiable mocks 2ms (1ms|1ms)
+Tests completed in 263ms
+Tests Passed: 1, Failed: 1, Skipped: 0 NotRun: 0
+```
+
 >**NOTE:** With the current implementation of `Should -InvokeVerifiable`
 >it sees verifiable mocks in parent `Context`-blocks as well, so take care
 >how mocks are used and where you put `Should -InvokeVerifiable`.
+
+#### Verifiable mock in `BeforeAll`-block
 
 The `Should -InvokeVerifiable` must be inside an `It`-block, but should
 not be wrapped inside an `InModuleScope`-block.
@@ -1021,6 +1061,28 @@ Context 'When the system is in the desired state' {
 
     It 'Should call all verifiable mocks' {
         Should -InvokeVerifiable
+    }
+}
+```
+
+#### Verifiable mock in `BeforeEach`-block or `It`-block
+
+If the mock is setup in a `BeforeEach`-block or an `It`-block then the
+`Should -InvokeVerifiable` must be inside the `It`-block that is calling
+the function being tested.
+
+```powershell
+Describe 'VerifiableMocks' {
+    Context 'When some code path is executed' {
+        BeforeEach {
+            Mock -CommandName Get-Process -Verifiable
+        }
+
+        It 'Should call all verifiable mocks' {
+            { Get-Process } | Should -Not -Throw
+
+            Should -InvokeVerifiable
+        }
     }
 }
 ```
