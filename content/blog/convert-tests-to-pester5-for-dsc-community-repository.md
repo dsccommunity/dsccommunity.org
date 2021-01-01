@@ -979,7 +979,7 @@ correct? Any value other than `1` could be misleading to what the actual
 number of expected number of hits should be. Use this wisely, and make use
 of the parameter `ParameterFilter` where possible to split up the asserts.
 If that is not possible consider adding an unique helper function for each
-call that could be better asserted or as mentioned before. consider using
+call that could be better asserted or as mentioned before, consider using
 `AfterEach`-block instead.
 
 When asserting if a mock was called in an `AfterAll`-block the
@@ -1223,10 +1223,10 @@ it to a local variable in the test's scope. Then we use that local variable
 to build the error record similar to what is thrown by using the helper
 function `Get-InvalidOperationRecord`. Lastly we assert that the expected
 message is what is thrown. The wildcard character `*` is added due to that
-Pester 5 does a `-like` comparison on the text string and not `-contains`.
-The reason we need to add the wildcard character is because the inner
-exceptions (stack trace) are not the same between the helper functions and
-the error record that is thrown.
+Pester 5 does a `-like` comparison on the text string as opposed to
+Pester 4 that did a `-contains`. The reason we need to add the wildcard
+character is because the inner exceptions (stack trace) are not the same
+between the helper functions and the error record that is thrown.
 
 ```powershell
 It 'Should throw the correct error message' {
