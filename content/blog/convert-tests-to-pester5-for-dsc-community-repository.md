@@ -974,11 +974,11 @@ of calls should be. Let's assume we have 3 `It`-blocks and the number of
 calls is set to `8`, then there is no way to tell if that is the correct
 number of calls throughout all the `It`-blocks. Was it 8 calls from one
 `It`-block or was it 2 calls from two `It`-blocks, and is one
-`It`-block doing 3 calls. Why is that if the other ones don't, is that
+`It`-block doing 3 calls. Why is that, if the other ones don't? Is that
 correct? Any value other than `1` could be misleading to what the actual
 number of expected number of hits should be. Use this wisely, and make use
 of the parameter `ParameterFilter` where possible to split up the asserts.
-If that is not possible consider adding an unique helper function for each
+If that is not possible consider adding a unique helper function for each
 call that could be better asserted or as mentioned before, consider using
 `AfterEach`-block instead.
 
