@@ -100,40 +100,7 @@ git push my master --force # my is the remote pointing to fork
 git push my --tags # push any (new) tags to my/master
 ```
 
-### Step 2 - Rename the master branch to main in your fork
-
-Rename the master branch to main in your fork by running the following
-commands:
-
-```powershell
-git branch -m master main
-git push -u my main
-```
-
-### Step 3 - Update the GitHub Default branch in your fork to main
-
-In your web browser:
-
-1. Open [GitHub](https://github.com/).
-1. Navigate to _your fork_ of the DSC repository.
-1. Select the `Settings` tab.
-1. Select `Branches`.
-1. Change Default Branch to `main`.
-1. Click `Update`.
-1. Confirm the update to the default branch.
-
-### Step 4 - Optional: Delete the old master branch in your fork
-
-This step is optional and will delete your old `master` branch. You
-can leave your old `master` branch if you wish.
-
-You can now delete the old master branch by running the following command:
-
-```powershell
-git push my :master
-```
-
-### Step 5 - Update the pipeline files in the main branch of your fork
+### Step 2 - Update the pipeline files in the main branch of your fork
 
 > Note: If you have an Azure DevOps pipeline linked to your fork of the
 > repository then you should be able to validate that these changes work.
@@ -166,12 +133,12 @@ branches:
     tag: useBranchName
     increment: Minor
     regex: f(eature(s)?)?[\/-]
-    source-branches: ['main']
+    source-branches: ['master']
   hotfix:
     tag: fix
     increment: Patch
     regex: (hot)?fix(es)?[\/-]
-    source-branches: ['main']
+    source-branches: ['master']
 ```
 
 #### Update: README.md
@@ -187,7 +154,7 @@ that refers to the `master` branch in this repository.
 ```
 
 > Note: Care should be taken to not change URLs that refer to files
-> in the master branch of other respositories that have not been updated
+> in the master branch of other repositories that have not been updated
 > to use `main`.
 
 #### Update: azure-pipelines.yml
@@ -312,10 +279,24 @@ Run the following git commands to commit your changes:
 ```powershell
 git add .
 git commit -m 'Updated pipeline files to support change of master to main'
-git push my main
+git push my master
 ```
 
-### Step 6 - Optional: Update Azure DevOps pipeline connected to your fork
+### Step 3 - Rename the GitHub default branch in your fork to main
+
+In your web browser:
+
+1. Open [GitHub](https://github.com/).
+1. Navigate to _your fork_ of the DSC repository.
+1. Select the `Settings` tab.
+1. Select `Branches`.
+1. Rename Default Branch to `main`.
+1. Click `Rename branch`.
+1. Confirm the rename of the default branch.
+
+This will trigger a new build on the renamed branch.
+
+### Step 4 - Optional: Update Azure DevOps pipeline connected to your fork
 
 If you have an Azure DevOps pipeline connected to _your fork_ you
 should update the 'Default branch for manual and scheduled builds' setting
@@ -324,7 +305,7 @@ from `master` to `main`:
 1. Open Azure DevOps and navigate to the Pipeline.
    <img src="../../images/convert-master-to-main/azure-devops-pipeline.png" alt="Azure DevOps Pipeline" style="width:425px;" />
 1. Click `Edit` to edit the pipeline.
-1. Select `Triggers` from the elipsis menu.
+1. Select `Triggers` from the ellipsis menu.
    <img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" />
 1. Select the `YAML` tab.
 1. Click `Get Sources`.
@@ -332,15 +313,15 @@ from `master` to `main`:
    <img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" />
 1. Click the `Save & Queue` button.
 
-### Step 7 - Optional: Validate that the pipeline works correctly
+### Step 5 - Optional: Validate that the pipeline works correctly
 
 If you have an Azure DevOps pipeline connected to _your fork_ the pipeline
-should have automatically run in Step 5 and/or step 6. However, if it did not
+should have automatically run in Step 2 and/or step 3. However, if it did not
 then you can run the pipeline manually to validate that it works correctly.
 
 <img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
 
-### Step 8 - Submit a pull request from main in your fork to master in the upstream DSC Community repository
+### Step 6 - Submit a pull request from main in your fork to master in the upstream DSC Community repository
 
 The updated pipeline changes need to be submitted to the upstream
 DSC Community repository `master` branch via a Pull Request.
@@ -360,7 +341,7 @@ In your web browser:
 1. Complete the details of the pull request.
 1. Click `Create pull request`.
 
-### Step 9 - Merge the pull request to master
+### Step 7 - Merge the pull request to master
 
 The pull request should be reviewed by a maintainer or other community
 member.
@@ -380,41 +361,7 @@ A maintainer with admin privileges will need to merge this pull request:
 > Note: Using a merge commit or rebase merge are both acceptable. A
 > squash merge is not required.
 
-### Step 10 - Create the new main branch in the upstream DSC Community repository
-
-> Important: This step can only be performed by a maintainer with admin
-> privileges on the _upstream DSC Community_ repository.
-
-Create a new `main` branch from `master` in the _upstream DSC Community_
-repository by running the following commands:
-
-```powershell
-# Must be in this local branch
-git checkout main
-
-# Get and rebase changes from fork
-git fetch my main
-git rebase my/main
-
-# Get and rebase changes from upstream
-git fetch origin master
-git rebase origin/master
-
-# Overwrite fork with all commits from upstream
-git push my main --force
-
-# Push your fork main branch as main branch
-git push -u origin main
-```
-
-### Step 11 - Re-target any open pull requests to main
-
-If the _upstream DSC Community_ repository has any open pull requests
-that target `master`, these will need to be updated to `main`:
-
-<img src="../../images/convert-master-to-main/github-update-pull-request-target.png" alt="GitHub re-target pull request" style="width:425px;" />
-
-#### Step 12 - Update the GitHub Default branch in upstream DSC Community repository to main
+#### Step 8 - Update the GitHub Default branch in upstream DSC Community repository to main
 
 In your web browser:
 
@@ -422,50 +369,15 @@ In your web browser:
 1. Navigate to _upstream DSC Community_ repository.
 1. Select the `Settings` tab.
 1. Select `Branches`.
-1. Change Default Branch to `main`.
-1. Click `Update`.
-1. Confirm the update to the default branch.
+1. Rename Default Branch to `main`.
+1. Click `Rename branch`.
+1. Confirm the rename of the default branch.
 
-<img src="../../images/convert-master-to-main/github-update-default-branch.png" alt="GitHub update default branch" style="width:425px;" />
-
-### Step 13 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main
-
-Update the 'Default branch for manual and scheduled builds' setting
-from `master` to `main`:
-
-1. Open Azure DevOps and navigate to the Pipeline.
-   <img src="../../images/convert-master-to-main/azure-devops-pipeline-community.png" alt="Azure DevOps Pipeline" style="width:425px;" />
-1. Click `Edit` to edit the pipeline.
-1. Select `Triggers` from the elipsis menu.
-   <img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" />
-1. Select the `YAML` tab.
-1. Click `Get Sources`.
-1. Change the `Default branch for manual and scheduled builds` to `main`.
-   <img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch-community.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" />
-1. Click the `Save & Queue` button.
-
-### Step 14 - Validate that the pipeline works correctly
-
-The Azure DevOps pipeline should have been run by Step 13. Validate that
-it has completed successfully:
-
-<img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
-
-### Step 15 - Delete the GitHub master branch policy in the upstream DSC Community repository
-
-In your web browser:
-
-1. Open [GitHub](https://github.com/).
-1. Navigate to _upstream DSC Community_ repository.
-1. Select the `Settings` tab.
-1. Select `Branches`.
-1. Click the `Delete` button next to the `master` branch policy
-
-   <img src="../../images/convert-master-to-main/github-delete-master-branch-policy.png" alt="GitHub delete master branch policy" style="width:425px;" />
+This will trigger a new build on the renamed branch.
 
 1. Enter your GitHub password, if required.
 
-### Step 16 - Create the GitHub main branch policy in the upstream DSC Community repository
+### Step 16 - Verify the GitHub main branch policy in the upstream DSC Community repository
 
 In your web browser:
 
@@ -473,7 +385,7 @@ In your web browser:
 1. Navigate to _upstream DSC Community_ repository.
 1. Select the `Settings` tab.
 1. Select `Branches`.
-1. Click the `Add rule` button.
+1. Click the `Edit` button on the branch protection rule for 'main'.
 1. Enter 'main' in the `Branch name pattern` field.
 1. Tick `Require pull request reviews before merging`.
 1. Tick `Require status checks to pass before merging`.
@@ -483,15 +395,46 @@ In your web browser:
 
    <img src="../../images/convert-master-to-main/github-create-branch-policy.png" alt="GitHub create main branch policy" style="width:425px;" />
 
-1. Click the `Create` button.
+1. Click the `Save changes` button.
 
-### Step 17 - Optional: Delete the old master branch in the upstream DSC Community repository
+### Step 9 - Update the Azure DevOps pipeline connected to upstream DSC Community repository to main
 
-Delete the old `master` branch from the _upstream DSC community_ repository by
-running:
+Update the 'Default branch for manual and scheduled builds' setting
+from `master` to `main`:
+
+1. Open Azure DevOps and navigate to the Pipeline.
+   <img src="../../images/convert-master-to-main/azure-devops-pipeline-community.png" alt="Azure DevOps Pipeline" style="width:425px;" />
+1. Click `Edit` to edit the pipeline.
+1. Select `Triggers` from the ellipsis menu.
+   <img src="../../images/convert-master-to-main/azure-devops-pipeline-edit-triggers.png" alt="Azure DevOps Pipeline Edit Triggers" style="width:425px;" />
+1. Select the `YAML` tab.
+1. Click `Get Sources`.
+1. Change the `Default branch for manual and scheduled builds` to `main`.
+   <img src="../../images/convert-master-to-main/azure-devops-pipeline-set-default-branch-community.png" alt="Azure DevOps Pipeline set Default branch for manual and scheduled builds" style="width:425px;" />
+1. Click the `Save & Queue` button.
+
+### Step 10 - Validate that the pipeline works correctly
+
+The Azure DevOps pipeline should have been run by Step 8 or Step 9. However,
+if it did not then you can run the pipeline manually to validate that it works
+correctly. Validate that it has completed successfully:
+
+<img src="../../images/convert-master-to-main/azure-devops-pipeline-run-success.png" alt="Azure DevOps Pipeline run pipeline success" style="width:425px;" />
+
+### Step 11 - Update local clone
+
+Run the following in the local repository to rename the default branch in
+the local clone, and update it with all the commits in the upstream branch
+and finally force push that to the fork's default branch.
 
 ```powershell
-git push origin :master
+git checkout master
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git rebase origin/main
+git fetch my
+git push my --force
 ```
 
 ## Rename Complete
