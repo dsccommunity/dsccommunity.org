@@ -5,7 +5,7 @@ type: "post"
 date: 2021-01-21
 ---
 
-Next call will be on Wednesday, Januari 27th, at 12 PM PST
+Next call will be on Wednesday, January 27th, at 12 PM PST
 
 ### Join the call
 
