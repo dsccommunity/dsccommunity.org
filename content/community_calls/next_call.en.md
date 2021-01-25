@@ -82,6 +82,7 @@ GitHub organization to DSC Community GitHub organization.
 
 - Releases
   - SqlServerDsc v15.0.1
+  - xDhcpServer v3.0.0
 - Preview releases (many due to renaming the default branch)
   - NetworkingDsc v8.2.1-preview0001
   - SqlServerDsc v15.0.2-preview0002
