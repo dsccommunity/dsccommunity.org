@@ -64,6 +64,8 @@ if not done so for a long while. It is required to rename the default branch.
 - Preview releases
   - DscResource.Test v0.15.1-preview0001
 
+#### Geal shows Sampler in action
+
 #### Next Community Call
 
 Next community call is on the 21th of April.
