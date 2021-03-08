@@ -65,7 +65,7 @@ if not done so for a long while. It is required to rename the default branch.
   - DscResource.Test v0.15.1-preview0001
   - Sampler v0.109.5-preview0001
 
-#### Geal shows Sampler in action
+#### Gael shows Sampler in action
 
 #### Next Community Call
 
