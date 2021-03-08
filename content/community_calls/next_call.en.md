@@ -60,9 +60,10 @@ if not done so for a long while. It is required to rename the default branch.
 - Releases
   - DscResource.DocGenerator v0.8.0
   - DscResource.Test v0.15.0
-  - Sampler v0.109.2 (_update repos to new pipeline files!_)
+  - Sampler v0.109.4
 - Preview releases
   - DscResource.Test v0.15.1-preview0001
+  - Sampler v0.109.5-preview0001
 
 #### Geal shows Sampler in action
 
