@@ -19,6 +19,7 @@ Conference ID:
 ### Discussions
 
 Topics or questions from the community (welcome at any point during the call)
+​Question: I'm trying to perform some custom operations in DSC. I can now do something simple using the Scripts resource. But I can't use parameters with that. Considering my mediocre DSC skills, what's the next, slightly more sophisticated, option I should explore for my custom operation?
 
 We are also available on the **Virtual PowerShell User Group** _#DSC_ channel.
 For information on how to join, see https://dsccommunity.org/community/contact/
