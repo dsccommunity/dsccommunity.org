@@ -61,11 +61,38 @@ if not done so for a long while. It is required to rename the default branch.
   - DscResource.DocGenerator v0.8.0
   - DscResource.Test v0.15.0
   - Sampler v0.109.4
+  - Sampler.GitHubTasks v0.2.2
 - Preview releases
   - DscResource.Test v0.15.1-preview0001
   - Sampler v0.109.5-preview0001
 
-#### Gael shows Sampler in action
+
+### Support for Pester 5
+
+We're working in making the pipeline and tools (such as `DscResource.Test`)
+to work with Pester 4 AND 5.
+
+If you want to convert one repo, give us a heads up and we can show you how to get started. We'd appreciate feedback and bug reports if any!
+
+#### Showing Sampler in action
+
+As a fair bit of work has happened on the Sampler module, let's talk about it.
+Today, Gael will present how the DSC Community templates and build pipeline work,
+and how you can use it for your personal or public project.
+
+We'll show how to use it for DSC Resources, and explain some of its feature and
+capabilities.
+
+We'll see:
+- How to contribute to an existing Module.
+- How to create a New module for the DSC Community following the standards.
+- How to Add elements to an existing Sampler project.
+- How to update files in your repository when we ask you to.
+- How to re-use or build nested Modules in your Module.
+
+The talk will go very quickly through the basics to advanced feature so that
+you know what's there.
+A basic to intermediate understanding of how PowerShell Module works is recommended (exported functions, dot sourcing, Required Modules, scope).
 
 #### Next Community Call
 
