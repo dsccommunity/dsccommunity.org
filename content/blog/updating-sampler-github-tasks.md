@@ -1,5 +1,5 @@
 ---
-title: "Convert tests to Pester 5 for a DSC Community repository"
+title: "Updating repo with Sampler.GitHubTasks"
 date: 202-03-09T00:00:00+02:00
 draft: false
 author: gaelcolas
