@@ -408,14 +408,14 @@ in [Not building module, just copies files](#not-building-module-just-copies-fil
 
 ## Code coverage for multiple jobs
 
-If a repository need to gather code coverage from more than one job,
+If a repository needs to gather code coverage from more than one job,
 the code coverage files need to be merged before publishing them to either
 or both services Azure DevOps or Codecov.io.
 
-For example unit tests or integration tests are run on multiple operating
+For example, unit tests or integration tests are run on multiple operating
 systems and/or target multiple versions of an application. It might be that
-one functionality can only be tested on a certain version/operating system
-and other functionality can only be tested on a different version/operating
+some functions can only be tested on a certain version/operating system
+while other functions can only be tested on a different version/operating
 system.
 
 Start of by implementing the steps in either [Not building module, just copying files](#not-building-module-just-copying-files)
@@ -424,20 +424,19 @@ depending on the repository's need.
 
 ### Modify `build.yaml`
 
-The filename `JaCoCo_coverage.xml` that have been used in the previous section
-cannot be used for Pester when we need gather coverage from multiple jobs.
-There are two options
+The filename `JaCoCo_coverage.xml` that has been used in the previous section
+cannot be used for Pester when we need to gather coverage from multiple jobs.
+There are two options:
 
 - either remove they keyword `CodeCoverageOutputFile` entirely so that the
   default value is used. The default value names the files using the PowerShell
   version and operating system (Linux, macOS, Windows) and with the prefix `Codecov_`
   (short for 'Code Coverage').
-- or you add a different specific filename, which will be used for all jobs,
-  for example 'JaCoCo_Merge.xml'.
+- or add a different specific filename, which will be used for all jobs,
+  for example, 'JaCoCo_Merge.xml'.
 
-Whatever you choose works, so choose one. Depending of choice, the code
-coverage job in Azure Pipelines need to take account for it. More on that
-later.
+Depending on your choice, the code coverage job in Azure Pipelines needs to
+take account for it. More on that later.
 
 If you choose to use a specific filename the `Pester` section can look like
 this:
@@ -460,8 +459,8 @@ Pester:
   CodeCoverageOutputFileEncoding: ascii
 ```
 
-If you choose to remove the keyword, the `Pester` section can look like
-this:
+If you choose to remove `CodeCoverageOutputFile` keyword, the `Pester` section
+can look like this:
 
 ```yaml
 Pester:
@@ -492,8 +491,9 @@ BuildWorkflow:
     - Merge_CodeCoverage_Files
 ```
 
-The task _Merge\_CodeCoverage\_Files_ also need specific settings in the
-`build.yaml` file, the keyword `CodeCoverageMergedOutputFile` and `CodeCoverageFilePattern`
+The task _Merge\_CodeCoverage\_Files_ also needs to have the keyword
+`CodeCoverageMergedOutputFile` and `CodeCoverageFilePattern` settings
+defined in the build.yaml file.
 
 The keyword `CodeCoverageMergedOutputFile` should be set to the filename
 that the task _Merge\_CodeCoverage\_Files_ will generate and is the file
@@ -526,7 +526,7 @@ CodeCoverage:
 ### Modify `azure-pipelines.yml`
 
 From the job `Test_Unit` we can remove the task `Set Environment Variables`
-and the task `Publish Code Coverage`. Those two task will be moved to the
+and the task `Publish Code Coverage`. Those two tasks will be moved to the
 new job. Instead we add the task `Publish Test Artifact` which uploads
 the test result files that ended up in the folder `output/testResults`.
 
