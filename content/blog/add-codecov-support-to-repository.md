@@ -192,7 +192,7 @@ This is how it can look like:
             condition: succeededOrFailed()
             inputs:
               testResultsFormat: 'NUnit'
-              testResultsFiles: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
+              testResultsFiles: '$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
               testRunTitle: 'Unit'
           - task: PublishPipelineArtifact@1  # <--- This task is most important.
             displayName: 'Publish Test Artifact'
@@ -601,7 +601,7 @@ This is how it can look like:
             condition: succeededOrFailed()
             inputs:
               testResultsFormat: 'NUnit'
-              testResultsFiles: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
+              testResultsFiles: '$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
               testRunTitle: 'Windows Server Core (PowerShell Core)'
           - task: PublishPipelineArtifact@1 # Publish test artifact with unique name for this job.
             displayName: 'Publish Test Artifact'
@@ -633,7 +633,7 @@ This is how it can look like:
             condition: succeededOrFailed()
             inputs:
               testResultsFormat: 'NUnit'
-              testResultsFiles: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
+              testResultsFiles: '$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
               testRunTitle: 'Linux'
           - task: PublishPipelineArtifact@1 # Publish test artifact with unique name for this job.
             displayName: 'Publish Test Artifact'
