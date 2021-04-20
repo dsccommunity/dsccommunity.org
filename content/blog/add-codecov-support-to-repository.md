@@ -192,7 +192,7 @@ This is how it can look like:
             condition: succeededOrFailed()
             inputs:
               testResultsFormat: 'NUnit'
-              testResultsFiles: '$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
+              testResultsFiles: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
               testRunTitle: 'Unit'
           - task: PublishPipelineArtifact@1  # <--- This task is most important.
             displayName: 'Publish Test Artifact'
@@ -229,12 +229,6 @@ The tasks of this job must be:
           vmImage: 'ubuntu 16.04'
         timeoutInMinutes: 0
         steps:
-          - pwsh: |
-              $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split '/'
-              echo "##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner"
-              echo "##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName"
-            name: dscBuildVariable
-            displayName: 'Set Environment Variables'
           - task: DownloadPipelineArtifact@2
             displayName: 'Download Pipeline Artifact'
             inputs:
@@ -607,7 +601,7 @@ This is how it can look like:
             condition: succeededOrFailed()
             inputs:
               testResultsFormat: 'NUnit'
-              testResultsFiles: 'output/testResults/NUnit*.xml'
+              testResultsFiles: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
               testRunTitle: 'Windows Server Core (PowerShell Core)'
           - task: PublishPipelineArtifact@1 # Publish test artifact with unique name for this job.
             displayName: 'Publish Test Artifact'
@@ -639,7 +633,7 @@ This is how it can look like:
             condition: succeededOrFailed()
             inputs:
               testResultsFormat: 'NUnit'
-              testResultsFiles: 'output/testResults/NUnit*.xml'
+              testResultsFiles: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/NUnit*.xml'
               testRunTitle: 'Linux'
           - task: PublishPipelineArtifact@1 # Publish test artifact with unique name for this job.
             displayName: 'Publish Test Artifact'
@@ -685,12 +679,6 @@ keyword `CodeCoverageMergedOutputFile` in the `build.yaml` file.
           vmImage: 'ubuntu 16.04'
         timeoutInMinutes: 0
         steps:
-          - pwsh: |
-              $repositoryOwner,$repositoryName = $env:BUILD_REPOSITORY_NAME -split '/'
-              echo "##vso[task.setvariable variable=RepositoryOwner;isOutput=true]$repositoryOwner"
-              echo "##vso[task.setvariable variable=RepositoryName;isOutput=true]$repositoryName"
-            name: dscBuildVariable
-            displayName: 'Set Environment Variables'
           - task: DownloadPipelineArtifact@2
             displayName: 'Download Pipeline Artifact'
             inputs:
