@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2021-03-10"
+title: "Next Community Call 2021-04-21"
 weight: 1
 type: "post"
-date: 2021-03-01
+date: 2021-04-20
 ---
 
-Next call will be on Wednesday, March 10th, at 12 PM PST
+Next call will be on Wednesday, April 21th, at 12 PM PST
 
 ### Join the call
 
@@ -30,27 +30,26 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Quick update on activity
 
-##### Rename default branch
-
-Work in progress to rename default branch to `main`. See blog post
-[Steps to rename `master` branch to `main` for a DSC Community resource](https://dsccommunity.org/blog/convert-master-to-main/)
-how to update the pipeline to support the rename.
+Update blog post on how to enable code coverage for built-modules.
+https://dsccommunity.org/blog/add-codecov-support-to-repository/
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - SharePointDsc v4.5.1
-  - SqlServerDsc v15.1.1
-  - xFailOverCluster v1.15.0
+  - xFailOverCluster 1.16.0
+  - xDnsServer 2.0.0 (**DEPRECATED** -> Move to DnsServerDsc v3.0.0 once released)
+  - SharePointDsc v4.6.0
 - Preview releases (many due to renaming the default branch)
-  - ActiveDirectoryDsc v6.2.0-preview0001
-  - SqlServerDsc v16.0.0-preview0001 (**This release will soon be unlisted as it wrongly bumped major version, and re-release with correct versioning**)
-  - ComputerManagementDsc v8.4.1-preview0003
-  - CertificateDsc v5.1.0-preview0002
-  - xDnsServer v2.0.0-preview0008
-  - FileSystemDsc v1.2.0-preview0002
-  - NetworkingDsc v8.3.0-preview0001
-  - ConfigMgrCBDsc v0.2.0-preview0035
+  - SharePointDsc v4.6.1-preview0003
+  - StorageDsc v5.1.0-preview0001
+  - ComputerManagementDsc v8.5.0-preview0001
+  - xPSDesiredStateConfiguration v9.2.0-preview0004
+  - SqlServerDsc v15.2.0-preview0002
+  - DFSDsc v4.5.0-preview0001
+  - WSManDsc v3.2.0-preview0004
+  - ActiveDirectoryCSDsc v5.1.0-preview0001
+  - CertificateDsc v5.1.1-preview0001
+  - NetworkingDsc v8.3.0-preview0003
 
 #### Tooling modules that have been released recently
 
@@ -58,43 +57,14 @@ Make sure to update to the new pipeline files in the new Sampler release
 if not done so for a long while. It is required to rename the default branch.
 
 - Releases
-  - DscResource.DocGenerator v0.8.0
-  - DscResource.Test v0.15.0
-  - Sampler v0.109.4
-  - Sampler.GitHubTasks v0.2.2
+  - DscResource.DocGenerator v0.8.3
+  - DscResource.Common 0.10.2
+  - DscResource.Test 0.15.1
+  - Sampler v0.110.1
 - Preview releases
-  - DscResource.Test v0.15.1-preview0001
-  - Sampler v0.109.5-preview0001
-
-
-### Support for Pester 5
-
-We're working in making the pipeline and tools (such as `DscResource.Test`)
-to work with Pester 4 AND 5.
-
-If you want to convert one repo, give us a heads up and we can show you how to get started. We'd appreciate feedback and bug reports if any!
-
-#### Showing Sampler in action
-
-As a fair bit of work has happened on the Sampler module, let's talk about it.
-Today, Gael will present how the DSC Community templates and build pipeline work,
-and how you can use it for your personal or public project.
-
-We'll show how to use it for DSC Resources, and explain some of its feature and
-capabilities.
-
-We'll see:
-- How to contribute to an existing Module.
-- How to create a New module for the DSC Community following the standards.
-- How to Add elements to an existing Sampler project.
-- How to update files in your repository when we ask you to.
-- How to re-use or build nested Modules in your Module.
-
-The talk will go very quickly through the basics to advanced feature so that
-you know what's there.
-A basic to intermediate understanding of how PowerShell Module works is recommended (exported functions, dot sourcing, Required Modules, scope).
+  - Sampler v0.111.0-preview0002
 
 #### Next Community Call
 
-Next community call is on the 21th of April.
+Next community call is on the 2nd of June.
 Suggestions for talks are welcomed.
