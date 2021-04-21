@@ -39,7 +39,7 @@ https://dsccommunity.org/blog/add-codecov-support-to-repository/
   - xFailOverCluster 1.16.0
   - xDnsServer 2.0.0 (**DEPRECATED** -> Move to DnsServerDsc v3.0.0 once released)
   - SharePointDsc v4.6.0
-- Preview releases (many due to renaming the default branch)
+- Preview releases (many due to adding support for code coverage)
   - SharePointDsc v4.6.1-preview0003
   - StorageDsc v5.1.0-preview0001
   - ComputerManagementDsc v8.5.0-preview0001
