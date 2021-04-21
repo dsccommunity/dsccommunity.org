@@ -30,7 +30,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Quick update on activity
 
-Update blog post on how to enable code coverage for built-modules.
+Updated blog post on how to enable code coverage for built-modules.
 https://dsccommunity.org/blog/add-codecov-support-to-repository/
 
 #### DSC resource modules that have been released recently
