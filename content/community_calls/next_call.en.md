@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2021-04-21"
+title: "Next Community Call 2021-06-02"
 weight: 1
 type: "post"
-date: 2021-04-20
+date: 2021-05-03
 ---
 
-Next call will be on Wednesday, April 21th, at 12 PM PST
+Next call will be on Wednesday, June 2nd, at 12 PM PST
 
 ### Join the call
 
@@ -35,36 +35,10 @@ https://dsccommunity.org/blog/add-codecov-support-to-repository/
 
 #### DSC resource modules that have been released recently
 
-- Releases
-  - xFailOverCluster 1.16.0
-  - xDnsServer 2.0.0 (**DEPRECATED** -> Move to DnsServerDsc v3.0.0 once released)
-  - SharePointDsc v4.6.0
-- Preview releases (many due to adding support for code coverage)
-  - SharePointDsc v4.6.1-preview0003
-  - StorageDsc v5.1.0-preview0001
-  - ComputerManagementDsc v8.5.0-preview0001
-  - xPSDesiredStateConfiguration v9.2.0-preview0004
-  - SqlServerDsc v15.2.0-preview0002
-  - DFSDsc v4.5.0-preview0001
-  - WSManDsc v3.2.0-preview0004
-  - ActiveDirectoryCSDsc v5.1.0-preview0001
-  - CertificateDsc v5.1.1-preview0001
-  - NetworkingDsc v8.3.0-preview0003
 
 #### Tooling modules that have been released recently
 
-Make sure to update to the new pipeline files in the new Sampler release
-if not done so for a long while. It is required to rename the default branch.
-
-- Releases
-  - DscResource.DocGenerator v0.8.3
-  - DscResource.Common 0.10.2
-  - DscResource.Test 0.15.1
-  - Sampler v0.110.1
-- Preview releases
-  - Sampler v0.111.0-preview0002
-
 #### Next Community Call
 
-Next community call is on the 2nd of June.
+Next community call is on the 6th of July.
 Suggestions for talks are welcomed.
