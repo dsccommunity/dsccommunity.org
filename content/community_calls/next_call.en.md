@@ -28,6 +28,12 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
+#### Main Session: Guest Configuration
+
+Michael Greene, Program Manager for Azure Policy Guest Configuration, and Gael Colas will present what Guest Configuration is, and what you can do with it.
+
+In this presentation we'll demo ways you can create your own packages leveraging DSC Resources, test them whether on Windows or Linux, and see how you can use them through Azure Policy.
+
 #### Quick update on activity
 
 Updated blog post on how to enable code coverage for built-modules.
