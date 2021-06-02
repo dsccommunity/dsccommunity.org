@@ -41,8 +41,23 @@ https://dsccommunity.org/blog/add-codecov-support-to-repository/
 
 #### DSC resource modules that have been released recently
 
+- Releases
+  - DnsServerDsc v3.0.0
+  - ConfigMgrCBDsc v2.0.0
+- Preview releases
+  - xPSDesiredStateConfiguration v9.2.0-preview0005
+  - FileContentDsc v2.0.0-preview0004
+  - iSCSIDsc v2.0.0-preview0004
+  - SecurityPolicyDsc v3.0.0-preview0006
+  - NetworkingDsc v8.3.0-preview0004
+  - FileSystemDsc v1.2.0-preview0003 (only pipeline changes, support Pester 5)
 
 #### Tooling modules that have been released recently
+
+- Releases
+  - Sampler v0.111.3
+- Preview releases
+  - DscResource.Common v0.10.3-preview0001
 
 #### Next Community Call
 
