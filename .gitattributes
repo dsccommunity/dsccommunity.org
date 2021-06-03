@@ -2,3 +2,5 @@
 
 *.png binary
 *.jpg binary
+*.zip binary
+*.ics binary

@@ -11,7 +11,8 @@ bgcolor: '#FFB900'
 ### Community Calls
 
 The DSC Community calls are schedule and you can add them to your calender
-using the [ICS file](https://github.com/PowerShell/DscResources/blob/master/CommunityCalls/DSC%20Resource%20Kit%20Community%20Call%20ICS.zip).
+using the [ICS file](https://dsccommunity.org/ics/DSC_Community_Call.ics)
+(the ICS is also available to download as a [ZIP file](https://dsccommunity.org/ics/DSC_Community_Call.zip)).
 
 #### How to Join
 
