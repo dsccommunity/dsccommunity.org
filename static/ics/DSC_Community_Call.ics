@@ -1,0 +1,257 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:REQUEST
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:Pacific Standard Time
+BEGIN:STANDARD
+DTSTART:16011104T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010311T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+ATTENDEE;CN="Daniel Scott-Raynsford";RSVP=TRUE:mailto:Daniel.ScottRaynsford
+	@microsoft.com
+ATTENDEE;CN="Jeff Dykstra";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Jeff.Dykst
+	ra@microsoft.com
+ATTENDEE;CN="Chase Wilson";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Chase.Wils
+	on@microsoft.com
+ATTENDEE;CN="Ryan Christman";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Ryan.Chr
+	istman@microsoft.com
+ATTENDEE;CN="Jason Ryberg";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Jason.C.Ry
+	berg@microsoft.com
+ATTENDEE;CN="Bobby Reed";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Bobby.Reed@m
+	icrosoft.com
+ATTENDEE;CN="Bryan Zabchuk";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Bryan.Zab
+	chuk@microsoft.com
+ATTENDEE;CN="Johan Ljunggren";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:johan.l
+	junggren@viscalyx.se
+ATTENDEE;CN="Jason Helmick";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Jason.Hel
+	mick@microsoft.com
+ATTENDEE;CN="Jason Walker (DART)";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Jas
+	on.Walker@microsoft.com
+ATTENDEE;CN="Brian Wilhite";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Brian.Wil
+	hite@microsoft.com
+ATTENDEE;CN="Nik Charlebois";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Nik.Char
+	lebois@microsoft.com
+ATTENDEE;CN="Michael Wiley";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Michael.W
+	iley@microsoft.com
+ATTENDEE;CN="Daniel Amoah";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:daamoah@mi
+	crosoft.com
+ATTENDEE;CN="Anthony Romano";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:anthrom@
+	microsoft.com
+ATTENDEE;CN="Azure Policy Guest Configuration Team";ROLE=OPT-PARTICIPANT;RS
+	VP=TRUE:mailto:apgc@microsoft.com
+ATTENDEE;CN="Ryan Willis";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:ryan.willis
+	@microsoft.com
+ATTENDEE;CN="David Hall";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:David.Hall@m
+	icrosoft.com
+ATTENDEE;CN="Michelle Yang";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Yang.Mich
+	elle@microsoft.com
+ATTENDEE;CN="Michael Greene";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Michael.
+	Greene@microsoft.com
+ATTENDEE;CN="Thomas Kringel";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Thomas.K
+	ringel@microsoft.com
+ATTENDEE;CN="Jeff Otterpohl";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:jefott@m
+	icrosoft.com
+ATTENDEE;CN="Eric Jenkins";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Eric.Jenki
+	ns@microsoft.com
+ATTENDEE;CN="Mike O'Neill";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:mconeill@m
+	icrosoft.com
+ATTENDEE;CN="Ge Huang";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:Ge.Huang@micro
+	soft.com
+ATTENDEE;CN="Daniel Scott-Raynsford";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:
+	dscottraynsford@outlook.com
+ATTENDEE;CN=gaelcolas@synedgy.com;ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:gae
+	lcolas@synedgy.com
+ATTENDEE;CN="Johan Ljunggren";ROLE=OPT-PARTICIPANT;RSVP=TRUE:mailto:johan.l
+	junggren@shamn.se
+CATEGORIES:Event
+CLASS:PUBLIC
+CREATED:20210602T194708Z
+DESCRIPTION: \n\n \n\n-----Original Appointment-----\nFrom: Katie Kragenbri
+	nk \nSent: Thursday\, March 21\, 2019 3:51 PM\nTo: Katie Kragenbrink\nCc: 
+	Jeff Dykstra\; Chase Wilson\; Ryan Christman\; Jason Ryberg\; Bobby Reed\;
+	 Bryan Zabchuk\; Johan Ljunggren\; Jason Helmick\; Jason Walker (DART)\; B
+	rian Wilhite\; Nik Charlebois\; Michael Wiley\; Daniel Amoah\; Anthony Rom
+	ano\; Azure Policy Guest Configuration Team\; Ryan Willis\; David Hall\; M
+	ichelle Yang\; Michael Greene\; Thomas Kringel\; Jeff Otterpohl\; Eric Jen
+	kins\; Mike O'Neill\; Ge Huang\; Daniel Scott-Raynsford\; gaelcolas@synedg
+	y.com <mailto:gaelcolas@synedgy.com> \; Johan Ljunggren\nSubject: DSC Reso
+	urce Kit Community Call\nWhen: Occurs every 6 week(s) on Wednesday effecti
+	ve 3/27/2019 from 12:00 PM to 1:00 PM (UTC-08:00) Pacific Time (US & Canad
+	a).\nWhere: Microsoft Teams Meeting\n\n \n\nRemoved the end date of the me
+	eting invite.\n\n_________________________________________________________
+	_______________________ \n\nJoin Microsoft Teams Meeting <https://teams.mi
+	crosoft.com/l/meetup-join/19%3ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWI
+	wYjdhMGZjNDRl%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-9
+	1ab-2d7cd011db47%22%2c%22Oid%22%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%
+	22%7d>  \n\n+1 323-849-4874 <tel:+1%20323-849-4874\,\,50343176#>    United
+	 States\, Los Angeles (Toll) \n\nConference ID: 503 431 76# \n\nLocal numb
+	ers <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdia
+	lin.teams.microsoft.com%2F8551f4c1-bea3-441a-8738-69aa517a91c5%3Fid%3D5034
+	3176&data=04%7C01%7CDaniel.ScottRaynsford%40microsoft.com%7C88d45ef704a841
+	36fae608d925fe93d5%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C6375825976
+	34694342%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBT
+	iI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=sXo6pk8nedaY4CEEQm9Q1pGR6sYXyzv489R
+	XsHejHls%3D&reserved=0>  | Reset PIN <https://nam06.safelinks.protection.o
+	utlook.com/?url=https%3A%2F%2Fmysettings.lync.com%2Fpstnconferencing&data=
+	04%7C01%7CDaniel.ScottRaynsford%40microsoft.com%7C88d45ef704a84136fae608d9
+	25fe93d5%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637582597634694342%7
+	CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWw
+	iLCJXVCI6Mn0%3D%7C1000&sdata=HfpL4VtsHwF2ln7O0FlX5FbL79yLz2ZKQuYv1PfcdAI%3
+	D&reserved=0>  | Learn more about Teams <https://go.microsoft.com/fwlink/?
+	linkid=857250>  | Meeting Options <https://nam06.safelinks.protection.outl
+	ook.com/?url=https%3A%2F%2Fteams.microsoft.com%2FmeetingOptions%2F%3Forgan
+	izerId%3D2fd83437-7fe6-4ee4-a109-828a19cb7bff%26tenantId%3D72f988bf-86f1-4
+	1af-91ab-2d7cd011db47%26threadId%3D19_meeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5
+	NTktYWIwYjdhMGZjNDRl%40thread.v2%26messageId%3D0%26language%3Den-US&data=0
+	4%7C01%7CDaniel.ScottRaynsford%40microsoft.com%7C88d45ef704a84136fae608d92
+	5fe93d5%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637582597634704340%7C
+	Unknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwi
+	LCJXVCI6Mn0%3D%7C1000&sdata=hQeyNMghNvim9pPCxR8VyE%2FA9bdQxrtT3ENNCVmIEXM%
+	3D&reserved=0>  \n\n______________________________________________________
+	__________________________ \n\n \n\n
+DTEND;TZID="Pacific Standard Time":20190327T130000
+DTSTAMP:20210602T193315Z
+DTSTART;TZID="Pacific Standard Time":20190327T120000
+LAST-MODIFIED:20210602T194708Z
+LOCATION:Microsoft Teams Meeting
+ORGANIZER;CN="Katie Kragenbrink":mailto:Katie.Keim@microsoft.com
+PRIORITY:5
+RRULE:FREQ=WEEKLY;INTERVAL=6;BYDAY=WE;WKST=SU
+SEQUENCE:2
+SUMMARY:DSC Resource Kit Community Call
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E00800000000B0EC109BFBDFD401000000000000000
+	010000000F978B603839B0F43927800559891D482
+X-ALT-DESC;FMTTYPE=text/html:<html xmlns:v="urn:schemas-microsoft-com:vml" 
+	xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-mic
+	rosoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/
+	12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head>\n<meta name="Gener
+	ator" content="Microsoft Word 15 (filtered medium)"><style><!--\n/* Font D
+	efinitions */\n@font-face\n	{font-family:"Cambria Math"\;\n	panose-1:2 4 5
+	 3 5 4 6 3 2 4\;}\n@font-face\n	{font-family:Calibri\;\n	panose-1:2 15 5 2
+	 2 2 4 3 2 4\;}\n@font-face\n	{font-family:"Segoe UI"\;\n	panose-1:2 11 5 
+	2 4 2 4 2 2 3\;}\n@font-face\n	{font-family:"Segoe UI Semibold"\;\n	panose
+	-1:2 11 7 2 4 2 4 2 2 3\;}\n/* Style Definitions */\np.MsoNormal\, li.MsoN
+	ormal\, div.MsoNormal\n	{margin:0in\;\n	font-size:11.0pt\;\n	font-family:"
+	Calibri"\,sans-serif\;}\na:link\, span.MsoHyperlink\n	{mso-style-priority:
+	99\;\n	color:#0563C1\;\n	text-decoration:underline\;}\nspan.EmailStyle18\n
+		{mso-style-type:personal-reply\;\n	font-family:"Calibri"\,sans-serif\;\n	
+	color:windowtext\;}\n.MsoChpDefault\n	{mso-style-type:export-only\;\n	font
+	-size:10.0pt\;}\n@page WordSection1\n	{size:8.5in 11.0in\;\n	margin:1.0in 
+	1.0in 1.0in 1.0in\;}\ndiv.WordSection1\n	{page:WordSection1\;}\n--></style
+	><!--[if gte mso 9]><xml>\n<o:shapedefaults v:ext="edit" spidmax="1026" />
+	\n</xml><![endif]--><!--[if gte mso 9]><xml>\n<o:shapelayout v:ext="edit">
+	\n<o:idmap v:ext="edit" data="1" />\n</o:shapelayout></xml><![endif]--></h
+	ead><body lang="EN-US" link="#0563C1" vlink="#954F72" style="word-wrap:bre
+	ak-word"><div class="WordSection1"><p class="MsoNormal"><o:p>&nbsp\;</o:p>
+	</p><p class="MsoNormal"><o:p>&nbsp\;</o:p></p><div><p class="MsoNormal">-
+	----Original Appointment-----<br><b>From:</b> Katie Kragenbrink <br><b>Sen
+	t:</b> Thursday\, March 21\, 2019 3:51 PM<br><b>To:</b> Katie Kragenbrink<
+	br><b>Cc:</b> Jeff Dykstra\; Chase Wilson\; Ryan Christman\; Jason Ryberg\
+	; Bobby Reed\; Bryan Zabchuk\; Johan Ljunggren\; Jason Helmick\; Jason Wal
+	ker (DART)\; Brian Wilhite\; Nik Charlebois\; Michael Wiley\; Daniel Amoah
+	\; Anthony Romano\; Azure Policy Guest Configuration Team\; Ryan Willis\; 
+	David Hall\; Michelle Yang\; Michael Greene\; Thomas Kringel\; Jeff Otterp
+	ohl\; Eric Jenkins\; Mike O'Neill\; Ge Huang\; Daniel Scott-Raynsford\; <a
+	 href="mailto:gaelcolas@synedgy.com">gaelcolas@synedgy.com</a>\; Johan Lju
+	nggren<br><b>Subject:</b> DSC Resource Kit Community Call<br><b>When:</b> 
+	Occurs every 6 week(s) on Wednesday effective 3/27/2019 from 12:00 PM to 1
+	:00 PM (UTC-08:00) Pacific Time (US &amp\; Canada).<br><b>Where:</b> Micro
+	soft Teams Meeting<o:p></o:p></p></div><p class="MsoNormal"><o:p>&nbsp\;</
+	o:p></p><p class="MsoNormal">Removed the end date of the meeting invite.<o
+	:p></o:p></p><p class="MsoNormal"><span style="color:gray">_______________
+	_________________________________________________________________</span> <
+	o:p></o:p></p><div><div style="margin-top:.25in\;margin-bottom:7.5pt"><p c
+	lass="MsoNormal"><span style="font-family:&quot\;Segoe UI&quot\;\,sans-ser
+	if\;color:#252424"><a href="https://teams.microsoft.com/l/meetup-join/19%3
+	ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2/0?co
+	ntext=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%2
+	2%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%22%7d" target="_blank"><span s
+	tyle="font-size:13.5pt\;font-family:&quot\;Segoe UI Semibold&quot\;\,sans-
+	serif\;color:#6264A7\;text-decoration:none">Join Microsoft Teams Meeting</
+	span></a> <o:p></o:p></span></p></div><div><div><p class="MsoNormal"><span
+	 style="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424"><a 
+	href="tel:+1%20323-849-4874\,\,50343176# " target="_blank"><span style="fo
+	nt-size:10.5pt\;color:#6264A7\;text-decoration:none">+1 323-849-4874</span
+	></a> </span><span style="font-size:9.0pt\;font-family:&quot\;Segoe UI&quo
+	t\;\,sans-serif\;color:#252424">&nbsp\; United States\, Los Angeles (Toll)
+	 </span><span style="font-family:&quot\;Segoe UI&quot\;\,sans-serif\;color
+	:#252424"><o:p></o:p></span></p></div></div><div style="margin-top:7.5pt\;
+	margin-bottom:15.0pt"><p class="MsoNormal"><span style="font-size:9.0pt\;f
+	ont-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424">Conference I
+	D: </span><span style="font-size:10.5pt\;font-family:&quot\;Segoe UI&quot\
+	;\,sans-serif\;color:#252424">503 431 76# </span><span style="font-family:
+	&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424"><o:p></o:p></span></p><
+	/div><div style="margin-bottom:.25in"><p class="MsoNormal"><span style="fo
+	nt-family:&quot\;Segoe UI&quot\;\,sans-serif\;color:#252424"><a href="http
+	s://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdialin.teams
+	.microsoft.com%2F8551f4c1-bea3-441a-8738-69aa517a91c5%3Fid%3D50343176&amp\
+	;data=04%7C01%7CDaniel.ScottRaynsford%40microsoft.com%7C88d45ef704a84136fa
+	e608d925fe93d5%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C63758259763469
+	4342%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6I
+	k1haWwiLCJXVCI6Mn0%3D%7C1000&amp\;sdata=sXo6pk8nedaY4CEEQm9Q1pGR6sYXyzv489
+	RXsHejHls%3D&amp\;reserved=0" originalsrc="https://dialin.teams.microsoft.
+	com/8551f4c1-bea3-441a-8738-69aa517a91c5?id=50343176" shash="SOF3bZWOhRD3p
+	o4xJfq2+lsZwb0n5LgOcSLc0q0SQRFyfgfVT1pTqLTTKZz0RSjJLaQP1AG3mxCliVjSejaOzng
+	YBlaiB8tvyoXps7AKh8W2fi/0Ou1ujtdARvf/6bPHkk59k6GlAdbtTPOQcD9EuJdeJ0cAyQJEV
+	MuczDbR980=" target="_blank"><span style="font-size:9.0pt\;color:#6264A7\;
+	text-decoration:none">Local numbers</span></a> | <a href="https://nam06.sa
+	felinks.protection.outlook.com/?url=https%3A%2F%2Fmysettings.lync.com%2Fps
+	tnconferencing&amp\;data=04%7C01%7CDaniel.ScottRaynsford%40microsoft.com%7
+	C88d45ef704a84136fae608d925fe93d5%7C72f988bf86f141af91ab2d7cd011db47%7C1%7
+	C0%7C637582597634694342%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIj
+	oiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp\;sdata=HfpL4VtsHwF2ln7
+	O0FlX5FbL79yLz2ZKQuYv1PfcdAI%3D&amp\;reserved=0" originalsrc="https://myse
+	ttings.lync.com/pstnconferencing" shash="qcWhP29OEcNMa9+gcNr5ecP/KakO29Cij
+	cakLJQ8s+PYf8JN2Bh+szKEWk9ctpJy3dZbAyNGy6+m6SqKTZlkhJ/eatr2tVVxa1uWuevqda9
+	XIK7LXArTMESqoBt9L5rHHByM5NlwuupN/h9kqNgFt7keTOKLO6g1DfetH2+/Tss=" target=
+	"_blank"><span style="font-size:9.0pt\;color:#6264A7\;text-decoration:none
+	">Reset PIN</span></a> | <a href="https://go.microsoft.com/fwlink/?linkid=
+	857250" target="_blank"><span style="font-size:9.0pt\;color:#6264A7\;text-
+	decoration:none">Learn more about Teams</span></a> | <a href="https://nam0
+	6.safelinks.protection.outlook.com/?url=https%3A%2F%2Fteams.microsoft.com%
+	2FmeetingOptions%2F%3ForganizerId%3D2fd83437-7fe6-4ee4-a109-828a19cb7bff%2
+	6tenantId%3D72f988bf-86f1-41af-91ab-2d7cd011db47%26threadId%3D19_meeting_O
+	Tc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2%26messageId%3D
+	0%26language%3Den-US&amp\;data=04%7C01%7CDaniel.ScottRaynsford%40microsoft
+	.com%7C88d45ef704a84136fae608d925fe93d5%7C72f988bf86f141af91ab2d7cd011db47
+	%7C1%7C0%7C637582597634704340%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAi
+	LCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp\;sdata=hQeyNMghN
+	vim9pPCxR8VyE%2FA9bdQxrtT3ENNCVmIEXM%3D&amp\;reserved=0" originalsrc="http
+	s://teams.microsoft.com/meetingOptions/?organizerId=2fd83437-7fe6-4ee4-a10
+	9-828a19cb7bff&amp\;tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47&amp\;thr
+	eadId=19_meeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl@thread.v
+	2&amp\;messageId=0&amp\;language=en-US" shash="ohoQ1pXOB7lAVmsXyvx4z4ihyys
+	YjZDymmuz3G8cv2p20EutQ688CA6hT7I9wtz9H8bTDQyHrRTBLQ20wVrCYj3ziCyY44MByPeuM
+	D3v4L8ACw1xmjseVETJwDaQqyqVtnA0bTcBmdhVZjU4PmkBXVzxxkr302/zU0fbEV68ojg=" t
+	arget="_blank"><span style="font-size:9.0pt\;color:#6264A7\;text-decoratio
+	n:none">Meeting Options</span></a> <o:p></o:p></span></p></div></div><div>
+	<p class="MsoNormal"><span style="color:gray">____________________________
+	____________________________________________________</span> <o:p></o:p></p
+	></div><p class="MsoNormal"><o:p>&nbsp\;</o:p></p></div></body></html>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-APPTSEQTIME:20210602T193315Z
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-CONFTYPE:0
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
