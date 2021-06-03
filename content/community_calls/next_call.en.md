@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2021-06-02"
+title: "Next Community Call 2021-07-14"
 weight: 1
 type: "post"
-date: 2021-05-03
+date: 2021-06-02
 ---
 
-Next call will be on Wednesday, June 2nd, at 12 PM PST
+Next call will be on Wednesday, July 14th, at 12 PM PST
 
 ### Join the call
 
@@ -28,38 +28,31 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
-#### Main Session: Guest Configuration
-
-Michael Greene, Program Manager for Azure Policy Guest Configuration, and Gael Colas will present what Guest Configuration is, and what you can do with it.
-
-In this presentation we'll demo ways you can create your own packages leveraging DSC Resources, test them whether on Windows or Linux, and see how you can use them through Azure Policy.
+TBD
 
 #### Quick update on activity
 
-Updated blog post on how to enable code coverage for built-modules.
-https://dsccommunity.org/blog/add-codecov-support-to-repository/
+TBD
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - DnsServerDsc v3.0.0
-  - ConfigMgrCBDsc v2.0.0
+  - TBD
 - Preview releases
-  - xPSDesiredStateConfiguration v9.2.0-preview0005
-  - FileContentDsc v2.0.0-preview0004
-  - iSCSIDsc v2.0.0-preview0004
-  - SecurityPolicyDsc v3.0.0-preview0006
-  - NetworkingDsc v8.3.0-preview0004
-  - FileSystemDsc v1.2.0-preview0003 (only pipeline changes, support Pester 5)
+  - TBD
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - Sampler v0.111.3
+  - TBD
 - Preview releases
-  - DscResource.Common v0.10.3-preview0001
+  - TBD
+
+#### Community questions
+
+_Submit your questions, or raise them directly in the call._
 
 #### Next Community Call
 
-Next community call is on the 6th of July.
+Next community call is on the 25th of August.
 Suggestions for talks are welcomed.
