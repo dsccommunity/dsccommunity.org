@@ -5,7 +5,9 @@ type: "post"
 date: 2021-06-02
 ---
 
-Next call will be on Wednesday, July 14th, at 12 PM PST
+The July call has been postponed to avoid vacations and holidays.
+
+The next call will be scheduled in August. The date and time will be updated here soon.
 
 ### Join the call
 
