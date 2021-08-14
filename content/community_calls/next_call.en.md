@@ -1,13 +1,11 @@
 ---
-title: "Next Community Call 2021-07-14"
+title: "Next Community Call 2021-08-25"
 weight: 1
 type: "post"
-date: 2021-06-02
+date: 2021-08-13
 ---
 
-The July call has been postponed to avoid vacations and holidays.
-
-The next call will be scheduled in August. The date and time will be updated here soon.
+Next call will be on Wednesday, August 25th, at 12 PM PST
 
 ### Join the call
 
@@ -30,25 +28,33 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
-TBD
-
 #### Quick update on activity
 
-TBD
+- DscResource.DocGenerator's Wiki generation
+  - now handles properties in parent classes
+  - now generate docs for composite resources
+- DscResource.Common and FileSystemDsc tests runs using Pester 5.
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - TBD
+  - SharePointDSC 4.7.0
 - Preview releases
-  - TBD
+  - SqlServerDsc 15.2.0-preview0004
+  - NetworkingDsc 9.0.0-preview0001
+  - SharePointDSC 4.8.0-preview0002
+  - DnsServerDsc 3.0.1-preview0002
+  - ConfigMgrCBDsc 2.1.0-preview0003
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - TBD
+  - DscResource.Common 0.10.3
+  - DscResource.DocGenerator 0.10.0
+  - Sampler 0.111.8
 - Preview releases
-  - TBD
+  - DscResource.Test 0.15.2-preview0001
+  - DscResource.DocGenerator 0.10.1-preview0002
 
 #### Community questions
 
@@ -56,5 +62,5 @@ _Submit your questions, or raise them directly in the call._
 
 #### Next Community Call
 
-Next community call is on the 25th of August.
+Next community call is on the 6th of October.
 Suggestions for talks are welcomed.
