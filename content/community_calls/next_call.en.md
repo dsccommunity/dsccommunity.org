@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2021-08-25"
+title: "Next Community Call 2021-10-06"
 weight: 1
 type: "post"
-date: 2021-08-13
+date: 2021-10-05
 ---
 
-Next call will be on Wednesday, August 25th, at 12 PM PST
+Next call will be on Wednesday, October 6th, at 12 PM PST
 
 ### Join the call
 
@@ -28,33 +28,49 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
+- Steve and Andrew from the PowerShell team join us to discuss the recent
+  changes to PowerShell DSC.
+
 #### Quick update on activity
 
-- DscResource.DocGenerator's Wiki generation
-  - now handles properties in parent classes
-  - now generate docs for composite resources
-- DscResource.Common and FileSystemDsc tests runs using Pester 5.
+- xPSDesiredStateConfiguration has now be moved to auto documentation,
+  using GitHub Repository Wiki. _(though need another merge for it to publish)_
+- xExchange
+  - We unblocked contributors in xExchange.
+  - Working on fixing the pipeline that blocking releases (PR is in review)
+  - **Since Mike no longer have time to maintain xExchange the community need a
+    new maintainer for that repository. Please reach out in #dsc channel
+    if you are interested!**
+- SqlServerDsc
+  - Review PR's to unblock contributors.
+  - Still working on the Pester 5 tests for this repo.
+- Codecov.io has deprecated their bash uploader. The bash uploader recently
+  broke. It can no longer publish coverage since the bash uploader does not
+  detect the "repository information" when run in Azure Pipelines.
+  - All repos that uses Codecov.io need to be moved to new uploader.
+    See https://community.codecov.com/t/public-repositories-can-no-longer-upload-coverage-with-error-unable-to-locate-build-via-azure-api/3242/2
+
+Do the community have any other activity updates?
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - SharePointDSC 4.7.0
+  - SharePointDsc 4.8.0
+  - SqlServerDsc 15.2.0
+  - ComputerManagementDsc 8.5.0
 - Preview releases
-  - SqlServerDsc 15.2.0-preview0004
-  - NetworkingDsc 9.0.0-preview0001
-  - SharePointDSC 4.8.0-preview0002
-  - DnsServerDsc 3.0.1-preview0002
-  - ConfigMgrCBDsc 2.1.0-preview0003
+  - ConfigMgrCBDsc 2.1.0-preview0007
+  - xPSDesiredStateConfiguration 9.2.0-preview0007
+  - SharePointDSC 4.8.1-preview0001
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - DscResource.Common 0.10.3
-  - DscResource.DocGenerator 0.10.0
-  - Sampler 0.111.8
+  - Sampler 0.112.0
+  - DscResource.Test 0.16.0
 - Preview releases
-  - DscResource.Test 0.15.2-preview0001
-  - DscResource.DocGenerator 0.10.1-preview0002
+  - Sampler 0.112.1-preview0001
+  - DscResource.Common 0.11.0-preview0001
 
 #### Community questions
 
