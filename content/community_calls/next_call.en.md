@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2021-10-06"
+title: "Next Community Call 2021-10-17"
 weight: 1
 type: "post"
-date: 2021-10-05
+date: 2021-10-16
 ---
 
-Next call will be on Wednesday, October 6th, at 12 PM PST
+Next call will be on Wednesday, November 17th, at 12 PM PST
 
 ### Join the call
 
@@ -28,49 +28,33 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
-- Steve and Andrew from the PowerShell team join us to discuss the recent
-  changes to PowerShell DSC.
-
 #### Quick update on activity
 
-- xPSDesiredStateConfiguration has now be moved to auto documentation,
-  using GitHub Repository Wiki. _(though need another merge for it to publish)_
-- xExchange
-  - We unblocked contributors in xExchange.
-  - Working on fixing the pipeline that blocking releases (PR is in review)
-  - **Since Mike no longer have time to maintain xExchange the community need a
-    new maintainer for that repository. Please reach out in #dsc channel
-    if you are interested!**
-- SqlServerDsc
-  - Review PR's to unblock contributors.
-  - Still working on the Pester 5 tests for this repo.
-- Codecov.io has deprecated their bash uploader. The bash uploader recently
-  broke. It can no longer publish coverage since the bash uploader does not
-  detect the "repository information" when run in Azure Pipelines.
-  - All repos that uses Codecov.io need to be moved to new uploader.
-    See https://community.codecov.com/t/public-repositories-can-no-longer-upload-coverage-with-error-unable-to-locate-build-via-azure-api/3242/2
+- Azure DevOps has removed the build worker Ubuntu 16.04. Repos using
+  it in the pipeline (well, all of them) need to change to 'ubuntu-latest'.
+  Example: https://github.com/dsccommunity/SqlServerDsc/pull/1733/files
+- Azure Devops has deprecated the build worker Windows Server 2016 ('windows-2016').
+  Repos using tha for unit test or integration tests need to move to 'windows-2019',
+  'windows-2022', or 'windows-latest' before March 2022.
 
 Do the community have any other activity updates?
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - SharePointDsc 4.8.0
-  - SqlServerDsc 15.2.0
-  - ComputerManagementDsc 8.5.0
+  - xExchange 1.33.0
+  - SharePointDSC 4.9.0
 - Preview releases
-  - ConfigMgrCBDsc 2.1.0-preview0007
-  - xPSDesiredStateConfiguration 9.2.0-preview0007
-  - SharePointDSC 4.8.1-preview0001
+  - ConfigMgrCBDsc 2.1.0-preview0008
+  - SqlServerDsc v16.0.0-preview0001
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - Sampler 0.112.0
-  - DscResource.Test 0.16.0
+  - DscResource.DocGenerator 0.10.1
+  - Sampler.GitHubTasks v0.3.3
 - Preview releases
-  - Sampler 0.112.1-preview0001
-  - DscResource.Common 0.11.0-preview0001
+  - Sampler v0.112.1-preview0002
 
 #### Community questions
 
