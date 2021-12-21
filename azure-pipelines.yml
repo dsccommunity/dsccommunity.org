@@ -21,6 +21,7 @@ steps:
   displayName: 'Generate Hugo site'
   inputs:
     destination: '$(Build.ArtifactStagingDirectory)'
+    hugoVersion: 0.88.1
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Hugo site as artifact'
