@@ -30,6 +30,9 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Quick update on activity
 
+- DscCommunity.org pipeline is fixed (using a workaround) - still waiting
+  on the fix that makes us use the latest version of Hugo.
+
 Do the community have any activity updates?
 
 #### DSC resource modules that have been released recently
