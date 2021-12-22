@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2021-10-17"
+title: "Next Community Call 2022-02-09"
 weight: 1
 type: "post"
-date: 2021-10-16
+date: 2021-12-20
 ---
 
-Next call will be on Wednesday, November 17th, at 12 PM PST
+Next call will be on Wednesday, February 9th, at 12 PM PST
 
 ### Join the call
 
@@ -30,31 +30,24 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Quick update on activity
 
-- Azure DevOps has removed the build worker Ubuntu 16.04. Repos using
-  it in the pipeline (well, all of them) need to change to 'ubuntu-latest'.
-  Example: https://github.com/dsccommunity/SqlServerDsc/pull/1733/files
-- Azure Devops has deprecated the build worker Windows Server 2016 ('windows-2016').
-  Repos using tha for unit test or integration tests need to move to 'windows-2019',
-  'windows-2022', or 'windows-latest' before March 2022.
+- DscCommunity.org pipeline is fixed (using a workaround) - still waiting
+  on the fix that makes us use the latest version of Hugo.
 
-Do the community have any other activity updates?
+Do the community have any activity updates?
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - xExchange 1.33.0
-  - SharePointDSC 4.9.0
+  - TBD
 - Preview releases
-  - ConfigMgrCBDsc 2.1.0-preview0008
-  - SqlServerDsc v16.0.0-preview0001
+  - TBD
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - DscResource.DocGenerator 0.10.1
-  - Sampler.GitHubTasks v0.3.3
+  - TBD
 - Preview releases
-  - Sampler v0.112.1-preview0002
+  - TBD
 
 #### Community questions
 
