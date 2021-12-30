@@ -59,7 +59,7 @@ On the master repository (dsccommunity/dsccommunity.org), not your personal fork
 Now add this url as a new remote called upstream.
 
 ```PowerShell
-# We should add an upstream remote, so we can push changes from the main repostory:
+# We should add an upstream remote, so we can push changes from the main repository:
 
 C:\src\dsccommunity.org > git remote add upstream git@github.com:dsccommunity/dsccommunity.org.git
 
