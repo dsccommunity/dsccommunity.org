@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-02-09"
+title: "Next Community Call 2022-02-16"
 weight: 1
 type: "post"
 date: 2021-12-20
 ---
 
-Next call will be on Wednesday, February 9th, at 12 PM PST
+Next call will be on Wednesday, February 16th, at 12 PM PST
 
 ### Join the call
 
@@ -32,22 +32,30 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 - DscCommunity.org pipeline is fixed (using a workaround) - still waiting
   on the fix that makes us use the latest version of Hugo.
+- Upcoming talks to PS Summit NA and PSConfEU
+- Demo of Sampler.DscPipeline
 
 Do the community have any activity updates?
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - TBD
+  - SChannelDsc v1.3.0
+  - ConfigMgrCBDsc v3.0.0
+  - SharePointDsc v5.0.0
 - Preview releases
-  - TBD
+  - SqlServerDsc v16.0.0-preview0003
+  - SharePointDsc v5.1.0-preview0003
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - TBD
+  - Sampler v0.112.1
+  - Sampler.GitHubTasks v0.3.4
+  - DscResource.DocGenerator v0.10.3
 - Preview releases
-  - TBD
+  - Sampler v0.112.2-preview0001
+  - Sampler.GitHubTasks v0.3.5-preview0001
 
 #### Community questions
 
@@ -55,5 +63,5 @@ _Submit your questions, or raise them directly in the call._
 
 #### Next Community Call
 
-Next community call is on the 6th of October.
+Next community call is on the 23th of March.
 Suggestions for talks are welcomed.
