@@ -21,8 +21,6 @@ steps:
   displayName: 'Generate Hugo site'
   inputs:
     destination: '$(Build.ArtifactStagingDirectory)'
-    # Workaround until issue https://github.com/dsccommunity/dsccommunity.org/issues/181
-    hugoVersion: 0.88.1
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Hugo site as artifact'
