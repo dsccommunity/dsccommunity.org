@@ -17,7 +17,7 @@ steps:
 - checkout: self
   displayName: 'Checkout repository'
 
-- task: giuliovdev.hugo-extension.hugo-build-task.HugoTask@2
+- task: giuliovdev.hugo-extension.hugo-build-task.HugoTask@1
   displayName: 'Generate Hugo site'
   inputs:
     destination: '$(Build.ArtifactStagingDirectory)'
