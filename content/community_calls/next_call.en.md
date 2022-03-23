@@ -30,32 +30,21 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Quick update on activity
 
-- DscCommunity.org pipeline is fixed (using a workaround) - still waiting
-  on the fix that makes us use the latest version of Hugo.
-- Upcoming talks to PS Summit NA and PSConfEU
-- Demo of Sampler.DscPipeline
+- Demo of [Test-Kitchen](https://kitchen.ci/)
 
 Do the community have any activity updates?
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - SChannelDsc v1.3.0
-  - ConfigMgrCBDsc v3.0.0
-  - SharePointDsc v5.0.0
+  - SharePointDsc v5.1.0
 - Preview releases
-  - SqlServerDsc v16.0.0-preview0003
-  - SharePointDsc v5.1.0-preview0003
+  - SharePointDsc v5.1.1-preview0001
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - Sampler v0.112.1
-  - Sampler.GitHubTasks v0.3.4
-  - DscResource.DocGenerator v0.10.3
-- Preview releases
-  - Sampler v0.112.2-preview0001
-  - Sampler.GitHubTasks v0.3.5-preview0001
+  - Sampler v0.112.2 (_templates install GitVersion using `dotnet tool install`_)
 
 #### Community questions
 
@@ -63,5 +52,6 @@ _Submit your questions, or raise them directly in the call._
 
 #### Next Community Call
 
-Next community call is on the 23th of March.
-Suggestions for talks are welcomed.
+Next community call is on the 4th of May.
+Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
+open.
