@@ -30,6 +30,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Quick update on activity
 
+- [Jodi Boone](https://twitter.com/jodi_boone_), new Program Manager for Guest Configuration
 - Demo of [Test-Kitchen](https://kitchen.ci/)
 
 Do the community have any activity updates?
