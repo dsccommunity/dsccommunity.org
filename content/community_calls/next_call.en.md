@@ -5,7 +5,7 @@ type: "post"
 date: 2022-03-22
 ---
 
-Next call will be on Wednesday, February 16th, at 12 PM PST
+Next call will be on Wednesday, March 23rd, at 12 PM PST
 
 ### Join the call
 
