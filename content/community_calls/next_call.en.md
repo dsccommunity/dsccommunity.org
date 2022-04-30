@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-03-23"
+title: "Next Community Call 2022-05-04"
 weight: 1
 type: "post"
 date: 2022-03-22
 ---
 
-Next call will be on Wednesday, March 23rd, at 12 PM PST
+Next call will be on Wednesday, May 4th, at 12 PM PST
 
 ### Join the call
 
@@ -30,22 +30,27 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Quick update on activity
 
-- [Jodi Boone](https://twitter.com/jodi_boone_), new Program Manager for Guest Configuration
-- Demo of [Test-Kitchen](https://kitchen.ci/)
+- [PowerShell DevOps Global Summit 2022](https://powershell.org/summit/)
 
-Do the community have any activity updates?
+#### Special Guests & Announcement
+
+- [Jodi Boone](https://twitter.com/jodi_boone_), Program Manager for Guest Configuration
+- [Jason Helmick](https://twitter.com/TheJasonHelmick), Program Manager for PowerShell (including PowerShell DSC)
+- [Michael Greene](https://twitter.com/migreene), Principal Program Manager for PowerShell and Guest Configuration
+
+Any activity update from the community?
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - SharePointDsc v5.1.0
+  - TBC
 - Preview releases
-  - SharePointDsc v5.1.1-preview0001
+  - TBC
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - Sampler v0.112.2 (_templates install GitVersion using `dotnet tool install`_)
+  - Sampler v0.112.3 (_templates install GitVersion using `dotnet tool install`_)
 
 #### Community questions
 
