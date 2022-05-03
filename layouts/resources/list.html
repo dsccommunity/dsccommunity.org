@@ -110,7 +110,7 @@
                   <div style="padding:10px">
                     <strong>Tags:</strong>
                     {{ range (split .AdditionalMetadata.tags " ") }}
-                    <span class="badge badge-pill badge-info"><a href="{{.Scratch.Get "ProjectUri"}}/blob/HEAD/source/Examples/Resources/{{ . }}">{{ . }}</a></span>
+                    <span class="badge badge-pill badge-info"><a href="{{.Scratch.Get 'ProjectUri'}}/blob/HEAD/source/Examples/Resources/{{ . }}">{{ . }}</a></span>
                     {{ end }}
                   </div>
                 </div>
