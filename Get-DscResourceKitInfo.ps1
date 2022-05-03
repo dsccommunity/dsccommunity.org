@@ -36,7 +36,7 @@ function Get-DscResourceKitInfo
             {
                 Write-Verbose -Message ('Get information about module {0}.' -f $resourceName)
 
-                $moduleResourceInfo = Find-Module -Name $resourceName -ErrorAction 'Stop'
+                $moduleResourceInfo = Find-Module -Name $resourceName -ErrorAction 'Stop' -AllowPrerelease
 
                 if ($ModuleResourceInfo)
                 {
@@ -53,7 +53,6 @@ function Get-DscResourceKitInfo
     end
     {
         $moduleInformation = $allResources | ConvertTo-Json -Depth 12
-
         if ($PSBoundParameters.ContainsKey('ExportTo'))
         {
             $utf8NoBomEncoding = New-Object -TypeName System.Text.UTF8Encoding -ArgumentList $false
@@ -67,5 +66,4 @@ function Get-DscResourceKitInfo
     }
 }
 
-$rscKitInfo = Get-DscResourceKitInfo
-$rscKitInfo > ./data/en/resources.json
+Get-DscResourceKitInfo -ExportTo './data/en/resources.json'
