@@ -17,6 +17,14 @@ steps:
 - checkout: self
   displayName: 'Checkout repository'
 
+- task: PowerShell@2
+  name: ResourcesJSON
+  displayName: 'Generating Resources JSON from PSGallery'
+  inputs:
+    filePath: './Get-DscResourceKitInfo.ps1'
+    pwsh: true
+    errorActionPreference: continue
+
 - task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
   displayName: 'Generate Hugo site'
   inputs:
