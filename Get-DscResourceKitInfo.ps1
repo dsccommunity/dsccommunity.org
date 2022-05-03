@@ -66,3 +66,6 @@ function Get-DscResourceKitInfo
         }
     }
 }
+
+$rscKitInfo = Get-DscResourceKitInfo
+$rscKitInfo > ./data/en/resources.json
