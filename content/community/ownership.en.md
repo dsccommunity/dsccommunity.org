@@ -40,7 +40,7 @@ the DSC Community will be steered by the DSC Community committee where its
 members&mdash;including people not employed by Microsoft&mdash;have full control
 over the GitHub Organization.
 
-For now, [the committee](../committee) is composed of Katie, Michael, Daniel &
+For now, [the committee](../committee) is composed of Katie, Daniel &
 Johan, long time contributors and driving force of the DSC Resource Kit. This is
 formalizing what has already been happening for the last couple of years within
 the DSC Resource Kit community.
