@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-05-04"
+title: "Next Community Call 2022-06-15"
 weight: 1
 type: "post"
-date: 2022-03-22
+date: 2022-06-15
 ---
 
-Next call will be on Wednesday, May 4th, at 12 PM PST
+Next call will be on Wednesday, June 15th, at 12 PM PST
 
 ### Join the call
 
@@ -28,29 +28,27 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
+
+#### Community Presentation
+
+- [Constantin Hager](https://twitter.com/chagerCOC) presents Azure Automation DSC & Azure VM extension. How do they work together?
 #### Quick update on activity
 
-- [PowerShell DevOps Global Summit 2022](https://powershell.org/summit/)
-
-#### Special Guests & Announcement
-
-- [Jodi Boone](https://twitter.com/jodi_boone_), Program Manager for Guest Configuration
-- [Jason Helmick](https://twitter.com/TheJasonHelmick), Program Manager for PowerShell (including PowerShell DSC)
-- [Michael Greene](https://twitter.com/migreene), Principal Program Manager for PowerShell and Guest Configuration
-
-Any activity update from the community?
+- [PowerShell Conference Europe 2022](https://psconf.eu/) on June 19th 2022.
+- Nicolas Baudin, maintainer for UpdateServicesDSC
+- Any activity update from the community?
 
 #### DSC resource modules that have been released recently
 
 - Releases
   - TBC
 - Preview releases
-  - TBC
+  - UpdateServicesDsc v1.3.0-preview0002
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - Sampler v0.112.3 (_templates install GitVersion using `dotnet tool install`_)
+  - Sampler v0.114.0 (First full release in a while)
 
 #### Community questions
 

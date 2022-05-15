@@ -67,6 +67,9 @@
         "PowerShellGet",
         "UpdateServicesDsc",
         "SChannelDsc",
+        "Sampler",
+        "Sampler.DscPipeline",
+        "Sampler.GithubTasks",
         "cNtfsAccessControl",
         "JeaDsc",
         "PasswordPolicyDsc"
