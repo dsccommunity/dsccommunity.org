@@ -28,6 +28,10 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
+
+#### Community Presentation
+
+- [Constantin Hager](https://twitter.com/chagerCOC) presents Azure Automation DSC & Azure VM extension. How do they work together?
 #### Quick update on activity
 
 - [PowerShell Conference Europe 2022](https://psconf.eu/) on June 19th 2022.
