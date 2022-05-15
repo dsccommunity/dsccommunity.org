@@ -24,15 +24,6 @@ and can bridge the communication between the new products and features
 leveraging DSC and the DSC Community.
 
 <hr />
-<a href="https://github.com/mgreenegit" target="_blank"><img src="https://avatars1.githubusercontent.com/u/5178939?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
-
-**Michael** is a long time contributor to the DSC Resource Kit, and the
-**Program Manager** for [Azure Guest Configuration](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration).
-He is well positioned to translate customer needs and requirements back to the
-community, or from the community back to Microsoft, as well as share the
-position or direction that is being taken internally.
-
-<hr />
 <a href="https://github.com/plagueho" target="_blank"><img src="https://avatars0.githubusercontent.com/u/7589164?s=400&v=4" alt="drawing" style="width:100px; display:block; float: right; margin-left: auto;margin-right:auto; padding-left: 0px; border-radius:50%" /></a>
 
 **Daniel** has been a long time contributor to the DSC Resource Kit, and if you
