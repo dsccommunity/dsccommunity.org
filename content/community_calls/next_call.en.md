@@ -2,7 +2,7 @@
 title: "Next Community Call 2022-06-15"
 weight: 1
 type: "post"
-date: 2022-06-15
+date: 2022-05-10
 ---
 
 Next call will be on Wednesday, June 15th, at 12 PM PST
@@ -32,6 +32,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 #### Community Presentation
 
 - [Constantin Hager](https://twitter.com/chagerCOC) presents Azure Automation DSC & Azure VM extension. How do they work together?
+
 #### Quick update on activity
 
 - [PowerShell Conference Europe 2022](https://psconf.eu/) on June 19th 2022.
