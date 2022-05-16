@@ -30,7 +30,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Community Presentation
 
-- Gael Colas will try to present something.
+- [Constantin Hager](https://twitter.com/chagerCOC) presents Azure Automation DSC & Azure VM extension. How do they work together?
 
 #### Quick update on activity
 
