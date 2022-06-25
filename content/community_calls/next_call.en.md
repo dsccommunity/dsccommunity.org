@@ -46,7 +46,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
   - xWebAdministration v3.3.0 (deprecated - move to WebAdministrationDsc)
   - NetworkingDsc v9.0.0
   - xFailOverCluster v1.16.1 (deprecated - move to FailoverClusterDsc)
-  - FailoverClusterDsc v2.0.0
+  - FailoverClusterDsc v2.1.0
   - SChannelDsc v1.4.0
   - SharePointDsc v5.2.0
   - xDhcpServer v3.1.0
@@ -61,6 +61,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
   - xExchange v1.33.1-preview0001
   - JeaDsc v4.0.0-preview0003
   - ConfigMgrCBDsc v3.0.1-preview0001
+  - FailoverClusterDsc v2.1.1-preview0001
 
 #### Tooling modules that have been released recently
 
