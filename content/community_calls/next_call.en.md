@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-07-27"
+title: "Next Community Call 2022-09-07"
 weight: 1
 type: "post"
 date: 2022-05-10
 ---
 
-Next call will be on Wednesday, July 27th, at 12 PM PST
+Next call will be on Wednesday, September 7th, at 12 PM PST
 
 ### Join the call
 
@@ -51,11 +51,12 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
   - SharePointDsc v5.2.0
   - xDhcpServer v3.1.0
   - ActiveDirectoryDsc v6.2.0
+  - xRemoteDesktopSessionHost v2.1.0
 - Preview releases
   - UpdateServicesDsc v1.3.0-preview0002
   - HyperVDsc v4.0.0-preview0004
   - FailoverClusterDsc v2.0.1-preview0003
-  - SqlServerDsc v16.0.0-preview0009 (now using Pester 5 in the pipeline)
+  - SqlServerDsc v16.0.0-preview0010 (now using Pester 5 in the pipeline)
   - ComputerManagementDsc v8.6.0-preview0002
   - ActiveDirectoryDsc v6.3.0-preview0002
   - xExchange v1.33.1-preview0001
@@ -76,9 +77,13 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
       one that needed to be fixed).
   - DscResource.Test v0.16.1
     - Fix so that if Pester 5 testing fails on discovery, pipeline fails.
+  - DscResource.Common v0.11.0
 - Preview releases
+  - Sampler v0.116.0-preview0003
   - Sampler.GitHubTasks v0.3.5-preview0002
   - Sampler.DscPipeline v0.2.0-preview0002
+  - DscResource.DocGenerator v0.11.1-preview0001
+  - DscResource.Test v0.16.2-preview0001
 
 #### Community questions
 
