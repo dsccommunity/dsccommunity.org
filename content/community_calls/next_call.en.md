@@ -71,7 +71,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
     - New tasks for creating git tag, and creating changelog branch
   - Sampler.AzureDevOpsTasks v0.1.1
     - Task for creating a PR from a source branch (for Azure Repos)
-  - DscResource.DocGenerator v0.11.0
+  - DscResource.DocGenerator v0.11.1
     - Various bug fixes, and most notable it is now possible to use property
       `BuiltModuleSubdirectory` with the Sampler pipeline (it was the last
       one that needed to be fixed).
@@ -82,7 +82,6 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
   - Sampler v0.116.0-preview0003
   - Sampler.GitHubTasks v0.3.5-preview0002
   - Sampler.DscPipeline v0.2.0-preview0002
-  - DscResource.DocGenerator v0.11.1-preview0001
   - DscResource.Test v0.16.2-preview0001
 
 #### Community questions
