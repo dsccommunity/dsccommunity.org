@@ -30,12 +30,12 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Community Presentation
 
-- [Constantin Hager](https://twitter.com/chagerCOC) presents Azure Automation
-  DSC & Azure VM extension. How do they work together?
+- Gael Colas will try to present something.
 
 #### Quick update on activity
 
-- [PowerShell Conference Europe 2022](https://psconf.eu/) on June 19th 2022.
+- [PowerShell Conference Europe (PSConfEU) MiniCon 2022](https://psconf.eu/psconfeu-minicon/)
+  on September 27th 2022.
 - Nicolas Baudin, maintainer for UpdateServicesDSC
 - Any activity update from the community?
 
@@ -52,11 +52,12 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
   - xDhcpServer v3.1.0
   - ActiveDirectoryDsc v6.2.0
   - xRemoteDesktopSessionHost v2.1.0
+  - SqlServerDsc v16.0.0 (now using Pester 5 in the pipeline, and also
+    a few class-based resources)
 - Preview releases
   - UpdateServicesDsc v1.3.0-preview0002
   - HyperVDsc v4.0.0-preview0004
   - FailoverClusterDsc v2.0.1-preview0003
-  - SqlServerDsc v16.0.0-preview0010 (now using Pester 5 in the pipeline)
   - ComputerManagementDsc v8.6.0-preview0002
   - ActiveDirectoryDsc v6.3.0-preview0002
   - xExchange v1.33.1-preview0001
@@ -77,7 +78,7 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
       one that needed to be fixed).
   - DscResource.Test v0.16.1
     - Fix so that if Pester 5 testing fails on discovery, pipeline fails.
-  - DscResource.Common v0.11.0
+  - DscResource.Common v0.11.1
 - Preview releases
   - Sampler v0.116.0-preview0003
   - Sampler.GitHubTasks v0.3.5-preview0002
