@@ -47,12 +47,14 @@ Everything will all happen with Azure DevOps and a CI / CD Process.
 #### DSC resource modules that have been released recently
 
 - Releases
-  - 
+  - WebAdministrationDsc v4.0.0 (Removed 'x'. Thanks PowerShell team for transferring the package to DSC Community!)
+- Preview
+  - ConfigMgrCBDsc v3.1.0-preview0002
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - 
+  - Sampler.DscPipeline v0.2.0-preview0003
 
 #### Community questions
 
