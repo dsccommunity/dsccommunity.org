@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-06-15"
+title: "Next Community Call 2022-09-07"
 weight: 1
 type: "post"
 date: 2022-05-10
 ---
 
-Next call will be on Wednesday, June 15th, at 12 PM PST
+Next call will be on Wednesday, September 7th, at 12 PM PST
 
 ### Join the call
 
@@ -28,28 +28,62 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
-
 #### Community Presentation
 
-- [Constantin Hager](https://twitter.com/chagerCOC) presents Azure Automation DSC & Azure VM extension. How do they work together?
+- Gael Colas will try to present something.
 
 #### Quick update on activity
 
-- [PowerShell Conference Europe 2022](https://psconf.eu/) on June 19th 2022.
+- [PowerShell Conference Europe (PSConfEU) MiniCon 2022](https://psconf.eu/psconfeu-minicon/)
+  on September 27th 2022.
 - Nicolas Baudin, maintainer for UpdateServicesDSC
 - Any activity update from the community?
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - TBC
+  - xHyper-V v3.18.0 (deprecated - move to HyperVDsc)
+  - xWebAdministration v3.3.0 (deprecated - move to WebAdministrationDsc)
+  - NetworkingDsc v9.0.0
+  - xFailOverCluster v1.16.1 (deprecated - move to FailoverClusterDsc)
+  - FailoverClusterDsc v2.1.0
+  - SChannelDsc v1.4.0
+  - SharePointDsc v5.2.0
+  - xDhcpServer v3.1.0
+  - ActiveDirectoryDsc v6.2.0
+  - xRemoteDesktopSessionHost v2.1.0
+  - SqlServerDsc v16.0.0 (now using Pester 5 in the pipeline, and also
+    a few class-based resources)
 - Preview releases
   - UpdateServicesDsc v1.3.0-preview0002
+  - HyperVDsc v4.0.0-preview0004
+  - FailoverClusterDsc v2.0.1-preview0003
+  - ComputerManagementDsc v8.6.0-preview0002
+  - ActiveDirectoryDsc v6.3.0-preview0002
+  - xExchange v1.33.1-preview0001
+  - JeaDsc v4.0.0-preview0003
+  - ConfigMgrCBDsc v3.0.1-preview0001
+  - FailoverClusterDsc v2.1.1-preview0001
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - Sampler v0.114.0 (First full release in a while)
+  - Sampler v0.115.0 (First full release in a while)
+    - New tasks for creating git tag, and creating changelog branch
+  - Sampler.AzureDevOpsTasks v0.1.1
+    - Task for creating a PR from a source branch (for Azure Repos)
+  - DscResource.DocGenerator v0.11.1
+    - Various bug fixes, and most notable it is now possible to use property
+      `BuiltModuleSubdirectory` with the Sampler pipeline (it was the last
+      one that needed to be fixed).
+  - DscResource.Test v0.16.1
+    - Fix so that if Pester 5 testing fails on discovery, pipeline fails.
+  - DscResource.Common v0.11.1
+- Preview releases
+  - Sampler v0.116.0-preview0003
+  - Sampler.GitHubTasks v0.3.5-preview0002
+  - Sampler.DscPipeline v0.2.0-preview0002
+  - DscResource.Test v0.16.2-preview0001
 
 #### Community questions
 
