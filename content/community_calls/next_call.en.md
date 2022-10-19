@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-09-07"
+title: "Next Community Call 2022-10-19"
 weight: 1
 type: "post"
 date: 2022-05-10
 ---
 
-Next call will be on Wednesday, September 7th, at 12 PM PST
+Next call will be on Wednesday, October 19th, at 12 PM PST
 
 ### Join the call
 
@@ -30,60 +30,29 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 #### Community Presentation
 
-- [Constantin Hager](https://twitter.com/chagerCOC) presents Azure Automation DSC & Azure VM extension. How do they work together?
+- Constantin Hager: Azure Automation DSC and the Azure VM DSC Extension. How do they work together?
+
+In this presentation you will see how to deploy Azure Automation State configuration (DSC).
+We will deploy DSC Configurations and assign them to Azure VMs .
+I will also show how you can deploy a DSC Configuration without Azure Automation State Configuration (DSC).
+
+Everything will all happen with Azure DevOps and a CI / CD Process.
 
 #### Quick update on activity
 
-- [PowerShell Conference Europe (PSConfEU) MiniCon 2022](https://psconf.eu/psconfeu-minicon/)
-  on September 27th 2022.
-- Nicolas Baudin, maintainer for UpdateServicesDSC
-- Any activity update from the community?
+- Machine Config is GA!
+- Check the Updated DSCv2 Docs: https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0
+- [PSConfEU](https://psconf.eu) Call for Speakers is open and tickets are on sale!
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - xHyper-V v3.18.0 (deprecated - move to HyperVDsc)
-  - xWebAdministration v3.3.0 (deprecated - move to WebAdministrationDsc)
-  - NetworkingDsc v9.0.0
-  - xFailOverCluster v1.16.1 (deprecated - move to FailoverClusterDsc)
-  - FailoverClusterDsc v2.1.0
-  - SChannelDsc v1.4.0
-  - SharePointDsc v5.2.0
-  - xDhcpServer v3.1.0
-  - ActiveDirectoryDsc v6.2.0
-  - xRemoteDesktopSessionHost v2.1.0
-  - SqlServerDsc v16.0.0 (now using Pester 5 in the pipeline, and also
-    a few class-based resources)
-- Preview releases
-  - UpdateServicesDsc v1.3.0-preview0002
-  - HyperVDsc v4.0.0-preview0004
-  - FailoverClusterDsc v2.0.1-preview0003
-  - ComputerManagementDsc v8.6.0-preview0002
-  - ActiveDirectoryDsc v6.3.0-preview0002
-  - xExchange v1.33.1-preview0001
-  - JeaDsc v4.0.0-preview0003
-  - ConfigMgrCBDsc v3.0.1-preview0001
-  - FailoverClusterDsc v2.1.1-preview0001
+  - 
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - Sampler v0.115.0 (First full release in a while)
-    - New tasks for creating git tag, and creating changelog branch
-  - Sampler.AzureDevOpsTasks v0.1.1
-    - Task for creating a PR from a source branch (for Azure Repos)
-  - DscResource.DocGenerator v0.11.1
-    - Various bug fixes, and most notable it is now possible to use property
-      `BuiltModuleSubdirectory` with the Sampler pipeline (it was the last
-      one that needed to be fixed).
-  - DscResource.Test v0.16.1
-    - Fix so that if Pester 5 testing fails on discovery, pipeline fails.
-  - DscResource.Common v0.11.1
-- Preview releases
-  - Sampler v0.116.0-preview0003
-  - Sampler.GitHubTasks v0.3.5-preview0002
-  - Sampler.DscPipeline v0.2.0-preview0002
-  - DscResource.Test v0.16.2-preview0001
+  - 
 
 #### Community questions
 
@@ -91,6 +60,6 @@ _Submit your questions, or raise them directly in the call._
 
 #### Next Community Call
 
-Next community call is on the 4th of May.
+Next community call is on the 30th of December.
 Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
 open.
