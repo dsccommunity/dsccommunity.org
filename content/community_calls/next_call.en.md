@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-10-19"
+title: "Next Community Call 2022-11-30"
 weight: 1
 type: "post"
-date: 2022-05-10
+date: 2022-10-10
 ---
 
-Next call will be on Wednesday, October 19th, at 12 PM PST
+Next call will be on Wednesday, November 30th, at 12 PM PST
 
 ### Join the call
 
@@ -28,33 +28,21 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
-#### Community Presentation
-
-- Constantin Hager: Azure Automation DSC and the Azure VM DSC Extension. How do they work together?
-
-In this presentation you will see how to deploy Azure Automation State configuration (DSC).
-We will deploy DSC Configurations and assign them to Azure VMs .
-I will also show how you can deploy a DSC Configuration without Azure Automation State Configuration (DSC).
-
-Everything will all happen with Azure DevOps and a CI / CD Process.
-
-#### Quick update on activity
-
-- Machine Config is GA!
-- Check the Updated DSCv2 Docs: https://learn.microsoft.com/en-us/powershell/dsc/overview?view=dsc-2.0
-- [PSConfEU](https://psconf.eu) Call for Speakers is open and tickets are on sale!
+- Floor is open for the community - questions or if someone want to show something
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - WebAdministrationDsc v4.0.0 (Removed 'x'. Thanks PowerShell team for transferring the package to DSC Community!)
+  - SharePointDsc v5.3.0 (support SharePoint subscription Edition)
+  - xCredSSP 1.4.0 (moved to new pipeline to solve semantic versioning)
 - Preview
-  - ConfigMgrCBDsc v3.1.0-preview0002
+  - WebAdministrationDsc v4.1.0-preview0001 (fix bug that broke `WebApplication` after module rename)
+  - ComputerManagementDsc v8.6.0-preview0004 (`Computer` now handles joining to domain when computer account already exist)
+  - SqlServerDsc v16.1.0-preview0002 (Almost support SQL Server 2022 - module SqlServer breaks some resources)
 
 #### Tooling modules that have been released recently
 
-- Releases
-  - Sampler.DscPipeline v0.2.0-preview0003
+None.
 
 #### Community questions
 
@@ -62,6 +50,6 @@ _Submit your questions, or raise them directly in the call._
 
 #### Next Community Call
 
-Next community call is on the 30th of December.
+Next community call is on the 11th of January.
 Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
 open.
