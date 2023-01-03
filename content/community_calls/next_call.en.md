@@ -2,7 +2,7 @@
 title: "Next Community Call 2022-01-11"
 weight: 1
 type: "post"
-date: 2022-01-01
+date: 2023-01-01
 ---
 
 Next call will be on Wednesday, January 11th, at 12 PM PST
