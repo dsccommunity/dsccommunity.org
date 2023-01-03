@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-11-30"
+title: "Next Community Call 2022-01-11"
 weight: 1
 type: "post"
-date: 2022-10-10
+date: 2023-01-01
 ---
 
-Next call will be on Wednesday, November 30th, at 12 PM PST
+Next call will be on Wednesday, January 11th, at 12 PM PST
 
 ### Join the call
 
@@ -28,21 +28,32 @@ Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccom
 
 ### Agenda
 
-- Floor is open for the community - questions or if someone want to show something
+#### Community presentation
+
+- Yorick Kuijs: "Microsoft365DSC is a DSC module like any other, or is it?"
+
+How is [Microsoft365DSC](https://www.powershellgallery.com/packages/Microsoft365DSC)
+different compared to "normal" DSC modules? What challenges did we have to overcome?
+And how we made it even more awesome!
 
 #### DSC resource modules that have been released recently
 
 - Releases
-  - SharePointDsc v5.3.0 (support SharePoint subscription Edition)
-  - xCredSSP 1.4.0 (moved to new pipeline to solve semantic versioning)
+  - WebAdministrationDsc v4.1.0
 - Preview
-  - WebAdministrationDsc v4.1.0-preview0001 (fix bug that broke `WebApplication` after module rename)
-  - ComputerManagementDsc v8.6.0-preview0004 (`Computer` now handles joining to domain when computer account already exist)
-  - SqlServerDsc v16.1.0-preview0002 (Almost support SQL Server 2022 - module SqlServer breaks some resources)
+  - SqlServerDsc v16.1.0-preview0008 - A lot of cleanup of existing code since last time, been in preview since last Community Call, we should release
+  - CertificateDsc v6.0.0-preview0001 - BREAKING CHANGE in CertReq, FriendlyName is now mandatory (Thanks to @uw-dc)
+  - ComputerManagementDsc v9.0.0-preview001 - BREAKING CHANGE: Requires WMF 5.0 since we added first class-based resource `PSResourceRepository` (Thanks to @nickgw)
+  - xRemoteDesktopSessionHost v2.1.1-preview0001 - New resource `xRDConnectionBrokerHAMode` that is used to configure HA mode on connection broker (Thanks to @nyanhp)
 
 #### Tooling modules that have been released recently
 
-None.
+- Releases
+  - DscResource.DocGenerator v0.11.2 - Fixes a edge case bug for class-based resources.
+  - DscResource.Base v1.0.0 - Helps in (an opinionated way) development of class-based resources (used by SqlServerDsc, and hopefully soon ComputerManagementDsc)
+  - DscResource.Common v0.14.0 - Added various new commands that can be used for class-based DSC resources (used by ComputerManagementDsc and SqlServerDsc)
+- Preview
+  - None.
 
 #### Community questions
 
@@ -50,6 +61,6 @@ _Submit your questions, or raise them directly in the call._
 
 #### Next Community Call
 
-Next community call is on the 11th of January.
+Next community call is on the 22nd of February.
 Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
 open.
