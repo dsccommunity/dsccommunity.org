@@ -9,7 +9,7 @@ Next call will be on Wednesday, January 11th, at 12 PM PST
 
 ### Join the call
 
-We will have the DSC Community Call at the HerShell Pub in PSWorld (a digital space using [Gather](https://www.gather.town)). Join PSWorld and start mingle at the pub before the event, join PSWorld here: https://app.gather.town/events/hWF235u-R3CYCOFYJfQT (shhhh, keep the link a secret for now!)
+We will have the DSC Community Call at the HerShell Pub in PSWorld (a digital space using [Gather](https://www.gather.town)). Join PSWorld and start mingle at the pub before the event, join PSWorld here: https://app.gather.town/events/hWF235u-R3CYCOFYJfQT
 
 Also, see below for [other events](#other-events-in-psworld) that happens in PSWorld, on the same day as the DSC Community Call!
 
