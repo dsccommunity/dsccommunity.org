@@ -11,11 +11,13 @@ aspects of what is described here, but this article will focus on a
 simple way to get started using the workflow we use for DSC modules and
 DSC resources within the DSC Community.
 
->After you read through this guide, then please continue with the guide
->[Contributor](/guidelines/contributing).
+After you read through this guide, then please continue with the guide
+[Contributor](/guidelines/contributing), especially the section
+[Understand the coding workflow](/guidelines/contributing#understand-the-coding-workflow).
 
 ### Table of Contents
 
+- [Quick steps](#quick-steps)
 - [Create free GitHub account](#create-free-github-account)
 - [Install Visual Studio Code](#install-visual-studio-code)
 - [Install Visual Studio Code PowerShell Extension](#install-visual-studio-code-powershell-extension)
@@ -30,6 +32,56 @@ DSC resources within the DSC Community.
 - [Make changes to an existing pull request of yours](#make-changes-to-an-existing-pull-request-of-yours)
 - [Switch between local working branches](#switch-between-local-working-branches)
 - [Delete a branch](#delete-a-branch)
+
+### Quick steps
+
+This is quick steps to build and test a project. The detailed steps in the rest of
+this guide is required for contributing.
+
+#### Windows
+
+This assumes a clean installation of _Windows_ 11 release 22H2 Feb 2023
+or later with only _Windows PowerShell_ available.
+
+1. Install _App Installer_ (by Microsoft) from the Microsoft Store (to get `winget`).
+1. Install Git
+   ```powershell
+   winget install Git.Git
+   ```
+1. Allow execution of scripts.
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
+1. Make a local folder for cloning projects
+   ```powershell
+   mkdir c:/source
+   cd c:/source
+   ```
+1. Clone the git repo (change URI as needed)
+   ```powershell
+   git clone https://github.com/dsccommunity/SqlServerDsc
+   ```
+1. Move into the local repository folder
+   ```powershell
+   cd ./SqlServerDsc
+   ```
+1. Get informative messaged (optional)
+   ```
+   $InformationPreference = 'Continue'
+   ```
+1. Resolve dependencies. This will install the required NuGet package provider,
+   everything else will be saved into the project's `output` folder.
+   ```powershell
+   .\build.ps1 -ResolveDependency -Tasks noop
+   ```
+1. Build the project.
+   ```powershell
+   .\build.ps1 -Tasks build
+   ```
+1. Test the project.
+   ```powershell
+   .\build.ps1 -Tasks test
+   ```
 
 ### Create free GitHub account
 
@@ -53,6 +105,12 @@ To install Visual Studio code visit the official site [code.visualstudio.com](ht
 
 #### Windows
 
+To install using:
+
+- [Official package](#official-package)
+- [Chocolatey](#chocolatey)
+- [WinGet](#winget)
+
 ##### Official package
 
 The installation is straightforward using a wizard type of installation.
@@ -60,10 +118,22 @@ Normally all defaults values suggested by the wizard can be used.
 
 ##### Chocolatey
 
-It is possible to install using [Chocolatey](https://chocolatey.org).
+See [Chocolatey](https://chocolatey.org) for prerequisites to use `choco`.
 
 ```bash
 choco install vscode
+```
+
+##### WinGet
+
+To use `winget` make sure to install _App Installer_ (by Microsoft) from
+the _Microsoft Store_.
+
+>Note: To use `code` from command-line you might need to logout and login
+>again after installation for environment variable `PATH` to be updated.
+
+```bash
+winget install vscode
 ```
 
 ### Install Visual Studio Code PowerShell Extension
@@ -81,6 +151,12 @@ code --install-extension ms-vscode.PowerShell
 ### Install Git
 
 #### Windows
+
+To install using:
+
+- [Official package](#official-package-1)
+- [Chocolatey](#chocolatey-1)
+- [WinGet](#winget-1)
 
 ##### Official package
 
@@ -124,10 +200,19 @@ GitHub.
 
 ##### Chocolatey
 
-It is possible to install using [Chocolatey](https://chocolatey.org).
+See [Chocolatey](https://chocolatey.org) for prerequisites to use `choco`.
 
 ```bash
 choco install git
+```
+
+##### WinGet
+
+To use `winget` make sure to install _App Installer_ (by Microsoft) from
+the _Microsoft Store_.
+
+```bash
+winget install Git.Git
 ```
 
 ### Configure Git
@@ -182,15 +267,55 @@ this installed.
 
 #### Windows
 
-You need install [Chocolatey](https://chocolatey.org) first if you do not
-have it installed already.
+To install using:
 
-When you have Chocolatey installed you install GitVersion using the following:
+- [Chocolatey](#chocolatey-2)
+- [DotNet](#dotnet)
+
+##### Chocolatey
+
+See [Chocolatey](https://chocolatey.org) for prerequisites to use `choco`.
+
+Once you have Chocolatey installed you can install GitVersion using the following:
 
 >**NOTE:** You must be an elevated administrator to run `choco install`.
 
 ```bash
 choco install GitVersion.Portable
+```
+
+##### DotNet
+
+To be able to install _GitVersion_ the command `dotnet` must first be installed
+using WinGet.
+
+>Note: To use `winget` make sure to install _App Installer_ (by Microsoft) from
+>the _Microsoft Store_.
+
+```bash
+winget install dotnet-sdk-6
+```
+
+Make sure there is a Nuget source listed by running:
+
+```bash
+dotnet nuget list source
+```
+
+If it does not return any Nuget source, add the [Nuget.org source](https://api.nuget.org/v3/index.json)
+by running the following:
+
+```bash
+dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
+```
+
+Then we install _GitVersion_ using `dotnet`.
+
+>Note: To use `dotnet` from command-line you might need to logout and login
+>again after installation for environment variable `PATH` to be updated.
+
+```bash
+dotnet tool install --global GitVersion.Tool
 ```
 
 #### macOS
@@ -223,7 +348,7 @@ If you don't have or don't want to use Homebrew, it is possible to install
 it from a release package directly.
 
 1. See if there are any prerequisites for the distribution you are using
-   in [Linux dependencies](https://github.com/GitTools/GitVersion/blob/master/src/Docker/linux%20deps.md)
+   in [Linux dependencies](https://github.com/GitTools/GitVersion/blob/main/src/Docker/prerequisites.md)
 1. Get the package name and version to the correct release for the distribution
    you are using at [GitVersion releases](https://github.com/GitTools/GitVersion/releases)
 1. Run the commands below and replace with the correct package name and
@@ -295,8 +420,8 @@ the local repository folder.
 ```bash
 PS> cd c:\source\ComputerManagementDsc
 PS> git status
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 ```
@@ -359,31 +484,31 @@ Now you have two remote references:
 
 ### Making changes and pushing them to the fork
 
-To make changes you should always use another branch than `master` to add
+To make changes you should always use another branch than `main` to add
 those changes, let us call it the working branch. A working branch should
-normally be based on the branch `master` so that you can easily work on
+normally be based on the branch `main` so that you can easily work on
 several other branches during the same period.
 
->Creating a working branch separate from the default `master` branch will
->allow you to create other working branches off of branch `master` later
+>Creating a working branch separate from the default `main` branch will
+>allow you to create other working branches off of branch `main` later
 >while your other working branches is still open for code reviews.
 >
 >Limiting your current working branch to a single issue will also both
 >streamline the code review and reduce the possibility of merge conflicts.
 
 You create a new working branch using the following command
-`git checkout -b <working-branch-name> my/master`. You should also
-track the branch `master` in your fork, e.g. `my/master` so that you
+`git checkout -b <working-branch-name> my/main`. You should also
+track the branch `main` in your fork, e.g. `my/main` so that you
 will better see if the branch is behind or ahead in commits.
 
 This will create a new local working branch in the local repository of
-*ComputerManagementDsc*, start tracking your fork's master branch and
+*ComputerManagementDsc*, start tracking your fork's main branch and
 then checkout (move) to the new branch.
 
 ```bash
 cd c:\source\ComputerManagementDsc
-git checkout master
-git checkout -b my-working-branch my/master
+git checkout main
+git checkout -b my-working-branch my/main
 ```
 
 You can now start making changes in your local branch. You can easily start
@@ -473,7 +598,7 @@ needed at that point, any further work requires a new working branch.
 
 To delete your branch follow these steps:
 
-1. Run `git checkout master` in the command prompt. This ensures that you
+1. Run `git checkout main` in the command prompt. This ensures that you
    aren't in the branch to be deleted (which isn't allowed).
 1. Next, type `git branch -d branch-name` in the command prompt. This will
    delete the branch on your local machine only if it has been successfully
