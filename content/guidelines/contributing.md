@@ -624,13 +624,21 @@ is run.
 .\build.ps1 -ResolveDependency -Tasks noop
 ```
 
->**KNOWN ISSUE:** There are currently an known issue with this task when
->moving between local DSC repositories. If you have resolved dependencies
->in one repository, then move to a second repository and resolve dependencies
->all dependencies do not download (the module PowerShell-Yaml). This is
->because the module is already imported into the session. To workaround
->this make sure to open each new local DSC repository in a separate PowerShell
->session.
+>**KNOWN ISSUE 1:** If the project is dependent on pre-releases and the error
+>`Find-Module: A parameter cannot be found that matches parameter name
+>'AllowPrereleaseVersions'` is thrown, restart the _Windows PowerShell_
+>session and run the command again. This is due to the old version of
+>module _PackageManagement_ is still available in the session (even when
+>we remove it) so _PowerShellGet_ calls the wrong version of the command
+>`Find-Package`.
+
+>**KNOWN ISSUE 2:** There are currently an known issue with this task when
+>moving between local DSC repositories in the same PowerShell session. If
+>you have resolved dependencies in one repository, then move to a second
+>repository and resolve dependencies all dependencies do not download
+>(for example the module PowerShell-Yaml). This is because the module is
+>already imported into the session. The workaround is to open each local
+>DSC repository folder in a separate PowerShell sessions.
 
 #### Build module
 

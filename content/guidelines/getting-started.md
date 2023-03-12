@@ -71,6 +71,13 @@ or later with only _Windows PowerShell_ available.
    ```
 1. Resolve dependencies. This will install the required NuGet package provider,
    everything else will be saved into the project's `output` folder.
+   >NOTE: If the project is dependent on pre-releases and the error
+   >`Find-Module: A parameter cannot be found that matches parameter name
+   >'AllowPrereleaseVersions'` is thrown, restart the _Windows PowerShell_
+   >session and run the command again. This is due to the old version of
+   >module _PackageManagement_ is still available in the session (even when
+   >we remove it) so _PowerShellGet_ calls the wrong version of the command
+   >`Find-Package`.
    ```powershell
    .\build.ps1 -ResolveDependency -Tasks noop
    ```
