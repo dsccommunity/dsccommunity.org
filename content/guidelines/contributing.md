@@ -265,14 +265,14 @@ Here is the general process of submitting a PR:
 
 1. Pick out the issue you'd like to work on, see [Fixing an issue](#fixing-an-issue).
 1. Post a comment on the issue that you are working on resolving the issue.
-1. Create a new working branch based on branch `master`. See
+1. Create a new working branch based on branch `main`. See
    [Making changes and pushing them to the fork](/guidelines/getting-started/#making-changes-and-pushing-them-to-the-fork).
 1. Write tests that will ensure that the issue in the code is fixed.
    See [Testing Guidelines](/guidelines/testing-guidelines).
 1. Make changes in your working branch to solve the issue.
 1. Update the **Unreleased** section of the repository changelog (file
    `CHANGELOG.md`) in accordance to the type of changes in [keep a changelog](https://keepachangelog.com/en/1.0.0/).
-1. Submit a PR targeting the branch `master` of the upstream repository.
+1. Submit a PR targeting the branch `main` of the upstream repository.
 1. Make sure all tests are passing in the CI pipeline for your PR
    (see the [PR status checks](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks)).
 1. Make sure your code does not contain merge conflicts.
@@ -385,10 +385,10 @@ be correct.
 
 The *base* is the repository and branch the pull request will be targeting
 (or merged) **into**. Normally this should be the upstream repository,
-and normally the branch should be `master`.
+and normally the branch should be `main`.
 
 The *head repository* is the repository where the working branch exists and
-the *compare* is the branch being compared to the *base* branch (`master`).
+the *compare* is the branch being compared to the *base* branch (`main`).
 
 >If GitHub tells you that your branches cannot automatically be merged,
 >then you probably have merge conflicts. You can resolve these before or
@@ -595,7 +595,7 @@ still present.
 
 #### Resolve dependencies
 
-Pay attention to any new code merged into the `master` branch of an official repository.
+Pay attention to any new code merged into the `main` branch of an official repository.
 If this occurs, you will need to pick-up these changes in your fork using the rebase
 instructions in our [guide to getting started with GitHub](GettingStartedWithGitHub.md).
 
@@ -603,23 +603,42 @@ This needs to be repeated each time changes are made to the file
 `RequiredModules.psd1`, or if there are new releases of external modules
 listed in the file `RequiredModules.psd1`.
 
-Running this command will make sure the dependencies are resolved and to
-prepare the build and test environment.
+>**NOTE:** If script execution is restricted this needs to be run before
+>resolving dependencies. It changes execution policy to allow scripts to run.
+>```
+>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+>```
+
+Running the command below will make sure the dependencies are resolved and to
+prepare the build and test environment. All dependencies are downloaded and
+saved in the project's `output` folder. There are normally no changes to
+the contributors machine with one exception. If the NuGet package
+provider is not installed, required by the _PowerShellGet_ module, it will
+be installed. The only way to avoid this is to manually install the package
+provider (for example by downloading any package from _PowerShell Gallery_)
+prior to running this command. If the Nuget package provider is not installed
+it will be installed in the current user's scope when the following command
+is run.
 
 ```powershell
 .\build.ps1 -ResolveDependency -Tasks noop
 ```
 
->**NOTE:** This does not install anything, it downloads the prerequisites
->into the `output` folder.
+>**KNOWN ISSUE 1:** If the project is dependent on pre-releases and the error
+>`Find-Module: A parameter cannot be found that matches parameter name
+>'AllowPrereleaseVersions'` is thrown, restart the _Windows PowerShell_
+>session and run the command again. This is due to the old version of
+>module _PackageManagement_ still being imported into the session (even when
+>we remove it) so _PowerShellGet_ calls the wrong version of the command
+>`Find-Package`.
 
->KNOWN ISSUE: There are currently an known issue with this task when
->moving between local DSC repositories. If you have resolved dependencies
->in one repository, then move to a second repository and resolve dependencies
->all dependencies do not download (the module PowerShell-Yaml). This is
->because the module is already imported into the session. To workaround
->this make sure to open each new local DSC repository in a separate PowerShell
->session.
+>**KNOWN ISSUE 2:** There is currently a known issue with this task when
+>moving between local DSC repositories in the same PowerShell session. If
+>you have resolved dependencies in one repository, then move to a second
+>repository and resolve dependencies all dependencies do not download
+>(for example the module PowerShell-Yaml). This is because the module is
+>already imported into the session. The workaround is to open each local
+>DSC repository folder in separate PowerShell sessions.
 
 #### Build module
 
@@ -671,10 +690,10 @@ in the ci pipeline.
 
 ##### Error `Cannot process argument transformation on parameter 'ProjectName'`
 
-If the old test framework folder `DscResource.Tests` is present in the local 
+If the old test framework folder `DscResource.Tests` is present in the local
 repository folder then the build will fail with this error. The reason is that
 build pipeline searches for `*.psd1` files and want to use the first module
-manifest it finds which when the folder `DscResource.Tests` is present is the 
+manifest it finds which when the folder `DscResource.Tests` is present is the
 wrong one.
 
 ##### Issue with preview strings containing a dash
@@ -752,9 +771,9 @@ If another pull request is merged while yours is in review, you will need
 to add those new changes into your working branch before your pull request
 is allowed to merge. To do this we will 'rebase' the branch. This means that
 the changes you made in your working branch for your pull request will be
-'replayed' on top of the changes that were recently merged into `master`, as
+'replayed' on top of the changes that were recently merged into `main`, as
 though you originally created your branch/fork from the current point that
-the `master` branch is at.
+the `main` branch is at.
 
 _Note: Since it's replayed you might get conflicts several times during the_
 _rebase process (for the first `rebase` command, and for each following_
@@ -762,7 +781,7 @@ _`rebase --continue`)._
 
 Here are the steps to rebase your branch:
 
-1. Rebase the local `master` branch from the base `master` branch.
+1. Rebase the local `main` branch from the base `main` branch.
 1. Resolve merge conflicts.
 1. Rebase your working branch.
 1. Resolve merge conflicts.
@@ -774,27 +793,27 @@ Here are the steps to rebase your branch:
 >If your remotes are named differently, then change the remote names
 >accordingly.
 
-#### 1. Rebase the local branch `master` from the base branch `master`
+#### 1. Rebase the local branch `main` from the base branch `main`
 
 In a PowerShell prompt, you need to do the following:
 
 ```plaintext
 cd <path to cloned repository>      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc
-git checkout master                 # Checkout (move) to your local master branch.
-git fetch origin master             # Get all changes from origin/master (and branch information).
-git rebase origin/master            # Rebase changes from origin/master into your local master branch.
+git checkout main                 # Checkout (move) to your local main branch.
+git fetch origin main             # Get all changes from origin/main (and branch information).
+git rebase origin/main            # Rebase changes from origin/main into your local main branch.
 ```
 
->**Note:** If you used the **master branch as your working branch**, then at
+>**Note:** If you used the **main branch as your working branch**, then at
 >this point you will probably get merge conflicts that need to be resolved.
->Search for the word 'CONFLICT' in the output. If you used `master` as your working
+>Search for the word 'CONFLICT' in the output. If you used `main` as your working
 >branch, you can skip to step 3 to learn how to resolve the merge conflicts.
 
-Force push to your fork's `master` branch to your forked repository.
+Force push to your fork's `main` branch to your forked repository.
 _Make sure there were no conflicts before running this command._
 
 ```plaintext
-git push my master --force
+git push my main --force
 ```
 
 #### 2. Rebase your working branch
@@ -804,7 +823,7 @@ In a PowerShell prompt, you need to do the following:
 ```plaintext
 cd <path to cloned repository>      # This is the path to your cloned repository. I.e. cd C:\Source\ComputerManagementDsc.
 git checkout <your PR branch>       # Checkout (move) to your working branch, i.e git checkout awesome_feature.
-git rebase my/master                # This will rebase your working branch from your forks master branch.
+git rebase my/main                # This will rebase your working branch from your forks main branch.
 ```
 
 **NOTE! At this point you will most likely get merge conflicts that need to be
@@ -815,7 +834,7 @@ in the output. See step 3 to learn how to resolve the merge conflicts.**
 
 If you get a message saying something like below, then you have merge conflicts
 that must be manually resolved.
-Below there is a conflict between the `master` branch and your pull request branch
+Below there is a conflict between the `main` branch and your pull request branch
 for the file `README.md`.
 You can read more about how to resolve a merge conflict on the
 [GitHub help page](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/).
@@ -841,7 +860,7 @@ sign: `=======`. Below is an example of how it could look like.
 =======
 * Added resources
   - xSQLServerReplication
->>>>>>> my/master
+>>>>>>> my/main
 
 ### 1.8.0.0
 ...
@@ -853,7 +872,7 @@ sign: `=======`. Below is an example of how it could look like.
 
 To resolve this we have to manually change this section. The file can be changed
 in any way you need to solve the conflict.
-_Note: You must remove the lines `<<<<<<< HEAD`, `========` and `>>>>>>> origin/master`._
+_Note: You must remove the lines `<<<<<<< HEAD`, `========` and `>>>>>>> origin/main`._
 
 After resolving the conflict, `README.md` could look like this:
 
@@ -963,11 +982,11 @@ In a PowerShell prompt, you need to do the following.
    git push my changes-from-PR#<number> --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
    ```
 
-1. Now we rebase again, this time against `my/master` (which should already be rebased
-   against `origin/master`, see section Resolving merge conflicts on how to do that).
+1. Now we rebase again, this time against `my/main` (which should already be rebased
+   against `origin/main`, see section Resolving merge conflicts on how to do that).
 
    ```plaintext
-   git rebase `my/master`
+   git rebase `my/main`
    ```
 
 1. Again, fix conflicts and when all conflicts are resolved stage all files and
