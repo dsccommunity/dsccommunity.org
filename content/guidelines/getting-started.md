@@ -35,15 +35,18 @@ After you read through this guide, then please continue with the guide
 
 ### Quick steps
 
-This is quick steps to build and test a project. The detailed steps in the rest of
-this guide is required for contributing.
+Here are some quick steps to get started building and testing a project.
+The detailed steps in the rest of this guide are required for contributing.
 
 #### Windows
 
 This assumes a clean installation of _Windows_ 11 release 22H2 Feb 2023
 or later with only _Windows PowerShell_ available.
 
-1. Install _App Installer_ (by Microsoft) from the Microsoft Store (to get `winget`).
+1. Install _App Installer_ (by Microsoft) from the [Microsoft Store](https://www.microsoft.com/store/productId/9NBLGGH4NNS1)
+   (to get `winget`).
+   >**NOTE:** Newer versions of Windows have WinGet preinstalled, then this
+   >step is not required.
 1. Install Git
    ```powershell
    winget install Git.Git
@@ -70,7 +73,7 @@ or later with only _Windows PowerShell_ available.
    $InformationPreference = 'Continue'
    ```
 1. Resolve dependencies. This will install the required NuGet package provider,
-   everything else will be saved into the project's `output` folder.
+   with all other dependencies being saved into the project's `output` folder.
    >NOTE: If the project is dependent on pre-releases and the error
    >`Find-Module: A parameter cannot be found that matches parameter name
    >'AllowPrereleaseVersions'` is thrown, restart the _Windows PowerShell_
@@ -133,10 +136,11 @@ choco install vscode
 
 ##### WinGet
 
-To use `winget` make sure to install _App Installer_ (by Microsoft) from
-the _Microsoft Store_.
+Newer versions of Windows have WinGet preinstalled. If it is not installed
+make sure to install _App Installer_ (by Microsoft) from the [Microsoft Store](https://www.microsoft.com/store/productId/9NBLGGH4NNS1)
+to use `winget`.
 
->Note: To use `code` from command-line you might need to logout and login
+>**NOTE:** To use `code` from command-line you might need to logout and login
 >again after installation for environment variable `PATH` to be updated.
 
 ```bash
@@ -152,7 +156,7 @@ need to be installed.
 code --install-extension ms-vscode.PowerShell
 ```
 
->This step is only relevant if Visual Studio Code was installed in the
+>**NOTE:** This step is only relevant if Visual Studio Code was installed in the
 >previous step.
 
 ### Install Git
@@ -215,8 +219,9 @@ choco install git
 
 ##### WinGet
 
-To use `winget` make sure to install _App Installer_ (by Microsoft) from
-the _Microsoft Store_.
+Newer versions of Windows have WinGet preinstalled. If it is not installed
+make sure to install _App Installer_ (by Microsoft) from the [Microsoft Store](https://www.microsoft.com/store/productId/9NBLGGH4NNS1)
+to use `winget`.
 
 ```bash
 winget install Git.Git
@@ -296,8 +301,9 @@ choco install GitVersion.Portable
 To be able to install _GitVersion_ the command `dotnet` must first be installed
 using WinGet.
 
->Note: To use `winget` make sure to install _App Installer_ (by Microsoft) from
->the _Microsoft Store_.
+>**NOTE**: Newer versions of Windows have WinGet preinstalled. If it is not installed
+>make sure to install _App Installer_ (by Microsoft) from the [Microsoft Store](https://www.microsoft.com/store/>productId/9NBLGGH4NNS1)
+>to use `winget`.
 
 ```bash
 winget install dotnet-sdk-6

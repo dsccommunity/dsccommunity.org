@@ -603,21 +603,21 @@ This needs to be repeated each time changes are made to the file
 `RequiredModules.psd1`, or if there are new releases of external modules
 listed in the file `RequiredModules.psd1`.
 
->**NOTE:** If script execution is restricted this need to be run before
->resolving dependencies (change execution policy to allow scripts to run).
+>**NOTE:** If script execution is restricted this needs to be run before
+>resolving dependencies. It changes execution policy to allow scripts to run.
 >```
 >Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 >```
 
-Running the below command will make sure the dependencies are resolved and to
+Running the command below will make sure the dependencies are resolved and to
 prepare the build and test environment. All dependencies are downloaded and
 saved in the project's `output` folder. There are normally no changes to
-the contributors machine. There is one exception. If the NuGet package
+the contributors machine with one exception. If the NuGet package
 provider is not installed, required by the _PowerShellGet_ module, it will
 be installed. The only way to avoid this is to manually install the package
 provider (for example by downloading any package from _PowerShell Gallery_)
-prior to running this command. If Nuget package provider is not installed
-it will be installed in the current user's scope when the below command
+prior to running this command. If the Nuget package provider is not installed
+it will be installed in the current user's scope when the following command
 is run.
 
 ```powershell
@@ -628,17 +628,17 @@ is run.
 >`Find-Module: A parameter cannot be found that matches parameter name
 >'AllowPrereleaseVersions'` is thrown, restart the _Windows PowerShell_
 >session and run the command again. This is due to the old version of
->module _PackageManagement_ is still available in the session (even when
+>module _PackageManagement_ still being imported into the session (even when
 >we remove it) so _PowerShellGet_ calls the wrong version of the command
 >`Find-Package`.
 
->**KNOWN ISSUE 2:** There are currently an known issue with this task when
+>**KNOWN ISSUE 2:** There is currently a known issue with this task when
 >moving between local DSC repositories in the same PowerShell session. If
 >you have resolved dependencies in one repository, then move to a second
 >repository and resolve dependencies all dependencies do not download
 >(for example the module PowerShell-Yaml). This is because the module is
 >already imported into the session. The workaround is to open each local
->DSC repository folder in a separate PowerShell sessions.
+>DSC repository folder in separate PowerShell sessions.
 
 #### Build module
 
