@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2023-02-22"
+title: "Next Community Call 2023-04-05"
 weight: 1
 type: "post"
-date: 2023-02-01
+date: 2023-03-31
 ---
 
-Next call will be on Wednesday, February 22th, at 12 PM PST
+Next call will be on Wednesday, April 5th, at 12 PM PST
 
 ### Join the call
 
@@ -27,9 +27,8 @@ Conference ID:
 
 ### Agenda
 
-#### Community presentation
-
-**"WinGet and DSC Resources"** presented by Demetrius Nelon.
+TBD. Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
+open.
 
 #### Community questions
 
@@ -53,22 +52,24 @@ For information on how to join, see https://dsccommunity.org/community/contact/
 ### DSC resource modules that have been released recently
 
 - Releases
-  - ConfigMgrCBDsc v4.0.0 - New resources CMClientSettingsComputerRestart and CMHierarchySetting
+  - SqlServerDsc v16.1.0 - A big amount of changes, see [change log](https://github.com/dsccommunity/SqlServerDsc/blob/main/CHANGELOG.md#1610---2023-02-28). SQL Server 2022 support. Public commands for SQL Server install actions in preparation for new class-based resources.
 - Preview
-  - SqlServerDsc v16.1.0-preview0017 - SQL Server 2022 support + New public commands in preparation for new class-based resources
-  - UpdateServicesDsc v1.3.0-preview0003 - Various fixes and changes
-  - StorageDsc v5.1.0-preview0003 - support to use disk SerialNumber as a disk identifer
+  - SqlServerDsc v16.2.0-preview0007 - Better handling of loading dependent module (SqlServer). Various enhancements and bug fixes, most notable is better support for using encrypted connections.
+  - ComputerManagementDsc v9.1.0-preview1 - PSResourceRepository now supports property `Reasons`.
 
 #### Tooling modules that have been released recently
 
 - Releases
-  - None.
+  - Sampler v0.116.3 - Cleaned up templates and fixed bugs in the resolve dependency script. Since 0.116.1 there is also a new task `Set_PSModulePath`.
+  - DscResource.Base v1.1.0 - Handles `Reasons` re-using each modules own class, e.g. `SqlReasons` or `CMReasons`,
+    that is specified as the type on the property `Reasons`
+  - Sampler.AzureDevOpsTasks v0.1.2 - PAT is now correctly used in the task `Create_PR_From_SourceBranch`.
 - Preview
-  - Sampler v0.116.2 - Show PSModulePath in the pipeline output
+  - Sampler.DscPipeline v0.2.0-preview0012
 
 ### Next Community Call
 
-Next community call is on the 5th of April.
+Next community call is on the 17th of May.
 Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
 open.
 
