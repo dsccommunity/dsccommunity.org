@@ -27,8 +27,17 @@ Conference ID:
 
 ### Agenda
 
-TBD. Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
-open.
+#### Community presentation
+
+**"nxtools and DSC v3"** presented by Jodi Boone, Julia Wang, Brandon Poe, and Steve Lee.
+
+Come learn about nxtools and DSC v3: tune in for Wednesday's DSC community call,
+where Azure Automanage Machine Configuration PMs Jodi, Julia and Brandon will
+join head of PowerShell Steve Lee to share exciting new machine config features
+and releases. Expect an overview and demo for nxtools (now open source!) and
+DSC v3, cool updates, and time for Q&A. You don't want to miss it!
+
+{{< figure src="/images/CommunityCall-2023-04/DSC_Community_Call_April_5th_2023.png">}}
 
 #### Community questions
 
