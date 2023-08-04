@@ -1,5 +1,5 @@
 ---
-title: "Next Community Call 2023-04-05"
+title: "Next Community Call 2023-08-09"
 weight: 1
 type: "post"
 date: 2023-08-04
