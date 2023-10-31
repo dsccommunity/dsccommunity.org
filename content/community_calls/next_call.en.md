@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2022-09-07"
+title: "Next Community Call 2023-08-09"
 weight: 1
 type: "post"
-date: 2022-05-10
+date: 2023-08-04
 ---
 
-Next call will be on Wednesday, September 7th, at 12 PM PST
+Next call will be on Wednesday, August 9th, at 12 PM PST
 
 ### Join the call
 
@@ -16,81 +16,43 @@ Next call will be on Wednesday, September 7th, at 12 PM PST
 Conference ID:
 503 431 76#
 
-### Discussions
-
-Topics or questions from the community (welcome at any point during the call)
-
-We are also available on the **Virtual PowerShell User Group** _#DSC_ channel.
-For information on how to join, see https://dsccommunity.org/community/contact/
-
-Want to submit a question to discuss during the call so others can prepare?
-Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
-
 ### Agenda
 
-#### Community Presentation
+#### Community presentation
 
-- Gael Colas will try to present something.
+**"Update on DSC version 3" presented by Steve Lee, Michael Greene, and Mikey Lombardi
 
-#### Quick update on activity
-
-- [PowerShell Conference Europe (PSConfEU) MiniCon 2022](https://psconf.eu/psconfeu-minicon/)
-  on September 27th 2022.
-- Nicolas Baudin, maintainer for UpdateServicesDSC
-- Any activity update from the community?
-
-#### DSC resource modules that have been released recently
-
-- Releases
-  - xHyper-V v3.18.0 (deprecated - move to HyperVDsc)
-  - xWebAdministration v3.3.0 (deprecated - move to WebAdministrationDsc)
-  - NetworkingDsc v9.0.0
-  - xFailOverCluster v1.16.1 (deprecated - move to FailoverClusterDsc)
-  - FailoverClusterDsc v2.1.0
-  - SChannelDsc v1.4.0
-  - SharePointDsc v5.2.0
-  - xDhcpServer v3.1.0
-  - ActiveDirectoryDsc v6.2.0
-  - xRemoteDesktopSessionHost v2.1.0
-  - SqlServerDsc v16.0.0 (now using Pester 5 in the pipeline, and also
-    a few class-based resources)
-- Preview releases
-  - UpdateServicesDsc v1.3.0-preview0002
-  - HyperVDsc v4.0.0-preview0004
-  - FailoverClusterDsc v2.0.1-preview0003
-  - ComputerManagementDsc v8.6.0-preview0002
-  - ActiveDirectoryDsc v6.3.0-preview0002
-  - xExchange v1.33.1-preview0001
-  - JeaDsc v4.0.0-preview0003
-  - ConfigMgrCBDsc v3.0.1-preview0001
-  - FailoverClusterDsc v2.1.1-preview0001
-
-#### Tooling modules that have been released recently
-
-- Releases
-  - Sampler v0.115.0 (First full release in a while)
-    - New tasks for creating git tag, and creating changelog branch
-  - Sampler.AzureDevOpsTasks v0.1.1
-    - Task for creating a PR from a source branch (for Azure Repos)
-  - DscResource.DocGenerator v0.11.1
-    - Various bug fixes, and most notable it is now possible to use property
-      `BuiltModuleSubdirectory` with the Sampler pipeline (it was the last
-      one that needed to be fixed).
-  - DscResource.Test v0.16.1
-    - Fix so that if Pester 5 testing fails on discovery, pipeline fails.
-  - DscResource.Common v0.11.1
-- Preview releases
-  - Sampler v0.116.0-preview0003
-  - Sampler.GitHubTasks v0.3.5-preview0002
-  - Sampler.DscPipeline v0.2.0-preview0002
-  - DscResource.Test v0.16.2-preview0001
+Join us to learn about the upcoming "version 3" of DSC, which is a dramatically
+different and new platform based on community feedback, and the foundation of PowerShell DSC
+that we all know and love! Will discuss how to build, install (cross platform),
+and plans for use with existing community resources.
 
 #### Community questions
 
 _Submit your questions, or raise them directly in the call._
 
-#### Next Community Call
+<!-- Topics or questions from the community (welcome at any point during the call).
+During the Community Call in the presentation area you can ask questions by moving
+you avatar to the Q & A area. -->
 
-Next community call is on the 4th of May.
+Want to submit a question to discuss during the call so others can prepare?
+Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
+
+#### Discussions
+
+We are also available on the **Virtual PowerShell User Group** _#DSC_ channel.
+For information on how to join, see https://dsccommunity.org/community/contact/
+
+### DSC resource modules that have been released recently
+
+- Releases
+  
+#### Tooling modules that have been released recently
+
+- Releases
+  
+### Next Community Call
+
+Next community call is on the 20th of September.
 Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
 open.
