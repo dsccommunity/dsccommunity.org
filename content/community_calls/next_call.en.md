@@ -1,11 +1,11 @@
 ---
-title: "Next Community Call 2023-08-09"
+title: "Next Community Call 2023-11-01"
 weight: 1
 type: "post"
 date: 2023-08-04
 ---
 
-Next call will be on Wednesday, August 9th, at 12 PM PST
+Next call will be on Wednesday, November 1st, at 12 PM PST
 
 ### Join the call
 
@@ -20,12 +20,10 @@ Conference ID:
 
 #### Community presentation
 
-**"Update on DSC version 3" presented by Steve Lee, Michael Greene, and Mikey Lombardi
+Some news from the Machine Configuration team.
+Recent addition to the team, Mutemwa has some news to share with the community.
 
-Join us to learn about the upcoming "version 3" of DSC, which is a dramatically
-different and new platform based on community feedback, and the foundation of PowerShell DSC
-that we all know and love! Will discuss how to build, install (cross platform),
-and plans for use with existing community resources.
+[Check this tweet for more teasing!](https://twitter.com/AzureGovernance/status/1719416570047549863).
 
 #### Community questions
 
@@ -53,6 +51,6 @@ For information on how to join, see https://dsccommunity.org/community/contact/
   
 ### Next Community Call
 
-Next community call is on the 20th of September.
+Next community call is on the 13th of December.
 Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
 open.
