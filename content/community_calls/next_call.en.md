@@ -44,11 +44,27 @@ For information on how to join, see https://dsccommunity.org/community/contact/
 ### DSC resource modules that have been released recently
 
 - Releases
-  
+  - ActiveDirectoryDsc v6.3.0
+  - DFSDsc v5.0.1
+  - ExchangeDsc v2.0.0
+  - SharePointDsc v5.4.0
+  - SqlServerDsc v16.5.0
+  - xDhcpServer v3.1.1
+- Preview releases
+  - ComputerManagementDsc v9.1.0-preview0002
+  - JeaDsc v4.0.0-preview0005
+  - SharePointDsc v5.5.0-preview0002
+  - StorageDsc v6.0.0-preview0001
+  - WSManDsc v3.2.0-preview0005
+  - xRemoteDesktopSessionHost v3.0.0-preview0001
+
 #### Tooling modules that have been released recently
 
 - Releases
-  
+  - DscResource.Test v0.16.2
+  - DscResource.Common v0.16.0
+  - Sampler v0.117.0
+
 ### Next Community Call
 
 Next community call is on the 13th of December.
