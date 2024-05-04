@@ -16,7 +16,8 @@ faqItem:
       via Azure and Azure Arc, along with other services), and are the fastest growing user of DSC, despite being sometimes transparent to the user.
       Non-Microsoft solutions have flourished supporting the use of DSC, such as Chef, Puppet, Ansible or AWS Systems Manager.
       DSC using the LCM in 5.1 is still a valid scenario for those running Windows, and is still supported (although not
-      developped further). Come and ask further questions on the DSC Channel of slack.poshcode.org
+      developed further). Come and ask further questions on the DSC Channel in the PowerShell Slack (via https://aka.ms/psslack) or Discord 
+      (via https://aka.ms/psdisord) 
 
   - ID : support
     title : Are the DSC Resources from the DSC Resource kit Supported by Microsoft?
