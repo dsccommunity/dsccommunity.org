@@ -1,0 +1,18 @@
+{
+    "name": "Hugo Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-azuretools.vscode-docker",
+        "tamasfe.even-better-toml",
+        "davidanson.vscode-markdownlint"
+    ],
+    "forwardPorts": [1313],
+    "postCreateCommand": "hugo version",
+    "remoteUser": "vscode"
+}
