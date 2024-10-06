@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSave": true,
+    "extensions.ignoreRecommendations": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+}
