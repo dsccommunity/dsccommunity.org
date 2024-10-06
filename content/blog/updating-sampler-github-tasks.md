@@ -1,6 +1,6 @@
 ---
 title: "Updating repo with Sampler.GitHubTasks"
-date: 202-03-09T00:00:00+02:00
+date: 2020-03-09
 draft: false
 author: gaelcolas
 ---

@@ -4,35 +4,34 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  - master
 
 pr:
   autoCancel: true
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: "windows-2019"
 
 steps:
+  - checkout: self
+    displayName: "Checkout repository"
 
-- checkout: self
-  displayName: 'Checkout repository'
+  - task: PowerShell@2
+    name: ResourcesJSON
+    displayName: "Generating Resources JSON from PSGallery"
+    inputs:
+      filePath: "./Get-DscResourceKitInfo.ps1"
+      pwsh: true
+      errorActionPreference: continue
 
-- task: PowerShell@2
-  name: ResourcesJSON
-  displayName: 'Generating Resources JSON from PSGallery'
-  inputs:
-    filePath: './Get-DscResourceKitInfo.ps1'
-    pwsh: true
-    errorActionPreference: continue
+  - task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
+    displayName: "Generate Hugo site"
+    inputs:
+      destination: "$(Build.ArtifactStagingDirectory)"
+      hugoVersion: 0.92.2 # TODO: This can be changed before PR is merged.
 
-- task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
-  displayName: 'Generate Hugo site'
-  inputs:
-    destination: '$(Build.ArtifactStagingDirectory)'
-    hugoVersion: 0.92.2
-
-- task: PublishPipelineArtifact@0
-  displayName: 'Publish Hugo site as artifact'
-  inputs:
-    artifactName: 'dsccommunity'
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+  - task: PublishPipelineArtifact@0
+    displayName: "Publish Hugo site as artifact"
+    inputs:
+      artifactName: "dsccommunity"
+      targetPath: "$(Build.ArtifactStagingDirectory)"

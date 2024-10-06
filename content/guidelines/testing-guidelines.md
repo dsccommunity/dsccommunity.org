@@ -1,6 +1,6 @@
 ---
 title: "Testing Guidelines"
-date: 2019-12-21T11:02:05+06:000
+date: 2019-12-21
 type: "post"
 author: "Johan Ljunggren"
 weight: 5

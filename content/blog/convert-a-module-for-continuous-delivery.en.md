@@ -1,6 +1,6 @@
 ---
 title: "Steps to convert a module for continuous delivery"
-date: 2019-12-30T12:52:00+01:00
+date: 2019-12-30
 type: "post"
 draft: false
 author: johlju
