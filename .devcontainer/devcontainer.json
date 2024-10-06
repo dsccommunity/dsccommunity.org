@@ -4,15 +4,23 @@
         "dockerfile": "Dockerfile",
         "context": "."
     },
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "tamasfe.even-better-toml",
+                "davidanson.vscode-markdownlint",
+                "streetsidesoftware.code-spell-checker",
+                "usernamehw.errorlens"
+            ]
+        }
     },
-    "extensions": [
-        "ms-azuretools.vscode-docker",
-        "tamasfe.even-better-toml",
-        "davidanson.vscode-markdownlint"
+    "forwardPorts": [
+        1313
     ],
-    "forwardPorts": [1313],
-    "postCreateCommand": "hugo version",
+    "postCreateCommand": "chmod +x .devcontainer/postCreate.sh && .devcontainer/postCreate.sh",
     "remoteUser": "vscode"
 }
