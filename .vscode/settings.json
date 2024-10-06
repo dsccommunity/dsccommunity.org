@@ -2,5 +2,20 @@
     "editor.formatOnSave": true,
     "extensions.ignoreRecommendations": true,
     "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "cSpell.ignorePaths": [
+        ".git",
+        "settings.json"
+    ],
+    "cSpell.words": [
+        "azuretools",
+        "tamasfe",
+        "davidanson",
+        "usernamehw",
+        "errorlens"
+    ],
+    "cSpell.ignoreRegExpList": [
+        "devcontainers?"
+    ],
 }
