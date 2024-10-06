@@ -12,7 +12,9 @@
             "extensions": [
                 "ms-azuretools.vscode-docker",
                 "tamasfe.even-better-toml",
-                "davidanson.vscode-markdownlint"
+                "davidanson.vscode-markdownlint",
+                "streetsidesoftware.code-spell-checker",
+                "usernamehw.errorlens"
             ]
         }
     },
