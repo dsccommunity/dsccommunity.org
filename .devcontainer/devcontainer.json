@@ -4,15 +4,21 @@
         "dockerfile": "Dockerfile",
         "context": "."
     },
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "tamasfe.even-better-toml",
+                "davidanson.vscode-markdownlint"
+            ]
+        }
     },
-    "extensions": [
-        "ms-azuretools.vscode-docker",
-        "tamasfe.even-better-toml",
-        "davidanson.vscode-markdownlint"
+    "forwardPorts": [
+        1313
     ],
-    "forwardPorts": [1313],
-    "postCreateCommand": "hugo version",
+    "postCreateCommand": "hugo version; echo -en \"\\033[1;32mStart local server using:\\033[0m \"; if [ \"$CODESPACES\" = \"true\" ]; then echo \"hugo server --baseURL https://$CODESPACE_NAME-1313.app.github.dev --appendPort=false\"; else echo \"hugo server\"; fi",
     "remoteUser": "vscode"
 }
