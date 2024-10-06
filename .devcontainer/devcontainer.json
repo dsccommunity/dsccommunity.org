@@ -19,6 +19,6 @@
     "forwardPorts": [
         1313
     ],
-    "postCreateCommand": "hugo version; echo -en \"\\033[1;32mStart local server using:\\033[0m \"; if [ \"$CODESPACES\" = \"true\" ]; then echo \"hugo server --baseURL https://$CODESPACE_NAME-1313.app.github.dev --appendPort=false\"; else echo \"hugo server\"; fi",
+    "postCreateCommand": "chmod +x .devcontainer/postCreate.sh && .devcontainer/postCreate.sh",
     "remoteUser": "vscode"
 }

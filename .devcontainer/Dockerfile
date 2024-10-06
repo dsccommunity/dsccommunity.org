@@ -18,6 +18,3 @@ RUN wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hug
 
 # Set the default user
 USER vscode
-
-# Set the default shell to bash
-SHELL ["/bin/bash", "-c"]
