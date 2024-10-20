@@ -57,7 +57,7 @@
             <div class="card-columns">
               {{ range sort $.Site.Data.maintainers "accountName" }}
                 {{ $data := dict }}
-                {{ $path := printf "https://api.github.com/users/gaelcolas" }}
+                {{ $path := printf "https://api.github.com/users/%s" .accountName }}
                 {{ with resources.GetRemote $path  }}
                   {{ with .Content | transform.Unmarshal }}
                     {{ $data = . }}
