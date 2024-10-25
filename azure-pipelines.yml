@@ -24,11 +24,22 @@ steps:
       pwsh: true
       errorActionPreference: continue
 
-  - task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
-    displayName: "Generate Hugo site"
-    inputs:
-      destination: "$(Build.ArtifactStagingDirectory)"
-      hugoVersion: 0.135.0
+  # - task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
+  #   displayName: "Generate Hugo site"
+  #   inputs:
+  #     destination: "$(Build.ArtifactStagingDirectory)"
+  #     hugoVersion: 0.135.0
+
+  - pwsh: |
+      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v0.135.0/hugo_0.135.0_windows-amd64.zip"
+      $outputPath = ".\hugo.zip"
+      Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
+      Expand-Archive -Path $outputPath -DestinationPath ".\hugo"
+    displayName: "Download and Extract Hugo"
+
+  - pwsh: |
+      ".\hugo\hugo.exe" --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --verbose
+    displayName: "Build Hugo Site"
 
   - task: PublishPipelineArtifact@0
     displayName: "Publish Hugo site as artifact"
