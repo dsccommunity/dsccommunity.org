@@ -38,7 +38,7 @@ steps:
     displayName: "Download and Extract Hugo"
 
   - pwsh: |
-      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --verbose
+      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info
     displayName: "Build Hugo Site"
 
   - task: PublishPipelineArtifact@0
