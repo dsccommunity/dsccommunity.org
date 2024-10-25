@@ -28,7 +28,7 @@ steps:
     displayName: "Generate Hugo site"
     inputs:
       destination: "$(Build.ArtifactStagingDirectory)"
-      hugoVersion: 0.92.2 # TODO: This can be changed before PR is merged.
+      hugoVersion: 0.135.0
 
   - task: PublishPipelineArtifact@0
     displayName: "Publish Hugo site as artifact"
