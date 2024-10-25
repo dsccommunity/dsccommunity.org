@@ -29,7 +29,7 @@
             {{ if in .Site.Params.menu_exclusion .Section }}
             {{- else -}}
               {{- safeHTML .Params.head -}}
-            <li class="{{ if .IsAncestor $currentNode }}parent d-block {{ end }}{{ if eq .UniqueID $currentNode.UniqueID }} active {{ end }}{{ if .Params.alwaysopen }} parent {{ end }}"><a href="{{ .URL }}">{{ .Title }}</a>
+            <li class="{{ if .IsAncestor $currentNode }}parent d-block {{ end }}{{ if eq .Params.UniqueID $currentNode.Params.UniqueID }} active {{ end }}{{ if .Params.alwaysopen }} parent {{ end }}"><a href="{{ .RelPermalink }}">{{ .Title }}</a>
               {{- $numberOfPages := (add (len .Pages) (len .Sections)) -}}
               {{if ne $numberOfPages 0}}
               <ul class="{{ if .IsAncestor $currentNode }}sub-menu{{ end }}">
@@ -44,7 +44,7 @@
             {{- end -}}
             {{- else -}}
               {{- if not .Params.Hidden -}}
-              <li class="{{ if eq .UniqueID $currentNode.UniqueID }}active{{ end }}"><a href="{{ .URL }}">{{ .Title }}</a></li>
+              <li class="{{ if eq .Params.UniqueID $currentNode.Params.UniqueID }}active{{ end }}"><a href="{{ .URL }}">{{ .Title }}</a></li>
               {{- end -}}
             {{ end -}}
             {{ end }}
@@ -56,36 +56,44 @@
             {{ .Content }}
             <div class="card-columns">
               {{ range sort $.Site.Data.maintainers "accountName" }}
-                {{ $gitHubUser := getJSON "https://api.github.com/users/" .accountName }}
+                {{ $data := dict }}
+                {{ $path := printf "https://api.github.com/users/%s" .accountName }}
+                {{ with resources.GetRemote $path  }}
+                  {{ with .Content | transform.Unmarshal }}
+                    {{ $data = . }}
+                  {{ end }}
+                {{ else }}
+                  {{ errorf "Unable to get global resource %q" $path }}
+                {{ end }}
                 <div class="card shadow text-center">
                   <div class="card-header">
                     <a class="font-weight-bold" href="https://github.com/{{ .accountName }}" target="_blank">
-                      {{ with $gitHubUser.name }}
-                        {{ $gitHubUser.name }}
+                      {{ with $data.name }}
+                        {{ $data.name }}
                       {{ else }}
-                        {{ $gitHubUser.login }}
+                        {{ $data.login }}
                       {{ end }}
 
-                      {{with $gitHubUser.company }}
+                      {{with $data.company }}
                         <br />
                         <span class="badge badge-secondary">
-                          {{ $gitHubUser.company }}
+                          {{ $data.company }}
                         </i>
                       {{ end }}
                     </a>
                   </div>
                   <div class="card-body">
-                    <a data-toggle="collapse" href="#{{ $gitHubUser.login }}">
-                      <img src="{{$gitHubUser.avatar_url}}" alt="drawing" style="width:100px; display:block; margin: auto; border-radius:50%" />
-                      {{with $gitHubUser.location }}
+                    <a data-toggle="collapse" href="#{{ $data.login }}">
+                      <img src="{{$data.avatar_url}}" alt="drawing" style="width:100px; display:block; margin: auto; border-radius:50%" />
+                      {{with $data.location }}
                         <span class="ti-location-pin text-muted">
-                        {{ $gitHubUser.location }}
+                        {{ $data.location }}
                         </span>
                       {{ end }}
                     </a>
                     <div class="card border-0 pt-2">
-                      <span id="{{ $gitHubUser.login }}" class="font-weight-light text-left small">
-                        {{ $gitHubUser.bio | safeHTML }}
+                      <span id="{{ $data.login }}" class="font-weight-light text-left small">
+                        {{ $data.bio | safeHTML }}
                       </span>
                     </div>
                   </div>
@@ -108,10 +116,10 @@
               <nav class="pagination mt-3">
               {{- template "pagination" dict "menu" .Site.Home "currentnode" $currentNode "menu_exclusion" .Site.Params.menu_exclusion -}}
               {{- with ($.Scratch.Get "prevPage") -}}
-              <a class="nav nav-prev" href="{{ .URL }}" title="{{ .Title }}"><i class="ti-arrow-left mr-2"></i>{{ .Title }}</a>
+              <a class="nav nav-prev" href="{{ .RelPermalink }}" title="{{ .Title }}"><i class="ti-arrow-left mr-2"></i>{{ .Title }}</a>
               {{ end -}}
               {{- with ($.Scratch.Get "nextPage") -}}
-              <a class="nav nav-next" href="{{ .URL }}" title="{{ .Title }}">{{ .Title }}<i class="ti-arrow-right ml-2"></i></a>
+              <a class="nav nav-next" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}<i class="ti-arrow-right ml-2"></i></a>
               {{- end }}
               </nav>
 
@@ -119,7 +127,7 @@
               {{- $currentNode := .currentnode -}}
               {{- $menu_exclusion := .menu_exclusion -}}
 
-              {{- if hasPrefix $currentNode.URL .menu.URL -}}
+              {{- if hasPrefix $currentNode.RelPermalink .menu.RelPermalink -}}
                 {{- $currentNode.Scratch.Set "NextPageOK" "OK" -}}
                 {{- if .menu.IsHome -}}
                   {{- $currentNode.Scratch.Set "prevPage" "" -}}
