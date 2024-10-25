@@ -24,7 +24,7 @@ steps:
       pwsh: true
       errorActionPreference: continue
 
-  - task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
+  - task: MrCSharp.hugo-build-task-azure-devops.hugo-build-task.hugo-build-task@1
     displayName: "Generate Hugo site"
     inputs:
       destination: "$(Build.ArtifactStagingDirectory)"
