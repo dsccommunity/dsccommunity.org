@@ -3,218 +3,214 @@ theme = "dot"
 googleAnalytics = "UA-144465379-1"
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
 primaryColor = "#003366"
 secondaryColor = "#f9f9f9"
 textColor = "#242738"
-textColorDark = "#000" #"#242738"
+textColorDark = "#000"     #"#242738"
 whiteColor = "#ffffff"
 bgcolor = "#ffffff"
 
 [Languages]
 
-  # English Language
-  [Languages.en]
-  languageName = "En"
-  weight = 1
-  languageCode = "en-us"
-  title = "DSC Community"
-  dateFormat = "2 January 2006"
-  home = "Home"
-  logo = "DSC Community and Resource Kit"
-  copyright = "Copyright 2019 the dsccommunity.org contributors."
+# English Language
+[Languages.en.params]
+languageName = "En"
+weight = 1
+languageCode = "en-us"
+title = "DSC Community"
+dateFormat = "2 January 2006"
+home = "Home"
+logo = "DSC Community and Resource Kit"
+copyright = "Copyright 2019 the dsccommunity.org contributors."
 
-    # navigation
-    [Languages.en.menu]
+# navigation
+[Languages.en.menu]
 
-      [[Languages.en.menu.main]]
-        weight = 1
-        name = "Code of Conduct"
-        url = "/code_of_conduct"
+[[Languages.en.menu.main]]
+weight = 1
+name = "Code of Conduct"
+url = "/code_of_conduct"
 
-      [[Languages.en.menu.main]]
-        weight = 2
-        name = "Community Calls"
-        url = "/community_calls"
+[[Languages.en.menu.main]]
+weight = 2
+name = "Community Calls"
+url = "/community_calls"
 
-      [[Languages.en.menu.main]]
-        weight = 3
-        name = "Faq"
-        url = "/faq"
+[[Languages.en.menu.main]]
+weight = 3
+name = "Faq"
+url = "/faq"
 
-      [[Languages.en.menu.main]]
-        weight = 4
-        name = "help"
-        url = "/help"
+[[Languages.en.menu.main]]
+weight = 4
+name = "help"
+url = "/help"
 
-      [[Languages.en.menu.main]]
-        weight = 5
-        name = "Categories"
-        url = "/pages"
-        hasChildren = true
+[[Languages.en.menu.main]]
+weight = 5
+name = "Categories"
+url = "/pages"
+hasChildren = true
 
-          [[Languages.en.menu.main]]
-          parent = "Categories"
-          name = "Community"
-          URL = "/community"
-          weight = 1
+[[Languages.en.menu.main]]
+parent = "Categories"
+name = "Community"
+URL = "/community"
+weight = 1
 
-          [[Languages.en.menu.main]]
-          parent = "Categories"
-          name = "Resource Modules"
-          URL = "/resources"
-          weight = 2
+[[Languages.en.menu.main]]
+parent = "Categories"
+name = "Resource Modules"
+URL = "/resources"
+weight = 2
 
-          [[Languages.en.menu.main]]
-          parent = "Categories"
-          name = "Guidelines"
-          URL = "/guidelines"
-          weight = 3
+[[Languages.en.menu.main]]
+parent = "Categories"
+name = "Guidelines"
+URL = "/guidelines"
+weight = 3
 
-          [[Languages.en.menu.main]]
-          parent = "Categories"
-          name = "Blog Posts"
-          URL = "/blog"
-          weight = 4
+[[Languages.en.menu.main]]
+parent = "Categories"
+name = "Blog Posts"
+URL = "/blog"
+weight = 4
 
-          [[Languages.en.menu.main]]
-          parent = "Categories"
-          name = "Config. Management"
-          URL = "/configmgt"
-          weight = 5
+[[Languages.en.menu.main]]
+parent = "Categories"
+name = "Config. Management"
+URL = "/configmgt"
+weight = 5
 
-    # banner
-    [Languages.en.params.banner]
-      title = "The DSC Community"
-      description = "A collaborative community of authors and maintainers working to improve the DSC resources, their quality, and development practices"
-      image = "images/banner_dsc_with_dsclogo2.png"
-      placeholder = "Have a question? Just ask here or enter terms"
+# banner
+[Languages.en.params.banner]
+title = "The DSC Community"
+description = "A collaborative community of authors and maintainers working to improve the DSC resources, their quality, and development practices"
+image = "images/banner_dsc_with_dsclogo2.png"
+placeholder = "Have a question? Just ask here or enter terms"
 
-    # Topics
-    [Languages.en.params.topics]
-      title = "Who we are, and what we do"
+# Topics
+[Languages.en.params.topics]
+title = "Who we are, and what we do"
 
-    # call to action
-    [Languages.en.params.cta]
-      enable = true
-      title = "Didn't find an answer to your question?"
-      description = "Ask the question on the PowerShell #DSC channel where you'll be able to find us!"
-      btnText = "Join the Conversation"
-      btnURL = "community/contact/"
+# call to action
+[Languages.en.params.cta]
+enable = true
+title = "Didn't find an answer to your question?"
+description = "Ask the question on the PowerShell #DSC channel where you'll be able to find us!"
+btnText = "Join the Conversation"
+btnURL = "community/contact/"
 
-    # contact
-    [Languages.en.params.contact]
-      title = "Got Any Questions"
-      content = "Submit the form and confirm your email address at <a class='text-primary' href='https://formspree.io/'>Formspree</a> Then add the following lines to contact page YAML Front Matter."
+# contact
+[Languages.en.params.contact]
+title = "Got Any Questions"
+content = "Submit the form and confirm your email address at <a class='text-primary' href='https://formspree.io/'>Formspree</a> Then add the following lines to contact page YAML Front Matter."
 
-    # footer social icon
-    [[Languages.en.socialIcon]]
-      icon = "ti-github"
-      URL = "https://github.com/dsccommunity/"
+# footer social icon
+[[Languages.en.params.socialIcon]]
+icon = "ti-github"
+URL = "https://github.com/dsccommunity/"
 
-    [[Languages.en.socialIcon]]
-      icon = "ti-twitter-alt"
-      URL = "https://twitter.com/dsccommunity"
-
-
+[[Languages.en.params.socialIcon]]
+icon = "ti-twitter-alt"
+URL = "https://twitter.com/dsccommunity"
 
 
+# # French Language
+# [Languages.fr]
+# languageName = "Fr"
+# weight = 1
+# languageCode = "fr-fr"
+# title = "Doc List"
+# dateFormat = "2 January 2006"
+# home = "Aidez-moi"
+# logo = "DOC LIST"
+# copyright = "Les documents Hugo sont sous copyright © gethugothemes 2018."
 
+#   # navigation
+#   [Languages.fr.menu]
 
-  # # French Language
-  # [Languages.fr]
-  # languageName = "Fr"
-  # weight = 1
-  # languageCode = "fr-fr"
-  # title = "Doc List"
-  # dateFormat = "2 January 2006"
-  # home = "Aidez-moi"
-  # logo = "DOC LIST"
-  # copyright = "Les documents Hugo sont sous copyright © gethugothemes 2018."
+#     [[Languages.fr.menu.main]]
+#       weight = 2
+#       name = "Faq"
+#       url = "/fr/faq"
 
-  #   # navigation
-  #   [Languages.fr.menu]
+#     [[Languages.fr.menu.main]]
+#       weight = 2
+#       name = "contact"
+#       url = "/fr/contact"
 
-  #     [[Languages.fr.menu.main]]
-  #       weight = 2
-  #       name = "Faq"
-  #       url = "/fr/faq"
+#     [[Languages.fr.menu.main]]
+#       weight = 2
+#       name = "les sujets"
+#       hasChildren = true
 
-  #     [[Languages.fr.menu.main]]
-  #       weight = 2
-  #       name = "contact"
-  #       url = "/fr/contact"
+#         [[Languages.fr.menu.main]]
+#         parent = "pages"
+#         name = "Elements"
+#         URL = "/elements"
+#         weight = 1
 
-  #     [[Languages.fr.menu.main]]
-  #       weight = 2
-  #       name = "les sujets"
-  #       hasChildren = true
+#         [[Languages.fr.menu.main]]
+#         parent = "les sujets"
+#         name = "Commencer"
+#         URL = "/fr/installation"
+#         weight = 2
 
-  #         [[Languages.fr.menu.main]]
-  #         parent = "pages"
-  #         name = "Elements"
-  #         URL = "/elements"
-  #         weight = 1
+#         [[Languages.fr.menu.main]]
+#         parent = "les sujets"
+#         name = "Compte et facturation"
+#         URL = "/fr/billing-pricing"
+#         weight = 3
 
-  #         [[Languages.fr.menu.main]]
-  #         parent = "les sujets"
-  #         name = "Commencer"
-  #         URL = "/fr/installation"
-  #         weight = 2
+#         [[Languages.fr.menu.main]]
+#         parent = "les sujets"
+#         name = "Dépannage"
+#         URL = "/fr/features"
+#         weight = 4
 
-  #         [[Languages.fr.menu.main]]
-  #         parent = "les sujets"
-  #         name = "Compte et facturation"
-  #         URL = "/fr/billing-pricing"
-  #         weight = 3
+#   # banner
+#   [Languages.fr.params.banner]
+#     title = "Comment pouvons nous aider?"
+#     description = "Trouvez rapidement des conseils et des réponses auprès de notre équipe d'assistance ou contactez-nous."
+#     image = "images/banner_dsc_with_dsclogo2.png"
+#     placeholder = "Have a question? Just ask here or enter terms"
 
-  #         [[Languages.fr.menu.main]]
-  #         parent = "les sujets"
-  #         name = "Dépannage"
-  #         URL = "/fr/features"
-  #         weight = 4
+#   # pages
+#   [Languages.fr.params.pages]
+#     title = "Parcourir tous les sujets"
 
-  #   # banner
-  #   [Languages.fr.params.banner]
-  #     title = "Comment pouvons nous aider?"
-  #     description = "Trouvez rapidement des conseils et des réponses auprès de notre équipe d'assistance ou contactez-nous."
-  #     image = "images/banner_dsc_with_dsclogo2.png"
-  #     placeholder = "Have a question? Just ask here or enter terms"
+#   # call to action
+#   [Languages.fr.params.cta]
+#     enable = true
+#     title = "Vous n'avez pas trouvé de réponse à votre question?"
+#     description = "Contactez-nous pour plus de détails sur les services supplémentaires et la tarification du travail personnalisé"
+#     btnText = "Contactez nous"
+#     btnURL = "fr/contact/"
 
-  #   # pages
-  #   [Languages.fr.params.pages]
-  #     title = "Parcourir tous les sujets"
+#   # contact
+#   [Languages.fr.params.contact]
+#     title = "Vous avez des questions"
+#     content = "Envoyez le formulaire et confirmez votre adresse e-mail à l'adresse <a class='text-primary' href='https://formspree.io/'>Formspree</a> Ajoutez ensuite les lignes suivantes pour contacter la page YAML Front Matter."
 
-  #   # call to action
-  #   [Languages.fr.params.cta]
-  #     enable = true
-  #     title = "Vous n'avez pas trouvé de réponse à votre question?"
-  #     description = "Contactez-nous pour plus de détails sur les services supplémentaires et la tarification du travail personnalisé"
-  #     btnText = "Contactez nous"
-  #     btnURL = "fr/contact/"
+#   # footer social icon
+#   [[Languages.fr.socialIcon]]
+#     icon = "ti-facebook"
+#     URL = "/#"
 
-  #   # contact
-  #   [Languages.fr.params.contact]
-  #     title = "Vous avez des questions"
-  #     content = "Envoyez le formulaire et confirmez votre adresse e-mail à l'adresse <a class='text-primary' href='https://formspree.io/'>Formspree</a> Ajoutez ensuite les lignes suivantes pour contacter la page YAML Front Matter."
+#   [[Languages.fr.socialIcon]]
+#     icon = "ti-twitter-alt"
+#     URL = "https://twitter.com/dsccommunity"
 
-  #   # footer social icon
-  #   [[Languages.fr.socialIcon]]
-  #     icon = "ti-facebook"
-  #     URL = "/#"
+#   [[Languages.fr.socialIcon]]
+#     icon = "ti-vimeo-alt"
+#     URL = "/#"
 
-  #   [[Languages.fr.socialIcon]]
-  #     icon = "ti-twitter-alt"
-  #     URL = "https://twitter.com/dsccommunity"
-
-  #   [[Languages.fr.socialIcon]]
-  #     icon = "ti-vimeo-alt"
-  #     URL = "/#"
-
-  #   [[Languages.fr.socialIcon]]
-  #     icon = "ti-instagram"
-  #     URL = "/#"
+#   [[Languages.fr.socialIcon]]
+#     icon = "ti-instagram"
+#     URL = "/#"
