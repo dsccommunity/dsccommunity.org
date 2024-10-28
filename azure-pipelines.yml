@@ -31,7 +31,7 @@ steps:
   #     hugoVersion: 0.135.0
 
   - pwsh: |
-      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v0.135.0/hugo_0.135.0_windows-amd64.zip"
+      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v0.136.5/hugo_0.136.5_windows-amd64.zip"
       $outputPath = ".\hugo.zip"
       Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
       Expand-Archive -Path $outputPath -DestinationPath ".\hugo"
