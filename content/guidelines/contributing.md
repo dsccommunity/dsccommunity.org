@@ -11,7 +11,7 @@ Thank you for your interest in contributing to the DSC Community.
 There are several ways you can contribute.
 
 - You can submit an issue to report a bug or to request an improvement.
-- You are encourage to take part in discussions around an issue or
+- You are encouraged to take part in discussions about an issue or
   pull request.
 - You may review pull requests.
 - You may send in a pull request to improve the DSC modules by adding a
@@ -21,7 +21,7 @@ There are several ways you can contribute.
 - You may create an entire new DSC module if there is need for it (you
   will become a maintainer of a new empty repository in DSC Community).
 
-If want to contribute my making changes to code or documentation but
+If you want to contribute my making changes to code or documentation but
 are new to contributing and GitHub, then please read the
 [Getting Started as a Contributor](/guidelines/getting-started/) guideline.
 
@@ -35,35 +35,66 @@ for each other.
 You can read more about the different contributions here:
 
 - [Submit an issue](#submit-an-issue)
+  - [Open a new issue](#open-a-new-issue)
+    - [Find the repository](#find-the-repository)
+    - [Search existing issues](#search-existing-issues)
+    - [Create a new issue](#create-a-new-issue)
 - [Breaking changes](#breaking-changes)
 - [Discuss an issue or pull request (PR)](#discuss-an-issue-or-pull-request-pr)
 - [Resolve an issue](#resolve-an-issue)
 - [Create or update a pull request (PR)](#create-or-update-a-pull-request-pr)
-- [Continuous integration (CI) pipeline](#continuous-integration-CI-pipeline)
+  - [Follow the style guideline](#follow-the-style-guideline)
+  - [Write tests](#write-tests)
+  - [Update the changelog](#update-the-changelog)
+  - [Open a Pull Request](#open-a-pull-request)
+    - [New pull request from working branch](#new-pull-request-from-working-branch)
+    - [Pull Request Title](#pull-request-title)
+    - [Pull Request Description](#pull-request-description)
+    - [Create Pull Request](#create-pull-request)
+  - [Update pull request of yours](#update-pull-request-of-yours)
+  - [Continuous integration (CI) pipeline](#continuous-integration-ci-pipeline)
 - [Review a pull request (PR)](#review-a-pull-request-pr)
 - [Write documentation](#write-documentation)
-- [Submitting an new DSC resource](#submitting-a-new-DSC-resource)
+- [Submitting a new DSC resource](#submitting-a-new-dsc-resource)
+  - [DSC resource naming](#dsc-resource-naming)
+    - [MOF-based DSC resource](#mof-based-dsc-resource)
+    - [Composite DSC resource](#composite-dsc-resource)
 - [Submitting a new resource module](#submitting-a-new-resource-module)
 - [Understand the coding workflow](#understand-the-coding-workflow)
+  - [Remove old dependencies](#remove-old-dependencies)
+  - [Resolve dependencies](#resolve-dependencies)
+  - [Build module](#build-module)
+  - [Test module](#test-module)
+  - [Knowledge base](#knowledge-base)
+    - [Error `cannot find "s.psd1"`](#error-cannot-find-spsd1)
+      - [Cause 1](#cause-1)
+      - [Cause 2](#cause-2)
+    - [Error `Missing property 'ProjectName'`](#error-missing-property-projectname)
+    - [Error `Cannot process argument transformation on parameter 'ProjectName'`](#error-cannot-process-argument-transformation-on-parameter-projectname)
+    - [Issue with preview strings containing a dash](#issue-with-preview-strings-containing-a-dash)
 - [Attach your fork to a free Azure DevOps organization](#attach-your-fork-to-a-free-azure-devops-organization)
 - [Resolve merge conflicts](#resolve-merge-conflicts)
+  - [1. Rebase the local branch `main` from the base branch `main`](#1-rebase-the-local-branch-main-from-the-base-branch-main)
+  - [2. Rebase your working branch](#2-rebase-your-working-branch)
+  - [3. Resolve merge conflicts](#3-resolve-merge-conflicts)
+  - [4. Update your pull request](#4-update-your-pull-request)
 - [How to continue working on a pull request (PR) when an author (contributor) is unable to complete it](#how-to-continue-working-on-a-pull-request-pr-when-an-author-contributor-is-unable-to-complete-it)
 
 ### Submit an issue
 
-Submitting an issue to a repository in the the DSC Community is easy! An
+Submitting an issue to a repository in the DSC Community is easy! An
 issue can be a problem, a solution, or a question.
 
 1. Find the correct repository to submit your issue to. See and search a
-   [list of  all repositories in DSC Community](https://github.com/dsccommunity).
-1. Search open issues to make sure the issue you having have not been
+   [list of all repositories in DSC Community](https://github.com/dsccommunity).
+2. Search open issues to make sure the issue you're having have not been
    submitted by someone else.
-1. Open a new issue. *If the repository has different issue templates*
+3. Open a new issue. *If the repository has different issue templates*
    *choose the template that best suits the issue you are experiencing.*
-1. Fill in a short but descriptive issue title.
-1. Fill in the issue description. *If you chose an issue template, follow*
+4. Fill in a short but descriptive issue title.
+5. Fill in the issue description. *If you chose an issue template, follow*
    *the guidance in the template text.*
-1. Submit the issue.
+6. Submit the issue.
 
 You may also [join the conversation](/community/contact/) and ask for
 help from other members of the community.
@@ -75,7 +106,7 @@ module that we need to report to the community.
 
 ##### Find the repository
 
-Browse to the [list of  all repositories in DSC Community](https://github.com/dsccommunity)
+Browse to the [list of all repositories in DSC Community](https://github.com/dsccommunity)
 and in the search field type 'comp'. GitHub should automatically filter
 the results and show the repositories that match what you typed.
 
@@ -113,9 +144,7 @@ submit.
 
 <img src="../../images/contributing/github_choose_issue_template.png" alt="GitHub Choose Issue Template" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 
-Please read the template text in the description field. The template
-text is there to help you provide as much information as possible so it
-is easier for the community to help you with your issue.
+Please read the template text in the description field. The template text is there to help you provide as much information as possible, so it becomes easier for the community to help you with your issue.
 
 Write a short but descriptive issue title. The issue title should be a
 brief summary of your issue in one sentence. While you write you will get
@@ -368,7 +397,7 @@ two common methods.
 First browse to your fork, e.g. https://github.com/johlju/ComputerManagementDsc
 
 If you just pushed a working branch to you fork GitHub will know that and
-suggest to send in a pull request, Just click on the button *Compare & pull request*.
+suggest sending in a pull request, Just click on the button *Compare & pull request*.
 
 <img src="../../images/contributing/github_compare_and_pull_request.png" alt="GitHub Compare & Pull Request" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width:725px;" />
 
@@ -441,7 +470,7 @@ will be created in the upstream repository.
 
 You will then need to wait for the PR to be reviewed. You cannot review
 your own code. Only maintainers can merge your code, and they do that
-only after a review has been completed and all review comments have been
+only after a review has been completed, and all review comments have been
 addressed and approved.
 
 #### Update pull request of yours
@@ -495,19 +524,19 @@ the PR has been approved in a review.
 >
 >If you have an urgent issue that needs to be reviewed in a repository that
 >does not have a maintainer, or you haven't heard from the repository
->maintainer for a period of time. Then it possible to ask for reviews from
+>maintainer for a period of time. Then it is possible to ask for reviews from
 >the other community members or general maintainers via [Slack #DSC channel](/community/contact/).
 
 ### Write documentation
 
-All documentation is done in markdown.
+All documentation is done in Markdown.
 
 Updating documentation is done by sending in a pull request (PR).
 The same principles as fixing an issue or submitting a feature apply here:
 An issue should be created first.
 
->**NOTE:** The Wiki is updated from the pipeline so it cannot be updated
->manually. Any manually changes to the Wiki will be lost on next release.
+_Note: The wiki is updated through a DevOps pipeline. Updates cannot be applied manually._
+
 
 ### Submitting a new DSC resource
 
@@ -541,17 +570,17 @@ named `DSC_Resource.psm1`, then the unit test file should be named
 
 ##### MOF-based DSC resource
 
-All mof-based resources should have `DSC_` prefixed before the resource name
+All MOF-based resources should have `DSC_` prefixed before the resource name
 in the schema file and on files (e.g. ``DSC_Resource.schema.mof`, `DSC_Resource.psm1`).
 This is per a convention that the name (or abbreviated name) of the
-company that provides the resource be included in the name of mof-based
+company that provides the resource be included in the name of MOF-based
 resource files. The friendly name of the resource that is defined in the
 `.mof` file should not have the `DSC_` prefix.
 
 ##### Composite DSC resource
 
 Composite resources with a configuration and a `.psd1` file must have the
-exact same name as the resource or they will not be able to be imported.
+exact same name as the resource, or they will not be able to be imported.
 Hence, composite resource files should not have the `DSC_` prefix, e.g.
 Resource.psm1.
 
@@ -587,7 +616,7 @@ and might have a previous local repository folder.
 
 The file `.gitignore` included an entry `DscResource.Tests` which means
 that there might be a folder in your local repository folder with that
-name. That folder are no longer used and will give you trouble if it is
+name. That folder is no longer used and will give you trouble if it is
 still present.
 
 1. Remove the folder `DscResource.Tests` inside your local repository
@@ -596,7 +625,7 @@ still present.
 #### Resolve dependencies
 
 Pay attention to any new code merged into the `main` branch of an official repository.
-If this occurs, you will need to pick-up these changes in your fork using the rebase
+If this occurs, you will need to pick up these changes in your fork using the rebase
 instructions in our [guide to getting started with GitHub](GettingStartedWithGitHub.md).
 
 This needs to be repeated each time changes are made to the file
@@ -671,7 +700,7 @@ information on how to run tests.
 
 This has been known to happen in the CI build pipeline when running in
 Azure DevOps. This is because the build pipeline cannot find or resolve
-the correct module manifest so it tries to be smart and trying to resolve
+the correct module manifest, so it tries to be smart and trying to resolve
 the module name based on the root project folder path which is `s`.
 
 Make sure the module manifest is in the correct location, can be imported.
@@ -710,11 +739,11 @@ Make sure to pin the ModuleBuilder to version `1.0.0` in the file
 
 We are moving to Azure DevOps because Azure Pipelines gives us better
 services on a free plan that can be created by all contributors for open
-source projects. For example it gives us longer run time per job (currently
+source projects. For example, it gives us longer run time per job (currently
 6 hours) plus the ability to run parallel jobs.
 
 Adding your fork to a free Azure DevOps organization means that when you
-push a working branch to your fork and it will be tested the same way as
+push a working branch to your fork, and it will be tested the same way as
 when you send in a PR.
 
 >This is similar to what the upstream repository is using to run CI pipeline,
@@ -734,26 +763,26 @@ and the Azure Pipelines will run the CI for you.
 1. Create a new project with the same name as the *GitHub repository name**,
    make sure to set visibility to **public**.
 1. In the new project under Pipelines, create a new pipeline and choose
-   GitHub as where the source resides, choose the the fork of the repository,
+   GitHub as where the source resides, choose the fork of the repository,
    e.g. johlju/SqlServerDsc. You will need to authenticate Azure DevOps
    with GitHub, and when it asks to install the Azure Pipelines GitHub app
    you can choose to install it for all and future repositories or just
    specific ones.
-1. Once back in Azure Pipelines choose *Existing Azure Pipelines YAML file*
+2. Once back in Azure Pipelines choose *Existing Azure Pipelines YAML file*
    and then select `azure-pipelines.yml` by browsing the branch you
    recently pushed above.
-1. On the box that says *Run*, instead just choose *Save* in the drop-down list.
-1. Overrides the continuous integration trigger by clicking on 'Edit' where
+3. On the box that says *Run*, instead just choose *Save* in the drop-down list.
+4. Overrides the continuous integration trigger by clicking on 'Edit' where
    you see the YAML file.
-1. Click on the three dots to get the sub-menu and to show the menu item 'Triggers'.
+5. Click on the three dots to get the sub-menu and to show the menu item 'Triggers'.
    1. Once in Triggers pane, under *Continuous Integration* click the checkbox
       *Override the YAML continuous integration trigger from here*, and then
       change the *Branch specification* to `*` (asterisk).
-   1. Under *Save & queue* in the drop-down menu choose *Save*.
-1. Go back to the new pipeline and on the pane *Runs* click *Run pipeline*.
+   2. Under *Save & queue* in the drop-down menu choose *Save*.
+6. Go back to the new pipeline and on the pane *Runs* click *Run pipeline*.
    1. For the *Branch/tag* choose the branch you just pushed, and leave
       *Commit* blank (to run the last the commit).
-   1. Click on *Run*.
+   2. Click on *Run*.
 
 Next time you push a commit to a branch in your fork, the Azure Pipeline
 will trigger on that and start a run.
@@ -832,12 +861,7 @@ in the output. See step 3 to learn how to resolve the merge conflicts.**
 
 #### 3. Resolve merge conflicts
 
-If you get a message saying something like below, then you have merge conflicts
-that must be manually resolved.
-Below there is a conflict between the `main` branch and your pull request branch
-for the file `README.md`.
-You can read more about how to resolve a merge conflict on the
-[GitHub help page](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/).
+If you get the following message:
 
 ```plaintext
 Auto-merging README.md
@@ -845,9 +869,12 @@ CONFLICT (content): Merge conflict in README.md
 error: Failed to merge in the changes.
 ```
 
-To fix this you need to manually open the file in an editor of your choosing and
-find the conflict. You find the conflict by searching for seven equals
-sign: `=======`. Below is an example of how it could look like.
+Then you have encountered a merge conflict. To resolve merge conflicts, take a look at the following articles:
+
+- [Resolve a merge conflict from the command line](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/)
+- [Beginners guide to GitHub merging a pull request](https://github.blog/developer-skills/github-education/beginners-guide-to-github-merging-a-pull-request/)
+
+In the following example, there is a merge conflict in the `README.md` file:
 
 ```plaintext
 ...
@@ -866,12 +893,14 @@ sign: `=======`. Below is an example of how it could look like.
 ...
 ```
 
+To fix the issue, you need to manually open the file in your favorite editor. In the above example, you can clearly see the seven equals signs what is incoming:
+
 - Above the equal characters `========` is what is currently in the `README.md`.
-- Below the equal characters `========` is the incoming change from the current
-  commit being replayed.
+- Below the equal characters `========` is the incoming change from the current commit being replayed.
 
 To resolve this we have to manually change this section. The file can be changed
 in any way you need to solve the conflict.
+
 _Note: You must remove the lines `<<<<<<< HEAD`, `========` and `>>>>>>> origin/main`._
 
 After resolving the conflict, `README.md` could look like this:
@@ -890,9 +919,9 @@ After resolving the conflict, `README.md` could look like this:
 ...
 ```
 
-When you are happy with the file, save it and continue with the next file, if
-there was more merge conflicts.
-**Only when all the merge conflicts are resolved can you continue with the rebase.**
+When you are happy with the file, save it. If there are more merge conflicts, resolve them in the same way.
+
+_Note: Only when all merge conflicts are resolved, rebase can be performed_
 
 To continue with the rebase. In the same PowerShell prompt as you started the
 rebase, you need to do the following:
@@ -932,10 +961,10 @@ It is polite to tell the original author of the PR that you will be continuing
 the work, by commenting on the original PR.
 
 You can continue the work by getting the changes from the original contributors
-branch to a new working branch in your fork. Once you have create a new working
+branch to a new working branch in your fork. Once you have created a new working
 branch with the original contributors changes,
 then you can create a new pull request into the original repository.
-It's important that when you create a new pull request from someone elses work,
+It's important that when you create a new pull request from someone else's work,
 that you mention the original pull request, and also acknowledge the original
 author and mention the work it is based on.
 For example mention the original author in the descriptive field when you create
@@ -1004,5 +1033,5 @@ In a PowerShell prompt, you need to do the following.
    git push my changes-from-PR#<number> --force  # Change to the PR number, i.e. git push my changes-from-PR#34 --force
    ```
 
-1. Now, go to you forked repository on GitHub and create the pull request the
+1. Now, go to your forked repository on GitHub and create the pull request the
   normal way.
