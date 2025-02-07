@@ -1,11 +1,23 @@
 ---
-title: "Next Community Call 2023-11-01"
+title: "Next Community Calls"
 weight: 1
 type: "post"
-date: 2023-08-04
+date: 2025-02-07
 ---
 
-Next call will be on Wednesday, November 1st, at 12 PM PST
+DSC Community Calls have been scheduled recursively every 6 weeks.
+
+The following Community Calls are scheduled for 2025:
+
+* 19th of March
+* 30th of April
+* 11th of June
+* 23th of July
+* 3th of September
+* 15th of October
+* 26th of November
+
+Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community). This link also contains a `.ics` file you can easily import in Outlook to get the dates in.
 
 ### Join the call
 
@@ -16,15 +28,6 @@ Next call will be on Wednesday, November 1st, at 12 PM PST
 Conference ID:
 503 431 76#
 
-### Agenda
-
-#### Community presentation
-
-Some news from the Machine Configuration team.
-Recent addition to the team, Mutemwa has some news to share with the community.
-
-[Check this tweet for more teasing!](https://twitter.com/AzureGovernance/status/1719416570047549863).
-
 #### Community questions
 
 _Submit your questions, or raise them directly in the call._
@@ -33,40 +36,9 @@ _Submit your questions, or raise them directly in the call._
 During the Community Call in the presentation area you can ask questions by moving
 you avatar to the Q & A area. -->
 
-Want to submit a question to discuss during the call so others can prepare?
-Just [submit a Pull request to this file](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/next_call.en.md)!
+Want to submit a question to discuss during the call so others can prepare? Hit up a pull request with a new file for the particular community call on that date in this [directory](https://github.com/dsccommunity/dsccommunity.org/edit/master/content/community_calls/).
 
 #### Discussions
 
 We are also available on the **Virtual PowerShell User Group** _#DSC_ channel.
 For information on how to join, see https://dsccommunity.org/community/contact/
-
-### DSC resource modules that have been released recently
-
-- Releases
-  - ActiveDirectoryDsc v6.3.0
-  - DFSDsc v5.0.1
-  - ExchangeDsc v2.0.0
-  - SharePointDsc v5.4.0
-  - SqlServerDsc v16.5.0
-  - xDhcpServer v3.1.1
-- Preview releases
-  - ComputerManagementDsc v9.1.0-preview0002
-  - JeaDsc v4.0.0-preview0005
-  - SharePointDsc v5.5.0-preview0002
-  - StorageDsc v6.0.0-preview0001
-  - WSManDsc v3.2.0-preview0005
-  - xRemoteDesktopSessionHost v3.0.0-preview0001
-
-#### Tooling modules that have been released recently
-
-- Releases
-  - DscResource.Test v0.16.2
-  - DscResource.Common v0.16.0
-  - Sampler v0.117.0
-
-### Next Community Call
-
-Next community call is on the 13th of December.
-Suggestions for talks are welcomed, we have [Call for speakers](https://sessionize.com/dsc-community)
-open.
