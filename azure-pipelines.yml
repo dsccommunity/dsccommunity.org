@@ -7,20 +7,20 @@ trigger:
   - master
 
 pr:
-  autoCancel: true
+  autoCancel: 'true'
 
 pool:
-  vmImage: "windows-2019"
+  vmImage: 'windows-latest'
 
 steps:
   - checkout: self
-    displayName: "Checkout repository"
+    displayName: 'Checkout repository'
 
   - task: PowerShell@2
     name: ResourcesJSON
-    displayName: "Generating Resources JSON from PSGallery"
+    displayName: 'Generating Resources JSON from PSGallery'
     inputs:
-      filePath: "./Get-DscResourceKitInfo.ps1"
+      filePath: './Get-DscResourceKitInfo.ps1'
       pwsh: true
       errorActionPreference: continue
 
@@ -35,14 +35,14 @@ steps:
       $outputPath = ".\hugo.zip"
       Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
       Expand-Archive -Path $outputPath -DestinationPath ".\hugo"
-    displayName: "Download and Extract Hugo"
+    displayName: 'Download and Extract Hugo'
 
   - pwsh: |
       .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info
-    displayName: "Build Hugo Site"
+    displayName: 'Build Hugo Site'
 
   - task: PublishPipelineArtifact@0
-    displayName: "Publish Hugo site as artifact"
+    displayName: 'Publish Hugo site as artifact'
     inputs:
-      artifactName: "dsccommunity"
-      targetPath: "$(Build.ArtifactStagingDirectory)"
+      artifactName: 'dsccommunity'
+      targetPath: '$(Build.ArtifactStagingDirectory)'
