@@ -132,7 +132,7 @@ master, before pushing to your origin master (your private fork).
 
 Now that you have HUGO installed, and you have the clone of your personal fork locally, you can run the Hugo server.
 
->_This website requires Hugo version `0.136.5` or higher. You can see the version_
+>_This website requires Hugo version `0.148.2` or higher. You can see the version_
 >_by running `hugo version`._
 
 ```PowerShell
