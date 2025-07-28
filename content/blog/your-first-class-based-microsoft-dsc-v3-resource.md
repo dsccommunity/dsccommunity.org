@@ -258,11 +258,11 @@ Here's the complete `DemoDscClass.psm1` file:
   }
   ```
 
-It's time to install Microsoft DSC v3 and test out the class using `dsc.exe`.
+It's time to install Microsoft DSC v3 and test out the class using `dsc`.
 
 ## Step 4: Install Microsoft DSC v3
 
-To easily install the `dsc.exe` executable, you can use the [PSDSC][02] PowerShell community module.
+To easily install the `dsc` executable, you can use the [PSDSC][02] PowerShell community module.
 
 > [!INFO]
 > The community module only works on PowerShell 7.
