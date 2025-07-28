@@ -20,8 +20,14 @@ The website is a HUGO generated static website: it takes files in markdown forma
 
 Make sure you install Hugo first, the easiest is with the Chocolatey Package Management:
 
-```PowerShell
+```powerShell
 C:\ > choco install hugo
+```
+
+Or you can use WinGet to install Hugo:
+
+```powershell
+winget install Hugo.Hugo --source winget
 ```
 
 Then you can clone this website and run it. But we recommend you first fork the repository under your github account, and clone that fork before so you can create Pull Requests to contribute:
@@ -126,7 +132,7 @@ master, before pushing to your origin master (your private fork).
 
 Now that you have HUGO installed, and you have the clone of your personal fork locally, you can run the Hugo server.
 
->_This website requires Hugo version `0.62` or higher. You can see the version_
+>_This website requires Hugo version `0.148.2` or higher. You can see the version_
 >_by running `hugo version`._
 
 ```PowerShell

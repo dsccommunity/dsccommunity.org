@@ -1,5 +1,5 @@
 baseURL = "https://dsccommunity.org/"
-theme = "dot"
+theme = ["dot", "hugo-admonitions"]
 googleAnalytics = "UA-144465379-1"
 
 [markup]
@@ -119,7 +119,6 @@ URL = "https://github.com/dsccommunity/"
 [[Languages.en.params.socialIcon]]
 icon = "ti-twitter-alt"
 URL = "https://twitter.com/dsccommunity"
-
 
 # # French Language
 # [Languages.fr]
