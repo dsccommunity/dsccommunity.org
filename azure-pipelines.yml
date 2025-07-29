@@ -34,7 +34,7 @@ steps:
   - pwsh: |
       $versionsConfig = Get-Content -Path ".\.versions.json" -Raw | ConvertFrom-Json
       $hugoVersion = $versionsConfig.hugo.version
-      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v$hugoVersion/hugo_${hugoVersion}_windows-amd64.zip"
+      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v$hugoVersion/hugo_extended_${hugoVersion}_windows-amd64.zip"
       $outputPath = ".\hugo.zip"
       Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
       Expand-Archive -Path $outputPath -DestinationPath ".\hugo"

@@ -2,7 +2,7 @@
     "name": "Hugo Dev Container",
     "build": {
         "dockerfile": "Dockerfile",
-        "context": "."
+        "context": ".."
     },
     "customizations": {
         "vscode": {
