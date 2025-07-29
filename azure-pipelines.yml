@@ -21,6 +21,15 @@ steps:
       git submodule update --init --force themes/hugo-admonitions
     displayName: "Initialize theme submodule"
 
+  - script: |
+      echo "Checking hugo-admonitions theme files..."
+      ls -la themes/hugo-admonitions/
+      echo "Checking for theme.yaml..."
+      cat themes/hugo-admonitions/theme.yaml
+      echo "Checking for render template..."
+      ls -la themes/hugo-admonitions/layouts/_default/_markup/
+    displayName: "Verify theme files"
+
   - task: PowerShell@2
     name: ResourcesJSON
     displayName: "Generating Resources JSON from PSGallery"
@@ -45,8 +54,15 @@ steps:
     displayName: "Download and Extract Hugo"
 
   - pwsh: |
-      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info
+      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info --verbose
     displayName: "Build Hugo Site"
+
+  - script: |
+      echo "Checking if admonitions CSS was generated..."
+      find "$(Build.ArtifactStagingDirectory)" -name "*admonition*" -type f
+      echo "Checking blog post HTML for admonitions..."
+      grep -l "admonition" "$(Build.ArtifactStagingDirectory)/blog/your-first-class-based-microsoft-dsc-v3-resource/index.html" || echo "No admonitions found in blog post"
+    displayName: "Verify admonitions in build"
 
   - task: PublishPipelineArtifact@0
     displayName: "Publish Hugo site as artifact"
