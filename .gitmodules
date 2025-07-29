@@ -1,3 +1,7 @@
 [submodule "themes/hugo-admonitions"]
 	path = themes/hugo-admonitions
 	url = https://github.com/KKKZOZ/hugo-admonitions.git
+
+[submodule "public"]
+	path = public
+	url = https://github.com/johlju/dsccommunity.org.git
