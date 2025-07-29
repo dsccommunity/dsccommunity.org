@@ -54,7 +54,7 @@ steps:
     displayName: "Download and Extract Hugo"
 
   - pwsh: |
-      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel debug --theme dot hugo-admonitions
+      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel debug --theme=dot hugo-admonitions
     displayName: "Build Hugo Site"
 
   - script: |
