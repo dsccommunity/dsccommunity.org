@@ -14,8 +14,12 @@ pool:
 
 steps:
   - checkout: self
-    submodules: true
+    submodules: false
     displayName: "Checkout repository"
+  - script: |
+      git submodule sync
+      git submodule update --init --force themes/hugo-admonitions
+    displayName: "Initialize theme submodule"
 
   - task: PowerShell@2
     name: ResourcesJSON
