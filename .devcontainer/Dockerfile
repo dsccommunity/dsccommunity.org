@@ -7,14 +7,16 @@ RUN apt-get update && \
     wget \
     git \
     gh \
+    jq \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Hugo
-ARG HUGO_VERSION=0.136.5
-RUN wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb \
-    && dpkg -i hugo_${HUGO_VERSION}_linux-amd64.deb \
-    && rm hugo_${HUGO_VERSION}_linux-amd64.deb
+COPY .versions.json /tmp/.versions.json
+RUN HUGO_VERSION=$(jq -r '.hugo.version' /tmp/.versions.json) && \
+    wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb && \
+    dpkg -i hugo_${HUGO_VERSION}_linux-amd64.deb && \
+    rm hugo_${HUGO_VERSION}_linux-amd64.deb /tmp/.versions.json
 
 # Set the default user
 USER vscode
