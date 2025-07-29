@@ -102,7 +102,7 @@ as a Git submodule under `themes/hugo-admonitions`.
    hugo --minify
    ```
 
-## New submodukle
+## New submodule
 
 Azure Pipelines is configured to check out submodules automatically. If you
 ever add a new submodule, commit the changes to `.gitmodules` and run:
