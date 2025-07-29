@@ -14,7 +14,12 @@ pool:
 
 steps:
   - checkout: self
+    submodules: false
     displayName: "Checkout repository"
+  - script: |
+      git submodule sync
+      git submodule update --init --force themes/hugo-admonitions
+    displayName: "Initialize theme submodule"
 
   - task: PowerShell@2
     name: ResourcesJSON
@@ -31,7 +36,9 @@ steps:
   #     hugoVersion: 0.135.0
 
   - pwsh: |
-      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_0.148.2_windows-amd64.zip"
+      $versionsConfig = Get-Content -Path ".\.versions.json" -Raw | ConvertFrom-Json
+      $hugoVersion = $versionsConfig.hugo.version
+      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v$hugoVersion/hugo_extended_${hugoVersion}_windows-amd64.zip"
       $outputPath = ".\hugo.zip"
       Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
       Expand-Archive -Path $outputPath -DestinationPath ".\hugo"
