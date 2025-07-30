@@ -8,5 +8,5 @@ node_modules
 builds
 package-lock.json
 /resources
-/public/**
+/site/public/**
 .hugo_build.lock
