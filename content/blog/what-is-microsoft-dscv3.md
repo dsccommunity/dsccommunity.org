@@ -39,7 +39,7 @@ Install-DscExe
 ```
 
 > [!TIP]
-> You can also install pre-release version by adding the `PreRelease` switch parameter.
+> You can also install pre-release version by adding the `IncludePreRelease` switch parameter.
 
 The command automatically adds the `dsc` executable to the `PATH` environment variable.
 
