@@ -15,7 +15,7 @@ Microsoft Desired State Configuration (DSC) v3 is a cross-platform tool that let
 For example, what file and folders should always exist or which services should be running _always_.
 
 > [!TIP]
-> To learn why you want to use Microsoft DSC v3, check out the [following article](demodscclass-your-first-class-based-dsc-v3-resource.md#why-use-class-based-resources)
+> To learn why you want to use Microsoft DSC v3, check out the [following article](/blog/your-first-class-based-microsoft-dsc-v3-resource/#why-use-class-based-resources)
 
 ## Installing DSC v3
 
