@@ -1,0 +1,2 @@
+# Hugo templates - multi-line strings in template expressions break parsing
+layouts/

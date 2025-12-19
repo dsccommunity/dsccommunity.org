@@ -6,8 +6,10 @@ draft: false
 author: johlju
 ---
 
-_This assumes the repository is using the pattern from the [Sampler](https://github.com/gaelcolas/Sampler)_
-_project. Also make sure you have updated the repository to the latest pipeline._
+Code coverage metrics help ensure your DSC resources are well-tested. This guide explains how to configure Codecov.io integration for your DSC Community repository to track and report code coverage in your CI pipeline using Pester's JaCoCo output.
+
+_This assumes the repository is using the pattern from the [Sampler](https://github.com/gaelcolas/Sampler)
+project. Also make sure you have updated the repository to the latest pipeline._
 
 ## Table of Contents
 

@@ -6,9 +6,10 @@ weight: 1
 draft: false
 ---
 
-Creating the md file is easy, but you might want to double check how it will
-render on the website. To do so, we recommend you to install Hugo
-(using Chocolatey it's just a `choco install hugo`) and test what you create.
+Want to contribute a blog post to the DSC Community website? This guide shows you how to create and submit articles using Hugo and the archetypes template system.
+
+We recommend installing Hugo (using Chocolatey it's just `choco install hugo`) to preview how your content will
+render on the website before submitting.
 
 But when you have installed hugo, forked the `dsccommunity.org`,
 and cloned your fork locally, you can generate a post from the template,

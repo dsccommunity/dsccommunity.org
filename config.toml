@@ -71,7 +71,7 @@ url = "/help"
 [[Languages.en.menu.main]]
 weight = 5
 name = "Categories"
-url = "/pages"
+url = "#"
 hasChildren = true
 
 [[Languages.en.menu.main]]

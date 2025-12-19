@@ -6,16 +6,12 @@ draft: false
 author: dscottraynsford
 ---
 
-You are welcome to share any comments or issues you having around this
-process in the [Discord or Slack #DSC channel](https://dsccommunity.org/community/contact/).
+This guide walks you through renaming the `master` branch to `main` for DSC Community resource repositories, covering GitHub settings, Azure DevOps pipeline updates, and branch protection policies.
 
 On the 1st of October 2020, [GitHub announced](https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/)
 that the default branch name for new repositories was changing from `master`
-to `main`.
-
-This post describes the process required to rename `master` branch to `main`
-for a DSC community resource module. It is up to individual maintainers if they
-wish to rename `master` to `main` on their repositories
+to `main`. You are welcome to share any comments or issues you having around this
+process in the [Discord or Slack #DSC channel](https://dsccommunity.org/community/contact/).
 
 ## Prerequisites
 

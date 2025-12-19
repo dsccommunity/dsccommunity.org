@@ -6,6 +6,8 @@ draft: false
 author: johlju
 ---
 
+Stop duplicating helper functions across your DSC modules. Learn how to integrate the DscResource.Common module into your DSC resource repository, providing shared functions for localization, exception handling, and parameter validation.
+
 ### What
 
 This article will explain the steps needed to use a version of the
