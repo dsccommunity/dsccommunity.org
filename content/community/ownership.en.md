@@ -1,8 +1,7 @@
 ---
 title: "Ownership of DSC Resources"
 date: 2019-07-18T15:02:05+06:00
-weight: 1
-type: "post"
+weight: 2
 author: "gaelcolas"
 ---
 

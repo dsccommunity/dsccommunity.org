@@ -7,7 +7,7 @@
     <div class="hero-content">
       <span class="hero-badge">
         <i class="ri-book-open-line"></i>
-        Documentation
+        Guidelines
       </span>
       <h1 class="hero-title">Guidelines</h1>
       <p class="hero-description">
@@ -106,45 +106,23 @@
 
     <div class="grid-auto stagger">
       {{ range .Data.Pages.ByWeight }}
-      <a href="{{ .Permalink }}" class="card card-link">
-        <div class="card-icon">
-          {{ if eq .Title "Getting Started" }}
-          <i class="ri-rocket-line"></i>
-          {{ else if eq .Title "Contributing" }}
-          <i class="ri-git-branch-line"></i>
-          {{ else if eq .Title "Maintaining" }}
-          <i class="ri-tools-line"></i>
-          {{ else if eq .Title "Style Guidelines" }}
-          <i class="ri-palette-line"></i>
-          {{ else if eq .Title "Testing Guidelines" }}
-          <i class="ri-flask-line"></i>
-          {{ else if eq .Title "Administration" }}
-          <i class="ri-settings-4-line"></i>
-          {{ else }}
-          <i class="ri-file-text-line"></i>
-          {{ end }}
-        </div>
-        <h3 class="card-title">{{ .Title }}</h3>
-        {{ with .Description }}
-        <p class="card-description">{{ . }}</p>
+      <a href="{{ .Permalink }}" class="card card-link" style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-5);">
+        {{ if in .Title "Getting Started" }}
+        <i class="ri-rocket-line" style="color: var(--color-primary); font-size: 1.25rem;"></i>
+        {{ else if eq .Title "Contributing" }}
+        <i class="ri-git-pull-request-line" style="color: var(--color-success); font-size: 1.25rem;"></i>
+        {{ else if eq .Title "Maintaining" }}
+        <i class="ri-tools-line" style="color: var(--color-warning); font-size: 1.25rem;"></i>
+        {{ else if in .Title "Style" }}
+        <i class="ri-palette-line" style="color: #a855f7; font-size: 1.25rem;"></i>
+        {{ else if in .Title "Testing" }}
+        <i class="ri-flask-line" style="color: #ec4899; font-size: 1.25rem;"></i>
+        {{ else if eq .Title "Administration" }}
+        <i class="ri-shield-user-line" style="color: #f97316; font-size: 1.25rem;"></i>
         {{ else }}
-        <p class="card-description">{{ .Summary | truncate 150 }}</p>
+        <i class="ri-file-text-line" style="color: var(--text-tertiary); font-size: 1.25rem;"></i>
         {{ end }}
-        <span class="blog-card-read-more">
-          Read guide
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </span>
+        <span style="font-weight: 500; color: var(--text-primary);">{{ .Title }}</span>
       </a>
       {{ end }}
     </div>
