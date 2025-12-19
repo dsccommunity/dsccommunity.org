@@ -1,0 +1,163 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-12) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <a
+        href="/code_of_conduct"
+        class="hero-badge"
+        style="text-decoration: none"
+      >
+        <i class="ri-arrow-left-line"></i>
+        Code of Conduct
+      </a>
+      <h1 class="hero-title" style="font-size: var(--text-4xl)">
+        {{ .Title }}
+      </h1>
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section" style="padding-top: 0">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">Sections</h4>
+            <ul class="sidebar-list">
+              {{ range .Parent.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a
+                  href="{{ .Permalink }}"
+                  class="sidebar-link{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}"
+                >
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </nav>
+
+          <!-- Quick Actions -->
+          <div
+            style="
+              margin-top: var(--space-6);
+              padding: var(--space-4);
+              background: var(--bg-tertiary);
+              border-radius: var(--radius-lg);
+            "
+          >
+            <h5
+              style="font-size: var(--text-sm); margin-bottom: var(--space-3)"
+            >
+              Report an Issue
+            </h5>
+            <p
+              style="
+                font-size: var(--text-xs);
+                color: var(--text-secondary);
+                margin-bottom: var(--space-3);
+              "
+            >
+              If you experience or witness unacceptable behavior, please report
+              it.
+            </p>
+            <a
+              href="mailto:dsccommunity@outlook.com"
+              class="btn btn-sm btn-primary"
+              style="width: 100%; justify-content: center"
+            >
+              <i class="ri-mail-line"></i>
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <article class="article-content">{{ .Content }}</article>
+
+        <!-- Navigation -->
+        <nav
+          class="article-nav"
+          style="
+            margin-top: var(--space-12);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--border-primary);
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+          "
+        >
+          {{ with .PrevInSection }}
+          <a
+            href="{{ .Permalink }}"
+            class="article-nav-link prev"
+            style="
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: var(--space-2);
+              color: var(--text-secondary);
+            "
+          >
+            <i class="ri-arrow-left-line"></i>
+            <span>
+              <span
+                style="
+                  display: block;
+                  font-size: var(--text-xs);
+                  color: var(--text-tertiary);
+                "
+                >Previous</span
+              >
+              <span style="color: var(--text-primary); font-weight: 500"
+                >{{ .Title }}</span
+              >
+            </span>
+          </a>
+          {{ else }}
+          <div></div>
+          {{ end }} {{ with .NextInSection }}
+          <a
+            href="{{ .Permalink }}"
+            class="article-nav-link next"
+            style="
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: var(--space-2);
+              color: var(--text-secondary);
+              text-align: right;
+            "
+          >
+            <span>
+              <span
+                style="
+                  display: block;
+                  font-size: var(--text-xs);
+                  color: var(--text-tertiary);
+                "
+                >Next</span
+              >
+              <span style="color: var(--text-primary); font-weight: 500"
+                >{{ .Title }}</span
+              >
+            </span>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+          {{ end }}
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

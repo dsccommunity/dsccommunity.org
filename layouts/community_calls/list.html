@@ -1,0 +1,137 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0;">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-video-chat-line"></i>
+        Stay Connected
+      </span>
+      <h1 class="hero-title">Community Calls</h1>
+      <p class="hero-description">
+        Join our regular community calls to stay updated, share ideas, and connect with fellow DSC enthusiasts. All calls are open to everyone!
+      </p>
+      <div class="hero-actions">
+        <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OTc2YThjZGQtNWE4Yi00NDQyLTk5NTktYWIwYjdhMGZjNDRl%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%222fd83437-7fe6-4ee4-a109-828a19cb7bff%22%7d" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          <i class="ri-video-add-line"></i>
+          Join on Teams
+        </a>
+        <a href="/ics/DSC_Community_Call.ics" class="btn btn-secondary btn-lg">
+          <i class="ri-calendar-line"></i>
+          Add to Calendar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How to Join Section -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="grid grid-cols-3" style="gap: var(--space-6);">
+      <div class="card text-center">
+        <div class="card-icon" style="margin: 0 auto var(--space-4);">
+          <i class="ri-microsoft-fill"></i>
+        </div>
+        <h3 class="card-title">Microsoft Teams</h3>
+        <p class="card-description">Join through Microsoft Teams meeting link. No account required for external guests.</p>
+      </div>
+      <div class="card text-center">
+        <div class="card-icon" style="margin: 0 auto var(--space-4);">
+          <i class="ri-phone-line"></i>
+        </div>
+        <h3 class="card-title">Phone Dial-In</h3>
+        <p class="card-description">+1 323-849-4874 (Los Angeles)<br>Conference ID: 503 431 76#</p>
+      </div>
+      <div class="card text-center">
+        <div class="card-icon" style="margin: 0 auto var(--space-4);">
+          <i class="ri-calendar-check-line"></i>
+        </div>
+        <h3 class="card-title">Regular Schedule</h3>
+        <p class="card-description">Download the ICS file to add recurring events to your calendar app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">
+        <i class="ri-history-line"></i>
+        Meeting Archive
+      </span>
+      <h2 class="section-title">Community Call Notes</h2>
+      <p class="section-description">
+        Browse meeting notes from all our community calls, organized by year.
+      </p>
+    </div>
+
+    <div class="timeline-container">
+      {{/* Group pages by year */}}
+      {{ $pages := where .Data.Pages "Kind" "page" }}
+      {{ $years := slice }}
+      {{ range $pages }}
+        {{ $year := .Date.Year }}
+        {{ if not (in $years $year) }}
+          {{ $years = $years | append $year }}
+        {{ end }}
+      {{ end }}
+
+      {{/* Sort years descending */}}
+      {{ $years = sort $years "value" "desc" }}
+
+      {{ range $year := $years }}
+        {{ $yearPages := where $pages ".Date.Year" $year }}
+        {{ $yearPagesReversed := $yearPages.ByDate.Reverse }}
+
+        <div class="timeline-year-group" data-year="{{ $year }}">
+          <div class="timeline-year-header">
+            <span class="timeline-year">{{ $year }}</span>
+            <div class="timeline-year-line"></div>
+            <span class="timeline-year-count">{{ len $yearPages }} {{ if eq (len $yearPages) 1 }}call{{ else }}calls{{ end }}</span>
+          </div>
+
+          <div class="timeline-items">
+            {{ range $yearPagesReversed }}
+            <a href="{{ .Permalink }}" class="timeline-card">
+              <div class="timeline-card-date">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+              </div>
+              <h3 class="timeline-card-title">{{ .Title }}</h3>
+              <span class="timeline-card-link">
+                View notes
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-content">
+        <h2 class="cta-title">Have Something to Share?</h2>
+        <p class="cta-description">
+          Want to add items to the next community call agenda? Submit a PR to update the agenda!
+        </p>
+        <a href="https://github.com/dsccommunity/dsccommunity.org/blob/master/content/community_calls/next_call.en.md" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          <i class="ri-git-pull-request-line"></i>
+          Update Agenda
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

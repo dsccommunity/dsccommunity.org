@@ -1,43 +1,254 @@
 {{ define "main" }}
 
-  {{ "<!-- topics -->" | safeHTML }}
-  <section class="section bg-gray">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 text-center">
-              {{with .Site.Params.topics.title}} <h2 class="section-title">{{ . }}</h2> {{ end }}
-            </div>
-            {{ "<!-- topic-item -->" | safeHTML }}
-            {{ range (where .Site.Pages "Type" "pages") }}
-            <div class="col-lg-4 col-sm-6 mb-4">
-              <a href="{{ .Permalink }}" class="px-4 py-5 shadow text-center d-block" style="background-color:{{ .Params.bgcolor }}">
-                <i class="{{ .Params.Icon }} icon text-dark d-block mb-4"></i>
-                <h3 class="mb-3">{{ .Title }}</h3>
-                <p class="mb-0">{{ .Params.Description }}</p>
-              </a>
-            </div>
-            {{ end }}
-        </div>
-    </div>
-  </section>
-  {{ "<!-- /topics -->" | safeHTML }}
+<!-- Hero Section -->
+<section class="hero">
+  <!-- Animated Background -->
+  <div class="hero-grid"></div>
+  <div class="hero-orbs">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
 
-  {{ if .Site.Params.cta.enable }}
-  {{ "<!-- call to action -->" | safeHTML }}
-  <section class="bg-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="section bg-white shadow text-center">
-          {{ with .Site.Params.cta.title }} <h2 class="mb-4">{{ . }}</h2> {{ end }}
-          {{ with .Site.Params.cta.description }} <p class="mb-4">{{ . }}</p> {{ end }}
-          <a href="{{ with .Site.Params.cta.btnURL}}{{ . | absURL }}{{ end }}" class="btn btn-primary">{{ with .Site.Params.cta.btnText}}{{ . }}{{ end }}</a>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-code-s-slash-line"></i>
+        Open Source Community
+      </span>
+
+      <h1 class="hero-title">
+        The <span class="hero-title-gradient">DSC Community</span>
+      </h1>
+
+      <p class="hero-description">
+        A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices. Join us in building the future of Desired State Configuration.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/guidelines/getting-started" class="btn btn-primary btn-lg">
+          <i class="ri-rocket-line"></i>
+          Get Started
+        </a>
+        <a href="https://github.com/dsccommunity" class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+
+      <!-- Hero Search -->
+      <div class="hero-search">
+        <svg class="hero-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search documentation, resources, and more..." onclick="openSearchModal()" readonly>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">
+        <i class="ri-lightbulb-line"></i>
+        What We Do
+      </span>
+      <h2 class="section-title">Who We Are & What We Do</h2>
+      <p class="section-description">
+        Empowering the PowerShell and DSC community with high-quality resources, comprehensive guidelines, and collaborative development practices.
+      </p>
+    </div>
+
+    <div class="grid-auto stagger">
+      {{ range (where .Site.Pages "Type" "pages") }}
+      <a href="{{ .Permalink }}" class="card feature-card card-link">
+        <div class="card-icon">
+          {{ if eq .Params.Icon "ti-user" }}
+          <i class="ri-team-line"></i>
+          {{ else if eq .Params.Icon "ti-package" }}
+          <i class="ri-apps-2-line"></i>
+          {{ else if eq .Params.Icon "ti-book" }}
+          <i class="ri-book-open-line"></i>
+          {{ else if eq .Params.Icon "ti-rss-alt" }}
+          <i class="ri-article-line"></i>
+          {{ else if eq .Params.Icon "ti-settings" }}
+          <i class="ri-settings-3-line"></i>
+          {{ else if eq .Params.Icon "ti-headphone-alt" }}
+          <i class="ri-headphone-line"></i>
+          {{ else if eq .Params.Icon "ti-help-alt" }}
+          <i class="ri-question-line"></i>
+          {{ else if eq .Params.Icon "ti-shield" }}
+          <i class="ri-shield-check-line"></i>
+          {{ else }}
+          <i class="ri-folder-line"></i>
+          {{ end }}
+        </div>
+        <h3 class="card-title">{{ .Title }}</h3>
+        <p class="card-description">{{ .Params.Description }}</p>
+        <span class="blog-card-read-more">
+          Learn more
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-value">50+</span>
+        <span class="stat-label">Resource Modules</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">100+</span>
+        <span class="stat-label">Contributors</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">6+</span>
+        <span class="stat-label">Years Active</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">1M+</span>
+        <span class="stat-label">Downloads</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Blog Posts -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">
+        <i class="ri-quill-pen-line"></i>
+        Latest Articles
+      </span>
+      <h2 class="section-title">From the Blog</h2>
+      <p class="section-description">
+        Insights, tutorials, and updates from the DSC Community maintainers and contributors.
+      </p>
+    </div>
+
+    <div class="grid-auto stagger">
+      {{ $blogPages := where .Site.RegularPages "Section" "blog" }}
+      {{ range first 6 $blogPages.ByDate.Reverse }}
+      <a href="{{ .Permalink }}" class="card blog-card card-link">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">Blog</span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        </div>
+        <h3 class="blog-card-title">{{ .Title }}</h3>
+        <p class="blog-card-excerpt">{{ .Summary | truncate 150 }}</p>
+        <span class="blog-card-read-more">
+          Read article
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="/blog" class="btn btn-outline">
+        View All Posts
+        <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Community Calls Preview -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">
+        <i class="ri-calendar-event-line"></i>
+        Stay Connected
+      </span>
+      <h2 class="section-title">Community Calls</h2>
+      <p class="section-description">
+        Join our regular community calls to stay updated, share ideas, and connect with other DSC enthusiasts.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2" style="gap: var(--space-8);">
+      <!-- Next Call Card -->
+      <div class="card" style="border-left: 4px solid var(--color-primary);">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="card-icon" style="margin-bottom: 0;">
+            <i class="ri-video-chat-line"></i>
           </div>
+          <div>
+            <h3 style="margin-bottom: 0;">Next Community Call</h3>
+            <p style="margin-bottom: 0; font-size: var(--text-sm);">Join us on Microsoft Teams</p>
+          </div>
+        </div>
+        <p class="card-description">
+          The DSC Community calls are open for everyone. Add them to your calendar and join the discussion!
+        </p>
+        <div class="flex gap-4 mt-4">
+          <a href="/community_calls" class="btn btn-primary">
+            <i class="ri-calendar-line"></i>
+            View Schedule
+          </a>
+          <a href="/ics/DSC_Community_Call.ics" class="btn btn-outline">
+            <i class="ri-download-line"></i>
+            Download ICS
+          </a>
+        </div>
+      </div>
+
+      <!-- Recent Calls -->
+      <div class="card">
+        <h3 style="margin-bottom: var(--space-4);">Recent Meeting Notes</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          {{ $calls := where .Site.RegularPages "Section" "community_calls" }}
+          {{ range first 5 $calls.ByDate.Reverse }}
+          {{ if ne .Title "Community Calls" }}
+          <li style="padding: var(--space-2) 0; border-bottom: 1px solid var(--border-color);">
+            <a href="{{ .Permalink }}" style="display: flex; align-items: center; gap: var(--space-2); color: var(--text-primary); text-decoration: none;">
+              <i class="ri-file-text-line" style="color: var(--text-tertiary);"></i>
+              <span style="flex: 1;">{{ .Title }}</span>
+              <i class="ri-arrow-right-s-line" style="color: var(--text-tertiary);"></i>
+            </a>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ul>
+        <a href="/community_calls" class="blog-card-read-more" style="margin-top: var(--space-4);">
+          View all notes
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Contribute?</h2>
+        <p class="cta-description">
+          Join our growing community of contributors and help us improve DSC resources for everyone.
+        </p>
+        <div class="flex justify-center gap-4">
+          <a href="/guidelines/contributing" class="btn btn-primary btn-lg">
+            <i class="ri-git-pull-request-line"></i>
+            Start Contributing
+          </a>
+          <a href="/community/contact" class="btn btn-secondary btn-lg">
+            <i class="ri-mail-line"></i>
+            Get in Touch
+          </a>
         </div>
       </div>
     </div>
-  </section>
-  {{ "<!-- /call to action -->" | safeHTML }}
-  {{ end }}
+  </div>
+</section>
 
 {{ end }}

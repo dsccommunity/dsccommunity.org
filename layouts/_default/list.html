@@ -1,87 +1,115 @@
 {{ define "main" }}
 
-  {{ "<!-- page title -->" | safeHTML }}
-  <section class="section" style="background-color: {{ .Params.bgcolor }}">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-           <h1 class="text-white mb-4">{{ .Params.title }}</h1>
-          {{ with .Site.Params.banner.placeholder }} <input id="search" class="form-control" placeholder="{{ . }}"> {{ end }}
-            {{ "<!-- Javascript -->" | safeHTML }}
-            <script>
-              $(function() {
-                var projects = [
-                  {{ range .Data.Pages }}
-                    {
-                      value: "{{ .Title }}",
-                      label: "{{ .Title }}",
-                      url:"{{ .Permalink }}"
-                    },
-                  {{ end }}
-                ];
-                $( "#search" ).autocomplete({
-                    minLength: 0,
-                    source: projects,
-                    focus: function( event, ui ) {
-                      $( "#search" ).val( ui.item.label );
-                        return false;
-                    },
-                    select: function( event, ui ) {
-                      $( "#search" ).val( ui.item.label );
-                      $( "#project-id" ).val( ui.item.value );
-                      return false;
-                    }
-                })
-                .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-                  return $( "<li>" )
-                  .append( "<a href=" + item.url + " + \" &quot;\" +  >" + item.label + "</a>" )
-                  .appendTo( ul );
-                };
-              });
-            </script>
-        </div>
-      </div>
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      {{ if .Params.Icon }}
+      <span class="hero-badge">
+        {{ if eq .Params.Icon "ti-user" }}
+        <i class="ri-team-line"></i>
+        {{ else if eq .Params.Icon "ti-package" }}
+        <i class="ri-apps-2-line"></i>
+        {{ else if eq .Params.Icon "ti-book" }}
+        <i class="ri-book-open-line"></i>
+        {{ else if eq .Params.Icon "ti-rss-alt" }}
+        <i class="ri-article-line"></i>
+        {{ else if eq .Params.Icon "ti-settings" }}
+        <i class="ri-settings-3-line"></i>
+        {{ else if eq .Params.Icon "ti-headphone-alt" }}
+        <i class="ri-headphone-line"></i>
+        {{ else if eq .Params.Icon "ti-help-alt" }}
+        <i class="ri-question-line"></i>
+        {{ else if eq .Params.Icon "ti-shield" }}
+        <i class="ri-shield-check-line"></i>
+        {{ else }}
+        <i class="ri-folder-line"></i>
+        {{ end }} {{ .Section | humanize | title }}
+      </span>
+      {{ end }}
+      <h1 class="hero-title">{{ .Title }}</h1>
+      {{ with .Description }}
+      <p class="hero-description">{{ . }}</p>
+      {{ else }} {{ with .Params.Description }}
+      <p class="hero-description">{{ . }}</p>
+      {{ end }} {{ end }}
     </div>
-  </section>
-  {{ "<!-- /page title -->" | safeHTML }}
+  </div>
+</section>
 
-  {{ "<!-- details page -->" | safeHTML }}
-  <section class="single section bg-gray pb-0">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3">
-          <div class="mb-5 bg-white p-4 sticky-top">
-            <a href="{{ .Permalink }}">
-              <h4 class="mb-4">{{ .Title }}</h4>
-            </a>
-            <ul class="list-styled">
-              {{ range .Data.Pages }}
-              <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+<!-- Content Section -->
+<section class="section">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">{{ .Title }}</h4>
+            <ul class="sidebar-list">
+              {{ range .Data.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a
+                  href="{{ .Permalink }}"
+                  class="sidebar-link{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}"
+                >
+                  {{ .Title }}
+                </a>
+              </li>
               {{ end }}
             </ul>
-          </div>
+          </nav>
         </div>
-        <div class="col-lg-9">
-          <div class="p-5 bg-white">
-              <!-- <h2>{{ .Title }}</h2> -->
-              {{if ge (len .Data.Pages) 1}}
-              <div class="bg-gray p-4">
-                  <h3 class="mt-0">{{ .Title }}:</h3>
-                  <ul class="list-unstyled">
-                    {{ range .Data.Pages }}
-                    <li><a href="{{ .Permalink }}" style="padding-bottom: 0px; padding-top: 0px;">- {{ .Title }}</a></li>
-                    {{ end }}
-                  </ul>
-              </div>
-              {{ end }}
-              <div class="bg-white p-4">
-                {{ .Content }}
-              </div>
-          </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        {{ if .Content }}
+        <div class="article-content">{{ .Content }}</div>
+        {{ end }} {{ if ge (len .Data.Pages) 1 }}
+        <div
+          class="section-header"
+          style="text-align: left; margin-bottom: var(--space-6)"
+        >
+          <h2 class="section-title" style="font-size: var(--text-2xl)">
+            Articles in {{ .Title }}
+          </h2>
         </div>
+
+        <div class="grid-auto">
+          {{ range .Data.Pages.ByWeight }}
+          <a href="{{ .Permalink }}" class="card card-link">
+            <h3 class="card-title">{{ .Title }}</h3>
+            {{ with .Description }}
+            <p class="card-description">{{ . }}</p>
+            {{ else }}
+            <p class="card-description">{{ .Summary | truncate 120 }}</p>
+            {{ end }}
+            <span class="blog-card-read-more">
+              Read more
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="16"
+                height="16"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+          {{ end }}
+        </div>
+        {{ end }}
       </div>
     </div>
-  </section>
-  {{ "<!-- /details page -->" | safeHTML }}
+  </div>
+</section>
 
 {{ end }}

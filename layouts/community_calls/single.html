@@ -1,0 +1,97 @@
+{{ define "main" }}
+
+<!-- Community Call Header -->
+<article class="community-call-article">
+  <header class="article-header" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%); padding: var(--space-16) 0;">
+    <div class="container" style="max-width: 900px;">
+      <a href="/community_calls" class="btn btn-ghost" style="margin-bottom: var(--space-6);">
+        <i class="ri-arrow-left-line"></i>
+        All Community Calls
+      </a>
+
+      <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+        <span class="badge badge-primary">
+          <i class="ri-vidicon-line"></i>
+          Community Call
+        </span>
+        {{ $year := .Date.Format "2006" }}
+        <span class="badge">{{ $year }}</span>
+      </div>
+
+      <h1 style="font-size: var(--text-4xl); line-height: 1.2; margin-bottom: var(--space-6);">
+        {{ .Title }}
+      </h1>
+
+      <!-- Date -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); color: var(--text-secondary); font-size: var(--text-sm);">
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-calendar-event-line" style="font-size: 1.25rem; color: var(--color-primary);"></i>
+          <time datetime="{{ .Date.Format "2006-01-02" }}" style="font-size: var(--text-lg); color: var(--text-primary); font-weight: 500;">
+            {{ .Date.Format "January 2, 2006" }}
+          </time>
+        </div>
+
+        {{ with .Params.youtube }}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-primary">
+          <i class="ri-youtube-line"></i>
+          Watch Recording
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="container" style="max-width: 900px; padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+
+    <!-- Related Resources -->
+    <div style="margin-top: var(--space-12); padding: var(--space-6); background: var(--bg-secondary); border-radius: var(--radius-xl); border: 1px solid var(--border-primary);">
+      <h4 style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <i class="ri-links-line"></i>
+        Related Resources
+      </h4>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+        <a href="/community/contact" class="btn btn-ghost">
+          <i class="ri-calendar-line"></i>
+          Join Next Call
+        </a>
+        <a href="https://aka.ms/psslack" target="_blank" rel="noopener" class="btn btn-ghost">
+          <i class="ri-slack-line"></i>
+          Join Slack
+        </a>
+        <a href="https://aka.ms/psdiscord" target="_blank" rel="noopener" class="btn btn-ghost">
+          <i class="ri-discord-line"></i>
+          Join Discord
+        </a>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav style="margin-top: var(--space-12); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+      {{ with .PrevInSection }}
+      <a href="{{ .Permalink }}" style="text-decoration: none; padding: var(--space-5); background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); transition: all 0.2s ease;">
+        <span style="display: block; font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">
+          <i class="ri-arrow-left-line"></i> Previous Call
+        </span>
+        <span style="color: var(--text-primary); font-weight: 500;">{{ .Date.Format "January 2, 2006" }}</span>
+      </a>
+      {{ else }}
+      <div></div>
+      {{ end }}
+
+      {{ with .NextInSection }}
+      <a href="{{ .Permalink }}" style="text-decoration: none; padding: var(--space-5); background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); text-align: right; transition: all 0.2s ease;">
+        <span style="display: block; font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">
+          Next Call <i class="ri-arrow-right-line"></i>
+        </span>
+        <span style="color: var(--text-primary); font-weight: 500;">{{ .Date.Format "January 2, 2006" }}</span>
+      </a>
+      {{ end }}
+    </nav>
+  </div>
+</article>
+
+{{ end }}

@@ -1,0 +1,140 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-shield-check-line"></i>
+        Community Standards
+      </span>
+      <h1 class="hero-title">Code of Conduct</h1>
+      <p class="hero-description">
+        Our commitment to providing a welcoming and inclusive environment for
+        all community members.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">Sections</h4>
+            <ul class="sidebar-list">
+              {{ range .Data.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a
+                  href="{{ .Permalink }}"
+                  class="sidebar-link{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}"
+                >
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </nav>
+
+          <!-- Quick Actions -->
+          <div
+            style="
+              margin-top: var(--space-6);
+              padding: var(--space-4);
+              background: var(--bg-tertiary);
+              border-radius: var(--radius-lg);
+            "
+          >
+            <h5
+              style="font-size: var(--text-sm); margin-bottom: var(--space-3)"
+            >
+              Report an Issue
+            </h5>
+            <p
+              style="
+                font-size: var(--text-xs);
+                color: var(--text-secondary);
+                margin-bottom: var(--space-3);
+              "
+            >
+              If you experience or witness unacceptable behavior, please report
+              it.
+            </p>
+            <a
+              href="mailto:dsccommunity@outlook.com"
+              class="btn btn-sm btn-primary"
+              style="width: 100%; justify-content: center"
+            >
+              <i class="ri-mail-line"></i>
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        {{ if .Content }}
+        <div class="article-content">{{ .Content }}</div>
+        {{ end }}
+
+        <!-- All Sections -->
+        <div style="margin-top: var(--space-8)">
+          {{ range .Data.Pages.ByWeight }}
+          <div class="card" style="margin-bottom: var(--space-4)">
+            <a
+              href="{{ .Permalink }}"
+              style="text-decoration: none; color: inherit"
+            >
+              <h3
+                class="card-title"
+                style="display: flex; align-items: center; gap: var(--space-2)"
+              >
+                {{ if eq .Title "Standards" }}
+                <i
+                  class="ri-checkbox-circle-line"
+                  style="color: var(--color-success)"
+                ></i>
+                {{ else if eq .Title "Responsibilities" }}
+                <i
+                  class="ri-user-settings-line"
+                  style="color: var(--color-primary)"
+                ></i>
+                {{ else if eq .Title "Scope" }}
+                <i
+                  class="ri-global-line"
+                  style="color: var(--color-secondary)"
+                ></i>
+                {{ else if eq .Title "Enforcement" }}
+                <i
+                  class="ri-scales-3-line"
+                  style="color: var(--color-warning)"
+                ></i>
+                {{ else if eq .Title "Attribution" }}
+                <i
+                  class="ri-links-line"
+                  style="color: var(--text-tertiary)"
+                ></i>
+                {{ else }}
+                <i
+                  class="ri-file-text-line"
+                  style="color: var(--text-tertiary)"
+                ></i>
+                {{ end }} {{ .Title }}
+              </h3>
+              <p class="card-description">{{ .Summary | truncate 200 }}</p>
+            </a>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

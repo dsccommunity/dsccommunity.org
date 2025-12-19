@@ -1,0 +1,98 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0;">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-code-s-slash-line"></i>
+        Quality Standards
+      </span>
+      <h1 class="hero-title">{{ .Title }}</h1>
+      <p class="hero-description">
+        {{ .Description | default "Best practices and guidelines for creating high-quality DSC resource modules." }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">Guidelines</h4>
+            <ul class="sidebar-list">
+              {{ range .Data.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a href="{{ .Permalink }}" class="sidebar-link">
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </nav>
+
+          <!-- Related Sections -->
+          <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--bg-tertiary); border-radius: var(--radius-lg);">
+            <h5 style="font-size: var(--text-sm); margin-bottom: var(--space-3);">Related</h5>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: var(--text-sm);">
+              <li style="margin-bottom: var(--space-2);">
+                <a href="/guidelines" style="color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: var(--space-2);">
+                  <i class="ri-book-line"></i>
+                  Developer Guidelines
+                </a>
+              </li>
+              <li>
+                <a href="/resources" style="color: var(--text-secondary); text-decoration: none; display: flex; align-items: center; gap: var(--space-2);">
+                  <i class="ri-puzzle-line"></i>
+                  Resource Modules
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        {{ if .Content }}
+        <div class="article-content" style="margin-bottom: var(--space-10);">
+          {{ .Content }}
+        </div>
+        {{ end }}
+
+        <!-- Style Guidelines Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6);">
+          {{ range .Data.Pages.ByWeight }}
+          <a href="{{ .Permalink }}" class="card" style="text-decoration: none; color: inherit;">
+            <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3);">
+              {{ if .Params.icon }}
+              <span style="font-size: 1.5rem; color: var(--color-primary);">
+                <i class="ri-{{ replace .Params.icon "ti-" "" }}-line"></i>
+              </span>
+              {{ else }}
+              <span style="width: 32px; height: 32px; background: var(--bg-tertiary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+                <i class="ri-file-code-line" style="color: var(--text-tertiary);"></i>
+              </span>
+              {{ end }}
+              <h3 class="card-title" style="margin: 0; font-size: var(--text-lg);">{{ .Title }}</h3>
+            </div>
+            <p class="card-description">{{ .Description | default (.Summary | truncate 100) }}</p>
+            <div style="margin-top: var(--space-4); display: flex; align-items: center; gap: var(--space-2); color: var(--color-primary); font-size: var(--text-sm); font-weight: 500;">
+              Read guidelines
+              <i class="ri-arrow-right-line"></i>
+            </div>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
