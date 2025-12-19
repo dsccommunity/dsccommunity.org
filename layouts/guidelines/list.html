@@ -1,0 +1,178 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-book-open-line"></i>
+        Documentation
+      </span>
+      <h1 class="hero-title">Guidelines</h1>
+      <p class="hero-description">
+        Best practices, coding standards, and development guidelines for
+        contributing to DSC Community projects.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section">
+  <div class="container">
+    {{ if .Content }}
+    <div
+      class="article-content"
+      style="max-width: 800px; margin: 0 auto var(--space-12)"
+    >
+      {{ .Content }}
+    </div>
+    {{ end }}
+
+    <div class="section-header">
+      <span class="section-badge">
+        <i class="ri-compass-3-line"></i>
+        Quick Start
+      </span>
+      <h2 class="section-title">Where to Begin</h2>
+    </div>
+
+    <!-- Priority Cards -->
+    <div
+      class="grid grid-cols-2"
+      style="gap: var(--space-6); margin-bottom: var(--space-12)"
+    >
+      <a
+        href="/guidelines/getting-started"
+        class="card card-link"
+        style="
+          border-left: 4px solid var(--color-primary);
+          padding: var(--space-8);
+        "
+      >
+        <div style="display: flex; align-items: center; gap: var(--space-4)">
+          <div class="card-icon" style="margin-bottom: 0">
+            <i class="ri-rocket-line"></i>
+          </div>
+          <div>
+            <h3 class="card-title" style="margin-bottom: var(--space-1)">
+              Getting Started
+            </h3>
+            <p class="card-description" style="margin-bottom: 0">
+              New to DSC Community? Start here to learn the basics.
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <a
+        href="/guidelines/contributing"
+        class="card card-link"
+        style="
+          border-left: 4px solid var(--color-success);
+          padding: var(--space-8);
+        "
+      >
+        <div style="display: flex; align-items: center; gap: var(--space-4)">
+          <div
+            class="card-icon"
+            style="
+              margin-bottom: 0;
+              background: linear-gradient(
+                135deg,
+                var(--color-success) 0%,
+                #059669 100%
+              );
+            "
+          >
+            <i class="ri-git-pull-request-line"></i>
+          </div>
+          <div>
+            <h3 class="card-title" style="margin-bottom: var(--space-1)">
+              Contributing Guide
+            </h3>
+            <p class="card-description" style="margin-bottom: 0">
+              Learn how to contribute to DSC modules.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">All Guidelines</h2>
+    </div>
+
+    <div class="grid-auto stagger">
+      {{ range .Data.Pages.ByWeight }}
+      <a href="{{ .Permalink }}" class="card card-link">
+        <div class="card-icon">
+          {{ if eq .Title "Getting Started" }}
+          <i class="ri-rocket-line"></i>
+          {{ else if eq .Title "Contributing" }}
+          <i class="ri-git-branch-line"></i>
+          {{ else if eq .Title "Maintaining" }}
+          <i class="ri-tools-line"></i>
+          {{ else if eq .Title "Style Guidelines" }}
+          <i class="ri-palette-line"></i>
+          {{ else if eq .Title "Testing Guidelines" }}
+          <i class="ri-flask-line"></i>
+          {{ else if eq .Title "Administration" }}
+          <i class="ri-settings-4-line"></i>
+          {{ else }}
+          <i class="ri-file-text-line"></i>
+          {{ end }}
+        </div>
+        <h3 class="card-title">{{ .Title }}</h3>
+        {{ with .Description }}
+        <p class="card-description">{{ . }}</p>
+        {{ else }}
+        <p class="card-description">{{ .Summary | truncate 150 }}</p>
+        {{ end }}
+        <span class="blog-card-read-more">
+          Read guide
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-content">
+        <h2 class="cta-title">Questions or Suggestions?</h2>
+        <p class="cta-description">
+          Have ideas for improving our guidelines? We welcome contributions to
+          our documentation!
+        </p>
+        <a
+          href="https://github.com/dsccommunity/dsccommunity.org/tree/master/content/guidelines"
+          class="btn btn-primary btn-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="ri-edit-line"></i>
+          Improve Documentation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,120 @@
+{{ define "main" }}
+
+<!-- Article Header -->
+<article class="blog-article">
+  <header class="article-header" style="background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%); padding: var(--space-16) 0;">
+    <div class="container" style="max-width: 900px;">
+      <a href="/blog" class="btn btn-ghost" style="margin-bottom: var(--space-6);">
+        <i class="ri-arrow-left-line"></i>
+        Back to Blog
+      </a>
+
+      <!-- Categories -->
+      {{ with .Params.categories }}
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        {{ range . }}
+        <span class="badge badge-primary">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <h1 style="font-size: var(--text-4xl); line-height: 1.2; margin-bottom: var(--space-6); max-width: 800px;">
+        {{ .Title }}
+      </h1>
+
+      <!-- Meta -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); color: var(--text-secondary); font-size: var(--text-sm);">
+        {{ with .Params.author }}
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+            {{ substr . 0 1 }}
+          </div>
+          <div>
+            <div style="color: var(--text-primary); font-weight: 500;">{{ . }}</div>
+            <div style="font-size: var(--text-xs);">Author</div>
+          </div>
+        </div>
+        {{ end }}
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-calendar-line"></i>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "January 2, 2006" }}
+          </time>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: var(--space-2);">
+          <i class="ri-time-line"></i>
+          {{ .ReadingTime }} min read
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <div class="container" style="max-width: 900px; padding-top: var(--space-12); padding-bottom: var(--space-16);">
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+
+    <!-- Tags -->
+    {{ with .Params.tags }}
+    <div style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--border-primary);">
+      <h4 style="font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-3);">Tags</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+        {{ range . }}
+        <a href="/tags/{{ . | urlize }}" class="badge" style="text-decoration: none;">
+          {{ . }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- Share Section -->
+    <div style="margin-top: var(--space-8); padding: var(--space-6); background: var(--bg-secondary); border-radius: var(--radius-xl); border: 1px solid var(--border-primary);">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4);">
+        <div>
+          <h4 style="margin-bottom: var(--space-1);">Share this article</h4>
+          <p style="color: var(--text-secondary); font-size: var(--text-sm);">Help spread the word about DSC Community!</p>
+        </div>
+        <div style="display: flex; gap: var(--space-2);">
+          <a href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Twitter">
+            <i class="ri-twitter-x-line" style="font-size: 1.25rem;"></i>
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on LinkedIn">
+            <i class="ri-linkedin-line" style="font-size: 1.25rem;"></i>
+          </a>
+          <a href="https://www.reddit.com/submit?url={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}" target="_blank" rel="noopener" class="btn btn-ghost" style="padding: var(--space-2);" title="Share on Reddit">
+            <i class="ri-reddit-line" style="font-size: 1.25rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav style="margin-top: var(--space-12); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+      {{ with .PrevInSection }}
+      <a href="{{ .Permalink }}" style="text-decoration: none; padding: var(--space-5); background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); transition: all 0.2s ease;">
+        <span style="display: block; font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">
+          <i class="ri-arrow-left-line"></i> Previous
+        </span>
+        <span style="color: var(--text-primary); font-weight: 500;">{{ .Title | truncate 50 }}</span>
+      </a>
+      {{ else }}
+      <div></div>
+      {{ end }}
+
+      {{ with .NextInSection }}
+      <a href="{{ .Permalink }}" style="text-decoration: none; padding: var(--space-5); background: var(--bg-secondary); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); text-align: right; transition: all 0.2s ease;">
+        <span style="display: block; font-size: var(--text-xs); color: var(--text-tertiary); margin-bottom: var(--space-1);">
+          Next <i class="ri-arrow-right-line"></i>
+        </span>
+        <span style="color: var(--text-primary); font-weight: 500;">{{ .Title | truncate 50 }}</span>
+      </a>
+      {{ end }}
+    </nav>
+  </div>
+</article>
+
+{{ end }}

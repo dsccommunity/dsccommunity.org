@@ -1,0 +1,71 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-12) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <a href="/resources" class="hero-badge" style="text-decoration: none">
+        <i class="ri-arrow-left-line"></i>
+        All Resources
+      </a>
+      <h1 class="hero-title" style="font-size: var(--text-4xl)">
+        {{ .Title }}
+      </h1>
+      {{ with .Description }}
+      <p class="hero-description">{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section" style="padding-top: 0">
+  <div class="container" style="max-width: 900px">
+    <article class="article-content">{{ .Content }}</article>
+
+    <!-- Related Resources -->
+    <div
+      style="
+        margin-top: var(--space-12);
+        padding: var(--space-6);
+        background: var(--bg-secondary);
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--border-primary);
+      "
+    >
+      <h4
+        style="
+          display: flex;
+          align-items: center;
+          gap: var(--space-2);
+          margin-bottom: var(--space-4);
+        "
+      >
+        <i class="ri-links-line"></i>
+        Helpful Links
+      </h4>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3)">
+        <a href="/guidelines" class="btn btn-ghost">
+          <i class="ri-book-line"></i>
+          Developer Guidelines
+        </a>
+        <a href="/styleguidelines" class="btn btn-ghost">
+          <i class="ri-code-s-slash-line"></i>
+          Style Guidelines
+        </a>
+        <a
+          href="https://github.com/dsccommunity"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-ghost"
+        >
+          <i class="ri-github-line"></i>
+          GitHub Repos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

@@ -2,18 +2,35 @@ baseURL = "https://dsccommunity.org/"
 theme = ["dot", "hugo-admonitions"]
 googleAnalytics = "UA-144465379-1"
 
+# Enable Git info for last modified dates
+enableGitInfo = true
+
 [markup]
 [markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
+[markup.highlight]
+style = "github-dark"
+lineNos = false
+codeFences = true
 
 [params]
-primaryColor = "#003366"
-secondaryColor = "#f9f9f9"
-textColor = "#242738"
-textColorDark = "#000"     #"#242738"
+# Updated modern color palette
+primaryColor = "#3b82f6"
+secondaryColor = "#f8fafc"
+textColor = "#475569"
+textColorDark = "#0f172a"
 whiteColor = "#ffffff"
 bgcolor = "#ffffff"
+
+# Meta information
+description = "A collaborative community of authors and maintainers working to improve DSC resources, their quality, and development practices."
+author = "DSC Community"
+ogImage = "images/dsc-community-og.png"
+
+# Feature flags
+enableSearch = true
+enableDarkMode = true
 
 [Languages]
 

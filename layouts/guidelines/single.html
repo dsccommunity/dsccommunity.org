@@ -1,0 +1,191 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-12) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <a href="/guidelines" class="hero-badge" style="text-decoration: none">
+        <i class="ri-arrow-left-line"></i>
+        Back to Guidelines
+      </a>
+      <h1 class="hero-title" style="font-size: var(--text-4xl)">
+        {{ .Title }}
+      </h1>
+      {{ with .Description }}
+      <p class="hero-description">{{ . }}</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section" style="padding-top: 0">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">Guidelines</h4>
+            <ul class="sidebar-list">
+              {{ range .Parent.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a
+                  href="{{ .Permalink }}"
+                  class="sidebar-link{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}"
+                >
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </nav>
+
+          <!-- Table of Contents -->
+          {{ if .TableOfContents }}
+          <div style="margin-top: var(--space-6)">
+            <h4 class="sidebar-title">On This Page</h4>
+            <nav class="toc">{{ .TableOfContents }}</nav>
+          </div>
+          {{ end }}
+
+          <!-- Quick Links -->
+          <div
+            style="
+              margin-top: var(--space-6);
+              padding: var(--space-4);
+              background: var(--bg-tertiary);
+              border-radius: var(--radius-lg);
+            "
+          >
+            <h5
+              style="font-size: var(--text-sm); margin-bottom: var(--space-3)"
+            >
+              See Also
+            </h5>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-size: var(--text-sm);
+              "
+            >
+              <li style="margin-bottom: var(--space-2)">
+                <a
+                  href="/styleguidelines"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-code-s-slash-line"></i>
+                  Style Guidelines
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/resources"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-puzzle-line"></i>
+                  Resources
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <article class="article-content">{{ .Content }}</article>
+
+        <!-- Navigation -->
+        <nav
+          class="article-nav"
+          style="
+            margin-top: var(--space-12);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--border-primary);
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+          "
+        >
+          {{ with .PrevInSection }}
+          <a
+            href="{{ .Permalink }}"
+            class="article-nav-link prev"
+            style="
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: var(--space-2);
+              color: var(--text-secondary);
+            "
+          >
+            <i class="ri-arrow-left-line"></i>
+            <span>
+              <span
+                style="
+                  display: block;
+                  font-size: var(--text-xs);
+                  color: var(--text-tertiary);
+                "
+                >Previous</span
+              >
+              <span style="color: var(--text-primary); font-weight: 500"
+                >{{ .Title }}</span
+              >
+            </span>
+          </a>
+          {{ else }}
+          <div></div>
+          {{ end }} {{ with .NextInSection }}
+          <a
+            href="{{ .Permalink }}"
+            class="article-nav-link next"
+            style="
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: var(--space-2);
+              color: var(--text-secondary);
+              text-align: right;
+            "
+          >
+            <span>
+              <span
+                style="
+                  display: block;
+                  font-size: var(--text-xs);
+                  color: var(--text-tertiary);
+                "
+                >Next</span
+              >
+              <span style="color: var(--text-primary); font-weight: 500"
+                >{{ .Title }}</span
+              >
+            </span>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+          {{ end }}
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

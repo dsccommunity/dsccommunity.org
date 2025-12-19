@@ -1,0 +1,265 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-settings-3-line"></i>
+        Infrastructure as Code
+      </span>
+      <h1 class="hero-title">{{ .Title }}</h1>
+      <p class="hero-description">
+        {{ .Description | default "DSC, Guest Configuration, and infrastructure
+        management solutions." }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">Topics</h4>
+            <ul class="sidebar-list">
+              {{ range .Data.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a href="{{ .Permalink }}" class="sidebar-link">
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </nav>
+
+          <!-- Quick Links -->
+          <div
+            style="
+              margin-top: var(--space-6);
+              padding: var(--space-4);
+              background: var(--bg-tertiary);
+              border-radius: var(--radius-lg);
+            "
+          >
+            <h5
+              style="font-size: var(--text-sm); margin-bottom: var(--space-3)"
+            >
+              Learn More
+            </h5>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-size: var(--text-sm);
+              "
+            >
+              <li style="margin-bottom: var(--space-2)">
+                <a
+                  href="/help"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-book-open-line"></i>
+                  What is DSC?
+                </a>
+              </li>
+              <li style="margin-bottom: var(--space-2)">
+                <a
+                  href="/resources"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-puzzle-line"></i>
+                  DSC Resources
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://docs.microsoft.com/en-us/azure/governance/machine-configuration/"
+                  target="_blank"
+                  rel="noopener"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-external-link-line"></i>
+                  Azure Machine Config
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        {{ if .Content }}
+        <div class="article-content" style="margin-bottom: var(--space-10)">
+          {{ .Content }}
+        </div>
+        {{ end }}
+
+        <!-- Articles Grid -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
+          "
+        >
+          {{ range .Data.Pages.ByWeight }}
+          <a
+            href="{{ .Permalink }}"
+            class="card"
+            style="text-decoration: none; color: inherit"
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: var(--space-3);
+                margin-bottom: var(--space-4);
+              "
+            >
+              <div
+                style="
+                  width: 48px;
+                  height: 48px;
+                  background: linear-gradient(135deg, #c239b3, #9333ea);
+                  border-radius: var(--radius-lg);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                "
+              >
+                <i
+                  class="ri-cpu-line"
+                  style="color: white; font-size: 1.5rem"
+                ></i>
+              </div>
+              <h3
+                class="card-title"
+                style="margin: 0; font-size: var(--text-lg)"
+              >
+                {{ .Title }}
+              </h3>
+            </div>
+            <p class="card-description" style="margin-bottom: var(--space-4)">
+              {{ .Summary | truncate 150 }}
+            </p>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: var(--space-2);
+                color: var(--color-primary);
+                font-size: var(--text-sm);
+                font-weight: 500;
+              "
+            >
+              Read more
+              <i class="ri-arrow-right-line"></i>
+            </div>
+          </a>
+          {{ end }}
+        </div>
+
+        <!-- Info Box -->
+        <div
+          style="
+            margin-top: var(--space-12);
+            padding: var(--space-6);
+            background: linear-gradient(
+              135deg,
+              rgba(194, 57, 179, 0.1),
+              rgba(147, 51, 234, 0.1)
+            );
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(194, 57, 179, 0.3);
+          "
+        >
+          <div
+            style="display: flex; align-items: flex-start; gap: var(--space-4)"
+          >
+            <div
+              style="
+                width: 48px;
+                height: 48px;
+                background: linear-gradient(135deg, #c239b3, #9333ea);
+                border-radius: var(--radius-lg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              "
+            >
+              <i
+                class="ri-information-line"
+                style="color: white; font-size: 1.5rem"
+              ></i>
+            </div>
+            <div>
+              <h4 style="margin-bottom: var(--space-2)">
+                Looking for Technical Documentation?
+              </h4>
+              <p
+                style="
+                  color: var(--text-secondary);
+                  margin-bottom: var(--space-4);
+                "
+              >
+                The concepts explained here are transferable across
+                technologies. For vendor-specific documentation, check out the
+                official Microsoft docs or our resources section.
+              </p>
+              <div style="display: flex; gap: var(--space-3); flex-wrap: wrap">
+                <a
+                  href="https://docs.microsoft.com/en-us/powershell/dsc/overview"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-ghost"
+                  style="font-size: var(--text-sm)"
+                >
+                  <i class="ri-external-link-line"></i>
+                  Microsoft DSC Docs
+                </a>
+                <a
+                  href="/guidelines"
+                  class="btn btn-ghost"
+                  style="font-size: var(--text-sm)"
+                >
+                  <i class="ri-book-line"></i>
+                  Our Guidelines
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

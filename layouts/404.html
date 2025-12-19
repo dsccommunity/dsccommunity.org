@@ -1,0 +1,85 @@
+{{ define "main" }}
+
+<section
+  class="hero"
+  style="min-height: 70vh; display: flex; align-items: center"
+>
+  <div class="hero-grid"></div>
+  <div class="hero-orbs">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div
+        style="
+          font-size: 8rem;
+          font-weight: 800;
+          background: var(--gradient-accent);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          line-height: 1;
+        "
+      >
+        404
+      </div>
+      <h1 class="hero-title" style="font-size: var(--text-3xl)">
+        Page Not Found
+      </h1>
+      <p class="hero-description">
+        Oops! The page you're looking for doesn't exist or has been moved. Let's
+        get you back on track.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ .Site.BaseURL }}" class="btn btn-primary btn-lg">
+          <i class="ri-home-line"></i>
+          Back to Home
+        </a>
+        <button onclick="openSearchModal()" class="btn btn-secondary btn-lg">
+          <i class="ri-search-line"></i>
+          Search Site
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Helpful Links -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Maybe try one of these?</h2>
+    </div>
+
+    <div class="grid grid-cols-4" style="gap: var(--space-4)">
+      <a href="/guidelines" class="card card-link text-center">
+        <div class="card-icon" style="margin: 0 auto var(--space-3)">
+          <i class="ri-book-open-line"></i>
+        </div>
+        <h4 class="card-title">Guidelines</h4>
+      </a>
+      <a href="/resources" class="card card-link text-center">
+        <div class="card-icon" style="margin: 0 auto var(--space-3)">
+          <i class="ri-apps-2-line"></i>
+        </div>
+        <h4 class="card-title">Resources</h4>
+      </a>
+      <a href="/blog" class="card card-link text-center">
+        <div class="card-icon" style="margin: 0 auto var(--space-3)">
+          <i class="ri-article-line"></i>
+        </div>
+        <h4 class="card-title">Blog</h4>
+      </a>
+      <a href="/community" class="card card-link text-center">
+        <div class="card-icon" style="margin: 0 auto var(--space-3)">
+          <i class="ri-team-line"></i>
+        </div>
+        <h4 class="card-title">Community</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

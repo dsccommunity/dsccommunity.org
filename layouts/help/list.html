@@ -1,0 +1,288 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-book-open-line"></i>
+        Learning Center
+      </span>
+      <h1 class="hero-title">{{ .Title | default "Getting Started" }}</h1>
+      <p class="hero-description">
+        {{ .Description | default "Learn the fundamentals of DSC and get up to
+        speed with our comprehensive guides." }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Help Content -->
+<section class="section">
+  <div class="container">
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">Topics</h4>
+            <ul class="sidebar-list">
+              {{ range .Data.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a href="{{ .Permalink }}" class="sidebar-link">
+                  {{ .Title }}
+                </a>
+              </li>
+              {{ end }}
+            </ul>
+          </nav>
+
+          <!-- Quick Links -->
+          <div
+            style="
+              margin-top: var(--space-6);
+              padding: var(--space-4);
+              background: var(--bg-tertiary);
+              border-radius: var(--radius-lg);
+            "
+          >
+            <h5
+              style="font-size: var(--text-sm); margin-bottom: var(--space-3)"
+            >
+              Quick Links
+            </h5>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-size: var(--text-sm);
+              "
+            >
+              <li style="margin-bottom: var(--space-2)">
+                <a
+                  href="/faq"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-question-line"></i>
+                  FAQ
+                </a>
+              </li>
+              <li style="margin-bottom: var(--space-2)">
+                <a
+                  href="/guidelines"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-file-list-2-line"></i>
+                  Guidelines
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/community/contact"
+                  style="
+                    color: var(--text-secondary);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: var(--space-2);
+                  "
+                >
+                  <i class="ri-customer-service-line"></i>
+                  Get Support
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        {{ if .Content }}
+        <div class="article-content" style="margin-bottom: var(--space-10)">
+          {{ .Content }}
+        </div>
+        {{ end }}
+
+        <!-- Help Topics -->
+        <div
+          class="help-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-6);
+          "
+        >
+          {{ range .Data.Pages.ByWeight }}
+          <a
+            href="{{ .Permalink }}"
+            class="card"
+            style="
+              text-decoration: none;
+              color: inherit;
+              display: flex;
+              flex-direction: column;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                gap: var(--space-4);
+                margin-bottom: var(--space-4);
+              "
+            >
+              <div
+                style="
+                  width: 48px;
+                  height: 48px;
+                  background: linear-gradient(
+                    135deg,
+                    var(--color-primary),
+                    var(--color-secondary)
+                  );
+                  border-radius: var(--radius-lg);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-shrink: 0;
+                "
+              >
+                {{ if in .Title "What is DSC" }}
+                <i
+                  class="ri-lightbulb-line"
+                  style="color: white; font-size: 1.5rem"
+                ></i>
+                {{ else if in .Title "Future" }}
+                <i
+                  class="ri-rocket-line"
+                  style="color: white; font-size: 1.5rem"
+                ></i>
+                {{ else }}
+                <i
+                  class="ri-book-2-line"
+                  style="color: white; font-size: 1.5rem"
+                ></i>
+                {{ end }}
+              </div>
+              <div>
+                <h3
+                  class="card-title"
+                  style="
+                    font-size: var(--text-lg);
+                    margin-bottom: var(--space-2);
+                  "
+                >
+                  {{ .Title }}
+                </h3>
+                <p
+                  class="card-description"
+                  style="
+                    color: var(--text-secondary);
+                    font-size: var(--text-sm);
+                  "
+                >
+                  {{ .Summary | truncate 150 }}
+                </p>
+              </div>
+            </div>
+            <div
+              style="
+                margin-top: auto;
+                display: flex;
+                align-items: center;
+                gap: var(--space-2);
+                color: var(--color-primary);
+                font-size: var(--text-sm);
+                font-weight: 500;
+              "
+            >
+              Read more
+              <i class="ri-arrow-right-line"></i>
+            </div>
+          </a>
+          {{ end }}
+        </div>
+
+        <!-- Need More Help -->
+        {{ if not .Content }}
+        <div
+          style="
+            margin-top: var(--space-12);
+            padding: var(--space-8);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-primary);
+            text-align: center;
+          "
+        >
+          <i
+            class="ri-customer-service-2-line"
+            style="
+              font-size: 3rem;
+              color: var(--color-primary);
+              margin-bottom: var(--space-4);
+            "
+          ></i>
+          <h3 style="margin-bottom: var(--space-3)">Need More Help?</h3>
+          <p
+            style="
+              color: var(--text-secondary);
+              margin-bottom: var(--space-6);
+              max-width: 500px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            Join our community channels to get help from experienced DSC users
+            and maintainers.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: var(--space-3);
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              href="https://aka.ms/psslack"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ri-slack-line"></i>
+              PowerShell Slack
+            </a>
+            <a
+              href="https://aka.ms/psdiscord"
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ri-discord-line"></i>
+              PowerShell Discord
+            </a>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

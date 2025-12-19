@@ -1,30 +1,146 @@
 <!DOCTYPE html>
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
-    {{- partial "head.html" . -}}
-    <body>
-        {{ if .IsHome }}
-        {{ "<!-- header -->" | safeHTML }}
-        <header class="hero-section overlay bg-cover banner" data-background="{{ .Site.Params.banner.image | absURL }}">
-            <div class="container mb-10">
-                {{ "<!-- navigation -->" | safeHTML }}
-                {{ partial "navigation.html" . }}
-                {{ "<!-- /navigation -->" | safeHTML }}
-            </div>
-        {{ partial "banner.html" . }}
-        </header>
-        {{ "<!-- /header -->" | safeHTML }}
-        {{ else }}
-        {{ "<!-- navigation -->" | safeHTML }}
-        <header class="shadow-bottom sticky-top bg-white">
-            <div class="container">
-                {{ partial "navigation.html" . }}
-            </div>
-        </header>
-        {{ "<!-- /navigation -->" | safeHTML }}
-        {{ end }}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
+<html
+  lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}"
+  data-theme="light"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}"
+    />
+    <meta name="author" content="DSC Community" />
+
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+
+    {{ hugo.Generator }}
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    />
+
+    <!-- Highlight.js for code blocks -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css"
+    />
+
+    <!-- Main Stylesheet -->
+    {{ $futuristic := resources.Get "css/futuristic.css" | minify | fingerprint
+    }}
+    <link
+      rel="stylesheet"
+      href="{{ $futuristic.Permalink }}"
+      integrity="{{ $futuristic.Data.Integrity }}"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="{{ .Site.BaseURL }}images/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta
+      property="og:description"
+      content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}"
+    />
+    <meta
+      property="og:type"
+      content="{{ if .IsPage }}article{{ else }}website{{ end }}"
+    />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    {{ with .Site.Params.ogImage }}
+    <meta property="og:image" content="{{ . | absURL }}" />
+    {{ end }}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ .Title }}" />
+    <meta
+      name="twitter:description"
+      content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}"
+    />
+
+    <!-- Theme initialization (prevent flash) -->
+    <script>
+      (function () {
+        const theme =
+          localStorage.getItem("theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    {{- partial "header-new.html" . -}}
+
+    <main id="main-content">{{- block "main" . }}{{- end }}</main>
+
+    {{- partial "footer-new.html" . -}}
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+      <div class="search-modal-content" role="dialog" aria-label="Search">
+        <div class="search-modal-header">
+          <i class="ri-search-line"></i>
+          <input
+            type="text"
+            class="search-modal-input"
+            id="searchInput"
+            placeholder="Search documentation..."
+            autocomplete="off"
+          />
+          <button class="search-modal-close" onclick="closeSearchModal()">
+            ESC
+          </button>
         </div>
-        {{- partial "footer.html" . -}}
-    </body>
+        <div class="search-modal-results" id="searchResults">
+          <!-- Results will be populated by JavaScript -->
+        </div>
+        <div class="search-modal-footer">
+          <div class="search-shortcuts">
+            <span class="search-shortcut"
+              ><kbd>↑</kbd><kbd>↓</kbd> Navigate</span
+            >
+            <span class="search-shortcut"><kbd>↵</kbd> Open</span>
+            <span class="search-shortcut"><kbd>ESC</kbd> Close</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/powershell.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/bash.min.js"></script>
+
+    {{ $script := resources.Get "js/main.js" | minify | fingerprint }}
+    <script
+      src="{{ $script.Permalink }}"
+      integrity="{{ $script.Data.Integrity }}"
+    ></script>
+  </body>
 </html>

@@ -1,0 +1,98 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-16) 0;">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <i class="ri-article-line"></i>
+        Knowledge Base
+      </span>
+      <h1 class="hero-title">Blog Posts</h1>
+      <p class="hero-description">
+        Insights, tutorials, and updates from the DSC Community maintainers and contributors. Learn best practices, explore new features, and stay up to date.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Grid -->
+<section class="section">
+  <div class="container">
+    <!-- Filter Tags -->
+    <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-8); justify-content: center;">
+      <a href="/blog" class="tag" style="background: var(--color-primary); color: white;">All Posts</a>
+      {{ $allTags := slice }}
+      {{ range .Data.Pages }}
+        {{ with .Params.tags }}
+          {{ range . }}
+            {{ if not (in $allTags .) }}
+              {{ $allTags = $allTags | append . }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ range $allTags }}
+      <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+      {{ end }}
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="grid-auto stagger">
+      {{ range .Data.Pages.ByDate.Reverse }}
+      <a href="{{ .Permalink }}" class="card blog-card card-link">
+        <div class="blog-card-meta">
+          <span class="blog-card-tag">
+            {{ with .Params.category }}{{ . }}{{ else }}Article{{ end }}
+          </span>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        </div>
+        <h3 class="blog-card-title">{{ .Title }}</h3>
+        <p class="blog-card-excerpt">{{ .Summary | truncate 150 }}</p>
+        <div style="margin-top: auto;">
+          {{ if .ReadingTime }}
+          <span style="font-size: var(--text-xs); color: var(--text-tertiary); display: flex; align-items: center; gap: var(--space-1);">
+            <i class="ri-time-line"></i>
+            {{ .ReadingTime }} min read
+          </span>
+          {{ end }}
+          <span class="blog-card-read-more">
+            Read article
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+
+    <!-- Empty State -->
+    {{ if eq (len .Data.Pages) 0 }}
+    <div class="text-center" style="padding: var(--space-16) 0;">
+      <i class="ri-article-line" style="font-size: 4rem; color: var(--text-tertiary);"></i>
+      <h3 style="margin-top: var(--space-4);">No posts yet</h3>
+      <p style="color: var(--text-secondary);">Check back soon for new content!</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta">
+      <div class="cta-content">
+        <h2 class="cta-title">Want to Write for Us?</h2>
+        <p class="cta-description">
+          Share your knowledge with the community! Submit a blog post about DSC, PowerShell, or configuration management.
+        </p>
+        <a href="https://github.com/dsccommunity/dsccommunity.org/tree/master/content/blog" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          <i class="ri-git-pull-request-line"></i>
+          Submit a Post
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
