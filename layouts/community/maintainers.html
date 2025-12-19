@@ -1,167 +1,360 @@
-{{ partial "head.html" . }}
+{{ define "main" }}
 
-{{ "<!-- navigation -->" | safeHTML }}
-<header class="shadow-bottom sticky-top bg-white">
+<!-- Page Header -->
+<section class="hero" style="padding: var(--space-12) 0">
+  <div class="hero-grid"></div>
   <div class="container">
-    {{ partial "navigation.html" . }}
+    <div class="hero-content">
+      <a href="/community" class="hero-badge" style="text-decoration: none">
+        <i class="ri-arrow-left-line"></i>
+        Community
+      </a>
+      <h1 class="hero-title" style="font-size: var(--text-4xl)">
+        {{ .Title }}
+      </h1>
+      {{ with .Description }}
+      <p class="hero-description">{{ . }}</p>
+      {{ end }}
+    </div>
   </div>
-</header>
-{{ "<!-- /navigation -->" | safeHTML }}
+</section>
 
-<!-- details page -->
-<section class="single pt-5 bg-gray">
+<!-- Content Section -->
+<section class="section" style="padding-top: 0">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="p-4 bg-white sticky-top top-100">
-            {{$currentNode := .}}
-            <nav class="sidebar-menu">
-              <ul class="list-styled">
-                {{- range .Site.Sections.ByWeight -}}
-                  {{template "menu" dict "sect" . "currentnode" $currentNode}}
-                {{- end -}}
-              </ul>
-            </nav>
-
-            {{define "menu"}}
-            {{- $currentNode := .currentnode -}}
-            {{ with .sect }}
-            {{ if in .Site.Params.menu_exclusion .Section }}
-            {{- else -}}
-              {{- safeHTML .Params.head -}}
-            <li class="{{ if .IsAncestor $currentNode }}parent d-block {{ end }}{{ if eq .Params.UniqueID $currentNode.Params.UniqueID }} active {{ end }}{{ if .Params.alwaysopen }} parent {{ end }}"><a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              {{- $numberOfPages := (add (len .Pages) (len .Sections)) -}}
-              {{if ne $numberOfPages 0}}
-              <ul class="{{ if .IsAncestor $currentNode }}sub-menu{{ end }}">
-              {{- .Scratch.Set "pages" .Data.Pages -}}
-              {{- $pages := (.Scratch.Get "pages") -}}
-                {{- range $pages.ByWeight -}}
-                  {{template "menu" dict "sect" . "currentnode" $currentNode}}
-                {{- end -}}
-              </ul>
-              {{end}}
-            </li>
-            {{- end -}}
-            {{- else -}}
-              {{- if not .Params.Hidden -}}
-              <li class="{{ if eq .Params.UniqueID $currentNode.Params.UniqueID }}active{{ end }}"><a href="{{ .URL }}">{{ .Title }}</a></li>
-              {{- end -}}
-            {{ end -}}
-            {{ end }}
-        </div>
-      </div>
-      <div class="col-lg-9">
-        <div class="p-5 bg-white">
-            <h2>{{ .Title }}</h2>
-            {{ .Content }}
-            <div class="card-columns">
-              {{ range sort $.Site.Data.maintainers "accountName" }}
-                {{ $data := dict }}
-                {{ $path := printf "https://api.github.com/users/%s" .accountName }}
-                {{ with resources.GetRemote $path  }}
-                  {{ with .Content | transform.Unmarshal }}
-                    {{ $data = . }}
-                  {{ end }}
-                {{ else }}
-                  {{ errorf "Unable to get global resource %q" $path }}
-                {{ end }}
-                <div class="card shadow text-center">
-                  <div class="card-header">
-                    <a class="font-weight-bold" href="https://github.com/{{ .accountName }}" target="_blank">
-                      {{ with $data.name }}
-                        {{ $data.name }}
-                      {{ else }}
-                        {{ $data.login }}
-                      {{ end }}
-
-                      {{with $data.company }}
-                        <br />
-                        <span class="badge badge-secondary">
-                          {{ $data.company }}
-                        </i>
-                      {{ end }}
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <a data-toggle="collapse" href="#{{ $data.login }}">
-                      <img src="{{$data.avatar_url}}" alt="drawing" style="width:100px; display:block; margin: auto; border-radius:50%" />
-                      {{with $data.location }}
-                        <span class="ti-location-pin text-muted">
-                        {{ $data.location }}
-                        </span>
-                      {{ end }}
-                    </a>
-                    <div class="card border-0 pt-2">
-                      <span id="{{ $data.login }}" class="font-weight-light text-left small">
-                        {{ $data.bio | safeHTML }}
-                      </span>
-                    </div>
-                  </div>
-                  <div class="card-footer">
-                      Modules:
-                      {{ range sort .modules "repository" }}
-                        <a href="https://github.com/{{ .organization }}/{{ .repository }}" target="_blank">
-                          <span class="badge badge-info">
-                            {{ .repository }}
-                          </span>
-                        </a>
-                        &nbsp;
-                      {{end}}
-                  </div>
-                </div>
+    <div class="content-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <nav class="sidebar-nav">
+            <h4 class="sidebar-title">Community</h4>
+            <ul class="sidebar-list">
+              {{ range .Parent.Pages.ByWeight }}
+              <li class="sidebar-list-item">
+                <a
+                  href="{{ .Permalink }}"
+                  class="sidebar-link{{ if eq $.RelPermalink .RelPermalink }} active{{ end }}"
+                >
+                  {{ .Title }}
+                </a>
+              </li>
               {{ end }}
+            </ul>
+          </nav>
+
+          <!-- Quick Links -->
+          <div
+            style="
+              margin-top: var(--space-6);
+              padding: var(--space-4);
+              background: var(--bg-tertiary);
+              border-radius: var(--radius-lg);
+            "
+          >
+            <h5
+              style="font-size: var(--text-sm); margin-bottom: var(--space-3)"
+            >
+              Get Involved
+            </h5>
+            <div
+              style="display: flex; flex-direction: column; gap: var(--space-2)"
+            >
+              <a
+                href="https://github.com/dsccommunity"
+                target="_blank"
+                rel="noopener"
+                style="
+                  color: var(--text-secondary);
+                  text-decoration: none;
+                  display: flex;
+                  align-items: center;
+                  gap: var(--space-2);
+                  font-size: var(--text-sm);
+                "
+              >
+                <i class="ri-github-line"></i>
+                GitHub
+              </a>
+              <a
+                href="https://aka.ms/psslack"
+                target="_blank"
+                rel="noopener"
+                style="
+                  color: var(--text-secondary);
+                  text-decoration: none;
+                  display: flex;
+                  align-items: center;
+                  gap: var(--space-2);
+                  font-size: var(--text-sm);
+                "
+              >
+                <i class="ri-slack-line"></i>
+                Slack
+              </a>
+              <a
+                href="https://aka.ms/psdiscord"
+                target="_blank"
+                rel="noopener"
+                style="
+                  color: var(--text-secondary);
+                  text-decoration: none;
+                  display: flex;
+                  align-items: center;
+                  gap: var(--space-2);
+                  font-size: var(--text-sm);
+                "
+              >
+                <i class="ri-discord-line"></i>
+                Discord
+              </a>
             </div>
-              <p class="post-meta border-bottom pb-3 mb-0">Updated on {{ .PublishDate.Format "02 Jan 2006" }}</p>
-              {{- $currentNode := . -}}
-              <nav class="pagination mt-3">
-              {{- template "pagination" dict "menu" .Site.Home "currentnode" $currentNode "menu_exclusion" .Site.Params.menu_exclusion -}}
-              {{- with ($.Scratch.Get "prevPage") -}}
-              <a class="nav nav-prev" href="{{ .RelPermalink }}" title="{{ .Title }}"><i class="ti-arrow-left mr-2"></i>{{ .Title }}</a>
-              {{ end -}}
-              {{- with ($.Scratch.Get "nextPage") -}}
-              <a class="nav nav-next" href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}<i class="ti-arrow-right ml-2"></i></a>
-              {{- end }}
-              </nav>
-
-              {{- define "pagination" -}}
-              {{- $currentNode := .currentnode -}}
-              {{- $menu_exclusion := .menu_exclusion -}}
-
-              {{- if hasPrefix $currentNode.RelPermalink .menu.RelPermalink -}}
-                {{- $currentNode.Scratch.Set "NextPageOK" "OK" -}}
-                {{- if .menu.IsHome -}}
-                  {{- $currentNode.Scratch.Set "prevPage" "" -}}
-                {{- else -}}
-                  {{- $currentNode.Scratch.Set "prevPage" ($currentNode.Scratch.Get "prevPageTmp") -}}
-                {{- end -}}
-              {{- else -}}
-                {{- if eq ($currentNode.Scratch.Get "NextPageOK") "OK" -}}
-                  {{- $currentNode.Scratch.Set "NextPageOK" nil -}}
-                  {{ if in $menu_exclusion .menu.Section }}
-                  {{- else -}}
-                    {{- $currentNode.Scratch.Set "nextPage" .menu -}}
-                  {{- end -}}
-                {{- end -}}
-              {{- end -}}
-
-
-            {{- $currentNode.Scratch.Set "prevPageTmp" .menu -}}
-            {{- $currentNode.Scratch.Set "pages" .menu.Pages -}}
-            {{- if .menu.IsHome -}}
-              {{- $currentNode.Scratch.Set "pages" .menu.Sections -}}
-            {{- else if .menu.Sections -}}
-              {{- $currentNode.Scratch.Set "pages" (.menu.Pages | union .menu.Sections) -}}
-            {{- end -}}
-            {{- $pages := ($currentNode.Scratch.Get "pages") -}}
-            {{- range $pages.ByWeight -}}
-              {{- template "pagination" dict "menu" . "currentnode" $currentNode "menu_exclusion" $menu_exclusion -}}
-            {{- end -}}
-            {{- end -}}
+          </div>
         </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <article class="article-content">
+          {{ .Content }}
+
+          <!-- Maintainers Grid -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+              gap: var(--space-6);
+              margin-top: var(--space-8);
+            "
+          >
+            {{ range sort $.Site.Data.maintainers "accountName" }} {{ $data :=
+            dict }} {{ $path := printf "https://api.github.com/users/%s"
+            .accountName }} {{ with resources.GetRemote $path }} {{ with
+            .Content | transform.Unmarshal }} {{ $data = . }} {{ end }} {{ else
+            }} {{ errorf "Unable to get global resource %q" $path }} {{ end }}
+
+            <div
+              class="card"
+              style="
+                background: var(--bg-secondary);
+                border-radius: var(--radius-xl);
+                overflow: hidden;
+                border: 1px solid var(--border-primary);
+              "
+            >
+              <!-- Card Header -->
+              <div
+                style="
+                  padding: var(--space-4);
+                  background: var(--bg-tertiary);
+                  text-align: center;
+                  border-bottom: 1px solid var(--border-primary);
+                "
+              >
+                <a
+                  href="https://github.com/{{ .accountName }}"
+                  target="_blank"
+                  style="
+                    text-decoration: none;
+                    color: var(--text-primary);
+                    font-weight: 600;
+                  "
+                >
+                  {{ with $data.name }} {{ $data.name }} {{ else }} {{
+                  $data.login }} {{ end }}
+                </a>
+                {{ with $data.company }}
+                <br />
+                <span
+                  style="
+                    display: inline-block;
+                    margin-top: var(--space-2);
+                    padding: var(--space-1) var(--space-2);
+                    background: var(--bg-primary);
+                    border-radius: var(--radius-full);
+                    font-size: var(--text-xs);
+                    color: var(--text-secondary);
+                  "
+                >
+                  {{ $data.company }}
+                </span>
+                {{ end }}
+              </div>
+
+              <!-- Card Body -->
+              <div style="padding: var(--space-4); text-align: center">
+                <a href="https://github.com/{{ .accountName }}" target="_blank">
+                  <img
+                    src="{{ $data.avatar_url }}"
+                    alt="{{ $data.login }}"
+                    style="
+                      width: 80px;
+                      height: 80px;
+                      border-radius: 50%;
+                      margin: 0 auto var(--space-3);
+                      display: block;
+                      border: 3px solid var(--border-primary);
+                    "
+                  />
+                </a>
+                {{ with $data.location }}
+                <p
+                  style="
+                    font-size: var(--text-sm);
+                    color: var(--text-tertiary);
+                    margin-bottom: var(--space-2);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: var(--space-1);
+                  "
+                >
+                  <i class="ri-map-pin-line"></i>
+                  {{ $data.location }}
+                </p>
+                {{ end }} {{ with $data.bio }}
+                <p
+                  style="
+                    font-size: var(--text-sm);
+                    color: var(--text-secondary);
+                    margin-top: var(--space-2);
+                  "
+                >
+                  {{ $data.bio | safeHTML }}
+                </p>
+                {{ end }}
+              </div>
+
+              <!-- Card Footer -->
+              <div
+                style="
+                  padding: var(--space-4);
+                  background: var(--bg-tertiary);
+                  border-top: 1px solid var(--border-primary);
+                "
+              >
+                <p
+                  style="
+                    font-size: var(--text-xs);
+                    color: var(--text-tertiary);
+                    margin-bottom: var(--space-2);
+                  "
+                >
+                  Modules:
+                </p>
+                <div
+                  style="display: flex; flex-wrap: wrap; gap: var(--space-1)"
+                >
+                  {{ range sort .modules "repository" }}
+                  <a
+                    href="https://github.com/{{ .organization }}/{{ .repository }}"
+                    target="_blank"
+                    style="
+                      display: inline-block;
+                      padding: var(--space-1) var(--space-2);
+                      background: var(--accent-primary);
+                      color: white;
+                      border-radius: var(--radius-full);
+                      font-size: var(--text-xs);
+                      text-decoration: none;
+                    "
+                  >
+                    {{ .repository }}
+                  </a>
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+
+          <p
+            style="
+              margin-top: var(--space-8);
+              padding-top: var(--space-4);
+              border-top: 1px solid var(--border-primary);
+              font-size: var(--text-sm);
+              color: var(--text-tertiary);
+            "
+          >
+            Updated on {{ .PublishDate.Format "02 Jan 2006" }}
+          </p>
+        </article>
+
+        <!-- Navigation -->
+        <nav
+          class="article-nav"
+          style="
+            margin-top: var(--space-12);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--border-primary);
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+          "
+        >
+          {{ with .PrevInSection }}
+          <a
+            href="{{ .Permalink }}"
+            class="article-nav-link prev"
+            style="
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: var(--space-2);
+              color: var(--text-secondary);
+            "
+          >
+            <i class="ri-arrow-left-line"></i>
+            <span>
+              <span
+                style="
+                  display: block;
+                  font-size: var(--text-xs);
+                  color: var(--text-tertiary);
+                "
+                >Previous</span
+              >
+              <span style="color: var(--text-primary); font-weight: 500"
+                >{{ .Title }}</span
+              >
+            </span>
+          </a>
+          {{ else }}
+          <div></div>
+          {{ end }} {{ with .NextInSection }}
+          <a
+            href="{{ .Permalink }}"
+            class="article-nav-link next"
+            style="
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: var(--space-2);
+              color: var(--text-secondary);
+              text-align: right;
+            "
+          >
+            <span>
+              <span
+                style="
+                  display: block;
+                  font-size: var(--text-xs);
+                  color: var(--text-tertiary);
+                "
+                >Next</span
+              >
+              <span style="color: var(--text-primary); font-weight: 500"
+                >{{ .Title }}</span
+              >
+            </span>
+            <i class="ri-arrow-right-line"></i>
+          </a>
+          {{ end }}
+        </nav>
       </div>
     </div>
   </div>
 </section>
-<!-- /details page -->
 
-{{ partial "footer.html" . }}
+{{ end }}
