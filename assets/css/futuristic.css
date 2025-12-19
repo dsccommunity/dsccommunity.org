@@ -985,6 +985,7 @@ pre code {
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   transition: all var(--transition-normal);
+  height: 100%;
 }
 
 .card:hover {

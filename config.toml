@@ -60,12 +60,12 @@ url = "/community_calls"
 
 [[Languages.en.menu.main]]
 weight = 3
-name = "Faq"
+name = "FAQ"
 url = "/faq"
 
 [[Languages.en.menu.main]]
 weight = 4
-name = "help"
+name = "Help"
 url = "/help"
 
 [[Languages.en.menu.main]]
