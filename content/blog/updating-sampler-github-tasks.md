@@ -1,11 +1,12 @@
 ---
 title: "Updating repo with Sampler.GitHubTasks"
 date: 2020-03-09
+type: "post"
 draft: false
 author: gaelcolas
 ---
 
-A lot of improvements have been made to the Sampler module and templates in the last couple 
+A lot of improvements have been made to the Sampler module and templates in the last couple
 of weeks, and it's a (small) breaking change that needs a manual update to your repos.
 
 We knew for a long time that Sampler was needed some refactor to make it more testable and
@@ -19,7 +20,7 @@ One of the benefit is that the tasks now uses the PowerShellForGitHub module pro
 Microsoft instead of some modified fork we had to maintain, and it's decoupled from the core
 of Sampler so that if you use Sampler in something else than GitHub, you don't have to pull those dependencies.
 
-As you may know, Sampler has stayed in [development phase](https://semver.org/#spec-item-4) 
+As you may know, Sampler has stayed in [development phase](https://semver.org/#spec-item-4)
 until now (v0.x.x) because we knew those refactor and breaking changes would come.
 
 That big milestone being done, we'll soon be promoting the release to `v1.x.x`.
@@ -74,7 +75,7 @@ If you want to update your local cache for this repository, remember to call
 ### Build.yaml
 
 In your `Build.yaml` file, you need to tell the build pipeline to load the tasks from
-this `Sampler.GitHubTasks` module.  
+this `Sampler.GitHubTasks` module.
 This can be done by making sure the key `ModuleBuildTasks:` has the following subkey:
 
 ```yaml

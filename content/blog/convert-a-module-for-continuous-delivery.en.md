@@ -6,21 +6,14 @@ draft: false
 author: johlju
 ---
 
+This guide walks you through converting a DSC Community module to use the Sampler-based CI/CD pipeline for continuous delivery with Azure DevOps. We are moving away from AppVeyor to Azure Pipelines because Azure Pipelines
+gives us longer run time per job plus parallel jobs on a free account for open source projects.
+
 You are welcome to share any comments or issues you having around this
 process in the [Discord or Slack #DSC channel](https://dsccommunity.org/community/contact/).
 
 Before you start, here's an overview of what the new CI looks like:
 {{< youtube id="UWGKgVB4VNU" >}}
-
->**NOTE:** The build is running on Linux in the CI pipeline to be able to
->support cross-platform DSC resources, so that makes all paths case-sensitive!
->Have that in mind when updating paths and folders in the configuration
->files. Make sure they match the repository, or change the repository file
->and folder names).
-
-We are moving away from AppVeyor to Azure DevOps because Azure Pipelines
-gives us longer run time per job plus parallel jobs on a free account (for
-open source projects).
 
 Also, we are no longer requiring signing of CLA since the modules are
 now part of DSC Community.

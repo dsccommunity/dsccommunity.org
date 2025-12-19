@@ -6,11 +6,13 @@ draft: false
 author: johlju
 ---
 
-If you have any questions or suggestions around this blog post then please
-reach out to `@johlju` in the Virtual PowerShell User Group [#DSC channel](https://dsccommunity.org/community/contact/).
+Pester 5 introduces significant improvements along with breaking changes from version 4. This guide covers migrating your Pester tests to the new syntax, understanding the breaking changes, and applying best practices for the updated testing framework.
 
 **UPDATE:** To convert tests for a repository in DSC Community also see
-the blog [Convert tests to Pester 5 for a DSC Community repository](https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/)
+the blog [Convert tests to Pester 5 for a DSC Community repository](https://dsccommunity.org/blog/convert-tests-to-pester5-for-dsc-community-repository/).
+
+If you have any questions or suggestions around this blog post then please
+reach out to `@johlju` in the Virtual PowerShell User Group [#DSC channel](https://dsccommunity.org/community/contact/).
 
 ## Pester
 
