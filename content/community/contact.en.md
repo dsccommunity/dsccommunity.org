@@ -1,8 +1,8 @@
 ---
 title: "Join the Conversation"
 date: 2019-01-29T11:02:05+06:00
-weight: 10
-type: "post"
+weight: 5
+
 author: "Johan Ljunggren"
 ---
 

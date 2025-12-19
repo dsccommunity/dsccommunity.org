@@ -1,8 +1,8 @@
 ---
 title: "DSC Community Committee"
 date: 2020-01-17T14:00:00+01:00
-weight: 2
-type: "post"
+weight: 3
+
 author: "gaelcolas"
 ---
 
