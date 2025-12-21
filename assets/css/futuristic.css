@@ -683,8 +683,24 @@ pre code {
   font-family: var(--font-sans);
 }
 
+/* Platform-specific keyboard shortcuts */
+.search-toggle .shortcut-mac,
+.search-toggle .shortcut-other {
+  display: none;
+}
+
 @media (min-width: 768px) {
-  .search-toggle kbd {
+  /* Default: show Windows/Linux shortcut */
+  .search-toggle .shortcut-other {
+    display: inline;
+  }
+
+  /* On Mac: hide Windows shortcut, show Mac shortcut */
+  .is-mac .search-toggle .shortcut-other {
+    display: none;
+  }
+
+  .is-mac .search-toggle .shortcut-mac {
     display: inline;
   }
 }

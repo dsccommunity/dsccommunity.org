@@ -5,6 +5,7 @@
 
 // Initialize on DOM ready
 document.addEventListener("DOMContentLoaded", () => {
+  initPlatformDetection();
   initTheme();
   initHeader();
   initSearch();
@@ -12,6 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initAnimations();
 });
+
+/**
+ * Platform Detection
+ * Adds 'is-mac' class to html element for platform-specific UI
+ */
+function initPlatformDetection() {
+  const isMac =
+    navigator.platform.toUpperCase().indexOf("MAC") >= 0 ||
+    navigator.userAgent.toUpperCase().indexOf("MAC") >= 0;
+  if (isMac) {
+    document.documentElement.classList.add("is-mac");
+  }
+}
 
 /**
  * Theme Management
