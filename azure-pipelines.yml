@@ -47,6 +47,8 @@ steps:
   - pwsh: |
       .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info
     displayName: "Build Hugo Site"
+    env:
+      HUGO_GITHUB_TOKEN: $(GITHUB_TOKEN)
 
   - task: PublishPipelineArtifact@0
     displayName: "Publish Hugo site as artifact"
