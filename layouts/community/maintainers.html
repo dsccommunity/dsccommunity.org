@@ -62,7 +62,12 @@
           >
             {{ range sort $.Site.Data.maintainers "accountName" }} {{ $data :=
             dict }} {{ $path := printf "https://api.github.com/users/%s"
-            .accountName }} {{ with resources.GetRemote $path }} {{ with
+            .accountName }}
+            {{ $opts := dict }}
+            {{ with os.Getenv "HUGO_GITHUB_TOKEN" }}
+              {{ $opts = dict "headers" (dict "Authorization" (printf "token %s" .)) }}
+            {{ end }}
+            {{ with resources.GetRemote $path $opts }} {{ with
             .Content | transform.Unmarshal }} {{ $data = . }} {{ end }} {{ else
             }} {{ errorf "Unable to get global resource %q" $path }} {{ end }}
 
