@@ -1,8 +1,8 @@
 ---
 title: "Steps to rename master branch to main for a DSC Community resource"
 date: 2020-12-26
-type: "post"
 draft: false
+dsc_family: "Community"
 author: dscottraynsford
 ---
 

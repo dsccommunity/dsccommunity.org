@@ -1,8 +1,8 @@
 ---
 title: "Your first class-based Microsoft DSC v3 resource"
 date: 2025-07-28T00:00:00+01:00
-type: "post"
 draft: false
+dsc_family: "Microsoft DSC"
 author: johlju
 ---
 

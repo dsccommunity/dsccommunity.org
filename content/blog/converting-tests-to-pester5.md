@@ -1,8 +1,8 @@
 ---
 title: "Converting tests to Pester 5"
 date: 2020-05-17T05:00:00+01:00
-type: "post"
 draft: false
+dsc_family: "PowerShell DSC"
 author: johlju
 ---
 

@@ -1,10 +1,10 @@
 ---
 title: "DSC is Dead"
 date: 2020-05-30T23:00:00+01:00
-type: "post"
 weight: 2
 draft: false
 author: gaelcolas
+dsc_family: "PowerShell DSC"
 ---
 
 Is DSC really dead? In this PSConfEU session, Michael and Gael address the most common questions about Desired State Configuration, its current state, and where the future might be heading with Guest Configuration and Azure Arc.

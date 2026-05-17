@@ -1,8 +1,8 @@
 ---
 title: "Realizing maintenance windows with DSC"
 date: 2019-08-08T18:11:05+02:00
-type: "post"
 draft: false
+dsc_family: "PowerShell DSC"
 author: "raandree"
 ---
 

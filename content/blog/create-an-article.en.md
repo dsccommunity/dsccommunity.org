@@ -1,9 +1,9 @@
 ---
 title: "Create an Article"
 date: 2019-03-08T12:41:48+08:00
-type: "post"
 weight: 1
 draft: false
+dsc_family: "Community"
 ---
 
 Want to contribute a blog post to the DSC Community website? This guide shows you how to create and submit articles using Hugo and the archetypes template system.

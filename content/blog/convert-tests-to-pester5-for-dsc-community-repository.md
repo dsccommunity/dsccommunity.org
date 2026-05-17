@@ -1,8 +1,8 @@
 ---
 title: "Convert tests to Pester 5 for a DSC Community repository"
 date: 2020-12-28T00:00:00+02:00
-type: "post"
 draft: false
+dsc_family: "PowerShell DSC"
 author: johlju
 ---
 
