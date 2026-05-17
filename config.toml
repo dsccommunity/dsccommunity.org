@@ -13,6 +13,10 @@ unsafe = true
 style = "github-dark"
 lineNos = false
 codeFences = true
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 3
+ordered = false
 
 [params]
 # Updated modern color palette

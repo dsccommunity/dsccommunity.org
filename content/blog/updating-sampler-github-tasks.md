@@ -1,8 +1,8 @@
 ---
 title: "Updating repo with Sampler.GitHubTasks"
 date: 2020-03-09
-type: "post"
 draft: false
+dsc_family: "Community"
 author: gaelcolas
 ---
 

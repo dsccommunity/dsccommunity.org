@@ -1,8 +1,8 @@
 ---
 title: "Steps to convert a module for continuous delivery"
 date: 2019-12-30
-type: "post"
 draft: false
+dsc_family: "PowerShell DSC"
 author: johlju
 ---
 

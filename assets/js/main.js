@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCodeHighlight();
   initSmoothScroll();
   initAnimations();
+  initTocHighlight();
 });
 
 /**
@@ -101,7 +102,7 @@ function initHeader() {
 
       lastScroll = currentScroll;
     },
-    { passive: true }
+    { passive: true },
   );
 }
 
@@ -257,20 +258,20 @@ function handleSearch(e) {
     .map(
       (item, index) => `
     <a href="${item.url}" class="search-result-item${
-        index === 0 ? " focused" : ""
-      }" data-index="${index}">
+      index === 0 ? " focused" : ""
+    }" data-index="${index}">
       <div class="search-result-icon">
         <i class="ri-file-text-line"></i>
       </div>
       <div class="search-result-content">
         <div class="search-result-title">${highlightMatch(
           item.title,
-          query
+          query,
         )}</div>
         <div class="search-result-path">${item.section}</div>
       </div>
     </a>
-  `
+  `,
     )
     .join("");
 }
@@ -279,7 +280,7 @@ function highlightMatch(text, query) {
   const regex = new RegExp(`(${escapeRegex(query)})`, "gi");
   return text.replace(
     regex,
-    '<mark style="background: rgba(59, 130, 246, 0.3); color: inherit; padding: 0 2px; border-radius: 2px;">$1</mark>'
+    '<mark style="background: rgba(59, 130, 246, 0.3); color: inherit; padding: 0 2px; border-radius: 2px;">$1</mark>',
   );
 }
 
@@ -354,6 +355,41 @@ function initSmoothScroll() {
 }
 
 /**
+ * TOC Active Highlight
+ * Highlights the current section in the sticky TOC as the user scrolls
+ */
+function initTocHighlight() {
+  const tocNav = document.querySelector(".toc-nav");
+  if (!tocNav) return;
+
+  const tocLinks = Array.from(tocNav.querySelectorAll("a[href^='#']"));
+  if (tocLinks.length === 0) return;
+
+  const headings = tocLinks
+    .map((link) => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  function onScroll() {
+    const scrollY = window.scrollY + 80; // offset for sticky header
+    let current = headings[0];
+
+    for (const heading of headings) {
+      if (heading.offsetTop <= scrollY) {
+        current = heading;
+      }
+    }
+
+    tocLinks.forEach((link) => {
+      const isActive = link.getAttribute("href") === "#" + current.id;
+      link.classList.toggle("toc-active", isActive);
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+/**
  * Intersection Observer for Animations
  */
 function initAnimations() {
@@ -369,7 +405,7 @@ function initAnimations() {
     {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
-    }
+    },
   );
 
   document

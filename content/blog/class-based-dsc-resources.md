@@ -1,9 +1,9 @@
 ---
 title: "Class Based DSC Resource only proposal"
 date: 2020-10-02T10:00:00+02:00
-type: "post"
 draft: false
 author: gaelcolas
+dsc_family: "PowerShell DSC"
 ---
 
 The PowerShell team announced plans to focus on class-based DSC resources only for PowerShell 7.2+, moving away from MOF/CIM dependencies. This article explains why this is a good direction, addresses common concerns about backward compatibility and testing, and shares the DSC Community's perspective on this change.

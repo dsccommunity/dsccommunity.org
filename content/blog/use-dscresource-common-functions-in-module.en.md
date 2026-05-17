@@ -1,8 +1,8 @@
 ---
 title: "DscResource.Common functions in a DSC module"
 date: 2020-01-11T15:45:00+01:00
-type: "post"
 draft: false
+dsc_family: "PowerShell DSC"
 author: johlju
 ---
 

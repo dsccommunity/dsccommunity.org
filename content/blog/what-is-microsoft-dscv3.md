@@ -1,9 +1,9 @@
 ---
 title: "What is Microsoft DSC v3"
 date: 2025-07-30T00:00:00+01:00
-type: "post"
 draft: false
 author: johlju
+dsc_family: "Microsoft DSC"
 ---
 
 > Microsoft DSC v3 is a simple, single executable tool that helps you declare and enforce the desired state of your systems in a cross-platform way.

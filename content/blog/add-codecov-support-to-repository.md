@@ -1,8 +1,8 @@
 ---
 title: "Add Code Coverage Support to Repository"
 date: 2020-02-03T19:17:35+01:00
-type: "post"
 draft: false
+dsc_family: "Community"
 author: johlju
 ---
 

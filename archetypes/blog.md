@@ -1,8 +1,8 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-type: "post"
 draft: false
+dsc_family: "" # "PowerShell DSC", "Microsoft DSC", or "Community"
 ---
 
 ## {{ replace .Name "-" " " | title }}
