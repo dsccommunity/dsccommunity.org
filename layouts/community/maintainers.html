@@ -67,12 +67,17 @@
             {{ with os.Getenv "HUGO_GITHUB_TOKEN" }}
               {{ $opts = dict "headers" (dict "Authorization" (printf "token %s" .)) }}
             {{ end }}
-            {{ with resources.GetRemote $path $opts }}
-              {{ if .Err }}
-                {{ warnf "Unable to get GitHub user data for %q: %s" $path .Err }}
-              {{ else }}
-                {{ with .Content | transform.Unmarshal }}
-                  {{ $data = . }}
+            {{ $result := try (resources.GetRemote $path $opts) }}
+            {{ if $result.Err }}
+              {{ warnf "Unable to get GitHub user data for %q: %s" $path $result.Err }}
+            {{ else }}
+              {{ with $result.Value }}
+                {{ if .Err }}
+                  {{ warnf "Unable to get GitHub user data for %q: %s" $path .Err }}
+                {{ else }}
+                  {{ with .Content | transform.Unmarshal }}
+                    {{ $data = . }}
+                  {{ end }}
                 {{ end }}
               {{ end }}
             {{ end }}
