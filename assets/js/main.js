@@ -55,18 +55,12 @@ function setTheme(theme) {
 }
 
 function updateThemeToggle(theme) {
-  const sunIcon = document.querySelector(".sun-icon");
-  const moonIcon = document.querySelector(".moon-icon");
-
-  if (sunIcon && moonIcon) {
-    if (theme === "dark") {
-      sunIcon.style.display = "none";
-      moonIcon.style.display = "block";
-    } else {
-      sunIcon.style.display = "block";
-      moonIcon.style.display = "none";
-    }
-  }
+  document.querySelectorAll(".sun-icon, .sun-icon-panel").forEach((el) => {
+    el.style.display = theme === "dark" ? "none" : "block";
+  });
+  document.querySelectorAll(".moon-icon, .moon-icon-panel").forEach((el) => {
+    el.style.display = theme === "dark" ? "block" : "none";
+  });
 }
 
 function toggleTheme() {
@@ -101,7 +95,7 @@ function initHeader() {
 
       lastScroll = currentScroll;
     },
-    { passive: true }
+    { passive: true },
   );
 }
 
@@ -109,16 +103,39 @@ function initHeader() {
  * Mobile Menu
  */
 function toggleMobileMenu() {
-  const nav = document.getElementById("mainNav");
+  const menu = document.getElementById("mobileMenu");
   const toggle = document.getElementById("menuToggle");
+  if (!menu || !toggle) return;
 
-  if (nav && toggle) {
-    nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", nav.classList.contains("open"));
-  }
+  const isOpen = menu.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", String(isOpen));
+  menu.setAttribute("aria-hidden", String(!isOpen));
+  document.body.style.overflow = isOpen ? "hidden" : "";
 }
 
+function closeMobileMenu() {
+  const menu = document.getElementById("mobileMenu");
+  const toggle = document.getElementById("menuToggle");
+  if (!menu || !menu.classList.contains("open")) return;
+
+  menu.classList.remove("open");
+  menu.setAttribute("aria-hidden", "true");
+  toggle && toggle.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("click", (e) => {
+  const mobileLink = e.target.closest(".mobile-menu a[href]");
+  if (mobileLink) closeMobileMenu();
+});
+
+// Close on Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMobileMenu();
+});
+
 window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
 
 /**
  * Search Modal
@@ -257,20 +274,20 @@ function handleSearch(e) {
     .map(
       (item, index) => `
     <a href="${item.url}" class="search-result-item${
-        index === 0 ? " focused" : ""
-      }" data-index="${index}">
+      index === 0 ? " focused" : ""
+    }" data-index="${index}">
       <div class="search-result-icon">
         <i class="ri-file-text-line"></i>
       </div>
       <div class="search-result-content">
         <div class="search-result-title">${highlightMatch(
           item.title,
-          query
+          query,
         )}</div>
         <div class="search-result-path">${item.section}</div>
       </div>
     </a>
-  `
+  `,
     )
     .join("");
 }
@@ -279,7 +296,7 @@ function highlightMatch(text, query) {
   const regex = new RegExp(`(${escapeRegex(query)})`, "gi");
   return text.replace(
     regex,
-    '<mark style="background: rgba(59, 130, 246, 0.3); color: inherit; padding: 0 2px; border-radius: 2px;">$1</mark>'
+    '<mark style="background: rgba(59, 130, 246, 0.3); color: inherit; padding: 0 2px; border-radius: 2px;">$1</mark>',
   );
 }
 
@@ -369,7 +386,7 @@ function initAnimations() {
     {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px",
-    }
+    },
   );
 
   document
