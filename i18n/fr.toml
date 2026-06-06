@@ -1,0 +1,20 @@
+[mobileMenuOpenAriaLabel]
+other = "Ouvrir le menu"
+
+[mobileNavigationAriaLabel]
+other = "Navigation mobile"
+
+[mobileMenuTitle]
+other = "Menu"
+
+[mobileMenuCloseAriaLabel]
+other = "Fermer le menu"
+
+[themeToggleAriaLabel]
+other = "Activer ou désactiver le mode sombre"
+
+[theme]
+other = "Thème"
+
+[github]
+other = "GitHub"
