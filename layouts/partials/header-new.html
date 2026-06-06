@@ -173,7 +173,8 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Toggle menu"
+          aria-label="Open menu"
+          aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
           <svg
@@ -185,8 +186,8 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="18" y2="18" />
           </svg>
         </button>
@@ -194,3 +195,86 @@
     </div>
   </div>
 </header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <div>
+        <span class="mobile-menu-eyebrow">DSC Community</span>
+        <h2 class="mobile-menu-title">Menu</h2>
+      </div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <ul class="mobile-menu-list">
+        {{ range .Site.Menus.main }}
+        {{ if .HasChildren }}
+        <li class="mobile-menu-group">
+          <span class="mobile-menu-heading">
+            <span class="mobile-menu-icon"><i class="ri-folder-3-line"></i></span>
+            <span>{{ .Name }}</span>
+          </span>
+          <div class="mobile-submenu">
+            {{ range .Children }}
+            <a href="{{ .URL }}" class="mobile-submenu-link">
+              <span class="mobile-submenu-icon">
+                {{ if eq .Name "Community" }}
+                <i class="ri-team-line"></i>
+                {{ else if eq .Name "Resource Modules" }}
+                <i class="ri-apps-2-line"></i>
+                {{ else if eq .Name "Guidelines" }}
+                <i class="ri-book-open-line"></i>
+                {{ else if eq .Name "Blog Posts" }}
+                <i class="ri-article-line"></i>
+                {{ else if eq .Name "Config. Management" }}
+                <i class="ri-settings-3-line"></i>
+                {{ else }}
+                <i class="ri-file-text-line"></i>
+                {{ end }}
+              </span>
+              <span>{{ .Name }}</span>
+            </a>
+            {{ end }}
+          </div>
+        </li>
+        {{ else }}
+        <li>
+          <a href="{{ .URL }}" class="mobile-menu-link{{ if eq $.RelPermalink .URL }} active{{ end }}">
+            <span class="mobile-menu-icon">
+              {{ if eq .Name "Code of Conduct" }}
+              <i class="ri-shield-check-line"></i>
+              {{ else if eq .Name "Community Calls" }}
+              <i class="ri-calendar-event-line"></i>
+              {{ else if eq .Name "FAQ" }}
+              <i class="ri-question-answer-line"></i>
+              {{ else if eq .Name "Help" }}
+              <i class="ri-lifebuoy-line"></i>
+              {{ else }}
+              <i class="ri-file-list-line"></i>
+              {{ end }}
+            </span>
+            <span>{{ .Name }}</span>
+          </a>
+        </li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="ri-contrast-2-line"></i>
+        <span>Theme</span>
+      </button>
+      <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
+        <i class="ri-github-fill"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </aside>
+</div>
