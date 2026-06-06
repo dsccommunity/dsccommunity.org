@@ -117,7 +117,7 @@
         <button
           class="theme-toggle"
           id="themeToggle"
-          aria-label="Toggle dark mode"
+          aria-label="{{ i18n "themeToggleAriaLabel" }}"
           onclick="toggleTheme()"
         >
           <svg
@@ -154,7 +154,7 @@
         <a
           href="https://github.com/dsccommunity"
           class="theme-toggle"
-          aria-label="GitHub"
+          aria-label="{{ i18n "github" }}"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -173,7 +173,7 @@
         <button
           class="menu-toggle"
           id="menuToggle"
-          aria-label="Open menu"
+          aria-label="{{ i18n "mobileMenuOpenAriaLabel" }}"
           aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
@@ -199,13 +199,13 @@
 <!-- Mobile Navigation -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <div class="mobile-menu-backdrop" onclick="closeMobileMenu()"></div>
-  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <aside class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="{{ i18n "mobileNavigationAriaLabel" }}">
     <div class="mobile-menu-header">
       <div>
-        <span class="mobile-menu-eyebrow">DSC Community</span>
-        <h2 class="mobile-menu-title">Menu</h2>
+        <span class="mobile-menu-eyebrow">{{ .Site.Title }}</span>
+        <h2 class="mobile-menu-title">{{ i18n "mobileMenuTitle" }}</h2>
       </div>
-      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">
+      <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="{{ i18n "mobileMenuCloseAriaLabel" }}">
         <i class="ri-close-line"></i>
       </button>
     </div>
@@ -267,13 +267,13 @@
     </div>
 
     <div class="mobile-menu-footer">
-      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <button class="mobile-menu-action" onclick="toggleTheme()" aria-label="{{ i18n "themeToggleAriaLabel" }}">
         <i class="ri-contrast-2-line"></i>
-        <span>Theme</span>
+        <span>{{ i18n "theme" }}</span>
       </button>
       <a href="https://github.com/dsccommunity" class="mobile-menu-action" target="_blank" rel="noopener noreferrer">
         <i class="ri-github-fill"></i>
-        <span>GitHub</span>
+        <span>{{ i18n "github" }}</span>
       </a>
     </div>
   </aside>
