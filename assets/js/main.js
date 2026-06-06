@@ -56,18 +56,12 @@ function setTheme(theme) {
 }
 
 function updateThemeToggle(theme) {
-  const sunIcon = document.querySelector(".sun-icon");
-  const moonIcon = document.querySelector(".moon-icon");
-
-  if (sunIcon && moonIcon) {
-    if (theme === "dark") {
-      sunIcon.style.display = "none";
-      moonIcon.style.display = "block";
-    } else {
-      sunIcon.style.display = "block";
-      moonIcon.style.display = "none";
-    }
-  }
+  document.querySelectorAll(".sun-icon, .sun-icon-panel").forEach((el) => {
+    el.style.display = theme === "dark" ? "none" : "block";
+  });
+  document.querySelectorAll(".moon-icon, .moon-icon-panel").forEach((el) => {
+    el.style.display = theme === "dark" ? "block" : "none";
+  });
 }
 
 function toggleTheme() {
@@ -110,16 +104,39 @@ function initHeader() {
  * Mobile Menu
  */
 function toggleMobileMenu() {
-  const nav = document.getElementById("mainNav");
+  const menu = document.getElementById("mobileMenu");
   const toggle = document.getElementById("menuToggle");
+  if (!menu || !toggle) return;
 
-  if (nav && toggle) {
-    nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", nav.classList.contains("open"));
-  }
+  const isOpen = menu.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", String(isOpen));
+  menu.setAttribute("aria-hidden", String(!isOpen));
+  document.body.style.overflow = isOpen ? "hidden" : "";
 }
 
+function closeMobileMenu() {
+  const menu = document.getElementById("mobileMenu");
+  const toggle = document.getElementById("menuToggle");
+  if (!menu || !menu.classList.contains("open")) return;
+
+  menu.classList.remove("open");
+  menu.setAttribute("aria-hidden", "true");
+  toggle && toggle.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("click", (e) => {
+  const mobileLink = e.target.closest(".mobile-menu a[href]");
+  if (mobileLink) closeMobileMenu();
+});
+
+// Close on Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMobileMenu();
+});
+
 window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
 
 /**
  * Search Modal
