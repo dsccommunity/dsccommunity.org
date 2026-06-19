@@ -76,7 +76,7 @@ stages:
   - stage: PublishGitHubPages
     displayName: "Publish GitHub Pages"
     dependsOn: Build
-    # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     jobs:
       - job: PublishGitHubPages
         displayName: "Publish GitHub Pages"
