@@ -12,52 +12,126 @@ pr:
 pool:
   vmImage: "windows-latest"
 
-steps:
-  - checkout: self
-    submodules: false
-    displayName: "Checkout repository"
-  - script: |
-      git submodule sync
-      git submodule update --init --force themes/hugo-admonitions
-    displayName: "Initialize theme submodule"
+variables:
+  githubPagesRepository: "dsccommunity/dsccommunity.github.io"
+  githubPagesBranch: "master"
 
-  - task: PowerShell@2
-    name: ResourcesJSON
-    displayName: "Generating Resources JSON from PSGallery"
-    inputs:
-      filePath: "./Get-DscResourceKitInfo.ps1"
-      pwsh: true
-      errorActionPreference: continue
+stages:
+  - stage: Build
+    displayName: "Build Hugo site"
+    jobs:
+      - job: Build
+        displayName: "Build Hugo site"
+        steps:
+          - checkout: self
+            submodules: false
+            displayName: "Checkout repository"
 
-  # - task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
-  #   displayName: "Generate Hugo site"
-  #   inputs:
-  #     destination: "$(Build.ArtifactStagingDirectory)"
-  #     hugoVersion: 0.135.0
+          - script: |
+              git submodule sync
+              git submodule update --init --force themes/hugo-admonitions
+            displayName: "Initialize theme submodule"
 
-  - pwsh: |
-      $ErrorActionPreference = 'Stop'
-      $versionsConfig = Get-Content -Path ".\.versions.json" -Raw | ConvertFrom-Json
-      $hugoVersion = $versionsConfig.hugo.version
-      $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v$hugoVersion/hugo_extended_${hugoVersion}_windows-amd64.zip"
-      $outputPath = ".\hugo.zip"
-      Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
-      Expand-Archive -Path $outputPath -DestinationPath ".\hugo"
-    displayName: "Download and Extract Hugo"
+          - task: PowerShell@2
+            name: ResourcesJSON
+            displayName: "Generating Resources JSON from PSGallery"
+            inputs:
+              filePath: "./Get-DscResourceKitInfo.ps1"
+              pwsh: true
+              errorActionPreference: continue
 
-  - pwsh: |
-      $ErrorActionPreference = 'Stop'
-      $hasGitHubToken = -not [string]::IsNullOrWhiteSpace($env:HUGO_GITHUB_TOKEN) -and $env:HUGO_GITHUB_TOKEN -notmatch '^\$\(.+\)$'
-      if (-not $hasGitHubToken) {
-        Remove-Item -Path Env:\HUGO_GITHUB_TOKEN -ErrorAction SilentlyContinue
-      }
-      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info
-    displayName: "Build Hugo Site"
-    env:
-      HUGO_GITHUB_TOKEN: $(GITHUB_TOKEN)
+          # - task: giuliovdev.hugo-extension.hugo-build-task-v2.HugoTask@2
+          #   displayName: "Generate Hugo site"
+          #   inputs:
+          #     destination: "$(Build.ArtifactStagingDirectory)"
+          #     hugoVersion: 0.135.0
 
-  - task: PublishPipelineArtifact@0
-    displayName: "Publish Hugo site as artifact"
-    inputs:
-      artifactName: "dsccommunity"
-      targetPath: "$(Build.ArtifactStagingDirectory)"
+          - pwsh: |
+              $ErrorActionPreference = 'Stop'
+              $versionsConfig = Get-Content -Path ".\.versions.json" -Raw | ConvertFrom-Json
+              $hugoVersion = $versionsConfig.hugo.version
+              $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v$hugoVersion/hugo_extended_${hugoVersion}_windows-amd64.zip"
+              $outputPath = ".\hugo.zip"
+              Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
+              Expand-Archive -Path $outputPath -DestinationPath ".\hugo"
+            displayName: "Download and Extract Hugo"
+
+          - pwsh: |
+              $ErrorActionPreference = 'Stop'
+              $hasGitHubToken = -not [string]::IsNullOrWhiteSpace($env:HUGO_GITHUB_TOKEN) -and $env:HUGO_GITHUB_TOKEN -notmatch '^\$\(.+\)$'
+              if (-not $hasGitHubToken) {
+                Remove-Item -Path Env:\HUGO_GITHUB_TOKEN -ErrorAction SilentlyContinue
+              }
+              .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info
+            displayName: "Build Hugo Site"
+            env:
+              HUGO_GITHUB_TOKEN: $(GITHUB_TOKEN)
+
+          - task: PublishPipelineArtifact@0
+            displayName: "Publish Hugo site as artifact"
+            inputs:
+              artifactName: "dsccommunity"
+              targetPath: "$(Build.ArtifactStagingDirectory)"
+
+  - stage: PublishGitHubPages
+    displayName: "Publish GitHub Pages"
+    dependsOn: Build
+    # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    jobs:
+      - job: PublishGitHubPages
+        displayName: "Publish GitHub Pages"
+        steps:
+          - checkout: none
+
+          - download: current
+            artifact: dsccommunity
+            displayName: "Download Hugo site artifact"
+
+          - pwsh: |
+              $ErrorActionPreference = 'Stop'
+
+              if ([string]::IsNullOrWhiteSpace($env:GITHUB_TOKEN) -or $env:GITHUB_TOKEN -match '^\$\(.+\)$') {
+                throw 'GITHUB_TOKEN must be configured as an Azure Pipelines secret variable to publish GitHub Pages.'
+              }
+
+              $publishPath = Join-Path -Path '$(Pipeline.Workspace)' -ChildPath 'dsccommunity'
+              $repositoryPath = Join-Path -Path '$(Agent.TempDirectory)' -ChildPath 'github-pages'
+              $repositoryUrl = 'https://github.com/$(githubPagesRepository).git'
+              $authenticatedRepositoryUrl = 'https://x-access-token:{0}@github.com/$(githubPagesRepository).git' -f $env:GITHUB_TOKEN
+
+              git config --global user.email 'azuredevops@dsccommunity.org'
+              git config --global user.name 'Azure DevOps'
+              git clone --branch '$(githubPagesBranch)' --single-branch $repositoryUrl $repositoryPath
+
+              $cnamePath = Join-Path -Path $repositoryPath -ChildPath 'CNAME'
+              $cnameContent = if (Test-Path -Path $cnamePath) { Get-Content -Path $cnamePath -Raw } else { $null }
+
+              Get-ChildItem -Path $repositoryPath -Force |
+                Where-Object { $_.Name -ne '.git' } |
+                Remove-Item -Recurse -Force
+
+              Copy-Item -Path (Join-Path -Path $publishPath -ChildPath '*') -Destination $repositoryPath -Recurse -Force
+
+              if (-not (Test-Path -Path $cnamePath) -and -not [string]::IsNullOrWhiteSpace($cnameContent)) {
+                Set-Content -Path $cnamePath -Value $cnameContent -NoNewline
+              }
+
+              New-Item -Path (Join-Path -Path $repositoryPath -ChildPath '.nojekyll') -ItemType File -Force | Out-Null
+
+              Push-Location -Path $repositoryPath
+              try {
+                git add --all
+
+                $hasChanges = -not [string]::IsNullOrWhiteSpace((git status --porcelain))
+                if ($hasChanges) {
+                  git commit -m "Automated Release $(Build.BuildId)"
+                  git push $authenticatedRepositoryUrl '$(githubPagesBranch)'
+                } else {
+                  Write-Host 'No GitHub Pages changes to publish.'
+                }
+              } finally {
+                Pop-Location
+              }
+            displayName: "Publish to GitHub Pages"
+            env:
+              GITHUB_TOKEN: $(GITHUB_TOKEN)
