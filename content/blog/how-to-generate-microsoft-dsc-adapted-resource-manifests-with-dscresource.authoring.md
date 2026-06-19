@@ -1,9 +1,9 @@
 ---
 title: "How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring"
 date: 2026-06-19T00:00:00+01:00
-type: "post"
 draft: false
 author: Gijsreyn
+dsc_family: "Microsoft DSC"
 ---
 
 Class-based DSC resources are the way forward. Period. At least, if it wants to
