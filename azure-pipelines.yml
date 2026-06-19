@@ -93,6 +93,8 @@ stages:
               docPath: "$(Pipeline.Workspace)/dsccommunity/*"
               githubusername: dsccommunity
               githubemail: "gaelcolas@synedgy.com"
-              githubaccesstoken: "$(AuthToken)"
+              githubaccesstoken: "$(GITHUB_TOKEN)"
               repositoryname: dsccommunity.github.io
               branchname: master
+            env:
+              GITHUB_TOKEN: $(AuthToken)
