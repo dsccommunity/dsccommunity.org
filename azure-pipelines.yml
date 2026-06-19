@@ -90,7 +90,7 @@ stages:
           - pwsh: |
               $ErrorActionPreference = 'Stop'
 
-              if ([string]::IsNullOrWhiteSpace($env:GITHUB_TOKEN) -or $env:GITHUB_TOKEN -match '^\$\(.+\)$') {
+              if ([string]::IsNullOrWhiteSpace($env:GITHUB_TOKEN)) {
                 throw 'GITHUB_TOKEN must be configured as an Azure Pipelines secret variable to publish GitHub Pages.'
               }
 
