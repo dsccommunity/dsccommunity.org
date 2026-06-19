@@ -28,9 +28,17 @@ and implemented methods, in the end, producing either a single resource manifest
 
 Each DSC community project stored in the organization uses the standardized
 scaffolding layout from Sampler, giving a place to make this manifest generation
-repeatable: the build script. In this blog post, you'll learn first why these
-adapted resource manifests matter, what the module actually creates, and how you
-can adopt it with ease.
+repeatable: the build script. Each DSC community project can thus generate
+adapted resource manifests for class-based resources in three simple steps:
+
+1. Add the module dependency in `RequiredModules.psd1`.
+1. Update `build.yaml` with the tasks to import from that new module dependency
+   using the `Task.*` alias.
+1. Update the build workflow to include the new task(s).
+
+In this blog post, we go into more detail about why these adapted
+resource manifests matter, what the module actually creates, and how you can
+adopt it with ease.
 
 ## Why adapted resource manifests matter
 
@@ -479,7 +487,38 @@ BuildWorkflow:
     - Publish_GitHub_Wiki_Content
 ```
 
-After the `build` task, you can add one of the two tasks, resulting in the following:
+After the `build` task, you can add one of the two tasks mentioned above. Let's
+say you want to create individual files for each class-based DSC resource,
+you can add the following snippet:
+
+```yaml
+####################################################
+# Pipeline Build Task Configuration (Invoke-Build) #
+####################################################
+BuildWorkflow:
+  '.':
+    - build
+    - test
+
+  build:
+    - Clean
+    - Build_Module_ModuleBuilder
+    - Build_NestedModules_ModuleBuilder
+    - Create_Changelog_Release_Output
+    - Create_DscAdaptedResourceManifests # The line creating adapted resource manifest(s)
+  # Truncated
+
+# Import ModuleBuilder tasks from a specific PowerShell module using the build
+# task's alias. Wildcard * can be used to specify all tasks that has a similar
+# prefix and or suffix. The module contain the task must be added as a required
+# module in the file RequiredModules.psd1.
+ModuleBuildTasks:
+  # Truncated
+  DscResource.Authoring:
+    - 'Task.*' # Line to import the available task from the module
+```
+
+This results in the following being generated:
 
 ![Example using SqlServerDsc to generate adapted resource manifests][img-dsc-sqlserver-adapted-manifests]
 
