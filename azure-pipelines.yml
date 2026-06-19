@@ -87,51 +87,12 @@ stages:
             artifact: dsccommunity
             displayName: "Download Hugo site artifact"
 
-          - pwsh: |
-              $ErrorActionPreference = 'Stop'
-
-              if ([string]::IsNullOrWhiteSpace($env:GITHUB_TOKEN)) {
-                throw 'GITHUB_TOKEN must be configured as an Azure Pipelines secret variable to publish GitHub Pages.'
-              }
-
-              $publishPath = Join-Path -Path '$(Pipeline.Workspace)' -ChildPath 'dsccommunity'
-              $repositoryPath = Join-Path -Path '$(Agent.TempDirectory)' -ChildPath 'github-pages'
-              $repositoryUrl = 'https://github.com/$(githubPagesRepository).git'
-              $authenticatedRepositoryUrl = 'https://x-access-token:{0}@github.com/$(githubPagesRepository).git' -f $env:GITHUB_TOKEN
-
-              git config --global user.email 'azuredevops@dsccommunity.org'
-              git config --global user.name 'Azure DevOps'
-              git clone --branch '$(githubPagesBranch)' --single-branch $repositoryUrl $repositoryPath
-
-              $cnamePath = Join-Path -Path $repositoryPath -ChildPath 'CNAME'
-              $cnameContent = if (Test-Path -Path $cnamePath) { Get-Content -Path $cnamePath -Raw } else { $null }
-
-              Get-ChildItem -Path $repositoryPath -Force |
-                Where-Object { $_.Name -ne '.git' } |
-                Remove-Item -Recurse -Force
-
-              Copy-Item -Path (Join-Path -Path $publishPath -ChildPath '*') -Destination $repositoryPath -Recurse -Force
-
-              if (-not (Test-Path -Path $cnamePath) -and -not [string]::IsNullOrWhiteSpace($cnameContent)) {
-                Set-Content -Path $cnamePath -Value $cnameContent -NoNewline
-              }
-
-              New-Item -Path (Join-Path -Path $repositoryPath -ChildPath '.nojekyll') -ItemType File -Force | Out-Null
-
-              Push-Location -Path $repositoryPath
-              try {
-                git add --all
-
-                $hasChanges = -not [string]::IsNullOrWhiteSpace((git status --porcelain))
-                if ($hasChanges) {
-                  git commit -m "Automated Release $(Build.BuildId)"
-                  git push $authenticatedRepositoryUrl '$(githubPagesBranch)'
-                } else {
-                  Write-Host 'No GitHub Pages changes to publish.'
-                }
-              } finally {
-                Pop-Location
-              }
-            displayName: "Publish to GitHub Pages"
-            env:
-              GITHUB_TOKEN: $(GITHUB_TOKEN)
+          - task: GitHubPagesPublish@1
+            displayName: "Publishes to GitHub Pages"
+            inputs:
+              docPath: "$(Pipeline.Workspace)/dsccommunity/*"
+              githubusername: dsccommunity
+              githubemail: "gaelcolas@synedgy.com"
+              githubaccesstoken: "$(AuthToken)"
+              repositoryname: dsccommunity.github.io
+              branchname: master
