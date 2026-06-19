@@ -32,9 +32,9 @@ repeatable: the build script. Each DSC community project can thus generate
 adapted resource manifests for class-based resources in three simple steps:
 
 1. Add the module dependency in `RequiredModules.psd1`.
-2. Update `build.yaml` with the tasks to import from that new module dependency
+1. Update `build.yaml` with the tasks to import from that new module dependency
    using the `Task.*` alias.
-3. Update the build workflow to include the new task(s).
+1. Update the build workflow to include the new task(s).
 
 In this blog post, we go into more detail about why these adapted
 resource manifests matter, what the module actually creates, and how you can
