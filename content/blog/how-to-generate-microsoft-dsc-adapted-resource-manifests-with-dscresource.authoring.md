@@ -1,9 +1,9 @@
 ---
 title: "How to generate Microsoft DSC adapted resource manifests with DscResource.Authoring"
 date: 2026-06-19T00:00:00+01:00
-type: "post"
 draft: false
 author: Gijsreyn
+dsc_family: "Microsoft DSC"
 ---
 
 Class-based DSC resources are the way forward. Period. At least, if it wants to
@@ -32,9 +32,9 @@ repeatable: the build script. Each DSC community project can thus generate
 adapted resource manifests for class-based resources in three simple steps:
 
 1. Add the module dependency in `RequiredModules.psd1`.
-1. Update `build.yaml` with the tasks to import from that new module dependency
+2. Update `build.yaml` with the tasks to import from that new module dependency
    using the `Task.*` alias.
-1. Update the build workflow to include the new task(s).
+3. Update the build workflow to include the new task(s).
 
 In this blog post, we go into more detail about why these adapted
 resource manifests matter, what the module actually creates, and how you can
