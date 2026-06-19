@@ -57,7 +57,7 @@ steps:
       $hasGitHubToken = -not [string]::IsNullOrWhiteSpace($env:HUGO_GITHUB_TOKEN)
       Write-Host "HUGO_GITHUB_TOKEN provided: $hasGitHubToken"
       .\hugo\hugo.exe version
-      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --debug --logLevel debug
+      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel debug --templateMetrics --templateMetricsHints
     displayName: "Build Hugo Site"
     env:
       HUGO_GITHUB_TOKEN: $(GITHUB_TOKEN)
