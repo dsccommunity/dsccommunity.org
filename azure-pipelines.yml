@@ -36,16 +36,28 @@ steps:
   #     hugoVersion: 0.135.0
 
   - pwsh: |
+      $ErrorActionPreference = 'Stop'
       $versionsConfig = Get-Content -Path ".\.versions.json" -Raw | ConvertFrom-Json
       $hugoVersion = $versionsConfig.hugo.version
       $hugoUrl = "https://github.com/gohugoio/hugo/releases/download/v$hugoVersion/hugo_extended_${hugoVersion}_windows-amd64.zip"
       $outputPath = ".\hugo.zip"
+      Write-Host "Configured Hugo version: $hugoVersion"
+      Write-Host "Downloading Hugo from: $hugoUrl"
       Invoke-WebRequest -Uri $hugoUrl -OutFile $outputPath
       Expand-Archive -Path $outputPath -DestinationPath ".\hugo"
+      Write-Host "Downloaded Hugo executable:"
+      Get-ChildItem -Path ".\hugo" -Filter "hugo.exe" | Format-List -Property FullName,Length,LastWriteTime
+      .\hugo\hugo.exe version
     displayName: "Download and Extract Hugo"
 
   - pwsh: |
-      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --logLevel info
+      $ErrorActionPreference = 'Stop'
+      Write-Host "System.DefaultWorkingDirectory: $(System.DefaultWorkingDirectory)"
+      Write-Host "Build.ArtifactStagingDirectory: $(Build.ArtifactStagingDirectory)"
+      $hasGitHubToken = -not [string]::IsNullOrWhiteSpace($env:HUGO_GITHUB_TOKEN)
+      Write-Host "HUGO_GITHUB_TOKEN provided: $hasGitHubToken"
+      .\hugo\hugo.exe version
+      .\hugo\hugo.exe --source "$(System.DefaultWorkingDirectory)" --destination "$(Build.ArtifactStagingDirectory)" --printI18nWarnings --printPathWarnings --debug --logLevel debug
     displayName: "Build Hugo Site"
     env:
       HUGO_GITHUB_TOKEN: $(GITHUB_TOKEN)
