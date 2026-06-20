@@ -1,7 +1,6 @@
 {{ define "main" }}
 
-<!-- Page Header -->
-<section class="hero" style="padding: var(--space-16) 0;">
+<section class="hero hero-compact">
   <div class="hero-grid"></div>
   <div class="container">
     <div class="hero-content">
@@ -11,46 +10,58 @@
       </span>
       <h1 class="hero-title">Blog Posts</h1>
       <p class="hero-description">
-        Insights, tutorials, and updates from the DSC Community maintainers and contributors. Learn best practices, explore new features, and stay up to date.
+        Insights, tutorials, and updates from DSC Community maintainers and contributors.
       </p>
     </div>
   </div>
 </section>
 
-<!-- Blog Sections -->
 <section class="section">
   <div class="container">
-
     {{ $allPages := .Data.Pages.ByDate.Reverse }}
-    {{ $msftPages := where $allPages ".Params.dsc_family" "Microsoft DSC" }}
-    {{ $psPages := where $allPages ".Params.dsc_family" "PowerShell DSC" }}
-    {{ $communityPages := where $allPages ".Params.dsc_family" "Community" }}
-    {{ $uncategorized := where $allPages ".Params.dsc_family" "" }}
+    {{ $microsoftPages := where $allPages "Params.dsc_family" "Microsoft DSC" }}
+    {{ $powerShellPages := where $allPages "Params.dsc_family" "PowerShell DSC" }}
+    {{ $otherPages := where $allPages "Params.dsc_family" "not in" (slice "Microsoft DSC" "PowerShell DSC") }}
+    {{ $sections := slice
+      (dict "title" "Microsoft DSC" "description" "Articles about Microsoft's cross-platform DSC tool" "icon" "ri-microsoft-line" "class" "microsoft" "pages" $microsoftPages)
+      (dict "title" "PowerShell DSC" "description" "Articles covering PowerShell Desired State Configuration" "icon" "ri-terminal-box-line" "class" "powershell" "pages" $powerShellPages)
+      (dict "title" "Community" "description" "News, guides, and how-to articles from the DSC Community" "icon" "ri-community-line" "class" "community" "pages" $otherPages)
+    }}
 
-    <!-- Microsoft DSC Section -->
-    {{ if gt (len $msftPages) 0 }}
-    <div class="blog-section" style="margin-bottom: var(--space-16);">
+    <div class="blog-index-summary" aria-label="Blog article groups">
+      {{ range $sections }}
+      <a href="#{{ .title | urlize }}" class="blog-index-summary-item blog-index-summary-item-{{ .class }}">
+        <span>{{ .title }}</span>
+        <strong>{{ len .pages }}</strong>
+      </a>
+      {{ end }}
+    </div>
+
+    {{ range $sections }}
+    {{ if gt (len .pages) 0 }}
+    {{ $section := . }}
+    <section class="blog-section" id="{{ .title | urlize }}" aria-labelledby="{{ .title | urlize }}-heading">
       <div class="blog-section-header">
-        <span class="blog-section-icon" style="background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%);">
-          <i class="ri-microsoft-line"></i>
+        <span class="blog-section-icon blog-section-icon-{{ .class }}">
+          <i class="{{ .icon }}"></i>
         </span>
         <div>
-          <h2 class="blog-section-title">Microsoft DSC</h2>
-          <p class="blog-section-description">Articles about Microsoft's cross-platform DSC (v3) tool</p>
+          <h2 class="blog-section-title" id="{{ .title | urlize }}-heading">{{ .title }}</h2>
+          <p class="blog-section-description">{{ .description }}</p>
         </div>
       </div>
-      <div class="grid-auto stagger">
-        {{ range $msftPages }}
-        <a href="{{ .Permalink }}" class="card blog-card card-link">
+      <div class="blog-card-grid">
+        {{ range .pages }}
+        <a href="{{ .Permalink }}" class="card blog-card card-link blog-card-{{ $section.class }}">
           <div class="blog-card-meta">
-            <span class="blog-card-tag" style="background: rgba(0,120,212,0.1); color: #0078d4;">Microsoft DSC</span>
+            <span class="blog-card-tag blog-card-tag-{{ $section.class }}">{{ $section.title }}</span>
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
           </div>
           <h3 class="blog-card-title">{{ .Title }}</h3>
-          <p class="blog-card-excerpt">{{ .Summary | truncate 150 }}</p>
-          <div style="margin-top: auto;">
+          <p class="blog-card-excerpt">{{ .Summary | plainify | truncate 150 }}</p>
+          <div class="blog-card-footer">
             {{ if .ReadingTime }}
-            <span style="font-size: var(--text-xs); color: var(--text-tertiary); display: flex; align-items: center; gap: var(--space-1);">
+            <span class="blog-card-reading-time">
               <i class="ri-time-line"></i>
               {{ .ReadingTime }} min read
             </span>
@@ -63,89 +74,10 @@
         </a>
         {{ end }}
       </div>
-    </div>
+    </section>
+    {{ end }}
     {{ end }}
 
-    <!-- PowerShell DSC Section -->
-    {{ if gt (len $psPages) 0 }}
-    <div class="blog-section" style="margin-bottom: var(--space-16);">
-      <div class="blog-section-header">
-        <span class="blog-section-icon" style="background: linear-gradient(135deg, #012456 0%, #00adef 100%);">
-          <i class="ri-terminal-box-line"></i>
-        </span>
-        <div>
-          <h2 class="blog-section-title">PowerShell DSC</h2>
-          <p class="blog-section-description">Articles covering PowerShell Desired State Configuration</p>
-        </div>
-      </div>
-      <div class="grid-auto stagger">
-        {{ range $psPages }}
-        <a href="{{ .Permalink }}" class="card blog-card card-link">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag" style="background: rgba(0,173,239,0.1); color: #00adef;">PowerShell DSC</span>
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-          </div>
-          <h3 class="blog-card-title">{{ .Title }}</h3>
-          <p class="blog-card-excerpt">{{ .Summary | truncate 150 }}</p>
-          <div style="margin-top: auto;">
-            {{ if .ReadingTime }}
-            <span style="font-size: var(--text-xs); color: var(--text-tertiary); display: flex; align-items: center; gap: var(--space-1);">
-              <i class="ri-time-line"></i>
-              {{ .ReadingTime }} min read
-            </span>
-            {{ end }}
-            <span class="blog-card-read-more">
-              Read article
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-
-    <!-- Community Section -->
-    {{ $generalPages := $communityPages | append $uncategorized }}
-    {{ if gt (len $generalPages) 0 }}
-    <div class="blog-section" style="margin-bottom: var(--space-16);">
-      <div class="blog-section-header">
-        <span class="blog-section-icon" style="background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);">
-          <i class="ri-community-line"></i>
-        </span>
-        <div>
-          <h2 class="blog-section-title">Community</h2>
-          <p class="blog-section-description">News, guides, and how-tos from the DSC Community</p>
-        </div>
-      </div>
-      <div class="grid-auto stagger">
-        {{ range $generalPages }}
-        <a href="{{ .Permalink }}" class="card blog-card card-link">
-          <div class="blog-card-meta">
-            <span class="blog-card-tag">Community</span>
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-          </div>
-          <h3 class="blog-card-title">{{ .Title }}</h3>
-          <p class="blog-card-excerpt">{{ .Summary | truncate 150 }}</p>
-          <div style="margin-top: auto;">
-            {{ if .ReadingTime }}
-            <span style="font-size: var(--text-xs); color: var(--text-tertiary); display: flex; align-items: center; gap: var(--space-1);">
-              <i class="ri-time-line"></i>
-              {{ .ReadingTime }} min read
-            </span>
-            {{ end }}
-            <span class="blog-card-read-more">
-              Read article
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
-
-    <!-- Empty State -->
     {{ if eq (len .Data.Pages) 0 }}
     <div class="text-center" style="padding: var(--space-16) 0;">
       <i class="ri-article-line" style="font-size: 4rem; color: var(--text-tertiary);"></i>
@@ -156,7 +88,6 @@
   </div>
 </section>
 
-<!-- CTA Section -->
 <section class="section section-alt">
   <div class="container">
     <div class="cta">

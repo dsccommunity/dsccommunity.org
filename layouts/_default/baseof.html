@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-  lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}"
+  lang="{{ with .Site.Language.Locale }}{{ . }}{{ else }}en-US{{ end }}"
   data-theme="light"
 >
   <head>

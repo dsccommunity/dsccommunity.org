@@ -928,6 +928,10 @@ pre code {
   pointer-events: none;
 }
 
+.hero-compact {
+  padding: var(--space-16) 0;
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -1291,9 +1295,16 @@ pre code {
   height: 100%;
 }
 
+.blog-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-6);
+}
+
 .blog-card-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-3);
   margin-bottom: var(--space-3);
   font-size: var(--text-sm);
@@ -1309,6 +1320,21 @@ pre code {
   color: var(--color-primary);
 }
 
+.blog-card-tag-microsoft {
+  background: rgba(0, 120, 212, 0.1);
+  color: #0078d4;
+}
+
+.blog-card-tag-powershell {
+  background: rgba(0, 173, 239, 0.1);
+  color: #0078a8;
+}
+
+.blog-card-tag-community {
+  background: rgba(16, 185, 129, 0.1);
+  color: #047857;
+}
+
 .blog-card-title {
   font-size: var(--text-lg);
   margin-bottom: var(--space-3);
@@ -1321,14 +1347,32 @@ pre code {
   font-size: var(--text-sm);
 }
 
+.blog-card-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-5);
+}
+
+.blog-card-reading-time {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-tertiary);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
 .blog-card-read-more {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  margin-top: var(--space-4);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-primary);
+  white-space: nowrap;
 }
 
 .blog-card-read-more svg {
@@ -2157,6 +2201,65 @@ pre code {
 /* -----------------------------------------------------------------------------
    Blog Section Headers (list page)
    ----------------------------------------------------------------------------- */
+.blog-index-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-16);
+}
+
+.blog-index-summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 72px;
+  padding: var(--space-5);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.blog-index-summary-item:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.blog-index-summary-item span {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.blog-index-summary-item strong {
+  color: var(--text-primary);
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+
+.blog-index-summary-item-microsoft {
+  border-left-color: #0078d4;
+}
+
+.blog-index-summary-item-powershell {
+  border-left-color: #0078a8;
+}
+
+.blog-index-summary-item-community {
+  border-left-color: #047857;
+}
+
+.blog-section {
+  margin-bottom: var(--space-16);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6));
+}
+
 .blog-section-header {
   display: flex;
   align-items: flex-start;
@@ -2179,6 +2282,18 @@ pre code {
   margin-top: 2px;
 }
 
+.blog-section-icon-microsoft {
+  background: linear-gradient(135deg, #0078d4 0%, #00bcf2 100%);
+}
+
+.blog-section-icon-powershell {
+  background: linear-gradient(135deg, #012456 0%, #00adef 100%);
+}
+
+.blog-section-icon-community {
+  background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+}
+
 .blog-section-title {
   font-size: var(--text-2xl);
   font-weight: 700;
@@ -2190,6 +2305,19 @@ pre code {
   color: var(--text-secondary);
   font-size: var(--text-sm);
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .blog-index-summary {
+    grid-template-columns: 1fr;
+    margin-bottom: var(--space-12);
+  }
+
+  .blog-card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
 }
 
 .search-result-item:hover,

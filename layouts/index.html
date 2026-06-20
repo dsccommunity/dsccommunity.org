@@ -60,7 +60,11 @@
     </div>
 
     <div class="grid-auto stagger">
-      {{ range (where .Site.Pages "Type" "pages") }}
+      {{ $featurePages := where .Site.Pages "Type" "pages" }}
+      {{ with .Site.GetPage "section" "blog" }}
+      {{ $featurePages = $featurePages | append . }}
+      {{ end }}
+      {{ range $featurePages.ByWeight }}
       <a href="{{ .Permalink }}" class="card feature-card card-link">
         <div class="card-icon">
           {{ if eq .Params.Icon "ti-user" }}
